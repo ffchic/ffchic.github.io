@@ -657,7 +657,7 @@ CMD ["gunicorn", "Blue_Lake.wsgi:application","-c","./gunicorn.conf.py"]</code><
 <p>以前也写过一篇类似的攻略，不过当时有点懵懂，所以，我又再次写了一篇攻略，另外，还有一些细小的命令，比如挂载和复制出来。</p>
 <pre><code>docker cp 4570:/Project/你的项目/settings.py 宿主机地址/settings.py</code></pre>
 <p>这种场景主要是体现在我们需要修改某些配置的时候，我们需要知道的是，不同的项目打包完之后，项目目录并不是你所熟知的项目目录，就比如我这个django项目，打包完成之后，他的容器内部项目结构是这样的。</p>
-<img src="/2021/01/29/docker-bu-shu-django-ying-yong/image-20210129142315983.png" alt="" style="zoom:67%;">
+<img src="/2021/01/29/docker-bu-shu-django-ying-yong/image-20210129142315983.png" alt style="zoom:67%;">
 
 <p>我们所熟知的项目，就在Project里。</p>
 <p>然后修改，可以使用vim，也可以使用别的，这都无所谓了。修改完之后，怎么将这个给挂载回去呢，这时候，需要用到我们的-v命令。</p>
@@ -800,17 +800,16 @@ CMD ["gunicorn", "Blue_Lake.wsgi:application","-c","./gunicorn.conf.py"]</code><
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/01/29/docker-bu-shu-django-ying-yong/">
+                <a href="/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/66.jpg" class="responsive-img" alt="Docker部署Django应用">
+                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="python PIL中文变方框的解决办法">
                         
-                        <span class="card-title">Docker部署Django应用</span>
+                        <span class="card-title">python PIL中文变方框的解决办法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -820,31 +819,26 @@ CMD ["gunicorn", "Blue_Lake.wsgi:application","-c","./gunicorn.conf.py"]</code><
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
-                    </a>
-                    
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -1099,7 +1093,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">87.3k</span>&nbsp;字
+                class="white-color">87.7k</span>&nbsp;字
             
             
             
