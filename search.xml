@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>阿里云域名解析</title>
+      <link href="2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
+      <url>2021/02/09/a-li-yun-yu-ming-jie-xi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>对于刚开始接触网站搭建的新手来说，好多东西都需要去了解学习，搭建网站首先需要购买服务器，然后购买域名，然后是域名解析，最后是域名备案等这些大的流程步骤。本节就来将将域名解析的步骤，服务器是以阿里云服务器来讲。</p><h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><ol><li>打开控制台，进入域名<img src="/2021/02/09/a-li-yun-yu-ming-jie-xi/image-20210209114350762.png" alt="" style="zoom:50%;"></li><li>找到想要解析的域名<img src="/2021/02/09/a-li-yun-yu-ming-jie-xi/image-20210209114439874.png" alt="" style="zoom:50%;"></li><li>添加记录。服务器公网ip<img src="/2021/02/09/a-li-yun-yu-ming-jie-xi/image-20210209114545682.png" alt="" style="zoom:50%;"></li><li>主机记录，就填写www就可以</li><li>解析线路。选择系统默认即可。</li><li>记录值。指的是服务器/虚拟主机的外网IP地址。查看外网IP地址，就直接去购买的服务器详情里面查看。</li><li>TTL。一般以系统默认的情况就行，默认的10分钟就行。</li></ol><p>填写完添加记录之后，最后点击“确定”按钮即可解析完成。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python3获取微信小程序码</title>
       <link href="2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/"/>
       <url>2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/</url>
