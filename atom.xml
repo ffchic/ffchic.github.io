@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>昊烨のblog</title>
+  <title>天听のblog</title>
   
-  <subtitle>昊烨</subtitle>
+  <subtitle>天听</subtitle>
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-02-09T06:02:05.588Z</updated>
+  <updated>2021-02-09T06:04:11.771Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
-    <name>昊 烨</name>
+    <name>天 听</name>
     
   </author>
   
@@ -21,7 +21,7 @@
     <link href="http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
     <id>http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
     <published>2021-02-09T04:03:21.238Z</published>
-    <updated>2021-02-09T06:02:05.588Z</updated>
+    <updated>2021-02-09T06:04:11.771Z</updated>
     
     
       

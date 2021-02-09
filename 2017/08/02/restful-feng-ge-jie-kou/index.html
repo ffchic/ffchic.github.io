@@ -1,604 +1,36 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
-
-<head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="Restful风格接口, 昊烨のblog">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-    <title>Restful风格接口 | 昊烨のblog</title>
-    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-
-    <script src="/libs/jquery/jquery.min.js"></script>
-
-<meta name="generator" content="Hexo 5.2.0">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>Restful风格接口 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是restful风格API 网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备……）。因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现API First的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。   协议API与用户的通信协议，总是使用HTTPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Restful风格接口">
+<meta property="og:url" content="http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/index.html">
+<meta property="og:site_name" content="天听のblog">
+<meta property="og:description" content="什么是restful风格API 网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备……）。因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现API First的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。   协议API与用户的通信协议，总是使用HTTPS">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-02T08:24:00.000Z">
+<meta property="article:modified_time" content="2017-08-02T08:24:00.000Z">
+<meta property="article:author" content="天 听">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script>
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="昊烨のblog" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
-
-
-
-
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/dragon.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">昊烨のblog</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>主页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>类别</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>档案</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>联系人</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>朋友</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="" class="waves-effect waves-light">
-
-      
-      <i class="fas fa-list" style="zoom: 0.6;"></i>
-      
-      <span>媒体</span>
-      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
-    </a>
-    <ul class="sub-nav menus_item_child ">
-      
-      <li>
-        <a href="/musics">
-          
-          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>音乐</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/movies">
-          
-          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>影视</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/books">
-          
-          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>书籍</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/galleries">
-          
-          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>画廊</span>
-        </a>
-      </li>
-      
-    </ul>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/dragon.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">昊烨のblog</div>
-        <div class="logo-desc">
-            
-            Never really desperate, only the lost of the soul.
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			主页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			类别
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			档案
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			联系人
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			朋友
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="javascript:;">
-			
-				<i class="fa-fw fas fa-list"></i>
-			
-			媒体
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
-		</a>
-            <ul  style="background:  ;" >
-              
-                <li>
-
-                  <a href="/musics " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
-			      
-		          <span>音乐</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/movies " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
-			      
-		          <span>影视</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/books " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
-			      
-		          <span>书籍</span>
-                  </a>
-                </li>
-              
-                <li>
-
-                  <a href="/galleries " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
-			      
-		          <span>画廊</span>
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://god_hearing.gitee.io/" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>god-hearing
-            </a>
-        </li>
-        
-    </ul>
-</div>
-
-
-        </div>
-
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://god_hearing.gitee.io/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="god-hearing" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
-    </nav>
-
-</header>
-
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">Restful风格接口</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<main class="post-container content">
-
-    
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/python/" class="post-category">
-                                python
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2017-08-02
-                </div>
-                
-
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2017-08-02
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
-                </div>
-                
-
-                
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="什么是restful风格API"><a href="#什么是restful风格API" class="headerlink" title="什么是restful风格API"></a>什么是restful风格API</h2><blockquote>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 65,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues","Reds","Oranges"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info mickey-mouse"><a class="site-author-avatar" href="/about/" title="天 听"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="天 听"><span class="site-author-status" title="明天，只是一个希望，不是一个承诺">😊</span></a><div class="site-author-name"><a href="/about/">天 听</a></div><a class="site-name" href="/about/site.html">天听のblog</a><sub class="site-subtitle">天听</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">65</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">21</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">31</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://www.baidu.com/" title="通向一个万事都能解决的地方"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=epvxdq1sknJe9JMj6J1LsBw4a6cI_2ln&amp;jump_from=webapi" title="QQ邮件地址" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/God-hearing2020" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=247102977" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/godhearing1" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://haoye0822@gmail.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="我最喜欢的明星" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFrestful%E9%A3%8E%E6%A0%BCAPI"><span class="toc-number">1.</span> <span class="toc-text">什么是restful风格API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.0.1.</span> <span class="toc-text">协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">1.0.2.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC"><span class="toc-number">1.0.3.</span> <span class="toc-text">版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84"><span class="toc-number">1.0.4.</span> <span class="toc-text">路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E5%8A%A8%E8%AF%8D"><span class="toc-number">1.0.5.</span> <span class="toc-text">HTTP动词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E4%BF%A1%E6%81%AF"><span class="toc-number">1.0.6.</span> <span class="toc-text">过滤信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">1.0.7.</span> <span class="toc-text">状态码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">1.0.8.</span> <span class="toc-text">错误处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C"><span class="toc-number">1.0.9.</span> <span class="toc-text">返回结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E6%96%87%E6%A1%A3"><span class="toc-number">1.0.10.</span> <span class="toc-text">面向文档</span></a></li></ol></li></ol></li></ol></div></div></div><div class="tag-cloud"><div class="tag-cloud-tags"><a href="/tags/Book/" style="font-size: 12px; color: #ffc20e">Book</a> <a href="/tags/Celery/" style="font-size: 12px; color: #ffc20e">Celery</a> <a href="/tags/Django/" style="font-size: 30px; color: #00a6ac">Django</a> <a href="/tags/Docker/" style="font-size: 24px; color: #55af77">Docker</a> <a href="/tags/FastAPI/" style="font-size: 18px; color: #aab943">FastAPI</a></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="天 听"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="天听のblog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Restful风格接口</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2017-08-02 16:24:00" itemprop="dateCreated datePublished" datetime="2017-08-02T16:24:00+08:00">2017-08-02</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/python/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">python</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">设计模式</span></a></span></div><div class="post-author"><span class="author-name">天听</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#4e72b8;"><h2 id="什么是restful风格API"><a href="#什么是restful风格API" class="headerlink" title="什么是restful风格API"></a>什么是restful风格API</h2><blockquote>
 <p>网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备……）。因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现<code>API First</code>的设计思想。<code>RESTful API</code>是目前比较成熟的一套互联网应用程序的API设计理论。</p>
 </blockquote>
 <hr>
@@ -610,34 +42,38 @@
 <hr>
 <h4 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h4><p>路径又称为终点，代表了API的具体网址，每个网址代表一种资源，所以网址中不能有动词，只能有名词，而且所用的名词往往和数据库的表格名相互对应，一般来说，每个数据库中的表都是同种记录的集合，所以API中的名词也要使用复数</p>
 <p>举个栗子：</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#  有一个API提供商品信息</span>
-https<span class="token punctuation">:</span><span class="token operator">//</span>api<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token operator">/</span>v1<span class="token operator">/</span>goods
-https<span class="token punctuation">:</span><span class="token operator">//</span>api<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token operator">/</span>v1<span class="token operator">/</span>categorys</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">#  有一个API提供商品信息
+https://api.example.com/v1/goods
+https://api.example.com/v1/categorys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h4 id="HTTP动词"><a href="#HTTP动词" class="headerlink" title="HTTP动词"></a>HTTP动词</h4><p>对于资源的具体操作类型， 由HTTP动词表示</p>
-<pre class=" language-python"><code class="language-python">GET<span class="token punctuation">(</span>SELECT<span class="token punctuation">)</span><span class="token punctuation">:</span>从服务器中取出资源<span class="token punctuation">(</span>一项或多项<span class="token punctuation">)</span>
-POST<span class="token punctuation">(</span>CREATE<span class="token punctuation">)</span><span class="token punctuation">:</span>在服务器新建一个资源
-PUT<span class="token punctuation">(</span>UPDATE<span class="token punctuation">)</span><span class="token punctuation">:</span>在服务器更新资源<span class="token punctuation">(</span>客户端提供改变后的完整资源<span class="token punctuation">)</span>
-PATCH<span class="token punctuation">(</span>UPDATE<span class="token punctuation">)</span><span class="token punctuation">:</span>在服务器更新资源<span class="token punctuation">(</span>客户端提供改变的属性<span class="token punctuation">)</span>
-DELETE<span class="token punctuation">(</span>DELETE<span class="token punctuation">)</span><span class="token punctuation">:</span>从服务器删除资源
-HEAD<span class="token punctuation">:</span>获取资源的元数据    
-OPTIONS<span class="token punctuation">:</span>获取信息，关于资源的哪些属性是客户端可以改变的</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">GET(SELECT):从服务器中取出资源(一项或多项)
+POST(CREATE):在服务器新建一个资源
+PUT(UPDATE):在服务器更新资源(客户端提供改变后的完整资源)
+PATCH(UPDATE):在服务器更新资源(客户端提供改变的属性)
+DELETE(DELETE):从服务器删除资源
+HEAD:获取资源的元数据    
+OPTIONS:获取信息，关于资源的哪些属性是客户端可以改变的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>拿上边的商品信息举例子</p>
-<pre class=" language-python"><code class="language-python">GET <span class="token operator">/</span>goods<span class="token punctuation">:</span>列出所有商品
-POST <span class="token operator">/</span>goods<span class="token punctuation">:</span>新建商品
-GET <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>获取某个指定商品的信息
-PUT <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>更新某个指定商品的信息<span class="token punctuation">(</span>全部信息<span class="token punctuation">)</span>
-PATCH <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>更新某个商品的信息<span class="token punctuation">(</span>部分信息<span class="token punctuation">)</span>
-DELETE <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>删除某个商品
-GET <span class="token operator">/</span>categorys<span class="token operator">/</span>ID<span class="token operator">/</span>good<span class="token punctuation">:</span>列出商品类ID下所有商品
-DELETE <span class="token operator">/</span>categorys<span class="token operator">/</span>ID<span class="token operator">/</span>good<span class="token operator">/</span>ID<span class="token punctuation">:</span>删除某个指定商品类下的某个指定商品</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">GET /goods:列出所有商品
+POST /goods:新建商品
+GET /goods/ID:获取某个指定商品的信息
+PUT /goods/ID:更新某个指定商品的信息(全部信息)
+PATCH /goods/ID:更新某个商品的信息(部分信息)
+DELETE /goods/ID:删除某个商品
+GET /categorys/ID/good:列出商品类ID下所有商品
+DELETE /categorys/ID/good/ID:删除某个指定商品类下的某个指定商品<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h4 id="过滤信息"><a href="#过滤信息" class="headerlink" title="过滤信息"></a>过滤信息</h4><p>如果记录数量很多，服务器不可能都将它们返回给用户，API应该提供参数，过滤返回结果</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">?</span>limit<span class="token operator">=</span><span class="token number">10</span>：指定返回记录的数量
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">?</span>limit<span class="token operator">=</span><span class="token number">10</span>：指定返回记录的数量
 <span class="token operator">?</span>offset<span class="token operator">=</span><span class="token number">10</span>：指定返回记录的开始位置。
 <span class="token operator">?</span>page<span class="token operator">=</span><span class="token number">2</span><span class="token operator">&amp;</span>per_page<span class="token operator">=</span><span class="token number">100</span>：指定第几页，以及每页的记录数。
 <span class="token operator">?</span>sortby<span class="token operator">=</span>name<span class="token operator">&amp;</span>order<span class="token operator">=</span>asc：指定返回结果按照哪个属性排序，以及排序顺序。
-<span class="token operator">?</span>animal_type_id<span class="token operator">=</span><span class="token number">1</span>：指定筛选条件</code></pre>
+<span class="token operator">?</span>animal_type_id<span class="token operator">=</span><span class="token number">1</span>：指定筛选条件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <blockquote>
 <p>参数的设计允许存在冗余，即允许<code>API</code>路径和URL参数偶尔有重复。比如，<code>GET /categorys/ID/goods</code> 与 <code>GET /goods?categorys_id=ID</code> 的含义是相同的。</p>
 </blockquote>
@@ -645,610 +81,98 @@ DELETE <span class="token operator">/</span>categorys<span class="token operator
 <h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><blockquote>
 <p>服务器向用户返回的状态码和提示信息，常见的有以下一些（方括号中是该状态码对应的HTTP动词）</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token number">200</span> OK <span class="token operator">-</span> <span class="token punctuation">[</span>GET<span class="token punctuation">]</span>：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。
-<span class="token number">201</span> CREATED <span class="token operator">-</span> <span class="token punctuation">[</span>POST<span class="token operator">/</span>PUT<span class="token operator">/</span>PATCH<span class="token punctuation">]</span>：用户新建或修改数据成功。
-<span class="token number">202</span> Accepted <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：表示一个请求已经进入后台排队（异步任务）
-<span class="token number">204</span> NO CONTENT <span class="token operator">-</span> <span class="token punctuation">[</span>DELETE<span class="token punctuation">]</span>：用户删除数据成功。
-<span class="token number">400</span> INVALID REQUEST <span class="token operator">-</span> <span class="token punctuation">[</span>POST<span class="token operator">/</span>PUT<span class="token operator">/</span>PATCH<span class="token punctuation">]</span>：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。
-<span class="token number">401</span> Unauthorized <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：表示用户没有权限（令牌、用户名、密码错误）。
-<span class="token number">403</span> Forbidden <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span> 表示用户得到授权（与<span class="token number">401</span>错误相对），但是访问是被禁止的。
-<span class="token number">404</span> NOT FOUND <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。
-<span class="token number">406</span> Not Acceptable <span class="token operator">-</span> <span class="token punctuation">[</span>GET<span class="token punctuation">]</span>：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。
-<span class="token number">410</span> Gone <span class="token operator">-</span><span class="token punctuation">[</span>GET<span class="token punctuation">]</span>：用户请求的资源被永久删除，且不会再得到的。
-<span class="token number">422</span> Unprocesable entity <span class="token operator">-</span> <span class="token punctuation">[</span>POST<span class="token operator">/</span>PUT<span class="token operator">/</span>PATCH<span class="token punctuation">]</span> 当创建一个对象时，发生一个验证错误。
-<span class="token number">500</span> INTERNAL SERVER ERROR <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：服务器发生错误，用户将无法判断发出的请求是否成功。</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">200 OK - [GET]：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。
+201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功。
+202 Accepted - [*]：表示一个请求已经进入后台排队（异步任务）
+204 NO CONTENT - [DELETE]：用户删除数据成功。
+400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。
+401 Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。
+403 Forbidden - [*] 表示用户得到授权（与401错误相对），但是访问是被禁止的。
+404 NOT FOUND - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。
+406 Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。
+410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。
+422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。
+500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>如果状态码是<code>4xx</code>，就应该向用户返回出错信息，一般来说，返回的信息中将error作为键名，出错信息作为键值即可</p>
-<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
-    <span class="token property">"error"</span><span class="token operator">:</span><span class="token string">"Invalid API key"</span>
-<span class="token punctuation">{</span></code></pre>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">{
+    "error":"Invalid API key"
+{<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4><p>针对不同操作，服务器向用户返回的结果应该符合以下规范</p>
-<pre class=" language-python"><code class="language-python">GET <span class="token operator">/</span>collection：返回资源对象的列表（数组）
-GET <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回单个资源对象
-POST <span class="token operator">/</span>collection：返回新生成的资源对象
-PUT <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回完整的资源对象
-PATCH <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回完整的资源对象
-DELETE <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回一个空文档</code></pre>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">GET /collection：返回资源对象的列表（数组）
+GET /collection/resource：返回单个资源对象
+POST /collection：返回新生成的资源对象
+PUT /collection/resource：返回完整的资源对象
+PATCH /collection/resource：返回完整的资源对象
+DELETE /collection/resource：返回一个空文档<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <h4 id="面向文档"><a href="#面向文档" class="headerlink" title="面向文档"></a>面向文档</h4><p>RESTful API最好做到面向文档，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么，比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。</p>
-<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token string">"link"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-  <span class="token string">"rel"</span><span class="token punctuation">:</span>   <span class="token string">"collection https://www.example.com/goods"</span><span class="token punctuation">,</span>
-  <span class="token string">"href"</span><span class="token punctuation">:</span>  <span class="token string">"https://api.example.com/goods"</span><span class="token punctuation">,</span>
-  <span class="token string">"title"</span><span class="token punctuation">:</span> <span class="token string">"List of goods"</span><span class="token punctuation">,</span>
-  <span class="token string">"type"</span><span class="token punctuation">:</span>  <span class="token string">"application/vnd.yourformat+json"</span>
-<span class="token punctuation">{</span><span class="token punctuation">{</span>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">{"link": {
+  "rel":   "collection https://www.example.com/goods",
+  "href":  "https://api.example.com/goods",
+  "title": "List of goods",
+  "type":  "application/vnd.yourformat+json"
+{{
 
-上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，type表示返回类型。</code></pre>
+上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，type表示返回类型。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <hr>
 <p>所以，API有四个级别，分别为：</p>
-<pre class=" language-python"><code class="language-python">level <span class="token number">0</span> ：面向过程，只是把HTTP当做一个传输的通道，没有把HTTP当做一种传输协议
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">level 0 ：面向过程，只是把HTTP当做一个传输的通道，没有把HTTP当做一种传输协议
 
-level <span class="token number">1</span>：面向资源，通过参数判断
+level 1：面向资源，通过参数判断
 
-level <span class="token number">2</span>：面向标签，真正将HTTP作为了一种传输协议，最直观的一点就是Level2使用了HTTP动词，GET<span class="token operator">/</span>PUT<span class="token operator">/</span>POST<span class="token operator">/</span>DELETE<span class="token operator">/</span>PATCH<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>这些都是HTTP的规范
+level 2：面向标签，真正将HTTP作为了一种传输协议，最直观的一点就是Level2使用了HTTP动词，GET/PUT/POST/DELETE/PATCH....,这些都是HTTP的规范
 
-level <span class="token number">3</span>：面向文档<span class="token punctuation">,</span>使用者只需要知道如何获取资源的入口，之后的每个URI都可以通过请求获得，无法获得就说明无法执行那个请求</code></pre>
+level 3：面向文档,使用者只需要知道如何获取资源的入口，之后的每个URI都可以通过请求获得，无法获得就说明无法执行那个请求<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>所以，我们写API时，要朝着最高级别迈进，才能逐渐的成长起来</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/" title="Restful风格接口">http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2017/09/15/qian-tan-jin-cheng-he-xian-cheng/" rel="prev" title="浅谈进程和线程"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">浅谈进程和线程</span></a></div><div class="post-nav-item"></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+Restful风格接口">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2017-07-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#4e72b8" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
 
-            </div>
-            <hr/>
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
 
-            
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
 
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        Author:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">天听</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        Link:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/">http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        Reprint policy:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    All articles in this blog are used except for special statements
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">天听</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
-                                </a>
-                            
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: '',
-        owner: '',
-        admin: null,
-        id: '2017-08-02T16-24-00',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
-                <a href="/2017/09/15/qian-tan-jin-cheng-he-xian-cheng/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="浅谈进程和线程">
-                        
-                        <span class="card-title">浅谈进程和线程</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2017-09-15
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1/" class="post-category">
-                                    多任务
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/">
-                        <span class="chip bg-color">多任务</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2017/08/02/restful-feng-ge-jie-kou/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Restful风格接口">
-                        
-                        <span class="card-title">Restful风格接口</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-08-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
-</main>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
     }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.5'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="/about" target="_blank">昊 烨</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">90.2k</span>&nbsp;字
-            
-            
-            
-            
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link ">
-    <a href="https://github.com/God-hearing2020" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:2274201339@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2274201339" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2274201339" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+  });
 });
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    <!-- Baidu Analytics -->
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-
-    
-
-    
-
-    
-    <script type="text/javascript" color="255,128,128"
-        pointColor="255,128,128" opacity='1'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
-    
-
-    
-    
-    <script type="text/javascript" size="150" alpha='0.6'
-        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
-    
-
-    
-    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-
-</html>
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="开始面向搜索引擎编程" value=""></div><div id="local-search-result"></div></div><script>const date = new Date();
+const today = (date.getMonth() + 1) + "-" + date.getDate()
+const mourn_days = ["4-4","9-18"]
+if (mourn_days.includes(today)) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":true},"rect":"opacity:0.7","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
