@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-02-09T04:01:08.946Z</updated>
+  <updated>2021-02-09T05:59:47.880Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -18,10 +18,35 @@
   
   <entry>
     <title>阿里云域名解析</title>
+    <link href="http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
+    <id>http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
+    <published>2021-02-09T04:03:21.238Z</published>
+    <updated>2021-02-09T05:59:47.880Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Hexo" scheme="http://godhearing.cn/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="http://godhearing.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里云域名解析</title>
     <link href="http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
     <id>http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
     <published>2021-02-09T03:57:11.533Z</published>
-    <updated>2021-02-09T04:01:08.946Z</updated>
+    <updated>2021-02-09T05:59:43.382Z</updated>
     
     
       
@@ -510,31 +535,6 @@
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
     <category term="mysql" scheme="http://godhearing.cn/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>二维码与python</title>
-    <link href="http://godhearing.cn/2020/12/24/er-wei-ma-yu-python/"/>
-    <id>http://godhearing.cn/2020/12/24/er-wei-ma-yu-python/</id>
-    <published>2020-12-24T09:20:00.000Z</published>
-    <updated>2020-12-24T09:20:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Docker" scheme="http://godhearing.cn/categories/Docker/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
   </entry>
   
