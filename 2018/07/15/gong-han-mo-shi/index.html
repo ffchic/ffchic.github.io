@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>工厂模式 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>工厂模式 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是工厂模式 所谓的工厂模式，是设计模式中比较常用的，这种类型的设计模式 在这种模式下，不会暴露创建逻辑，只是通过某个标识来确定实例化哪个工厂实例 简单的举个例子，如果你要买一辆汽车，不用知道他是怎样做出来的，只需要把参数传递进去，到时候来提车就好了。 无论是车还是什么，都不用管工厂内部是怎样实现的，只需要将参数传进去就可以  工厂模式从简到难，分为简单工厂模式，工厂方法模式以及抽象工厂模式 简">
@@ -47,7 +47,7 @@
 <p>现实生活中，工厂是负责生产产品的；同样在设计模式中，简单工厂模式我们可以理解为负责生产对象的一个类，称为“工厂类”。</p>
 </blockquote>
 <p>再举个栗子，假如，你要生产瓶子，客户说要什么样的瓶子，你就拿着这个瓶子的参数，去该瓶子的生产车间去取。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 定义三个具体的工厂，他们用来生产具体的东西
+<pre class="language-python" data-language="python"><code class="language-python"># 定义三个具体的工厂，他们用来生产具体的东西
 class A:
     def __init__(self):
         self.name = 'A瓶子'
@@ -72,8 +72,7 @@ class factory():
             print(s.name)
 
 w = factory()
-w.example('B')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+w.example('B')</code></pre>
 <p>可以看到，只需要在工厂<code>factory</code>中，传入你想要什么瓶子，他就可以通过内部方法实例化某个工厂，从而达到你想要的某个东西</p>
 <hr>
 <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><blockquote>
@@ -81,7 +80,7 @@ w.example('B')<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 <p>以上面的例子为例，假如要再多一个D瓶子，除了要新建一个D类，还要修改工厂类中的代码，这样就违背了软件设计中的开闭原则，即再扩展新的类时，尽量不要修改原有的代码</p>
 </blockquote>
 <p>说的再简单点，就是工厂类被具体的工厂继承</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<pre class="language-python" data-language="python"><code class="language-python">
 # 工厂类
 class factory():
 
@@ -116,8 +115,7 @@ class D(factory):
         print(self.name)
 # 无论你加了多少个工厂，只需要实例化对应的那个具体工厂
 w = D()
-w.example()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+w.example()</code></pre>
 <p>这样做的好处就是，在工厂类里，无需改动任何代码，只需要在需要的时候实例化某个具体工厂即可，便于维护</p>
 <hr>
 <h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><blockquote>
@@ -125,7 +123,7 @@ w.example()<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>抽象工厂模式中有工厂和产品簇的概念。而一簇的产品都是成套出现的。比如现在要给每个士兵发一套武器，包括枪和子弹。步枪和步枪子弹，手枪和手枪子弹。生产步枪的工厂就是步枪工厂，而生产手枪的工厂就是手枪工厂。步枪工厂和手枪工厂都是工厂，这就是一种抽象工厂的例子</p>
 </blockquote>
 <p>用一个简单的代码来实现:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">import abc
+<pre class="language-python" data-language="python"><code class="language-python">import abc
 
 # 工厂类
 class factory():
@@ -175,8 +173,7 @@ class AKPistol():
         return 'AK47手枪'
 
 w = M4().Rifle()
-print(w)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+print(w)</code></pre>
 <blockquote>
 <p>进入工厂类，无论是要AK系列的，还是<code>M4</code>系列的，都只实例化那个类就可以了，因为，无论是<code>M4</code>还是AK都能生产该类的手枪和步枪</p>
 <p>虽然我也不知道他们是不是生产手枪</p>
@@ -206,7 +203,7 @@ print(w)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 
 
 
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/07/15/gong-han-mo-shi/" title="工厂模式">http://godhearing.cn/2018/07/15/gong-han-mo-shi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/07/21/docker-bu-shu-django-xiang-mu/" rel="prev" title="Docker部署Django项目"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Docker部署Django项目</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/" rel="next" title="分布一致性算法(雪花算法)"><span class="post-nav-text">分布一致性算法(雪花算法)</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+工厂模式">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/07/15/gong-han-mo-shi/" title="工厂模式">http://godhearing.cn/2018/07/15/gong-han-mo-shi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/07/21/docker-bu-shu-django-xiang-mu/" rel="prev" title="Docker部署Django项目"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Docker部署Django项目</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/" rel="next" title="分布一致性算法(雪花算法)"><span class="post-nav-text">分布一致性算法(雪花算法)</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+工厂模式">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>微信小程序授权登录 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>微信小程序授权登录 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 在开发小程序的过程中， 用户的认证是必不可少的，而微信又取消了小程序的自己认证，所以，我们只能通过微信进行授权登录，而如果将微信授权的信息录入到自己的表中，则需要做一点点的开发，官方文档  微信小程序的后端开发和普通的restful API 大致上相同，只不过要注意以下几点限制  必须使用HTTPS协议请求后端服务器 不支持COOKIE 不支持django内置的user登录, 因为它使用的是">
@@ -48,7 +48,7 @@
 <blockquote>
 <p>只获取<code>openid</code>，只调用<code>wx.login</code>获取code交给后台即可，如果还要获取用户详细信息还要接着调用<code>wx.getUserInfo</code>获取<code>encryptedData</code>，<code>iv</code>提交后台解密用户信息</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">@api_view(['GET','POST'])
+<pre class="language-python" data-language="python"><code class="language-python">@api_view(['GET','POST'])
 def wx_login(request):
     openidUrl = 'https://api.weixin.qq.com/sns/jscode2session?'
     code = request.GET['code']
@@ -62,12 +62,11 @@ def wx_login(request):
         }
     ).json()
     openid = res['openid']
-    return Response(openid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    return Response(openid</code></pre>
 <p>这样，我们便获取到了openid，然后返回给前端即可</p>
 <p>如果要换取用户信息，则需要前端再次请求我们服务器，需要传入<code>encryptedData  iv</code>和<code>session_key</code>来获取用户的信息，</p>
 <p><code>encryptedData</code>就是获取到的用户信息，只是得解密一下，通过iv</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#  解密类
+<pre class="language-python" data-language="python"><code class="language-python">#  解密类
 class WXBizDataCrypt:
     def __init__(self, appId, sessionKey):
         self.appId = appId
@@ -88,9 +87,8 @@ class WXBizDataCrypt:
         return decrypted
 
     def _unpad(self, s):
-        return s[:-ord(s[len(s)-1:])]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">def main():
+        return s[:-ord(s[len(s)-1:])]</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">def main():
     appId = '你的appid'
     sessionKey = '获取到的sessionkey'
     encryptedData = '获取openid那里的数据'
@@ -99,13 +97,12 @@ class WXBizDataCrypt:
     pc = WXBizDataCrypt(appId, sessionKey)
 
     res = pc.decrypt(encryptedData, iv)
-    print(res)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    print(res)</code></pre>
 <p>res就是解密出来的内容，就是用户的信息</p>
 <img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210116220241505.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>至此，前台将openid存下，而后台，获取了用户信息，该入库还是该做怎样的操作，就可以自定义了，我是将其入库了，完整代码如下：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Applets_RegisterView(APIView):
+<pre class="language-python" data-language="python"><code class="language-python">class Applets_RegisterView(APIView):
 
     def post(self,request):
         session_key = request.data.get('session_key')
@@ -131,14 +128,13 @@ class WXBizDataCrypt:
                     return Response({'code':1004,'msg':'网络错误，请稍后再试'})
             except Exception as exc:
                 print(exc)
-                return Response({'code': 1004, 'msg': '网络错误，请稍后再试'})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+                return Response({'code': 1004, 'msg': '网络错误，请稍后再试'})</code></pre>
 
 
 <blockquote>
 <p>被一个小小的登录绊倒，我也是没想到的，感谢有位大神孜孜不倦的一直给我讲解。</p>
 </blockquote>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/" title="微信小程序授权登录">http://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/" rel="prev" title="FastAPI学习之路-3  模型与校验"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">FastAPI学习之路-3  模型与校验</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/01/14/python-huo-qu-wei-xin-gong-zhong-hao-li-shi-wen-zhang/" rel="next" title="python获取微信公众号历史文章"><span class="post-nav-text">python获取微信公众号历史文章</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+微信小程序授权登录">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/" title="微信小程序授权登录">http://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/" rel="prev" title="FastAPI学习之路-3  模型与校验"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">FastAPI学习之路-3  模型与校验</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/01/14/python-huo-qu-wei-xin-gong-zhong-hao-li-shi-wen-zhang/" rel="next" title="python获取微信公众号历史文章"><span class="post-nav-text">python获取微信公众号历史文章</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+微信小程序授权登录">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

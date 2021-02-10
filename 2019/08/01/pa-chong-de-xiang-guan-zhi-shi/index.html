@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>爬虫的相关知识 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>爬虫的相关知识 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="1.虚拟环境 虚拟环境就是一个隔离的python环境，不同的项目应该使用不同的虚拟环境(可以使用同一个虚拟环境)   虚拟环境不会导致环境之间的污染  1.1  虚拟环境管理模块virtualenvwrapper 安装 pip install virtualenvwrapper-win virtualenvwrapper的使用 查看所有虚拟环境：lsvirtualenv 创建虚拟环境：mkvirt">
@@ -113,18 +113,16 @@
 <li>将数据存储到本地，数据持久化</li>
 </ol>
 </blockquote>
-<h2 id="2-5-requests模块"><a href="#2-5-requests模块" class="headerlink" title="2.5  requests模块"></a>2.5  requests模块</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">#导包
+<h2 id="2-5-requests模块"><a href="#2-5-requests模块" class="headerlink" title="2.5  requests模块"></a>2.5  requests模块</h2><pre class="language-python" data-language="python"><code class="language-python">#导包
 import requests
 url = '*****'
 #res是获取的响应数据
-res = requests.get(url)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#响应数据的获取方式
+res = requests.get(url)</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">#响应数据的获取方式
 1.文本形式：res.text
 2.json形式：res.json()
-3.流形式：res.content<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#数据持久化(mysql入库)
+3.流形式：res.content</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">#数据持久化(mysql入库)
 #1.导包
 import pymysql
 #2.创建链接
@@ -141,18 +139,16 @@ try:
 except Exception as e:
     print(e)
     #回滚
-    conn.rollback()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    conn.rollback()</code></pre>
 <p><code>params</code>参数</p>
 <blockquote>
 <p>get方式传参的拼接，将参数拼接到目标<code>url</code>中</p>
 </blockquote>
 <h4 id="2-6-OSI七层模型"><a href="#2-6-OSI七层模型" class="headerlink" title="2.6  OSI七层模型"></a>2.6  <code>OSI</code>七层模型</h4><p>应用层：</p>
-<pre class="line-numbers language-none"><code class="language-none">https/http/ftp
+<pre class="language-none"><code class="language-none">https/http/ftp
 
 http协议：明文传输，端口80
-https协议：加密传输，端口443<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+https协议：加密传输，端口443</code></pre>
 <p>表示层</p>
 <p>会话层</p>
 <p>传输层：<code>UDP/TCP</code></p>
@@ -184,12 +180,11 @@ https协议：加密传输，端口443<span aria-hidden="true" class="line-numbe
 <h5 id="2-9-1-ssh"><a href="#2-9-1-ssh" class="headerlink" title="2.9.1  ssh"></a>2.9.1  ssh</h5><blockquote>
 <p>远程登录会话</p>
 </blockquote>
-<h5 id="2-9-2-服务器创建的默认端口"><a href="#2-9-2-服务器创建的默认端口" class="headerlink" title="2.9.2  服务器创建的默认端口"></a>2.9.2  服务器创建的默认端口</h5><pre class="line-numbers language-none"><code class="language-none">ftp:21
+<h5 id="2-9-2-服务器创建的默认端口"><a href="#2-9-2-服务器创建的默认端口" class="headerlink" title="2.9.2  服务器创建的默认端口"></a>2.9.2  服务器创建的默认端口</h5><pre class="language-none"><code class="language-none">ftp:21
 ssh:22
 mySQL:3306
 MongoDB:27017
-Redis:6379<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+Redis:6379</code></pre>
 <h5 id="2-9-3-http与HTTPS协议的区别"><a href="#2-9-3-http与HTTPS协议的区别" class="headerlink" title="2.9.3  http与HTTPS协议的区别"></a>2.9.3  <code>http</code>与<code>HTTPS</code>协议的区别</h5><ol>
 <li><code>https</code>协议需要到ca申请证书，因而需要一定费用，现阶段国内各大厂商也提供免费的证书</li>
 <li><code>http</code>是超文本传输协议，信息是铭文传输，<code>https</code>则是具有安全性的<code>ssl</code>加密传输协议</li>
@@ -205,15 +200,14 @@ Redis:6379<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <p>请求由客户端向服务器发出的，可以分为四部分：请求方法(<code>Request Method</code>),请求网址(<code>Request.URL</code>),请求头(<code>Request Headers</code>) 请求体(<code>Request Body</code>)</p>
 </blockquote>
 <h4 id="3-2-请求方法"><a href="#3-2-请求方法" class="headerlink" title="3.2  请求方法"></a>3.2  请求方法</h4><p>常见的有八种</p>
-<pre class="line-numbers language-none"><code class="language-none">GET：请求页面，并返回内容
+<pre class="language-none"><code class="language-none">GET：请求页面，并返回内容
 POST：用于提交表单数据或者文件等，数据包含在请求体中
 PUT：从客户端向服务器传送的数据取代指定文档中的内容
 DELETE：请求服务器删除指定的页面
 HEAD：类似于GET请求，只不过返回的响应中没有具体的内容，用于获取头
 CONNECT：把服务器当跳板，让服务器代替客户端访问其他网页
 OPTIONS：允许客户端查看服务器的性能
-TRACE：会回显服务器收到的请求，主要用于测试或诊断<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+TRACE：会回显服务器收到的请求，主要用于测试或诊断</code></pre>
 <blockquote>
 <p>GET和POST请求的区别</p>
 <ol>
@@ -233,14 +227,13 @@ TRACE：会回显服务器收到的请求，主要用于测试或诊断<span ari
 <blockquote>
 <p>请求体一般承载的内容时POST请求中的表单数据，GET请求没有请求体，为空</p>
 </blockquote>
-<h4 id="3-4-反爬机制与反反爬策略"><a href="#3-4-反爬机制与反反爬策略" class="headerlink" title="3.4  反爬机制与反反爬策略"></a>3.4  反爬机制与反反爬策略</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">#反爬机制：
+<h4 id="3-4-反爬机制与反反爬策略"><a href="#3-4-反爬机制与反反爬策略" class="headerlink" title="3.4  反爬机制与反反爬策略"></a>3.4  反爬机制与反反爬策略</h4><pre class="language-python" data-language="python"><code class="language-python">#反爬机制：
 为了不让数据泄露，设置了各种阻碍，这就是反爬机制
 
 #反反爬策略
 针对网站的反爬机制，采取不同策略
 1.脚本：直接忽略
-2.scrapy框架：修改配置文件，让爬虫不遵守robots协议<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+2.scrapy框架：修改配置文件，让爬虫不遵守robots协议</code></pre>
 <hr>
 <h2 id="4-响应"><a href="#4-响应" class="headerlink" title="4.响应"></a>4.响应</h2><blockquote>
 <p>响应是由服务端返回给客户端的，可 以分为三部分：响应状态码，响应头，响应体</p>
@@ -248,7 +241,7 @@ TRACE：会回显服务器收到的请求，主要用于测试或诊断<span ari
 <blockquote>
 <p>响应体，响应的正文数据都在响应体中，比如请求网页时，它的响应体就是网页的HTML代码，我们要爬虫请求网页后，要解析的内容就是响应体</p>
 </blockquote>
-<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><pre class="line-numbers language-none"><code class="language-none">200：成功
+<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><pre class="language-none"><code class="language-none">200：成功
 301：永久重定向
 302：临时重定向
 400：错误的请求
@@ -259,16 +252,14 @@ TRACE：会回显服务器收到的请求，主要用于测试或诊断<span ari
 501：服务器不具备完成请求的功能
 502：错误的网关，服务器走位网关或代理，从上游服务器收到无效响应
 504：网关超时，服务器作为网关或代理，但是没有及时从上游服务器收到请求
-505：HTTP版本不支持<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+505：HTTP版本不支持</code></pre>
 <blockquote>
 <p>状态码不能完全代表相应状态，部分网站的状态码是自定义的，一切以响应数据为准</p>
 </blockquote>
-<h4 id="4-1-响应数据的几种形式"><a href="#4-1-响应数据的几种形式" class="headerlink" title="4.1  响应数据的几种形式"></a>4.1  响应数据的几种形式</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">res = requests.get(url='https://www.guidaye.com/cp/')
+<h4 id="4-1-响应数据的几种形式"><a href="#4-1-响应数据的几种形式" class="headerlink" title="4.1  响应数据的几种形式"></a>4.1  响应数据的几种形式</h4><pre class="language-python" data-language="python"><code class="language-python">res = requests.get(url='https://www.guidaye.com/cp/')
 res.text &gt;&gt;&gt;将响应对象转化为str类型
 res.json()  &gt;&gt;&gt; 将响应对象转化为python中的dict类型，形式(类json)
-res.content  &gt;&gt;&gt;流形式(数据流，图片就是流形式)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+res.content  &gt;&gt;&gt;流形式(数据流，图片就是流形式)</code></pre>
 <blockquote>
 <p>如果响应数据中文乱码，可以用<code>content.decode('utf-8')</code>来解决</p>
 </blockquote>
@@ -276,43 +267,38 @@ res.content  &gt;&gt;&gt;流形式(数据流，图片就是流形式)<span aria-
 <p>通用唯一标识符，时间戳，命名空间，随机数，伪随机数来保证生成ID的唯一性</p>
 <p>python的<code>uuid</code>模块提供<code>UUID</code>类和函数<code>uuid1()</code>, <code>uuid3()</code>,<code> uuid4()</code>,<code> uuid5()</code> 来生成1, 3, 4, 5各个版本的<code>UUID</code><br>( 需要注意的是: python中没有**<code>uuid2()</code>**这个函数)</p>
 </blockquote>
-<pre class="line-numbers language-none"><code class="language-none">uuid1：基于时间戳
+<pre class="language-none"><code class="language-none">uuid1：基于时间戳
 uuid3：基于名字的MD5散列值
 uuid4：基于随机数，有一定重复概率
-uuid5：基于名字的SHA=1散列值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+uuid5：基于名字的SHA=1散列值</code></pre>
 <hr>
-<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5.正则表达式"></a>5.正则表达式</h2><h4 id="5-1-元字符"><a href="#5-1-元字符" class="headerlink" title="5.1  元字符"></a>5.1  元字符</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">.:任意字符，换行符除外
+<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5.正则表达式"></a>5.正则表达式</h2><h4 id="5-1-元字符"><a href="#5-1-元字符" class="headerlink" title="5.1  元字符"></a>5.1  元字符</h4><pre class="language-python" data-language="python"><code class="language-python">.:任意字符，换行符除外
 \d:任意数字
 \w:任意数字字母下划线
 \s:空白符
 
-#如果是大写的s，w，d，代表'非'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="5-2-字符组"><a href="#5-2-字符组" class="headerlink" title="5.2  字符组"></a>5.2  字符组</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">[a-z]:
+#如果是大写的s，w，d，代表'非'</code></pre>
+<h4 id="5-2-字符组"><a href="#5-2-字符组" class="headerlink" title="5.2  字符组"></a>5.2  字符组</h4><pre class="language-python" data-language="python"><code class="language-python">[a-z]:
 [A-Z]:
 [0-9]:
 
 [^...]
-#匹配非其中元素，举例：[^abc]---&gt;匹配除了abc之外的字符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="5-3-量词"><a href="#5-3-量词" class="headerlink" title="5.3  量词"></a>5.3  量词</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">*:匹配0次或多次
+#匹配非其中元素，举例：[^abc]---&gt;匹配除了abc之外的字符</code></pre>
+<h4 id="5-3-量词"><a href="#5-3-量词" class="headerlink" title="5.3  量词"></a>5.3  量词</h4><pre class="language-python" data-language="python"><code class="language-python">*:匹配0次或多次
 +:匹配1次或多次
 ?:匹配0次或1次  #非贪婪匹配
 {m}:m次
 {m,}:至少m次
 {m,n}:m-n次
-{,n}:最多n次<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+{,n}:最多n次</code></pre>
 <h4 id="5-4-边界修饰"><a href="#5-4-边界修饰" class="headerlink" title="5.4   边界修饰"></a>5.4   边界修饰</h4><blockquote>
 <p>^匹配开始</p>
 <p>$匹配结尾</p>
 </blockquote>
-<h4 id="5-5-分组"><a href="#5-5-分组" class="headerlink" title="5.5   分组"></a>5.5   分组</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import re
+<h4 id="5-5-分组"><a href="#5-5-分组" class="headerlink" title="5.5   分组"></a>5.5   分组</h4><pre class="language-python" data-language="python"><code class="language-python">import re
 s = "&lt;a href='asdsdjfiohssdbfkjsdbkjsd'&gt;"
 
-res = re.findall(r"href='(.*?)'&gt;",s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+res = re.findall(r"href='(.*?)'&gt;",s)</code></pre>
 
 
 <h4 id="5-6-贪婪与非贪婪"><a href="#5-6-贪婪与非贪婪" class="headerlink" title="5.6  贪婪与非贪婪"></a>5.6  贪婪与非贪婪</h4><blockquote>
@@ -324,31 +310,29 @@ res = re.findall(r"href='(.*?)'&gt;",s)<span aria-hidden="true" class="line-numb
 <p><code>re.match(r'正则表达式','str')</code>从字符串开始进行匹配，返回一个对象，使用<code>group</code>取值，如果未匹配到，返回None </p>
 <p><code>re.complie</code>将正则表达式编译为<strong>对象</strong>，在需要按正则表达式匹配是可以在直接使用该对象调用以上方法</p>
 <hr>
-<h2 id="6-requests高阶应用"><a href="#6-requests高阶应用" class="headerlink" title="6. requests高阶应用"></a>6. requests高阶应用</h2><h4 id="6-1-文件处理"><a href="#6-1-文件处理" class="headerlink" title="6.1  文件处理"></a>6.1  文件处理</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
+<h2 id="6-requests高阶应用"><a href="#6-requests高阶应用" class="headerlink" title="6. requests高阶应用"></a>6. requests高阶应用</h2><h4 id="6-1-文件处理"><a href="#6-1-文件处理" class="headerlink" title="6.1  文件处理"></a>6.1  文件处理</h4><pre class="language-python" data-language="python"><code class="language-python">import requests
 #打开文件，注意要以rb形式打开
 f = open('chn.jpg','rb')
 files = {
     'file':f
 }
-res = requests.post(url='***',files = files)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+res = requests.post(url='***',files = files)</code></pre>
 <blockquote>
 <p>文件也是一种数据，所以，可以通过<code>files</code>参数来进行文件的上传</p>
 </blockquote>
-<h4 id="6-2-会话维持"><a href="#6-2-会话维持" class="headerlink" title="6.2  会话维持"></a>6.2  会话维持</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from requests import Session
+<h4 id="6-2-会话维持"><a href="#6-2-会话维持" class="headerlink" title="6.2  会话维持"></a>6.2  会话维持</h4><pre class="language-python" data-language="python"><code class="language-python">from requests import Session
 #1.实例化一个对象
 session = Session()
 #2.url
 url = '*****'
 #3.session.get()或者session.post(url=url.headers=headers)
-res = session.post(url=url.headers=headers)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+res = session.post(url=url.headers=headers)</code></pre>
 <h4 id="6-3-ssl证书验证"><a href="#6-3-ssl证书验证" class="headerlink" title="6.3  ssl证书验证"></a>6.3  <code>ssl</code>证书验证</h4><p><code>https</code>是<code>http</code>的安全版本，<code>HTTPS</code>在<code>http</code>的基础上多了一个<code>ssl</code>安全套接层</p>
 <blockquote>
 <p>requests提供了证书验证的功能，当发起HTTP请求时，模块会检查<code>SSL</code>证书，但检查的行为可以用verify参数来控制</p>
 </blockquote>
 <p>添加了一个参数<code>verify=false   ---&gt;不检查ssl证书</code>,如果等于<code>True</code>，则检查<code>SSL</code>证书</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#ssl证书验证
+<pre class="language-python" data-language="python"><code class="language-python">#ssl证书验证
 
 #添加一个verify=false参数，禁止证书验证
 import requests
@@ -356,8 +340,7 @@ url = '******'
 #阻止抛出警告
 requests.packages.urllib3.disable_warinings()
 
-res = requests.get(url=url,verify=false)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+res = requests.get(url=url,verify=false)</code></pre>
 <blockquote>
 <p>简单来说，在爬取网站时，有可能网站的证书是有问题的，这时如果使用<code>requests</code>模块去请求时，会报错，所以需要<code>ssl</code>证书验证</p>
 </blockquote>
@@ -370,7 +353,7 @@ res = requests.get(url=url,verify=false)<span aria-hidden="true" class="line-num
 <blockquote>
 <p>代理类别：基于接口的，基于隧道的</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">反爬：ip封禁---&gt;使用代理ip
+<pre class="language-python" data-language="python"><code class="language-python">反爬：ip封禁---&gt;使用代理ip
 
 import requests
 url = '*********'
@@ -380,13 +363,11 @@ proxies = {
     #无论是http还是https，后面一定是http
     'https':'http://ip地址:端口号'
 }
-res = requests.get(url=url,proxies = proxies)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+res = requests.get(url=url,proxies = proxies)</code></pre>
 <h4 id="6-5-超时设置"><a href="#6-5-超时设置" class="headerlink" title="6.5  超时设置"></a>6.5  超时设置</h4><p>添加了一个参数，以<strong>秒</strong>计量<code>timeout=0.1</code></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#添加timeout参数，秒数
+<pre class="language-python" data-language="python"><code class="language-python">#添加timeout参数，秒数
 import requests
-res=requests.get(url=url,timeout=0.1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+res=requests.get(url=url,timeout=0.1)</code></pre>
 <blockquote>
 <p>给予爬虫与服务器连接的时间限定，设置一个时间，在指定的时间内完成了正常的连接，不报错，如果没有完成，就会报错</p>
 <p>requests模块发送请求可以设置超时时间，在超时时间内未得到响应，便会抛出异常</p>
@@ -410,7 +391,7 @@ res=requests.get(url=url,timeout=0.1)<span aria-hidden="true" class="line-number
 <li>自动封装cookie的类：<code>Session</code></li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#cookie的处理
+<pre class="language-python" data-language="python"><code class="language-python">#cookie的处理
 	#1.url = 'https://www.baidu.com/'
         headers = {
             'Cookie':'BIDUPSID=B63BDB40304991E9FF3159864CC9C302; PSTM=1586308511; BAIDUID=B63BDB40304991E9CC4E4ECFFCFFB23D:FG=1; BD_UPN=12314753; BDUSS=VWNmZu',
@@ -437,9 +418,8 @@ res=requests.get(url=url,timeout=0.1)<span aria-hidden="true" class="line-number
     2.url
     url = '*****'
     3.session.get()或者session.post(url=url.headers=headers)
-    res = session.post(url=url.headers=headers)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from requests import Session
+    res = session.post(url=url.headers=headers)</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">from requests import Session
 
 session = Session()
 
@@ -448,8 +428,7 @@ data = {
     'password':'123456'
 }
 
-res = session.post(url=url,headers=headers,data=data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+res = session.post(url=url,headers=headers,data=data)</code></pre>
 <hr>
 <h2 id="7-lxm库"><a href="#7-lxm库" class="headerlink" title="7.lxm库"></a>7.<code>lxm</code>库</h2><blockquote>
 <p>从响应数据中抽取出目标数据的过程，就叫做数据解析<br>数据解析：<br><code>re</code>,<code>xpath</code>,<code>BS4</code>,<code>Pyquery</code></p>
@@ -469,14 +448,10 @@ res = session.post(url=url,headers=headers,data=data)<span aria-hidden="true" cl
 <p><code>text()</code>:获取节点的文本<br><code>//div[@class='asdds']/p/text()</code></p>
 <h4 id="7-2-属性匹配"><a href="#7-2-属性匹配" class="headerlink" title="7.2  属性匹配"></a>7.2  属性匹配</h4><ul>
 <li><p>单属性多值匹配：当节点的一个属性有多个值时，根据其中一个进行定位，使用<code>contai ns</code>函数</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">'//div[contains(@class,"属性值")]'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre class="language-python" data-language="python"><code class="language-python">'//div[contains(@class,"属性值")]'</code></pre></li>
 <li><p>多属性匹配：用节点的多个属性共同定位节点<code>and</code></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">'//div[@class="asds" and @name="adsadasd"]'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-</li>
-</ul>
-<h4 id="7-3-按序选择"><a href="#7-3-按序选择" class="headerlink" title="7.3  按序选择"></a>7.3  按序选择</h4><ul>
+<pre class="language-python" data-language="python"><code class="language-python">'//div[@class="asds" and @name="adsadasd"]'</code></pre>
+<h4 id="7-3-按序选择"><a href="#7-3-按序选择" class="headerlink" title="7.3  按序选择"></a>7.3  按序选择</h4></li>
 <li><p>索引定位：[6] </p>
 <blockquote>
 <p><strong>注意，索引从1开始，跟python有区别</strong></p>
@@ -491,23 +466,21 @@ res = session.post(url=url,headers=headers,data=data)<span aria-hidden="true" cl
 <p>加载网页<code>html</code>,直接使用HTML<br>例：<code>tree = etree.HTML()</code></p>
 <p>然后些<code>xpath</code>语法<br><code>tree.xpath('//ul[@class="pli"]/li/div/a/img/@src')</code></p>
 <p><code>xpath</code>获得的结果是一个列表2  </p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#编码流程
+<pre class="language-python" data-language="python"><code class="language-python">#编码流程
 from lxml import etree
 res = requests.get(...)
 tree = etree.HTML(res.text) #etree加载的是响应数据的文本形式
-tree.xpath('xpath表达式')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+tree.xpath('xpath表达式')</code></pre>
 
 
-
-<h4 id="7-5-补充"><a href="#7-5-补充" class="headerlink" title="7.5  补充"></a>7.5  补充</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">res1 = tree.xpath("//div[@id='007']/text()")
+<h4 id="7-5-补充"><a href="#7-5-补充" class="headerlink" title="7.5  补充"></a>7.5  补充</h4><pre class="language-python" data-language="python"><code class="language-python">res1 = tree.xpath("//div[@id='007']/text()")
 
 res2 = tree.xpath("//div[@id='007']//text()")
 
 '''
 res1展示的是以divid007为根节点的结果，其div下的其他标签不显示
 res2展示的是以divid007任意位置的结果，其div下的其他标签内容也一同显示
-'''<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+'''</code></pre>
 <hr>
 <h2 id="8-动态数据加载"><a href="#8-动态数据加载" class="headerlink" title="8.动态数据加载"></a>8.动态数据加载</h2><blockquote>
 <p>网页HTML上，有些数据是通过<code>js</code>代码填充，所以如果直接使用爬虫，只会爬取到一个标签，并没有其中的元素</p>
@@ -524,7 +497,7 @@ res2展示的是以divid007任意位置的结果，其div下的其他标签内�
 </ol>
 <p>3.驱动程序：下载<br>   <code>http://npm.taobao.org/mirrors/chromedriver/</code><br>   查看浏览器版本<br>   选择对应的版本</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">编码流程：
+<pre class="language-python" data-language="python"><code class="language-python">编码流程：
 	#首先需要将下载的chromedriver.exe放到代码文件夹下
     #导包
     from seleniumi import webdriver
@@ -537,9 +510,8 @@ res2展示的是以divid007任意位置的结果，其div下的其他标签内�
     bro.get('https://www.iqiyi.com/')
     
     #获取网页源代码
-	(对象)bro.page_source   ---&gt;字符串<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#如何获取网页的元素
+	(对象)bro.page_source   ---&gt;字符串</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">#如何获取网页的元素
 #根据标签内属性定位，一般用id定位
 find_element_by_id('id')
 find_element_by_name('name')
@@ -575,12 +547,11 @@ js = 'window.scrollTo(0,300)'#向下滚动300距离
 js = 'window.scrollTo(0,document.body.scrollHeight)'#滚动到底部
 
 
-对象.execute_script(js)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+对象.execute_script(js)</code></pre>
 <h4 id="iframe标签跳转"><a href="#iframe标签跳转" class="headerlink" title="iframe标签跳转"></a><code>iframe</code>标签跳转</h4><p><code>switch_to.frname('frameid')</code></p>
 <p><code>switch_to.default_content()</code></p>
 <p>实例：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from selenium import webdriver
+<pre class="language-python" data-language="python"><code class="language-python">from selenium import webdriver
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 
@@ -620,25 +591,22 @@ button_baidu.click()
 sleep(3)
 input_tag.clear()
 
-bro.quit()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+bro.quit()</code></pre>
 <h4 id="8-3-子级页面和父级页面"><a href="#8-3-子级页面和父级页面" class="headerlink" title="8.3  子级页面和父级页面"></a>8.3  子级页面和父级页面</h4><blockquote>
 <p>HTML页面嵌套另一个HTML页面</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#子页面的跳转
+<pre class="language-python" data-language="python"><code class="language-python">#子页面的跳转
 switch_to.frame('id')
 
 #跳转到父级页面
-switch_to_default.conent()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+switch_to_default.conent()</code></pre>
 <blockquote>
 <p>注意，selenium默认操作父级页面</p>
 </blockquote>
-<h4 id="8-4-防检测"><a href="#8-4-防检测" class="headerlink" title="8.4  防检测"></a>8.4  防检测</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from selenium.webdriver.chrome.options import Options
+<h4 id="8-4-防检测"><a href="#8-4-防检测" class="headerlink" title="8.4  防检测"></a>8.4  防检测</h4><pre class="language-python" data-language="python"><code class="language-python">from selenium.webdriver.chrome.options import Options
 options = Options()
 options.add_experimental_option('excludeSwitches',['enable-automation'])
-bro = webdriver.Chrome('./chromedriver.exe',options=options)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+bro = webdriver.Chrome('./chromedriver.exe',options=options)</code></pre>
 <hr>
 <h2 id="9-多线程爬虫"><a href="#9-多线程爬虫" class="headerlink" title="9.多线程爬虫"></a>9.多线程爬虫</h2><blockquote>
 <p>在爬取数据量大的数据时，耗费时间较长，为了提高效率，可采用多线程爬虫，提高效率，但是，多线程不是原子性，操纵数据可能会导致数据紊乱，不安全</p>
@@ -647,7 +615,7 @@ bro = webdriver.Chrome('./chromedriver.exe',options=options)<span aria-hidden="t
 <p>并行：在同一时刻，多个任务同时执行</p>
 <p>并发：在同一时间段内，多个任务同时执行<br>并发时，一般采用了时间片轮转法，即在一个时间段内，给每个程序添加一个时间片，也可以叫做进度条，进度条走完，下一个程序再继续运行，不过时间片轮转时，停顿时间非常的短，所以会造成多个任务同时运行的错误</p>
 </blockquote>
-<h4 id="9-2-示例"><a href="#9-2-示例" class="headerlink" title="9.2  示例"></a>9.2  示例</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from threading import Thread
+<h4 id="9-2-示例"><a href="#9-2-示例" class="headerlink" title="9.2  示例"></a>9.2  示例</h4><pre class="language-python" data-language="python"><code class="language-python">from threading import Thread
 from queue import Queue
 import requests
 from lxml import etree
@@ -713,13 +681,12 @@ class ParseThread(Thread):
         conn = pymongo.MongoClient()
         db = conn.lilong
         table = db.liuyueyang
-        table.insert_one(data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        table.insert_one(data)</code></pre>
 <hr>
 <h2 id="10-无头浏览器与BS4"><a href="#10-无头浏览器与BS4" class="headerlink" title="10.无头浏览器与BS4"></a>10.无头浏览器与<code>BS4</code></h2><h4 id="10-1-无头浏览器"><a href="#10-1-无头浏览器" class="headerlink" title="10.1  无头浏览器"></a>10.1  无头浏览器</h4><blockquote>
 <p>什么是无头浏览器（headless browser），简单来说是一种<strong>没有界面</strong>的浏览器。既然是浏览器那么浏览器该有的东西它都应该有，只是看不到界面而已。我们日常使用浏览器的步骤为：启动浏览器、打开一个网页、进行交互。而无头浏览器指的是我们使用脚本来执行以上过程的浏览器，能模拟真实的浏览器使用场景。</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from selenium import webdriver
+<pre class="language-python" data-language="python"><code class="language-python">from selenium import webdriver
 from selenium .webdriver.chrome.options import Options
 
 chrome_options = Options()
@@ -727,8 +694,7 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--dissble-gpu')
 bro = webdriver.Chrome(chrome_options = chrome_options)
 bro.get(******)
-print(bro.page_source)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+print(bro.page_source)</code></pre>
 <h4 id="10-2-BS4语法"><a href="#10-2-BS4语法" class="headerlink" title="10.2  BS4语法"></a>10.2  <code>BS4</code>语法</h4><blockquote>
 <p>编码流程：</p>
 <ol>
@@ -737,19 +703,17 @@ print(bro.page_source)<span aria-hidden="true" class="line-numbers-rows"><span><
 <li>选择器解析</li>
 </ol>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#bs4编码流程
+<pre class="language-python" data-language="python"><code class="language-python">#bs4编码流程
 from bs4 import BeautifulSoup
 suop = BeautifulSoup(res.text,'lxml')
 tag = soup.select('css选择器表达式')
 tag = soup.节点() #节点选择器
-tag = soup.findall() # 方法选择器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#节点选择器
+tag = soup.findall() # 方法选择器</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">#节点选择器
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(res.text,'lxml')
-tag = soup.a  #取a标签，只取一个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#方法选择器
+tag = soup.a  #取a标签，只取一个</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">#方法选择器
 find_all(name,attrs,text,limit):
     soup.findall(name='***')  #根据节点名字定位
     soup.findall(attrs={'属性名(scr,class等)':'值'})#根据属性定位，多个属性时，一个即可定位
@@ -758,9 +722,8 @@ find_all(name,attrs,text,limit):
     
 find(name,attrs,text,limit):区别于find_all，find返回的是一个对象结果
     
-find_all(name=节点名,{attrs:属性值})返回的是一个列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#css选择器
+find_all(name=节点名,{attrs:属性值})返回的是一个列表</code></pre>
+<pre class="language-python" data-language="python"><code class="language-python">#css选择器
 属性选择器：
 1.根据节点名定位标签：标签选择器
 soup.select('***(title,a,p等)')
@@ -779,10 +742,9 @@ soup.select('div li') #多层级选择器，包含了div下的所有li
 #获取节点的文本或属性
 obj.string:获取直接子文本，如果节点内有平行的节点，则结果是None
 obj.get_text()：获取子孙节点的所有文本
-obj['***(属性)']：获取节点属性<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+obj['***(属性)']：获取节点属性</code></pre>
 <hr>
-<h2 id="11-快代理网站的模拟登录"><a href="#11-快代理网站的模拟登录" class="headerlink" title="11.快代理网站的模拟登录"></a>11.快代理网站的模拟登录</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">from requests import Session
+<h2 id="11-快代理网站的模拟登录"><a href="#11-快代理网站的模拟登录" class="headerlink" title="11.快代理网站的模拟登录"></a>11.快代理网站的模拟登录</h2><pre class="language-python" data-language="python"><code class="language-python">from requests import Session
 
 #实例化session对象
 session = Session()
@@ -805,8 +767,7 @@ res = session.post(url=url,headers=headers,data=data)
 
 #访问时，可以获得到返回的数据，用户名在其中，模拟登录完成
 ret = session.get(url='https://www.kuaidaili.com/api/checkuser/',headers=headers)
-print(ret.json())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+print(ret.json())</code></pre>
 <h4 id="11-1-第三方打码平台"><a href="#11-1-第三方打码平台" class="headerlink" title="11.1  第三方打码平台"></a>11.1  第三方打码平台</h4><blockquote>
 <p>我们在模拟登录时，时常会遇到一些验证码代码无法准确的识别不同的验证码，这时，就用到了打码平台，它会将图片上的字符或者数字转成字符串返回给你</p>
 </blockquote>
@@ -879,7 +840,7 @@ print(ret.json())<span aria-hidden="true" class="line-numbers-rows"><span></span
 <blockquote>
 <p>实例化item,两种方法，一种是实例化对象，另一种是直接<code>yield 类名(字段名=值)</code></p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class BlogSpider(scrapy.Spider):
+<pre class="language-python" data-language="python"><code class="language-python">class BlogSpider(scrapy.Spider):
     #爬虫名，爬虫唯一的身份标识，不可重复
     name = 'blog'
     #域名的限定，限制了爬虫的范围，可以注释
@@ -902,8 +863,7 @@ print(ret.json())<span aria-hidden="true" class="line-numbers-rows"><span></span
             yield item
             
             #第二种实例化方法
-            yield Test01Item(title=title)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+            yield Test01Item(title=title)</code></pre>
 <ul>
 <li>item</li>
 </ul>
@@ -920,7 +880,7 @@ print(ret.json())<span aria-hidden="true" class="line-numbers-rows"><span></span
 <li>通过键值对的字典形式将数据添加进items</li>
 <li>通过yield将items返回</li>
 </ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Test01Item(scrapy.Item):
+<pre class="language-python" data-language="python"><code class="language-python">class Test01Item(scrapy.Item):
     title = scrapy.Field()
     jianjie = scrapy.Field()
     
@@ -934,8 +894,7 @@ item['brief'] = ''.join(li.xpath('./text()').extract()).replace('\n','')
 item['date'] = re.findall(r'\d+-\d+-\d+', li.xpath('.//p/text()').extract_first())[0]
     #链接
 item['link'] = li.xpath('.//h2/a/@href').extract_first()
-    yield item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    yield item</code></pre>
 <ul>
 <li>管道(<code>pipelines</code>)</li>
 </ul>
@@ -945,7 +904,7 @@ item['link'] = li.xpath('.//h2/a/@href').extract_first()
 <blockquote>
 <p>如果爬虫组件中，传出了item，那么就需要将item走过这个process_item方法</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#数据库的连接
+<pre class="language-python" data-language="python"><code class="language-python">#数据库的连接
 conn = pymongo.MongoClient('localhost',27017)
 db = conn.Longtan
 table = db.ss
@@ -954,20 +913,18 @@ class TextPipline:
 #实现process_item方法,item就是爬虫组件中传来的item
     def process_item(self,item,spider):
         table.insert_one(dict(item))
-        return item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        return item</code></pre>
 <ul>
 <li>settings</li>
 </ul>
 <blockquote>
 <p>需要修改的是<code>ROBOTSTXT_OBEY</code>,<code>UA</code>,</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">ITEM_PIPELINES = {
+<pre class="language-python" data-language="python"><code class="language-python">ITEM_PIPELINES = {
    'test01.pipelines.TextPipline': 300,
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+}</code></pre>
 </blockquote>
 <h4 id="12-7-保存数据"><a href="#12-7-保存数据" class="headerlink" title="12.7  保存数据"></a>12.7  保存数据</h4><p>保存到<code>json</code>中</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">scrapy crawl 爬虫名 -o blog_data.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">scrapy crawl 爬虫名 -o blog_data.json</code></pre>
 <blockquote>
 <p>另外，也可以每一个Item输出一行<code>JSON</code>,输出后缀改为<code>jl</code>，命令:<code>scrapy crawl 爬虫名 -o blog_data.jl</code></p>
 </blockquote>
@@ -978,14 +935,13 @@ class TextPipline:
 <h4 id="12-8-管道-Item-Pipline-的使用"><a href="#12-8-管道-Item-Pipline-的使用" class="headerlink" title="12.8  管道(Item Pipline)的使用"></a>12.8  管道(<code>Item Pipline</code>)的使用</h4><blockquote>
 <p>注意，<code>pipline</code>是需要被注册的</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">1. 在settings中，解封或者重新在底下写上
+<pre class="language-python" data-language="python"><code class="language-python">1. 在settings中，解封或者重新在底下写上
 
 ITEM_PIPELINES = {
    'test01.pipelines.TextPipline': 300,
 	#项目名.pipelines.自定义的管道名:
 }
-# 300：代表着优先级，数字越小，代表着优先级越高<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+# 300：代表着优先级，数字越小，代表着优先级越高</code></pre>
 
 
 <blockquote>
@@ -997,10 +953,9 @@ ITEM_PIPELINES = {
 <li>将爬取结果保存到数据库中</li>
 </ul>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class Test01Pipeline:
+<pre class="language-python" data-language="python"><code class="language-python">class Test01Pipeline:
     def process_item(self, item, spider):
-        return item<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+        return item</code></pre>
 <h4 id="12-9-整体流程"><a href="#12-9-整体流程" class="headerlink" title="12.9  整体流程"></a>12.9  整体流程</h4><blockquote>
 <ol>
 <li>需要在items中，定义要爬取的字段</li>
@@ -1013,17 +968,16 @@ ITEM_PIPELINES = {
 <h4 id="12-91-手动发送请求"><a href="#12-91-手动发送请求" class="headerlink" title="12.91  手动发送请求"></a>12.91  手动发送请求</h4><blockquote>
 <p><code>srcapy</code>框架在启动时，会自动对起始<code>url</code>发起请求，是因为爬虫组件继承的<code>scrapy.Spider</code>实现了一个<code>start_requests</code>方法，所以，想要手动发送请求，需要自己在类中实现此方法，这样，便不会再自动继承父类的方法，而是从自己类中实现方法</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#手动发送get请求
+<pre class="language-python" data-language="python"><code class="language-python">#手动发送get请求
 #callback参数，是指定回调，如果不指定此参数，就会默认回调到parse
 yield scrapy.Request(url=url,callback=self.parse)
 
 #手动发送post请求
-yield scrapy.FormRequest(url=next_page,formdata=data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+yield scrapy.FormRequest(url=next_page,formdata=data)</code></pre>
 <h4 id="12-92-中间件"><a href="#12-92-中间件" class="headerlink" title="12.92  中间件"></a>12.92  中间件</h4><h5 id="篡改UA"><a href="#篡改UA" class="headerlink" title="篡改UA"></a>篡改<code>UA</code></h5><blockquote>
 <p>需要用到的模块<code>fake-useragent</code>，用<code>pip</code>安装</p>
 </blockquote>
- <pre class="line-numbers language-python" data-language="python"><code class="language-python">#在middlewares中，TestIpUaDownloaderMiddleware下载器中间件中，
+ <pre class="language-python" data-language="python"><code class="language-python">#在middlewares中，TestIpUaDownloaderMiddleware下载器中间件中，
 #导包
 from fake_useragent import UserAgent
 
@@ -1035,16 +989,14 @@ def process_request(self, request, spider):
     return None
 
 ua.random
-#生成的ua是随机的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+#生成的ua是随机的</code></pre>
 <blockquote>
 <p>注意，需要把<code>settings</code>中的<code>DOWNLOADER_MIDDLEWARES</code>打开</p>
 </blockquote>
-<h5 id="篡改ip"><a href="#篡改ip" class="headerlink" title="篡改ip"></a>篡改<code>ip</code></h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">def process_request(self, request, spider):
+<h5 id="篡改ip"><a href="#篡改ip" class="headerlink" title="篡改ip"></a>篡改<code>ip</code></h5><pre class="language-python" data-language="python"><code class="language-python">def process_request(self, request, spider):
     #篡改ip
     request.meta['proxy'] = 'http://ip:port'
-    return None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+    return None</code></pre>
 <h5 id="selenium的使用"><a href="#selenium的使用" class="headerlink" title="selenium的使用"></a><code>selenium</code>的使用</h5><blockquote>
 <ol>
 <li>拦截res响应，在<code>process_response</code>方法中</li>
@@ -1056,7 +1008,7 @@ ua.random
 <blockquote>
 <p>注意！如果在中间件中实例化对象，那么，每次请求都会实例化对象，比较耗费资源，所以，最好在爬虫组件中实例化</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#爬虫组件中
+<pre class="language-python" data-language="python"><code class="language-python">#爬虫组件中
 from selenium import webdriver
 #构建响应对象
 from scrapy.http import HttpResponse
@@ -1077,41 +1029,38 @@ html = bro.page_source
 myres = HttpResponse(url=response.url,body=html,encoding='utf-8',request=request)
 
 #替换原来的响应对象
-return myres<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+return myres</code></pre>
 <blockquote>
 <p>根据需要添加判断是否使用<code>selenium</code></p>
 </blockquote>
 <h4 id="12-93-meta传值"><a href="#12-93-meta传值" class="headerlink" title="12.93  meta传值"></a>12.93  <code>meta</code>传值</h4><blockquote>
 <p>在爬虫组件中，如果回调解析方法之间相互传值，可以使用<code>meta</code></p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">def parse(self,response):
+<pre class="language-python" data-language="python"><code class="language-python">def parse(self,response):
     ...
     yield scrapy.Request(url=url,callback=self.da_parse,meta={'title':title})
     
 def da_parse(self,response):
-    title = response.meta['title']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    title = response.meta['title']</code></pre>
 <h4 id="12-94-全站数据爬取"><a href="#12-94-全站数据爬取" class="headerlink" title="12.94   全站数据爬取"></a>12.94   全站数据爬取</h4><blockquote>
 <p>全站数据爬取就是爬取多页时自动帮助翻页，省去了写代码的时间</p>
 </blockquote>
 <blockquote>
 <p>创建爬虫文件时，在<code>genspider</code>后，添加<code>-t crawl</code>再添加爬虫名和域名，这样，爬虫会成为一个全站爬虫</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#链接提取器，根据给定的规则进行链接的提起
+<pre class="language-python" data-language="python"><code class="language-python">#链接提取器，根据给定的规则进行链接的提起
 link = LinkExtractor(allow=r'Items/')
     rules = (
         #规则解析器，根据给定的规则解析数据，follow是递归提取页码，就是逐级访问url，对各个url来追踪访问
         Rule(link,callback='parse_item', follow=True),
-    )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    )</code></pre>
 <h4 id="12-95-增量式爬虫"><a href="#12-95-增量式爬虫" class="headerlink" title="12.95  增量式爬虫"></a>12.95  增量式爬虫</h4><blockquote>
 <p>增量式就是自写爬虫监控目标网站，如果目标有更新的数据，则将更新的数据爬取下来，已经爬取的数据，则通过去重的方式来忽略</p>
 </blockquote>
 <blockquote>
 <p>而这其中，又分为两种去重方式，分别是根据<code>url</code>去重和数据指纹去重</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from redis import Redis
+<pre class="language-python" data-language="python"><code class="language-python">from redis import Redis
 conn = Redis('127.0.0.1',6379)
 
 def detail_parse(self,response):
@@ -1122,8 +1071,7 @@ def detail_parse(self,response):
     fp = md5(data.encode('utf-8')).hexdigest()
     #添加进redis的集合中
     conn.sadd('ggsfp',fp)
-    #如果返回结果为0，则证明已经添加过，如果为1，则没有添加过<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    #如果返回结果为0，则证明已经添加过，如果为1，则没有添加过</code></pre>
 <p>对应<code>day14</code>视频</p>
 <hr>
 <h2 id="13-MongoDB数据库"><a href="#13-MongoDB数据库" class="headerlink" title="13.MongoDB数据库"></a>13.<code>MongoDB</code>数据库</h2><h4 id="13-1-数据库操作"><a href="#13-1-数据库操作" class="headerlink" title="13.1  数据库操作"></a>13.1  数据库操作</h4><blockquote>
@@ -1181,7 +1129,7 @@ def detail_parse(self,response):
 </ul>
 <h4 id="13-4-修改数据"><a href="#13-4-修改数据" class="headerlink" title="13.4  修改数据"></a>13.4  修改数据</h4><p><code>db.表名.update({'price':2.5},{$set:{'price':500}})</code></p>
 <h4 id="13-5-删除数据"><a href="#13-5-删除数据" class="headerlink" title="13.5  删除数据"></a>13.5  删除数据</h4><p><code>db.表名.remove({'name':'玛卡巴卡'})</code></p>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/" title="爬虫的相关知识">http://godhearing.cn/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/" rel="prev" title="python数据结构与算法"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">python数据结构与算法</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2019/04/17/paypal-kua-jing-zhi-fu/" rel="next" title="PayPal跨境支付"><span class="post-nav-text">PayPal跨境支付</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+爬虫的相关知识">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/" title="爬虫的相关知识">http://godhearing.cn/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/" rel="prev" title="python数据结构与算法"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">python数据结构与算法</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2019/04/17/paypal-kua-jing-zhi-fu/" rel="next" title="PayPal跨境支付"><span class="post-nav-text">PayPal跨境支付</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+爬虫的相关知识">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

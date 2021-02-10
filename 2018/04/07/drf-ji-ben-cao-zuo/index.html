@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>DRF基本操作 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>DRF基本操作 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 DRF作为django的伴生框架，也封装了很多及其好用的东西 1.认证 2.权限 3.限流 4.序列化 5.分页   认证 Drf内置的四种API认证方式： 认证方式说明： **BasicAuthentication**每次提交请求的时候附加用户名和密码来进行认证 **TokenAuthentication**每次提交请求的时候在HTTP headers里附加Token进行认证 **Sess">
@@ -45,7 +45,7 @@
 <p>我选择的是基于Token的认证，客户端登录之后维护一个token，每次请求附加到HTTP headers，还算是方便。</p>
 <p>Drf还可以自定义认证方式，只要继承<code>authentication.BaseAuthentication</code>这个类然后重写<code>authenticate</code>方法就好了。</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class MyAuthentication(BaseAuthentication):
+<pre class="language-python" data-language="python"><code class="language-python">class MyAuthentication(BaseAuthentication):
 	def authenticate(self, request):
 		# 认证逻辑，如果认证通过，返回两个值
 		# 如果认证失败，抛出Authentication异常
@@ -58,15 +58,13 @@
 			else:
 				raise AuthenticationFailed('认证失败')
 		else:
-			raise AuthenticationFailed('请求地址中需要携带token')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+			raise AuthenticationFailed('请求地址中需要携带token')</code></pre>
 <p>然后在视图中使用即可</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class StudentViewSet(viewsets.ModelViewSet):
+<pre class="language-python" data-language="python"><code class="language-python">class StudentViewSet(viewsets.ModelViewSet):
 	authentication_classes = [SessionAuthentication, BasicAuthentication,MyAuthentication]
 	permission_classes = [IsAuthenticated]
 	queryset = Student.objects.all()
-    serializer_class = StudentSerializer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    serializer_class = StudentSerializer</code></pre>
 <ul>
 <li>创建认证类：继承<code>BaseAuthentication</code>、重写<code>authenticate</code>方法</li>
 <li><code>authenticate()</code>返回值</li>
@@ -77,15 +75,14 @@
 <li>有返回值元组形式：（元素1，元素2）元素1复制给<code>request.user</code>、元素2复制给<code>request.auth</code></li>
 </ol>
 <p>在<code>settings.py</code>中可以配置默认的认证方式，这里我添加了三个：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">REST_FRAMEWORK = {
+<pre class="language-text" data-language="text"><code class="language-text">REST_FRAMEWORK = {
     # 身份验证
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     )
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}</code></pre>
 <h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><h3 id="API授权"><a href="#API授权" class="headerlink" title="API授权"></a><strong>API授权</strong></h3><p>Drf的接口权限有以下几种：</p>
 <ul>
 <li>**<a target="_blank" rel="noopener" href="https://www.django-rest-framework.org/api-guide/permissions/#allowany">AllowAny</a>**：允许所有，登不登录无所谓</li>
@@ -99,43 +96,39 @@
 <p>一般来说小网站用到<code>DjangoModelPermissions</code>就是够用的，或者干脆简单一点，用<code>IsAuthenticated</code>和<code>queryset</code>限定请求的数据即可。</p>
 <p>介绍完了基本概念，来看看代码中是如何操作的。</p>
 <p>对于操作用户信息的viewset，我只用了<code>permissions.IsAuthenticated</code>这个权限，然后覆盖了<code>ReadOnlyModelViewSet</code>的<code>get_queryset</code>方法，把queryset变成只包括当前用户，这样就保证了一个用户只能操作自己的信息。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from rest_framework import authentication, permissions, viewsets
+<pre class="language-python" data-language="python"><code class="language-python">from rest_framework import authentication, permissions, viewsets
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = UserSerializer
 
     def get_queryset(self):
-        return User.objects.filter(pk=self.request.user.pk)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        return User.objects.filter(pk=self.request.user.pk)</code></pre>
 <p>viewset的action同样可以使用权限，加在装饰器的参数上即可：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">@action(detail=True, methods=['GET'], permission_classes=[permissions.IsAuthenticated])
+<pre class="language-python" data-language="python"><code class="language-python">@action(detail=True, methods=['GET'], permission_classes=[permissions.IsAuthenticated])
 def some_actions(self, request, pk=None):
     dosomething
-    return Response(SomeSerializer(some_data, many=True).data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+    return Response(SomeSerializer(some_data, many=True).data)</code></pre>
 <p>这里提一下装饰器的detail参数，这个代表了是对列表操作还是对单个对象操作，True就是对单个对象。</p>
 <blockquote>
 <p>ApiView和ViewSet同样通过在类字段中加入<code>authentication_classes</code>和<code>permission_classes</code>实现认证和授权。</p>
 </blockquote>
 <h2 id="分页-PAGINATION"><a href="#分页-PAGINATION" class="headerlink" title="分页 PAGINATION"></a>分页 PAGINATION</h2><p>Drf和Django一样自带分页功能，很好用（当然也支持使用第三方的分页功能）。</p>
 <p>首先进行配置（不配置的话使用默认配置），这里我设置每页显示十条记录：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">REST_FRAMEWORK = {
+<pre class="language-text" data-language="text"><code class="language-text">REST_FRAMEWORK = {
     # 设置分页
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}</code></pre>
 <p>使用得最多的<code>ModelViewSet</code>已经自带分页了，这个我们不用操心，不过如果自己定义了action来返回列表数据的话，就没有分页，这时候要用<code>paginate_queryset</code>方法来处理。</p>
 <p>代码如下：</p>
-<pre class="line-numbers language-text" data-language="text"><code class="language-text">@action(detail=False)
+<pre class="language-text" data-language="text"><code class="language-text">@action(detail=False)
 def tag(self, request):
     queryset = SomeModel.objects.all().order_by('-add_time')
     page = self.paginate_queryset(queryset)
     if page is not None:
     	return self.get_paginated_response(self.get_serializer(page, many=True).data)
-    return Response(self.get_serializer(queryset, many=True).data)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    return Response(self.get_serializer(queryset, many=True).data)</code></pre>
 <p>可以看出Drf自动处理了不同页面的请求，不用像Django一样自己从GET或者POST数据里读取page，分页相关的方法直接在viewset对象里面，非常方便。</p>
 <h2 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h2><p>其实就是一个自定义的认证过程。</p>
 <p>Drf内置有<code>BaseThrottle</code>、<code>SimpleRateThrottle</code>，后者是前者的之类。</p>
@@ -144,7 +137,7 @@ def tag(self, request):
 <li><code>SimpleRateThrottle</code>重写<code>get_cache_key</code>和设置<code>scope</code>名称就可以，更简单</li>
 </ul>
 <h3 id="实现1分钟内只能访问3次的限流"><a href="#实现1分钟内只能访问3次的限流" class="headerlink" title="实现1分钟内只能访问3次的限流"></a><strong>实现1分钟内只能访问3次的限流</strong></h3><p><code>SimpleRateThrottle</code>代码如下：</p>
-<pre class="line-numbers language-python3" data-language="python3"><code class="language-python3">from rest_framework.throttling import SimpleRateThrottle
+<pre class="language-python3" data-language="python3"><code class="language-python3">from rest_framework.throttling import SimpleRateThrottle
 
 class VisitThrottle(SimpleRateThrottle):
     '''匿名用户60s只能访问三次（根据ip）'''
@@ -159,10 +152,9 @@ class UserThrottle(SimpleRateThrottle):
     scope = 'userThrottle'    #这里面的值，自己随便定义，settings里面根据这个值配置userThrottle
 
     def get_cache_key(self, request, view):
-        return request.user.user_id<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        return request.user.user_id</code></pre>
 <p><code>BaseThrottle</code> 代码如下：</p>
-<pre class="line-numbers language-python3" data-language="python3"><code class="language-python3">from rest_framework.throttling import BaseThrottle
+<pre class="language-python3" data-language="python3"><code class="language-python3">from rest_framework.throttling import BaseThrottle
 import time
 VISIT_RECORD = {}   #保存访问记录
 
@@ -197,9 +189,8 @@ class VisitThrottle(BaseThrottle):
     def wait(self):
         '''还需要等多久才能访问'''
         ctime = time.time()
-        return 60 - (ctime - self.history[-1])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="配置节流"><a href="#配置节流" class="headerlink" title="配置节流"></a><strong>配置节流</strong></h3><pre class="line-numbers language-text" data-language="text"><code class="language-text">#全局
+        return 60 - (ctime - self.history[-1])</code></pre>
+<h3 id="配置节流"><a href="#配置节流" class="headerlink" title="配置节流"></a><strong>配置节流</strong></h3><pre class="language-text" data-language="text"><code class="language-text">#全局
 REST_FRAMEWORK = {
     # 设置全局节流
     "DEFAULT_THROTTLE_CLASSES":['api.utils.throttle.UserThrottle'],   #全局配置，登录用户节流限制（10/m）
@@ -211,10 +202,9 @@ REST_FRAMEWORK = {
 }
 
 # 局部：在类视图中添加
-throttle_classes = [VisitThrottle,]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+throttle_classes = [VisitThrottle,]</code></pre>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113367282">原文地址</a></p>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/04/07/drf-ji-ben-cao-zuo/" title="DRF基本操作">http://godhearing.cn/2018/04/07/drf-ji-ben-cao-zuo/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/04/26/shu-ju-ku-zi-ding-yi-zi-duan/" rel="prev" title="数据库自定义字段"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">数据库自定义字段</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/04/02/liao-tian-shi/" rel="next" title="聊天室"><span class="post-nav-text">聊天室</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+DRF基本操作">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/04/07/drf-ji-ben-cao-zuo/" title="DRF基本操作">http://godhearing.cn/2018/04/07/drf-ji-ben-cao-zuo/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/04/26/shu-ju-ku-zi-ding-yi-zi-duan/" rel="prev" title="数据库自定义字段"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">数据库自定义字段</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/04/02/liao-tian-shi/" rel="next" title="聊天室"><span class="post-nav-text">聊天室</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+DRF基本操作">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

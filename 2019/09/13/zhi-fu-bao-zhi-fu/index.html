@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>支付宝支付 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>支付宝支付 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 微信与支付宝，国内无现金交易的两个巨头，在我们做项目的过程中，肯定少不了与这两个打交道，但是，涉及到钱的问题，稍微的不谨慎，就会造成不可磨灭的影响，所以，今天带来支付宝支付的攻略  openssl首先，安装一个openssl，地址 选择64位还是32位，看自己电脑 然后，在命令行输入openssl，进入openssl程序，然后分别执行以下命令： genrsa -out rsa_private">
@@ -38,24 +38,21 @@
 <h2 id="openssl"><a href="#openssl" class="headerlink" title="openssl"></a><code>openssl</code></h2><p>首先，安装一个<code>openssl</code>，<a target="_blank" rel="noopener" href="http://slproweb.com/products/Win32OpenSSL.html">地址</a></p>
 <p>选择64位还是32位，看自己电脑</p>
 <p>然后，在命令行输入<code>openssl</code>，进入openssl程序，然后分别执行以下命令：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">genrsa -out rsa_private_key.pem   2048  # 生成私钥
-rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem # 生成公钥<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">genrsa -out rsa_private_key.pem   2048  # 生成私钥
+rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem # 生成公钥</code></pre>
 <blockquote>
 <p>这样就在当前目录生成了两个文件rsa_private_key.pem和rsa_public_key.pem，将这两个秘钥集成到项目中，就可以进行支付宝支付业务的处理了，当然也可以根据阿里提供的支付开放平台来进行生成，具体流程可自行google，并不算难</p>
 </blockquote>
 <p>然后我们后台选择的是<code>django</code>，在Django中集成支付接口的前置操作就是需要安装alipay的sdk，顺便导入加密模块</p>
-<pre class="line-numbers language-none"><code class="language-none">pip install python-alipay-sdk
+<pre class="language-none"><code class="language-none">pip install python-alipay-sdk
 
-pip install Crypto<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+pip install Crypto</code></pre>
 <p>然后将之前生成好的私钥和公钥(<strong>注意这里的公钥指的是支付宝公钥</strong>)，放入到项目目录中，改个名字好区分</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">app_public.txt  # 应用公钥
+<pre class="language-python" data-language="python"><code class="language-python">app_public.txt  # 应用公钥
 app_private.txt # 应用私钥
-alipay_public.txt  # 支付宝公钥<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+alipay_public.txt  # 支付宝公钥</code></pre>
 <p>其中，填写上自己对应的公钥与私钥，格式为：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">alipay_public.txt
+<pre class="language-python" data-language="python"><code class="language-python">alipay_public.txt
 					-----BEGIN PUBLIC KEY----- 
 					密钥
 					-----END PUBLIC KEY-----
@@ -66,18 +63,16 @@ app_public.txt
 app_private.txt
 					-----BEGIN RSA PRIVATE KEY-----
 					密钥
-					-----END RSA PRIVATE KEY-----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+					-----END RSA PRIVATE KEY-----</code></pre>
 <p>然后在settings中配置：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">ALIPAY_PUBLIC = os.path.join(BASE_DIR,'keys','alipay_public.txt')
+<pre class="language-python" data-language="python"><code class="language-python">ALIPAY_PUBLIC = os.path.join(BASE_DIR,'keys','alipay_public.txt')
 APP_PUBLIC = os.path.join(BASE_DIR,'keys','app_public.txt')
-APP_PRIVATE = os.path.join(BASE_DIR,'keys','app_private.txt')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+APP_PRIVATE = os.path.join(BASE_DIR,'keys','app_private.txt')</code></pre>
 <blockquote>
 <p>注意路径</p>
 </blockquote>
 <p>新建个<code>pay.py</code>文件</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">from datetime import datetime
+<pre class="language-python" data-language="python"><code class="language-python">from datetime import datetime
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5
 from Crypto.Hash import SHA256
@@ -219,10 +214,9 @@ class AliPay(object):
 
         return html
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+</code></pre>
 <p>在视图中：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#导入支付基类
+<pre class="language-python" data-language="python"><code class="language-python">#导入支付基类
 from testdjango.settings import BASE_DIR
 from testdjango import settings
 import time
@@ -289,13 +283,12 @@ def alipay_return(request):
     print('==================开始==================')
     print('GET验证', status)
     print('==================结束==================')
-    return HttpResponse('支付成功')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    return HttpResponse('支付成功')</code></pre>
 <p>搞完收工，访问一下的视图即可跳转到支付页面，然后回调这些记得和网页环境一致即可。</p>
 <h2 id="退款"><a href="#退款" class="headerlink" title="退款"></a>退款</h2><blockquote>
 <p>退款业务，也是基于订单号。在之前的<code>pay</code>中已经添加过了，我们只需要增加一个视图即可</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">def refund(request):
+<pre class="language-python" data-language="python"><code class="language-python">def refund(request):
     #实例化支付类
     alipay = get_ali_object()
     #调用退款方法
@@ -307,10 +300,9 @@ def alipay_return(request):
     #回调网址
     notify_url='http://localhost:8000/alipayreturn'
     )
-    return HttpResponse(order_string)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    return HttpResponse(order_string)</code></pre>
 <p>以上就是支付宝与django的操作，感谢观看</p>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2019/09/13/zhi-fu-bao-zhi-fu/" title="支付宝支付">http://godhearing.cn/2019/09/13/zhi-fu-bao-zhi-fu/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2019/11/19/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/" rel="prev" title="vue优化之代码层面的优化"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">vue优化之代码层面的优化</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2019/08/31/yan-zheng-ma-xi-lie/" rel="next" title="验证码系列(邮箱、短信)"><span class="post-nav-text">验证码系列(邮箱、短信)</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+支付宝支付">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2019/09/13/zhi-fu-bao-zhi-fu/" title="支付宝支付">http://godhearing.cn/2019/09/13/zhi-fu-bao-zhi-fu/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2019/11/19/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/" rel="prev" title="vue优化之代码层面的优化"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">vue优化之代码层面的优化</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2019/08/31/yan-zheng-ma-xi-lie/" rel="next" title="验证码系列(邮箱、短信)"><span class="post-nav-text">验证码系列(邮箱、短信)</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+支付宝支付">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>聊天室 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>聊天室 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="最近，在写一个简单的基于websocket和django的聊天室，来分享一下我这个过程  首先是思路，聊天室说起来简单，但实际操作起来完全不是那么回事了，除了简单的连接之外，完全没有一点头绪  把聊天室的功能梳理了一下，然后拆开，分成了前端连接，前端发送，后端连接，实时推送消息，记录保存这五个方面   先来说一说前端连接的问题，其实也就是一个简单的websocket连接，不过是增加了一个断开重连">
@@ -40,7 +40,7 @@
 </blockquote>
 </li>
 <li><p>先来说一说前端连接的问题，其实也就是一个简单的<code>websocket</code>连接，不过是增加了一个断开重连</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">websocketlink</span><span class="token punctuation">(</span><span class="token parameter">uid</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">websocketlink</span><span class="token punctuation">(</span><span class="token parameter">uid</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
       <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'WebSocket'</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span><span class="token punctuation">{</span>
       <span class="token comment">//  生成websocket链接</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'支持'</span><span class="token punctuation">)</span>
@@ -68,8 +68,7 @@
       ws<span class="token punctuation">.</span><span class="token function-variable function">error</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">websocketlink</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-      <span class="token punctuation">{</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+      <span class="token punctuation">{</span></code></pre>
 <blockquote>
 <p>这里，我把连接封装起来，在报错或者关闭时，重新连接</p>
 </blockquote>
@@ -77,7 +76,7 @@
 <li><p>页面操作上，点击按钮，发送消息，这都是简单的请求<code>API</code>接口的操作，这里就不多详述了</p>
 </li>
 <li><p>后端连接，也是一个简单的<code>dwebsocket</code>连接</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">clients = {{
+<pre class="language-python" data-language="python"><code class="language-python">clients = {{
 
 # 链接websocket接口
 @accept_websocket
@@ -92,35 +91,32 @@ def chat_room_websocket(request):
                 # 连接的用户的id
                 uid = message.decode()
                 # 加入到字典中
-                clients[uid] = request.websocket<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+                clients[uid] = request.websocket</code></pre>
 <blockquote>
 <p>和之前一样，定义公共变量，将连接的id和连接对象放进去</p>
 </blockquote>
 </li>
 <li><p>存储，发送消息不难，存储其实也不难，无论是存到mysql还是redis还是文件都可以自行选择，这里，我存的是自己的文件，根据用户的id生成文件，时间戳+消息追加性的存储</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 时间戳，毫秒，为了之后取消息记录，做一下准备
+<pre class="language-python" data-language="python"><code class="language-python"># 时间戳，毫秒，为了之后取消息记录，做一下准备
 t = time.time()
 timestamp1 = int(round(t * 1000))
 # 加个换行，直接存
 s = str(timestamp1)+ ':' + msg + '\n'
 with open('chat_record/%s.txt' % uid, 'a', encoding='utf-8') as f:
-                f.write(s)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+                f.write(s)</code></pre></li>
 <li><p>实时推送消息，如果有人在聊天室发了消息，却看不到，这就非常的伤脑筋，为了实现简单的推送消息，将公共变量中的所有连接，遍历一下，然后发送给所有人</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 遍历所有的连接用户
+<pre class="language-python" data-language="python"><code class="language-python"># 遍历所有的连接用户
 for client in clients:
     # 构造返回数据，需要编一下码
 	message = json.dumps({'username':username,'msg':msg{,ensure_ascii=False)
     # 发送消息
-    clients[client].send(message.encode('utf-8'))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    clients[client].send(message.encode('utf-8'))</code></pre></li>
 <li><p>后端推送，这里我是传了图片，为了更加的人性化。只发文字不发图片的聊天室是没有灵魂的</p>
 <blockquote>
 <p>另外，我做了一个<code>redis</code>限流，这个可以忽略不计</p>
 <p>另外的另外， 因为我前端稀碎， 有些多余的代码可以自行过滤一下</p>
 </blockquote>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">class SendMessage(APIView):
+<pre class="language-python" data-language="python"><code class="language-python">class SendMessage(APIView):
 
     def post(self,request):
         
@@ -171,14 +167,14 @@ for client in clients:
             s = str(timestamp1)+':'+'http://192.168.1.157:8000/static/chat_record/'+str(image.name) + '\n'
             with open('chat_record/%s.txt' % uid, 'a', encoding='utf-8') as f:
                 f.write(s)
-        return Response({'message': 'ok'{)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        return Response({'message': 'ok'{)</code></pre>
 </li>
 <li><p>发送与渲染</p>
 <blockquote>
 <p>判断：indexOf() —&gt;判断是否有某个元素，格式为 <strong>字符串&amp;&amp;字符串.indexOf(‘子串’)</strong></p>
 <p>如果不存在，则返回一个**-1**</p>
 </blockquote>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>a<span class="token operator">-</span>modal v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">'show'</span> @ok<span class="token operator">=</span><span class="token string">"myok"</span><span class="token operator">&gt;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>a<span class="token operator">-</span>modal v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">'show'</span> @ok<span class="token operator">=</span><span class="token string">"myok"</span><span class="token operator">&gt;</span>
           <span class="token operator">&lt;</span>span v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"i in msglist"</span> <span class="token operator">:</span>key<span class="token operator">=</span><span class="token string">"i.username"</span><span class="token operator">&gt;</span>
           <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">'i.msg &amp;&amp; i.msg.indexOf(".jpg")!=-1'</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>i<span class="token punctuation">.</span>username<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">:</span><span class="token operator">&lt;</span>a<span class="token operator">-</span>avatar <span class="token operator">:</span>size<span class="token operator">=</span><span class="token string">"44"</span> <span class="token operator">:</span>src<span class="token operator">=</span>i<span class="token punctuation">.</span>msg style<span class="token operator">=</span><span class="token string">'margin-left: 20px'</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>avatar<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
           <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">else</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>i<span class="token punctuation">.</span>username<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">{</span>i<span class="token punctuation">.</span>msg<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
@@ -203,12 +199,12 @@ for client in clients:
             
           <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">&gt;</span>
           <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>modal<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>modal<span class="token operator">&gt;</span></code></pre>
 
 <p>一个简单的聊天室就做好啦</p>
 </li>
 </ul>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/04/02/liao-tian-shi/" title="聊天室">http://godhearing.cn/2018/04/02/liao-tian-shi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/04/07/drf-ji-ben-cao-zuo/" rel="prev" title="DRF基本操作"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">DRF基本操作</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/02/13/celery/" rel="next" title="Celery"><span class="post-nav-text">Celery</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+聊天室">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/04/02/liao-tian-shi/" title="聊天室">http://godhearing.cn/2018/04/02/liao-tian-shi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/04/07/drf-ji-ben-cao-zuo/" rel="prev" title="DRF基本操作"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">DRF基本操作</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/02/13/celery/" rel="next" title="Celery"><span class="post-nav-text">Celery</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+聊天室">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

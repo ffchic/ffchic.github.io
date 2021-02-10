@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>MobaXterm操作prometheus和grafana搭建监控预警 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>MobaXterm操作prometheus和grafana搭建监控预警 | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 MobalXterm又名MobalXVT，是一款增强型终端，X服务器和Unix命令集工具箱，可以用它来连接服务器  MobaXterm主要功能：  支持各种连接 SSH，X11，RDP，VNC，FTP，MOSH 支持 Unix 命令(bash，ls，cat，sed，grep，awk，rsync，…) 连接 SSH 终端后支持 SFTP 传输文件 各种丰富的插件(git&#x2F;dig&#x2F;aria2…)">
@@ -74,15 +74,14 @@
 <p>文件传输和下载，可以采用直接拖拽的方式，或者采用鼠标右键选择相应功能。</p>
 <p>但是，有一个问题，就是编码，编码问题是一个难以看出的问题，基本上，一些根本找不出错误的代码，一运行就出错，这就有可能是编码的问题，今天我在服务器上修改docker容器内的配置文件，但是由于想偷个懒，在主机上将配置文件拖出来，然后修改完再挂载回去，可是呢，报了一个及其恶心的错误</p>
 </blockquote>
-<pre class="line-numbers language-none"><code class="language-none">level=error ts=2018-12-07T07:16:42.642Z caller=main.go:808 err="error loading config from \"/etc/prometheus/prometheus.yml\": one or more errors occurred while applying the new configuration (--config.file=\"/etc/prometheus/prometheus.yml\")"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">level=error ts=2018-12-07T07:16:42.642Z caller=main.go:808 err="error loading config from \"/etc/prometheus/prometheus.yml\": one or more errors occurred while applying the new configuration (--config.file=\"/etc/prometheus/prometheus.yml\")"</code></pre>
 <p>这个呢，找了很久也没有找到问题，最后灵机一动，是不是编码有问题，然后又转头回来整编码，结果还是没用，没办法，只能使用服务器里唯一的一个神一样的编辑器<strong>VIM</strong>，来进行一个字一个字的敲，最后神奇的是，问题解决了</p>
 <p>虽然呢，编码都是<code>utf8</code>，但是，总有些说不上来的错误，反正呢，乖乖的用内部的<strong>VIM</strong>，一点问题没有。</p>
 <p>还有一点是，在使用MobaXerm中的vim时，在修改文件的时候，经常会遇到<code>readonly option is set （add！to override）</code>这样的错误，解决办法也非常简单，如果是root权限，可以直接<code>:wq!</code>，或者按下ESC，输入<code>set noreadonly</code>，然后就正常保存就可以了</p>
 <p>在服务器上部署，用docker是很方便的，我之前也有过几篇攻略，虽然可能说的很磕磕绊绊，但是还是希望能帮到大家。</p>
 <h2 id="进入正题"><a href="#进入正题" class="headerlink" title="进入正题"></a>进入正题</h2><p><code>Prometheus</code>，是自动化运维领域很常用的软件，它中文名为普罗米修斯，它的作用就是监控告警</p>
 <p>话不多说，路程还长，首先是安装问题，安装呢，我们在MobalXterm的终端中，使用docker来进行安装</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">#升级yum
+<pre class="language-python" data-language="python"><code class="language-python">#升级yum
 sudo yum update
 #卸载旧版本docker
 sudo yum remove docker  docker-common docker-selinux docker-engine
@@ -94,39 +93,32 @@ sudo yum makecache fast
 #安装docker
 sudo yum install docker-ce
 #启动服务
-sudo systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+sudo systemctl start docker</code></pre>
 <p>安装成功后查看版本:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">docker -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">docker -v</code></pre>
 <p>显示版本号即为成功</p>
 <p>然后可以换国内源来提升下载速度</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">1.先执行
+<pre class="language-python" data-language="python"><code class="language-python">1.先执行
 sudo vim /etc/docker/daemon.json
 
 2.添加如下代码
 {
     "registry-mirrors": ["https://d7grpode.mirror.aliyuncs.com"]
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+}</code></pre>
 <p>重启docker</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">sudo systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">sudo systemctl restart docker</code></pre>
 <p>随后拉取普罗米修斯的镜像</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">docker pull prom/prometheus:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">docker pull prom/prometheus:latest</code></pre>
 <p>这里我们以监控Redis数据库为例子，所以还需要拉取redis和redis状态收集器两个镜像：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">docker pull redis
-docker pull oliver006/redis_exporter:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">docker pull redis
+docker pull oliver006/redis_exporter:latest</code></pre>
 <p>然后启动一下</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">docker run -d --name redis -p 6379:6379 redis
+<pre class="language-python" data-language="python"><code class="language-python">docker run -d --name redis -p 6379:6379 redis
 
     
-docker run -d --name redis_exporter -p 9121:9121 oliver006/redis_exporter:latest --redis.addr redis://公网ip:6379<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+docker run -d --name redis_exporter -p 9121:9121 oliver006/redis_exporter:latest --redis.addr redis://公网ip:6379</code></pre>
 <p>随后创建普罗米修斯的配置文件</p>
-<pre class="line-numbers language-none"><code class="language-none"># 执行这条命令
+<pre class="language-none"><code class="language-none"># 执行这条命令
 vim /tmp/prometheus.yml
 
 # 加入下面代码
@@ -143,11 +135,9 @@ scrape_configs:
 
     static_configs:
 
-      - targets: ['公网ip:9121']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+      - targets: ['公网ip:9121']</code></pre>
 <p>这里每隔5秒获取一下运行的信息，然后启动</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-python" data-language="python"><code class="language-python">docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest</code></pre>
 <p>然后可以访问一下<code>http://公网ip:9090/targets</code></p>
 <p>然后，我们新创建一个机器人</p>
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207190120623.png" alt="" style="zoom:50%;" loading="lazy">
@@ -158,7 +148,7 @@ scrape_configs:
 <p>然后再拉取一个告警模块以及顶顶机器人的插件</p>
 <p>如果普罗米修斯的告警模块检测到异常，就会通过钉钉机器人的webhook的地址发送消息</p>
 <p>编写告警配置文件</p>
-<pre class="line-numbers language-none"><code class="language-none">global:
+<pre class="language-none"><code class="language-none">global:
   resolve_timeout: 5m
 route:
   receiver: webhook
@@ -173,10 +163,9 @@ receivers:
 - name: webhook
   webhook_configs:
   - url: http://公网ip:8060/dingtalk/webhook1/send
-    send_resolved: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    send_resolved: true</code></pre>
 <p>编写警告规则</p>
-<pre class="line-numbers language-none"><code class="language-none"># 运行这条命令
+<pre class="language-none"><code class="language-none"># 运行这条命令
 vim /tmp/redis.rules
 
 # 添加代码
@@ -190,10 +179,9 @@ groups:
       severity: 1
       team: node
     annotations:
-      summary: "Redis服务在您的帮助下已经成功死机，老板限你一小时之内把它救回来。"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+      summary: "Redis服务在您的帮助下已经成功死机，老板限你一小时之内把它救回来。"</code></pre>
 <p>修改普罗米修斯的配置文件，将告警设置配置好</p>
-<pre class="line-numbers language-none"><code class="language-none"># 执行这条命令
+<pre class="language-none"><code class="language-none"># 执行这条命令
 vim /tmp/prometheus.yml
 
 # 追加这些代码
@@ -204,23 +192,18 @@ alerting:
       - 公网ip:9093
 
 rule_files:
-  - "/etc/prometheus/redis.rules"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+  - "/etc/prometheus/redis.rules"</code></pre>
 <p>重启普罗米修斯服务，我们需要再次挂载一个redis.rules。</p>
-<pre class="line-numbers language-none"><code class="language-none">docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml -v /tmp/redis.rules:/etc/prometheus/redis.rules  prom/prometheus:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml -v /tmp/redis.rules:/etc/prometheus/redis.rules  prom/prometheus:latest</code></pre>
 <p>启动告警模块</p>
-<pre class="line-numbers language-none"><code class="language-none">docker run -d --name alertmanager -p 9093:9093 -v /tmp/alertmanager.yml:/etc/alertmanager/alertmanager.yml prom/alertmanager:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">docker run -d --name alertmanager -p 9093:9093 -v /tmp/alertmanager.yml:/etc/alertmanager/alertmanager.yml prom/alertmanager:latest</code></pre>
 <p>启动钉钉插件</p>
-<pre class="line-numbers language-none"><code class="language-none">docker run -d -p 8060:8060 --name webhook timonwong/prometheus-webhook-dingtalk --ding.profile="webhook1=https://oapi.dingtalk.com/robot/send?access_token=钉钉token"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">docker run -d -p 8060:8060 --name webhook timonwong/prometheus-webhook-dingtalk --ding.profile="webhook1=https://oapi.dingtalk.com/robot/send?access_token=钉钉token"</code></pre>
 <p>然后访问一下<code>http://公网ip:9090/rules</code></p>
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/MobaXterm操作prometheus和grafana搭建监控预警\image-20201207192642565.png" alt="" style="zoom:80%;" loading="lazy">
 
 <p>然后我们关闭<code>redis_exporter</code>，来模拟redis宕机</p>
-<pre class="line-numbers language-none"><code class="language-none">docker stop redis_exporter<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">docker stop redis_exporter</code></pre>
 <p>普罗米修斯的监控立刻就发现了问题</p>
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207192944667.png" alt="" style="zoom:67%;" loading="lazy">
 
@@ -230,11 +213,9 @@ rule_files:
 <p>ok，完毕</p>
 <h2 id="Grafana可视化界面"><a href="#Grafana可视化界面" class="headerlink" title="Grafana可视化界面"></a>Grafana可视化界面</h2><p>这是一个很酷炫的可视化界面，可以将我们的监控界面导入到里面，隔壁小孩崇拜的很</p>
 <p>首先拉取镜像：</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo docker pull grafana/grafana<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">sudo docker pull grafana/grafana</code></pre>
 <p>然后启动</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo docker run -d -p 3000:3000 --name grafana grafana/grafana<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">sudo docker run -d -p 3000:3000 --name grafana grafana/grafana</code></pre>
 <ul>
 <li>登录<code>http://公网ip:3000</code></li>
 <li>默认账号和密码都是admin</li>
@@ -249,7 +230,7 @@ rule_files:
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207195444512.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>ok完美，莫得问题</p>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/" title="MobaXterm操作prometheus和grafana搭建监控预警">http://godhearing.cn/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/12/20/bigchaindb-an-zhuang/" rel="prev" title="bigchaindb安装"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">bigchaindb安装</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/04/13/postgrelsql/" rel="next" title="PostgrelSQL"><span class="post-nav-text">PostgrelSQL</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+MobaXterm操作prometheus和grafana搭建监控预警">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/" title="MobaXterm操作prometheus和grafana搭建监控预警">http://godhearing.cn/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/12/20/bigchaindb-an-zhuang/" rel="prev" title="bigchaindb安装"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">bigchaindb安装</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/04/13/postgrelsql/" rel="next" title="PostgrelSQL"><span class="post-nav-text">PostgrelSQL</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+MobaXterm操作prometheus和grafana搭建监控预警">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

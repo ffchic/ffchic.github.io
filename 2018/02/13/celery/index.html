@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.2.0"><meta name="theme" content="hexo-theme-yun"><title>Celery | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4e72b8"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.3.0"><meta name="theme" content="hexo-theme-yun"><title>Celery | 天听のblog</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
   [".post-card",".post-content img"].forEach((target)=> {
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="介绍：1.1 celery应用举例 Celery 是一个 基于python开发的分布式异步消息任务队列，通过它可以轻松的实现任务的异步处理，如果你的业务场景中需要用到异步任务，就可以考虑使用celery  你想对100台机器执行一条批量命令，可能会花很长时间 ，但你不想让你的程序等着结果返回，而是给你返回 一个任务ID,你过一段时间只需要拿着这个任务id就可以拿到任务执行结果， 在任务执行ing进">
@@ -77,9 +77,8 @@
 <li><code>librabbitmp : </code>C 语言实现的 Python 客户端</li>
 <li><code>kombu :</code> Celery 自带的用来收发消息的库, 提供了符合 Python 语言习惯的, 使用 AMQP 协议的高级借口.</li>
 </ul>
-<h2 id="配置Celery"><a href="#配置Celery" class="headerlink" title="配置Celery"></a>配置Celery</h2><h3 id="安装celery"><a href="#安装celery" class="headerlink" title="安装celery"></a>安装celery</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">pip install celery @ https://github.com/celery/celery/tarball/master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="新建celery-main-py配置celery"><a href="#新建celery-main-py配置celery" class="headerlink" title="新建celery/main.py配置celery"></a>新建<code>celery/main.py</code>配置celery</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># celery_task/main.py
+<h2 id="配置Celery"><a href="#配置Celery" class="headerlink" title="配置Celery"></a>配置Celery</h2><h3 id="安装celery"><a href="#安装celery" class="headerlink" title="安装celery"></a>安装celery</h3><pre class="language-python" data-language="python"><code class="language-python">pip install celery @ https://github.com/celery/celery/tarball/master</code></pre>
+<h3 id="新建celery-main-py配置celery"><a href="#新建celery-main-py配置celery" class="headerlink" title="新建celery/main.py配置celery"></a>新建<code>celery/main.py</code>配置celery</h3><pre class="language-python" data-language="python"><code class="language-python"># celery_task/main.py
 import os
 from celery import Celery
 
@@ -91,16 +90,14 @@ app = Celery('mycelery',
 
 @app.task
 def add(x, y):
-    return x + y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="启动celery"><a href="#启动celery" class="headerlink" title="启动celery"></a>启动celery</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''1.启动celery'''
+    return x + y</code></pre>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="启动celery"><a href="#启动celery" class="headerlink" title="启动celery"></a>启动celery</h3><pre class="language-python" data-language="python"><code class="language-python">'''1.启动celery'''
 #1.1 单进程启动celery
 celery -A main worker -l INFO
 #1.2 celery管理
 celery multi start celery_test -A celery_test -l debug --autoscale=50,5        # celery并发数：最多50个，最少5个
-ps auxww|grep "celery worker"|grep -v grep|awk '{print $2{'|xargs kill -9       # 关闭所有celery进程<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="1-使用celery异步发送短信"><a href="#1-使用celery异步发送短信" class="headerlink" title="1.使用celery异步发送短信"></a>1.使用celery异步发送短信</h2><h3 id="1-1-在celery-task-mian-py中添加发送短信函数"><a href="#1-1-在celery-task-mian-py中添加发送短信函数" class="headerlink" title="1.1 在celery_task/mian.py中添加发送短信函数"></a>1.1 在<code>celery_task/mian.py</code>中添加发送短信函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># celery项目中的所有导包地址, 都是以CELERY_BASE_DIR为基准设定.
+ps auxww|grep "celery worker"|grep -v grep|awk '{print $2{'|xargs kill -9       # 关闭所有celery进程</code></pre>
+<h2 id="1-使用celery异步发送短信"><a href="#1-使用celery异步发送短信" class="headerlink" title="1.使用celery异步发送短信"></a>1.使用celery异步发送短信</h2><h3 id="1-1-在celery-task-mian-py中添加发送短信函数"><a href="#1-1-在celery-task-mian-py中添加发送短信函数" class="headerlink" title="1.1 在celery_task/mian.py中添加发送短信函数"></a>1.1 在<code>celery_task/mian.py</code>中添加发送短信函数</h3><pre class="language-python" data-language="python"><code class="language-python"># celery项目中的所有导包地址, 都是以CELERY_BASE_DIR为基准设定.
 # 执行celery命令时, 也需要进入CELERY_BASE_DIR目录执行.
 CELERY_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -119,9 +116,8 @@ def send_sms_code(self, mobile, datas):
 
     if res == '-1':
         # 如果发送结果是 -1  就重试.
-        self.retry(countdown=5, max_retries=3, exc=Exception('短信发送失败'))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="1-2-在verifications-views-py中添加celery发送短信视图函数"><a href="#1-2-在verifications-views-py中添加celery发送短信视图函数" class="headerlink" title="1.2 在verifications/views.py中添加celery发送短信视图函数"></a>1.2 在<code>verifications/views.py</code>中添加celery发送短信视图函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">class SmsCodeView(APIView):
+        self.retry(countdown=5, max_retries=3, exc=Exception('短信发送失败'))</code></pre>
+<h3 id="1-2-在verifications-views-py中添加celery发送短信视图函数"><a href="#1-2-在verifications-views-py中添加celery发送短信视图函数" class="headerlink" title="1.2 在verifications/views.py中添加celery发送短信视图函数"></a>1.2 在<code>verifications/views.py</code>中添加celery发送短信视图函数</h3><pre class="language-python" data-language="python"><code class="language-python">class SmsCodeView(APIView):
     """使用apiview的限流"""
     # 1. 所有人可以访问
     permission_classes = (AllowAny,)
@@ -171,33 +167,28 @@ def send_sms_code(self, mobile, datas):
         pl.execute()
 
         # 6. 返回结果
-        return Response({"code": 0, "msg": "短信发送成功"{)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        return Response({"code": 0, "msg": "短信发送成功"{)</code></pre>
 
 
-
-<h3 id="1-3-添加路由"><a href="#1-3-添加路由" class="headerlink" title="1.3 添加路由"></a>1.3 添加路由</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urlpatterns = [
+<h3 id="1-3-添加路由"><a href="#1-3-添加路由" class="headerlink" title="1.3 添加路由"></a>1.3 添加路由</h3><pre class="language-python" data-language="python"><code class="language-python">urlpatterns = [
     path('sms_codes/', views.SmsCodeView.as_view()),
-]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+]</code></pre>
 <h2 id="2-测试接口"><a href="#2-测试接口" class="headerlink" title="2.测试接口"></a>2.测试接口</h2><ul>
 <li>接口URL</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">http://192.168.56.100:8888/user/sms_codes/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre class="language-none"><code class="language-none">http://192.168.56.100:8888/user/sms_codes/</code></pre>
 <ul>
 <li>请求携带参数</li>
 </ul>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">{
+<pre class="language-python" data-language="python"><code class="language-python">{
     "phone": 18538752511,
     "image_code":"aed3",                                         # 前端生成的 图形验证码
     "image_code_uuid":"de8edce2-fc9f-11ea-9325-005056c00008"     # 前端生成的uuid
-{<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="django添加检查用户名和手机号数量接口"><a href="#django添加检查用户名和手机号数量接口" class="headerlink" title="django添加检查用户名和手机号数量接口"></a>django添加检查用户名和手机号数量接口</h2><h3 id="1-1-在user-urls-py中添加"><a href="#1-1-在user-urls-py中添加" class="headerlink" title="1.1 在user/urls.py中添加"></a>1.1 在<code>user/urls.py</code>中添加</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">urlpatterns = [
+{</code></pre>
+<h2 id="django添加检查用户名和手机号数量接口"><a href="#django添加检查用户名和手机号数量接口" class="headerlink" title="django添加检查用户名和手机号数量接口"></a>django添加检查用户名和手机号数量接口</h2><h3 id="1-1-在user-urls-py中添加"><a href="#1-1-在user-urls-py中添加" class="headerlink" title="1.1 在user/urls.py中添加"></a>1.1 在<code>user/urls.py</code>中添加</h3><pre class="language-python" data-language="python"><code class="language-python">urlpatterns = [
     path('count/', views.RegCountView.as_view()),  # 查询用户名手机号使用量的视图,  /user/count/
-]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="1-2-在user-views-py中添加视图函数"><a href="#1-2-在user-views-py中添加视图函数" class="headerlink" title="1.2 在user/views.py中添加视图函数"></a>1.2 在<code>user/views.py</code>中添加视图函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 查询用户数量接口
+]</code></pre>
+<h3 id="1-2-在user-views-py中添加视图函数"><a href="#1-2-在user-views-py中添加视图函数" class="headerlink" title="1.2 在user/views.py中添加视图函数"></a>1.2 在<code>user/views.py</code>中添加视图函数</h3><pre class="language-python" data-language="python"><code class="language-python"># 查询用户数量接口
 class RegCountView(APIView):
     # 注册时需要验证的用户名和手机号是否使用
 
@@ -215,14 +206,12 @@ class RegCountView(APIView):
         if datatype == 'phone':
             count = User.objects.filter(phone=data).count()
 
-        return Response({'code': 0, 'msg': '查询成功', 'data': {'type': datatype, 'count': count{{)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+        return Response({'code': 0, 'msg': '查询成功', 'data': {'type': datatype, 'count': count{{)</code></pre>
 <h2 id="测试接口"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口</h2><ul>
 <li>测试接口URL</li>
 </ul>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">192.168</span><span class="token number">.56</span><span class="token number">.100</span><span class="token operator">:</span><span class="token number">8888</span><span class="token operator">/</span>user<span class="token operator">/</span>count<span class="token operator">/</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="完善注册接口"><a href="#完善注册接口" class="headerlink" title="完善注册接口"></a>完善注册接口</h2><h3 id="修改user-views-py中完善视图函数"><a href="#修改user-views-py中完善视图函数" class="headerlink" title="修改user/views.py中完善视图函数"></a>修改<code>user/views.py</code>中完善视图函数</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"># 注册接口
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token number">192.168</span><span class="token number">.56</span><span class="token number">.100</span><span class="token operator">:</span><span class="token number">8888</span><span class="token operator">/</span>user<span class="token operator">/</span>count<span class="token operator">/</span></code></pre>
+<h2 id="完善注册接口"><a href="#完善注册接口" class="headerlink" title="完善注册接口"></a>完善注册接口</h2><h3 id="修改user-views-py中完善视图函数"><a href="#修改user-views-py中完善视图函数" class="headerlink" title="修改user/views.py中完善视图函数"></a>修改<code>user/views.py</code>中完善视图函数</h3><pre class="language-python" data-language="python"><code class="language-python"># 注册接口
 class RegisterView(APIView):
     """
     用户注册, 权限是: 匿名用户可访问
@@ -268,11 +257,10 @@ class RegisterView(APIView):
         user.set_password(passwrod)
         user.save()
 
-        return Response({'code': 0, 'msg': '注册成功'{)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        return Response({'code': 0, 'msg': '注册成功'{)</code></pre>
 
 
-
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/02/13/celery/" title="Celery">http://godhearing.cn/2018/02/13/celery/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/04/02/liao-tian-shi/" rel="prev" title="聊天室"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">聊天室</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/" rel="next" title="Python的垃圾回收机制"><span class="post-nav-text">Python的垃圾回收机制</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+Celery">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.2.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/02/13/celery/" title="Celery">http://godhearing.cn/2018/02/13/celery/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/04/02/liao-tian-shi/" rel="prev" title="聊天室"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">聊天室</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/" rel="next" title="Python的垃圾回收机制"><span class="post-nav-text">Python的垃圾回收机制</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+Celery">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();
