@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux下安装mysqlclient</title>
+      <link href="2021/02/25/linux-xia-an-zhuang-mysqlclient/"/>
+      <url>2021/02/25/linux-xia-an-zhuang-mysqlclient/</url>
+      
+        <content type="html"><![CDATA[<p>在 <code>Linux</code> 下安装 <code>mysqlclient</code>，如果是选择直接安装的话，一般会报如下错误</p><pre class="language-python" data-language="python"><code class="language-python">(djenv) handsome@fzq:~$ pip install mysqlclient -i https://pypi.doubanio.com/simple/Looking in indexes: https://pypi.doubanio.com/simple/Collecting mysqlclient  Downloading https://pypi.doubanio.com/packages/ec/fd/83329b9d3e14f7344d1cb31f128e6dbba70c5975c9e57896815dbb1988ad/mysqlclient-1.3.13.tar.gz (90kB)    100% |████████████████████████████████| 92kB 2.1MB/s     Complete output from command python setup.py egg_info:    /bin/sh: 1: mysql_config: not found    Traceback (most recent call last):      File "&lt;string&gt;", line 1, in &lt;module&gt;      File "/tmp/pip-install-y16_5477/mysqlclient/setup.py", line 18, in &lt;module&gt;        metadata, options = get_config()      File "/tmp/pip-install-y16_5477/mysqlclient/setup_posix.py", line 53, in get_config        libs = mysql_config("libs_r")      File "/tmp/pip-install-y16_5477/mysqlclient/setup_posix.py", line 28, in mysql_config        raise EnvironmentError("%s not found" % (mysql_config.path,))    OSError: mysql_config not found        ----------------------------------------Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-install-y16_5477/mysqlclient/</code></pre><p>解答方案， 一般来说安装一个依赖即可</p><pre class="language-python" data-language="python"><code class="language-python">(djenv) handsome@fzq:~$ sudo apt install libmysqlclient-dev</code></pre><p>安装完依赖之后，再次执行<code>pip install mysqlclient -i https://pypi.doubanio.com/simple/</code> 即可成功安装</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> mysql </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mysql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>扫描普通链接进入微信小程序</title>
       <link href="2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/"/>
       <url>2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/</url>
@@ -798,9 +823,9 @@
             
             <tag> python </tag>
             
-            <tag> WebHook </tag>
-            
             <tag> mysql </tag>
+            
+            <tag> WebHook </tag>
             
         </tags>
       
@@ -958,11 +983,11 @@
       
         <tags>
             
+            <tag> 设计模式 </tag>
+            
             <tag> python </tag>
             
             <tag> Django </tag>
-            
-            <tag> 设计模式 </tag>
             
         </tags>
       
@@ -987,11 +1012,11 @@
       
         <tags>
             
+            <tag> 设计模式 </tag>
+            
             <tag> python </tag>
             
             <tag> Django </tag>
-            
-            <tag> 设计模式 </tag>
             
         </tags>
       
@@ -1234,11 +1259,11 @@
       
         <tags>
             
+            <tag> 设计模式 </tag>
+            
             <tag> python </tag>
             
             <tag> Django </tag>
-            
-            <tag> 设计模式 </tag>
             
         </tags>
       

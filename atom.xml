@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-02-20T05:43:03.611Z</updated>
+  <updated>2021-02-25T08:43:38.871Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux下安装mysqlclient</title>
+    <link href="http://godhearing.cn/2021/02/25/linux-xia-an-zhuang-mysqlclient/"/>
+    <id>http://godhearing.cn/2021/02/25/linux-xia-an-zhuang-mysqlclient/</id>
+    <published>2021-02-25T08:43:56.732Z</published>
+    <updated>2021-02-25T08:43:38.871Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 下安装 &lt;code&gt;mysqlclient&lt;/code&gt;，如果是选择直接安装的话，一般会报如下错误&lt;/p&gt;
+&lt;pre class=&quot;language-python&quot; data-language=&quot;python&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="mysql" scheme="http://godhearing.cn/categories/mysql/"/>
+    
+    
+    <category term="mysql" scheme="http://godhearing.cn/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>扫描普通链接进入微信小程序</title>
@@ -497,31 +523,6 @@
         
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;接上节，较长，请耐心观看&lt;/p&gt;
 &lt;h3 id=&quot;低声下气不能代替你的功课&quot;&gt;&lt;a href=&quot;#低声下气不能代替你的功课&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Book" scheme="http://godhearing.cn/categories/Book/"/>
-    
-    
-    <category term="Book" scheme="http://godhearing.cn/tags/Book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>提问的智慧(上)</title>
-    <link href="http://godhearing.cn/2021/01/13/ti-wen-de-zhi-hui-shang/"/>
-    <id>http://godhearing.cn/2021/01/13/ti-wen-de-zhi-hui-shang/</id>
-    <published>2021-01-13T10:41:00.000Z</published>
-    <updated>2021-01-13T10:44:50.860Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在&lt;a</summary>
         
       
     
