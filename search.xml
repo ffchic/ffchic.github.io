@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>python发送阿里云短信</title>
+      <link href="2021/02/26/python-fa-song-a-li-yun-duan-xin/"/>
+      <url>2021/02/26/python-fa-song-a-li-yun-duan-xin/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>在当今这个网络如此发达的时代，手机已经成为了必不可少的随身物品，而，普通的单因子登录已经不是百分百安全的了，很容易被暴力破解，所以，双因子、三因子这些认证方式，已经从“你有什么”，变成了“你是谁”，从而让账户变得更加的安全，所以，短信验证码已经成为了必不可少的东西，今天，带来阿里云+python来发送短信。</p></blockquote><h2 id="1-注册阿里云"><a href="#1-注册阿里云" class="headerlink" title="1.注册阿里云"></a>1.注册阿里云</h2><blockquote><p>注册步骤很简单，地址：<a href="https://homenew.console.aliyun.com/">在这里</a>，需要注意的是，发送短信只有实名认证的用户才能够使用，<a href="https://help.aliyun.com/knowledge_detail/37171.html?spm=a2c4g.11186623.2.20.2c273ea59ImPQC">参考这里</a></p></blockquote><h2 id="2-创建AccessKey和Access-Key-Secret"><a href="#2-创建AccessKey和Access-Key-Secret" class="headerlink" title="2.创建AccessKey和Access Key Secret"></a>2.创建AccessKey和Access Key Secret</h2><img src="/2021/02/26/python-fa-song-a-li-yun-duan-xin/image-20210226112308451.png" alt="" style="zoom:67%;" loading="lazy"><h2 id="3-获取签名名称和模板code"><a href="#3-获取签名名称和模板code" class="headerlink" title="3.获取签名名称和模板code"></a>3.获取签名名称和模板code</h2><img src="/2021/02/26/python-fa-song-a-li-yun-duan-xin/image-20210226112434500.png" alt="" style="zoom:50%;" loading="lazy"><h2 id="4-安装依赖"><a href="#4-安装依赖" class="headerlink" title="4.安装依赖"></a>4.安装依赖</h2><p>1.安装pythonsdk</p><pre class="language-python" data-language="python"><code class="language-python"># 安装阿里云的相关依赖# python2执行此命令pip install aliyun-python-sdk-core# python3执行此命令pip install aliyun-python-sdk-core-v3</code></pre><p>2.安装SDK</p><p>下载地址在<a href="http://ytx-sdk.oss-cn-shanghai.aliyuncs.com/dysms_python.zip?spm=a2c4g.11186623.2.9.10476220dsQLEd&amp;file=dysms_python.zip">这里</a>，解压之后，进入根目录执行命令： python setup.py install #如果为python3，请执行：python3 setup.py install</p><p>3.安装api依赖</p><p><code> pip install aliyun-python-sdk-kms</code></p><p><code>pip install aliyun-python-sdk-dysmsapi</code></p><h2 id="5-写一个工具函数"><a href="#5-写一个工具函数" class="headerlink" title="5.写一个工具函数"></a>5.写一个工具函数</h2><pre class="language-python" data-language="python"><code class="language-python">from aliyunsdkcore.client import AcsClientfrom aliyunsdkcore.request import CommonRequest# 用户AccessKeyACCESS_KEY_ID = ""# Access Key SecretACCESS_KEY_SECRET = ""class SMS:    def __init__(self,signName,templateCode):        self.signName = signName        self.templateCode = templateCode        self.client = client = AcsClient(ACCESS_KEY_ID,ACCESS_KEY_SECRET,'cn-hangzhou')    def send(self, phone_numbers, template_param):        request = CommonRequest()        request.set_accept_format('json')        request.set_domain('dysmsapi.aliyuncs.com')        request.set_method('POST')        request.set_protocol_type('https')  # https | http        request.set_version('2017-05-25')        request.set_action_name('SendSms')        request.add_query_param('RegionId', "cn-hangzhou")        request.add_query_param('PhoneNumbers', phone_numbers)        request.add_query_param('SignName', self.signName)        request.add_query_param('TemplateCode', self.templateCode)        request.add_query_param('TemplateParam', template_param)        response = self.client.do_action_with_exception(request)        return response</code></pre><h2 id="6-调用此函数"><a href="#6-调用此函数" class="headerlink" title="6.调用此函数"></a>6.调用此函数</h2><pre class="language-python" data-language="python"><code class="language-python">from random import randintclass Aliyun_Sms(APIView):    def get(self,request):        # 生成验证码        params = "{'code':%d}"%(randint(1000,100000))        para = request.GET.get('phone_numbers')        sms = SMS("模板名称","模版CODE")res = sms.send(phone,params)        return HttpResponse(res)</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux下安装mysqlclient</title>
       <link href="2021/02/25/linux-xia-an-zhuang-mysqlclient/"/>
       <url>2021/02/25/linux-xia-an-zhuang-mysqlclient/</url>
@@ -664,31 +689,6 @@
             <tag> python </tag>
             
             <tag> bigchaindb </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>阿里云python发送短信</title>
-      <link href="2020/12/18/a-li-yun-python-fa-song-duan-xin/"/>
-      <url>2020/12/18/a-li-yun-python-fa-song-duan-xin/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>在当今这个网络如此发达的时代，手机已经成为了必不可少的随身物品，而，普通的单因子登录已经不是百分百安全的了，很容易被暴力破解，所以，双因子、三因子这些认证方式，已经从“你有什么”，变成了“你是谁”，从而让账户变得更加的安全，所以，短信验证码已经成为了必不可少的东西，今天，带来阿里云+python来发送短信。</p></blockquote><h2 id="1-注册阿里云"><a href="#1-注册阿里云" class="headerlink" title="1.注册阿里云"></a>1.注册阿里云</h2><blockquote><p>注册步骤很简单，地址：<a href="https://homenew.console.aliyun.com/">在这里</a>，需要注意的是，发送短信只有实名认证的用户才能够使用，<a href="https://help.aliyun.com/knowledge_detail/37171.html?spm=a2c4g.11186623.2.20.2c273ea59ImPQC">参考这里</a></p></blockquote><h2 id="2-创建AccessKey和Access-Key-Secret"><a href="#2-创建AccessKey和Access-Key-Secret" class="headerlink" title="2.创建AccessKey和Access Key Secret"></a>2.创建AccessKey和Access Key Secret</h2><img src="/2020/12/18/a-li-yun-python-fa-song-duan-xin/image-20210226112308451.png" alt="" style="zoom:67%;" loading="lazy"><h2 id="3-获取签名名称和模板code"><a href="#3-获取签名名称和模板code" class="headerlink" title="3.获取签名名称和模板code"></a>3.获取签名名称和模板code</h2><img src="/2020/12/18/a-li-yun-python-fa-song-duan-xin/image-20210226112434500.png" alt="" style="zoom:50%;" loading="lazy"><h2 id="4-安装依赖"><a href="#4-安装依赖" class="headerlink" title="4.安装依赖"></a>4.安装依赖</h2><p>1.安装pythonsdk</p><pre class="language-python" data-language="python"><code class="language-python"># 安装阿里云的相关依赖# python2执行此命令pip install aliyun-python-sdk-core# python3执行此命令pip install aliyun-python-sdk-core-v3</code></pre><p>2.安装SDK</p><p>下载地址在<a href="http://ytx-sdk.oss-cn-shanghai.aliyuncs.com/dysms_python.zip?spm=a2c4g.11186623.2.9.10476220dsQLEd&amp;file=dysms_python.zip">这里</a>，解压之后，进入根目录执行命令： python setup.py install #如果为python3，请执行：python3 setup.py install</p><p>3.安装api依赖</p><p><code> pip install aliyun-python-sdk-kms</code></p><p><code>pip install aliyun-python-sdk-dysmsapi</code></p><h2 id="5-写一个工具函数"><a href="#5-写一个工具函数" class="headerlink" title="5.写一个工具函数"></a>5.写一个工具函数</h2><pre class="language-python" data-language="python"><code class="language-python">from aliyunsdkcore.client import AcsClientfrom aliyunsdkcore.request import CommonRequest# 用户AccessKeyACCESS_KEY_ID = ""# Access Key SecretACCESS_KEY_SECRET = ""class SMS:    def __init__(self,signName,templateCode):        self.signName = signName        self.templateCode = templateCode        self.client = client = AcsClient(ACCESS_KEY_ID,ACCESS_KEY_SECRET,'cn-hangzhou')    def send(self, phone_numbers, template_param):        request = CommonRequest()        request.set_accept_format('json')        request.set_domain('dysmsapi.aliyuncs.com')        request.set_method('POST')        request.set_protocol_type('https')  # https | http        request.set_version('2017-05-25')        request.set_action_name('SendSms')        request.add_query_param('RegionId', "cn-hangzhou")        request.add_query_param('PhoneNumbers', phone_numbers)        request.add_query_param('SignName', self.signName)        request.add_query_param('TemplateCode', self.templateCode)        request.add_query_param('TemplateParam', template_param)        response = self.client.do_action_with_exception(request)        return response</code></pre><h2 id="6-调用此函数"><a href="#6-调用此函数" class="headerlink" title="6.调用此函数"></a>6.调用此函数</h2><pre class="language-python" data-language="python"><code class="language-python">from random import randintclass Aliyun_Sms(APIView):    def get(self,request):        # 生成验证码        params = "{'code':%d}"%(randint(1000,100000))        para = request.GET.get('phone_numbers')        sms = SMS("模板名称","模版CODE")res = sms.send(phone,params)        return HttpResponse(res)</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
             
         </tags>
       
