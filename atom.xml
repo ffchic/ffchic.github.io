@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-03-02T07:12:44.290Z</updated>
+  <updated>2021-03-03T10:34:30.089Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FastAPI学习之路-4  依赖注入</title>
+    <link href="http://godhearing.cn/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/"/>
+    <id>http://godhearing.cn/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/</id>
+    <published>2021-03-03T10:33:36.897Z</published>
+    <updated>2021-03-03T10:34:30.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/categories/FastAPI/"/>
+    
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
+    
+  </entry>
   
   <entry>
     <title>Elasticsearch详解</title>
@@ -507,34 +532,6 @@
     
     
     <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序授权登录</title>
-    <link href="http://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/"/>
-    <id>http://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/</id>
-    <published>2021-01-15T05:31:16.890Z</published>
-    <updated>2021-01-16T14:17:18.495Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;在开发小程序的过程中，</summary>
-        
-      
-    
-    
-    
-    <category term="微信小程序" scheme="http://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-    <category term="微信小程序" scheme="http://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
