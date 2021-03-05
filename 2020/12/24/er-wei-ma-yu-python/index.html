@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -615,12 +615,12 @@ img = qrcode.make(data="昊烨向你问好")
 with open('test.png', 'wb') as f:
     img.save(f)</code></pre>
 <p>运行一下代码，就可以看到生成了一张<code>test.png</code>的图片：</p>
-<img src="/2020/12/24/er-wei-ma-yu-python/image-20201224171159835.png" alt="" style="zoom:50%;">
+<img src="/2020/12/24/er-wei-ma-yu-python/image-20201224171159835.png" alt style="zoom:50%;">
 
 <blockquote>
 <p>当然你不仅仅能放文本在里面，你还能让它跳转链接，你只需要把data里的数据改为url即可。</p>
 </blockquote>
-<img src="/2020/12/24/er-wei-ma-yu-python/image-20201224171310611.png" alt="" style="zoom:50%;">
+<img src="/2020/12/24/er-wei-ma-yu-python/image-20201224171310611.png" alt style="zoom:50%;">
 
 <h3 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a><strong>高级使用</strong></h3><p>除了简单生成二维码外，我们还能够自定义一些属性。</p>
 <pre class="language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> qrcode

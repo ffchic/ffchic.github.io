@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -635,11 +635,11 @@
 <pre class="language-python" data-language="python"><code class="language-python">import snowflake.client
 print(snowflake.client.get_guid())
 # 多次输出一下，就会发现，有递增的连续性</code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221520785.png" alt="" style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221520785.png" alt style="zoom:50%;">
 
 <p>将其转换成二进制码</p>
 <pre class="language-python" data-language="python"><code class="language-python">print(bin(4431128039883018241))</code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221746952.png" alt="" style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221746952.png" alt style="zoom:50%;">
 
 <p>然后我们通过二进制码反推</p>
 <ul>
@@ -649,7 +649,7 @@ print(snowflake.client.get_guid())
 <p>从右方数，12位的递增序列，再数5位就是机器标识，这个机器标识就是某个节点的存储标识00001</p>
 <p>但是啊，目前他是二进制，我们再将其转换为10进制</p>
 <pre class="language-python" data-language="python"><code class="language-python">print(int('00001',2))</code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130222356449.png" alt="" style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130222356449.png" alt style="zoom:50%;">
             </div>
             <hr/>
 

@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -616,7 +616,7 @@
 <p>大概有300M左右，可以执行命令启动一下</p>
 <pre class="language-none"><code class="language-none">docker run -it -d -p 9984:9984 镜像id</code></pre>
 <p>访问一下9984，可以看到你的版本号</p>
-<img src="/2020/12/20/bigchaindb-an-zhuang/image-20201220154358244.png" alt="" style="zoom:67%;">
+<img src="/2020/12/20/bigchaindb-an-zhuang/image-20201220154358244.png" alt style="zoom:67%;">
 
 <p>安装一些依赖</p>
 <pre class="language-none"><code class="language-none">sudo apt-get update
@@ -629,7 +629,7 @@ pip3 install pytest-runner</code></pre>
 
 
 <p>然后安装驱动，对应你的版本号</p>
-<img src="/2020/12/20/bigchaindb-an-zhuang/image-20201220154540628.png" alt="" style="zoom:67%;">
+<img src="/2020/12/20/bigchaindb-an-zhuang/image-20201220154540628.png" alt style="zoom:67%;">
 
 <pre class="language-none"><code class="language-none">pip install -U bigchaindb-driver==版本号</code></pre>
 <p>不过，可能会找不到这个包啊这些错误，没关系，我们直接去github上拉取他源码<code>git clone https://github.com/bigchaindb/bigchaindb-driver.git</code></p>
