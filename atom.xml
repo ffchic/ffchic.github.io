@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-03-03T10:34:30.089Z</updated>
+  <updated>2021-03-05T09:52:10.637Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx跨域配置</title>
+    <link href="http://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/"/>
+    <id>http://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/</id>
+    <published>2021-03-05T09:50:24.609Z</published>
+    <updated>2021-03-05T09:52:10.637Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;当出现403跨域错误的时候 &lt;code&gt;No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource&lt;/code&gt;，需要给Nginx服务器配置响应的header参数&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Nginx" scheme="http://godhearing.cn/categories/Nginx/"/>
+    
+    
+    <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>FastAPI学习之路-4  依赖注入</title>
@@ -506,32 +532,6 @@
     
     
     <category term="Vue" scheme="http://godhearing.cn/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FastAPI学习之路-3  模型与校验</title>
-    <link href="http://godhearing.cn/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/"/>
-    <id>http://godhearing.cn/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/</id>
-    <published>2021-01-15T09:47:23.932Z</published>
-    <updated>2021-01-16T03:09:19.332Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;预设值&quot;&gt;&lt;a href=&quot;#预设值&quot; class=&quot;headerlink&quot; title=&quot;预设值&quot;&gt;&lt;/a&gt;预设值&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;如果你有一个接收路径参数的路径操作，但你希望预先设定可能的有效参数值，则可以使用标准的 Python</summary>
-        
-      
-    
-    
-    
-    <category term="FastAPI" scheme="http://godhearing.cn/categories/FastAPI/"/>
-    
-    
-    <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   
