@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="迭代器 迭代，是访问集合内元素的一种方式。要理解迭代器，首先要理解可迭代对象，所谓可迭代对象，通俗的 说就是可以被for循环遍历的对象就是可迭代对象 任何内置了iter方法的，都是可迭代的对象，例如，list、set、dict、tuple等都是可迭代对象  迭代的概念 相信大家都玩过游戏，每一次游戏更新迭代，都是新增了一些功能，调整了什么，迭代就是这个概念，在python中，上一次输出的结果为下一">
@@ -47,40 +47,40 @@
 <li>捕获异常</li>
 </ol>
 <p>手写一个迭代器</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Csmt:
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Csmt</span><span class="token punctuation">:</span>
 
-	def __init__(self):
-		# 初始化可迭代对象和num
-		self.name = []
-		self.num = 0
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 初始化可迭代对象和num</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">0</span>
 
-	def add(self,na):
-		# 添加元素
-		self.name.append(na)
+    <span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>na<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 添加元素</span>
+        self<span class="token punctuation">.</span>name<span class="token punctuation">.</span>append<span class="token punctuation">(</span>na<span class="token punctuation">)</span>
 
-	def __iter__(self):
-		# 调用iter方法，返回自身
-		return self
+    <span class="token keyword">def</span> <span class="token function">__iter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 调用iter方法，返回自身</span>
+        <span class="token keyword">return</span> self
 
-	def __next__(self):
-		# 如果 num小于name的长度
-		if self.num &lt; len(self.name):
-			# 从0开始，取出可迭代对象中的元素
-			ret = self.name[self.num]
-			# 同时，往后移一位
-			self.num += 1
-			# 返回
-			return ret
-		else:
-		# 没有元素，抛出异常
-			raise StopIteration
+    <span class="token keyword">def</span> <span class="token function">__next__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 如果 num小于name的长度</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>num <span class="token operator">&lt;</span> len<span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 从0开始，取出可迭代对象中的元素</span>
+            ret <span class="token operator">=</span> self<span class="token punctuation">.</span>name<span class="token punctuation">[</span>self<span class="token punctuation">.</span>num<span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true"># 同时，往后移一位</span>
+            self<span class="token punctuation">.</span>num <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token comment" spellcheck="true"># 返回</span>
+            <span class="token keyword">return</span> ret
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 没有元素，抛出异常</span>
+            <span class="token keyword">raise</span> StopIteration
 
-c = Csmt()
-c.add('AAA')
-c.add('BBB')
-c.add('CCC')
-for i in c:
-	print(i)</code></pre>
+c <span class="token operator">=</span> Csmt<span class="token punctuation">(</span><span class="token punctuation">)</span>
+c<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'AAA'</span><span class="token punctuation">)</span>
+c<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'BBB'</span><span class="token punctuation">)</span>
+c<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'CCC'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> c<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span></code></pre>
 <h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><blockquote>
 <p>生成器是一个特殊的迭代器，它的实现更简单，<strong>yield</strong>，就是生成器实现next()方法的关键，它作为生成器执行的暂停恢复点，可以对<strong>yield</strong>表达式进行赋值，也可以将yield表达式的值返回</p>
 <p>也就是说，yield是一个语法糖，内部实现了支持迭代器协议，同时yield内部是一个状态机，维护着挂起和继续的状态</p>
@@ -105,14 +105,14 @@ for i in c:
 <p>或者使用<code>__next__</code>魔法方法</p>
 <p>还可以使用<code>send()</code>函数，它可以将数据作为参数传递到生成器内部，需要<strong>注意</strong>的一点是，<code>send</code>不能作为第一次唤醒时使用</p>
 </blockquote>
-<h4 id="实现生成器"><a href="#实现生成器" class="headerlink" title="实现生成器"></a>实现生成器</h4><pre class="language-python" data-language="python"><code class="language-python">a = (i for i in range(1,11))
-print(a)
-for i in a:
-	print(i)
-'''
-&lt;generator object &lt;genexpr&gt; at 0x000001BEBA62E448&gt;
+<h4 id="实现生成器"><a href="#实现生成器" class="headerlink" title="实现生成器"></a>实现生成器</h4><pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+&lt;generator object &lt;genexpr> at 0x000001BEBA62E448>
 1，2，3，4，5，6，7，8，9，10
-'''</code></pre>
+'''</span></code></pre>
 <p>好啦，分享到此结束</p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2017/11/20/sheng-cheng-qi-he-die-dai-qi/" title="生成器和迭代器">http://godhearing.cn/2017/11/20/sheng-cheng-qi-he-die-dai-qi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2017/11/24/di-gui/" rel="prev" title="递归"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">递归</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2017/11/03/redis-de-pipline-shi-yong/" rel="next" title="Redis中pipline的使用"><span class="post-nav-text">Redis中pipline的使用</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+生成器和迭代器">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);

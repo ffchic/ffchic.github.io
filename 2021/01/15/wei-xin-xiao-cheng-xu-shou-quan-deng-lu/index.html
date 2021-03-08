@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 在开发小程序的过程中， 用户的认证是必不可少的，而微信又取消了小程序的自己认证，所以，我们只能通过微信进行授权登录，而如果将微信授权的信息录入到自己的表中，则需要做一点点的开发，官方文档  微信小程序的后端开发和普通的restful API 大致上相同，只不过要注意以下几点限制  必须使用HTTPS协议请求后端服务器 不支持COOKIE 不支持django内置的user登录, 因为它使用的是">
@@ -48,89 +48,87 @@
 <blockquote>
 <p>只获取<code>openid</code>，只调用<code>wx.login</code>获取code交给后台即可，如果还要获取用户详细信息还要接着调用<code>wx.getUserInfo</code>获取<code>encryptedData</code>，<code>iv</code>提交后台解密用户信息</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">@api_view(['GET','POST'])
-def wx_login(request):
-    openidUrl = 'https://api.weixin.qq.com/sns/jscode2session?'
-    code = request.GET['code']
-    res = requests.get(
-        url = openidUrl,
-        params = {
-            'appid':APPID,
-            'secret':APP_SECRET,
-            'js_code':code,
-            'grant_type':'authorization_code'
-        }
-    ).json()
-    openid = res['openid']
-    return Response(openid</code></pre>
+<pre class=" language-python"><code class="language-python">@api_view<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">,</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">wx_login</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    openidUrl <span class="token operator">=</span> <span class="token string">'https://api.weixin.qq.com/sns/jscode2session?'</span>
+    code <span class="token operator">=</span> request<span class="token punctuation">.</span>GET<span class="token punctuation">[</span><span class="token string">'code'</span><span class="token punctuation">]</span>
+    res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
+        url <span class="token operator">=</span> openidUrl<span class="token punctuation">,</span>
+        params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'appid'</span><span class="token punctuation">:</span>APPID<span class="token punctuation">,</span>
+            <span class="token string">'secret'</span><span class="token punctuation">:</span>APP_SECRET<span class="token punctuation">,</span>
+            <span class="token string">'js_code'</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
+            <span class="token string">'grant_type'</span><span class="token punctuation">:</span><span class="token string">'authorization_code'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    openid <span class="token operator">=</span> res<span class="token punctuation">[</span><span class="token string">'openid'</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span>openid</code></pre>
 <p>这样，我们便获取到了openid，然后返回给前端即可</p>
 <p>如果要换取用户信息，则需要前端再次请求我们服务器，需要传入<code>encryptedData  iv</code>和<code>session_key</code>来获取用户的信息，</p>
 <p><code>encryptedData</code>就是获取到的用户信息，只是得解密一下，通过iv</p>
-<pre class="language-python" data-language="python"><code class="language-python">#  解密类
-class WXBizDataCrypt:
-    def __init__(self, appId, sessionKey):
-        self.appId = appId
-        self.sessionKey = sessionKey
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#  解密类</span>
+<span class="token keyword">class</span> <span class="token class-name">WXBizDataCrypt</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> appId<span class="token punctuation">,</span> sessionKey<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>appId <span class="token operator">=</span> appId
+        self<span class="token punctuation">.</span>sessionKey <span class="token operator">=</span> sessionKey
 
-    def decrypt(self, encryptedData, iv):
-        # base64 decode
-        sessionKey = base64.b64decode(self.sessionKey)
-        encryptedData = base64.b64decode(encryptedData)
-        iv = base64.b64decode(iv)
+    <span class="token keyword">def</span> <span class="token function">decrypt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> encryptedData<span class="token punctuation">,</span> iv<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># base64 decode</span>
+        sessionKey <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>self<span class="token punctuation">.</span>sessionKey<span class="token punctuation">)</span>
+        encryptedData <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>encryptedData<span class="token punctuation">)</span>
+        iv <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>iv<span class="token punctuation">)</span>
 
-        cipher = AES.new(sessionKey, AES.MODE_CBC, iv)
+        cipher <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>sessionKey<span class="token punctuation">,</span> AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
 
-        decrypted = json.loads(self._unpad(cipher.decrypt(encryptedData)))
-        if decrypted['watermark']['appid'] != self.appId:
-            raise Exception('Invalid Buffer')
+        decrypted <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>self<span class="token punctuation">.</span>_unpad<span class="token punctuation">(</span>cipher<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>encryptedData<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> decrypted<span class="token punctuation">[</span><span class="token string">'watermark'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'appid'</span><span class="token punctuation">]</span> <span class="token operator">!=</span> self<span class="token punctuation">.</span>appId<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">'Invalid Buffer'</span><span class="token punctuation">)</span>
 
-        return decrypted
+        <span class="token keyword">return</span> decrypted
 
-    def _unpad(self, s):
-        return s[:-ord(s[len(s)-1:])]</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">def main():
-    appId = '你的appid'
-    sessionKey = '获取到的sessionkey'
-    encryptedData = '获取openid那里的数据'
-    iv = '获取openid那里的数据'
+    <span class="token keyword">def</span> <span class="token function">_unpad</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span>ord<span class="token punctuation">(</span>s<span class="token punctuation">[</span>len<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    appId <span class="token operator">=</span> <span class="token string">'你的appid'</span>
+    sessionKey <span class="token operator">=</span> <span class="token string">'获取到的sessionkey'</span>
+    encryptedData <span class="token operator">=</span> <span class="token string">'获取openid那里的数据'</span>
+    iv <span class="token operator">=</span> <span class="token string">'获取openid那里的数据'</span>
 
-    pc = WXBizDataCrypt(appId, sessionKey)
+    pc <span class="token operator">=</span> WXBizDataCrypt<span class="token punctuation">(</span>appId<span class="token punctuation">,</span> sessionKey<span class="token punctuation">)</span>
 
-    res = pc.decrypt(encryptedData, iv)
-    print(res)</code></pre>
+    res <span class="token operator">=</span> pc<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>encryptedData<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
 <p>res就是解密出来的内容，就是用户的信息</p>
 <img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210116220241505.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>至此，前台将openid存下，而后台，获取了用户信息，该入库还是该做怎样的操作，就可以自定义了，我是将其入库了，完整代码如下：</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Applets_RegisterView(APIView):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Applets_RegisterView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def post(self,request):
-        session_key = request.data.get('session_key')
-        encryptedData = request.data.get("encryptedData")
-        iv = request.data.get("iv")
-        pc = WXBizDataCrypt(APPID, session_key)
-        data = pc.decrypt(encryptedData, iv)
-        username = data['nickName']
-        avatar = data['avatarUrl']
-        gender = data['gender']
-        user_data = {
-            'username':username,
-            'avatar':avatar,
-            'gender':gender,
-        }
-        with transaction.atomic():
-            try:
-                userobj = RegisterSerializer(data=user_data)
-                if userobj.is_valid() and secretobj.is_valid():
-                    userobj.save()
-                    return Response({'code': 1000, 'msg': '注册成功'})
-                else:
-                    return Response({'code':1004,'msg':'网络错误，请稍后再试'})
-            except Exception as exc:
-                print(exc)
-                return Response({'code': 1004, 'msg': '网络错误，请稍后再试'})</code></pre>
-
-
+    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        session_key <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'session_key'</span><span class="token punctuation">)</span>
+        encryptedData <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"encryptedData"</span><span class="token punctuation">)</span>
+        iv <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"iv"</span><span class="token punctuation">)</span>
+        pc <span class="token operator">=</span> WXBizDataCrypt<span class="token punctuation">(</span>APPID<span class="token punctuation">,</span> session_key<span class="token punctuation">)</span>
+        data <span class="token operator">=</span> pc<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>encryptedData<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
+        username <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'nickName'</span><span class="token punctuation">]</span>
+        avatar <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'avatarUrl'</span><span class="token punctuation">]</span>
+        gender <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'gender'</span><span class="token punctuation">]</span>
+        user_data <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'username'</span><span class="token punctuation">:</span>username<span class="token punctuation">,</span>
+            <span class="token string">'avatar'</span><span class="token punctuation">:</span>avatar<span class="token punctuation">,</span>
+            <span class="token string">'gender'</span><span class="token punctuation">:</span>gender<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">with</span> transaction<span class="token punctuation">.</span>atomic<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                userobj <span class="token operator">=</span> RegisterSerializer<span class="token punctuation">(</span>data<span class="token operator">=</span>user_data<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> userobj<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> secretobj<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    userobj<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'注册成功'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1004</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'网络错误，请稍后再试'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token keyword">except</span> Exception <span class="token keyword">as</span> exc<span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>exc<span class="token punctuation">)</span>
+                <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1004</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'网络错误，请稍后再试'</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>被一个小小的登录绊倒，我也是没想到的，感谢有位大神孜孜不倦的一直给我讲解。</p>
 </blockquote>

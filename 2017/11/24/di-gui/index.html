@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是递归 递归，简单来说，就是自己调用自己，指在函数的定义中调用函数自身的方法 调用分为直接调用和间接调用，直接调用是指在函数体中调用自身，间接调用是调用别的函数，而这些别的函数又调用函数本身。它主要是把大问题变成小问题，使得代码更加简洁。理解递归需要有一定的抽象能力。 使用递归时，需要注意的是：  递归就是在过程或函数里调用自身 必须有一个明确的递归结束条件，称为递归出口  切勿忘记递归的出口">
@@ -53,22 +53,22 @@
 <h2 id="递归实现高斯求和"><a href="#递归实现高斯求和" class="headerlink" title="递归实现高斯求和"></a>递归实现高斯求和</h2><blockquote>
 <p>代码实现高斯求和，如果是按照正常方式实现，那么就是这样的</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">def sum_number(n):
-    total = 0
-    for i in range(1,n+1):
-        total += i
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sum_number</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    total <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        total <span class="token operator">+=</span> i
 
-    return total</code></pre>
+    <span class="token keyword">return</span> total</code></pre>
 <blockquote>
 <p>非常的简单，但是这样做，流程是这样的，假设我们传参5</p>
 </blockquote>
 <img src="/2017/11/24/di-gui/image-20201124203210068.png" style="zoom:67%;" loading="lazy">
 
 <p>同样是计算5，我们用递归实现：</p>
-<pre class="language-python" data-language="python"><code class="language-python">def sum_numbers(n):
-    if n &lt;= 0:
-        return 0
-    return n+sum_numbers(n-1)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sum_numbers</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> n<span class="token operator">+</span>sum_numbers<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>可以看到，我们并不是从1开始加到5，而是逆向的思维，从5开始，逐渐的递减，直到边界条件触发，也就是，如果为0，则停止递归</p>
 </blockquote>
@@ -83,34 +83,34 @@
 <p>如果按照上方的递归，计算需要保存n个调用记录，复杂度为O(n)</p>
 </blockquote>
 <p>也就是：</p>
-<pre class="language-python" data-language="python"><code class="language-python">5 + sum_numbers(4)
-5 + (4 + sum_numbers(3))
-5 + (4 (3 + sum_numbers(2))
-5 + (4 (3 (2 + sum_numbers(1))</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token number">5</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token number">5</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">5</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">5</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>在内存中，需要存储5次，非常的耗费</p>
 <p>让我们用尾递归来实现一下，看一下有什么不同</p>
-<pre class="language-python" data-language="python"><code class="language-python">def tail_sum(n,result=0):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">tail_sum</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>result<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    if n &lt;= 0:
-        return result
-    else:
-        tail_sum(n-1,result+n)</code></pre>
+    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> result
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        tail_sum<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span>result<span class="token operator">+</span>n<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>我们给定义了一个最终数<code>result</code>，每次调用，不再存储到内存中，而是将结果存到<code>result</code>中，这样，只在运行结束的瞬间，存储一次，其他时间，只是存储了状态，如下：</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">tail_sum(5,0)
-tail_sum(4,5)
-tail_sum(3,9)
-tail_sum(2,12)
-tail_sum(1,14)
-tail_sum(0,15)</code></pre>
+<pre class=" language-python"><code class="language-python">tail_sum<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+tail_sum<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+tail_sum<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
+tail_sum<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span>
+tail_sum<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span>
+tail_sum<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span></code></pre>
 <p>再实现一下斐波那契</p>
-<pre class="language-python" data-language="python"><code class="language-python">def feibonacci(n):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">feibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    if n &lt;= 2:
-        return 1
-    else:
-        return feibonacci(n-1) + feibonacci(n-2)</code></pre>
+    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> feibonacci<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">+</span> feibonacci<span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span></code></pre>
 <p>总结一下， 递归最核心的思想是：<strong>每一次递归，整体问题都要比原来减小，并且递归到一定层次时，要能直接给出结果！</strong></p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2017/11/24/di-gui/" title="递归">http://godhearing.cn/2017/11/24/di-gui/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2017/12/31/git-ji-ben-cao-zuo/" rel="prev" title="Git"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Git</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2017/11/20/sheng-cheng-qi-he-die-dai-qi/" rel="next" title="生成器和迭代器"><span class="post-nav-text">生成器和迭代器</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+递归">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);

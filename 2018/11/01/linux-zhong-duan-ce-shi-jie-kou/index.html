@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 假如说，你只有一个linux终端来测试你的代码，你是不是瞬间觉得没有了梦想，发送参数，发送不同的请求，甚至查看返回结果，你面对的只有无穷无尽的黑色和白色的代码，是不是很绝望，今日带来一篇攻略，让你仅仅凭借一个终端来测试你的代码  命令 访问接口，除了写脚本测试之外，还可以直接使用终端来进行测试，具体我们要使用的命令，就是curl 这个命令可以访问网址，但是，他会返回的只有网页的源代码，所以，">
@@ -42,14 +42,14 @@
 <img src="/2018/11/01/linux-zhong-duan-ce-shi-jie-kou/image-20201225134708278.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>虽然可以查看到，但是也很不利于你的查看，所以，我们需要将<code>curl</code>命令后面，加上一个<code>&gt;</code>，紧接着，跟上你保存的文件名字，这样，他就会将访问的网页给你保存下来，像这样</p>
-<pre class="language-none"><code class="language-none">curl http://baidu.com &gt; baidu.html</code></pre>
+<pre><code>curl http://baidu.com &gt; baidu.html</code></pre>
 <p>随后，你就会看到一个网页就保存下来了</p>
 <p>其次，我们写的接口不只是get，还有其他的请求方法，这样该怎么做呢，只需添加一个<code>X</code>参数即可</p>
 <p><code>curl -X POST http://127.0.0.1:8000/</code> ，这样你就发送了一个post请求，同样你也可以传参，使用<code>d</code>，不同参数之间使用<code>&amp;</code>来进行连接</p>
-<pre class="language-none"><code class="language-none">curl -X POST -d'a=1&amp;b=2&amp;c=3' http://127.0.0.1:8000/</code></pre>
+<pre><code>curl -X POST -d'a=1&amp;b=2&amp;c=3' http://127.0.0.1:8000/</code></pre>
 <p>再做个假如，你访问的是张图片，我们也可以通过 <code>&gt;</code> 来进行保存，然后查看</p>
 <p>还有，如果在终端里发送文件，则需要<code>-F</code>参数，不过要注意的是，@一定不要少哦</p>
-<pre class="language-none"><code class="language-none">curl -X POST -F 'avatar=@./ssss.jpg' http://127.0.0.1:8000/user/avatar/</code></pre>
+<pre><code>curl -X POST -F 'avatar=@./ssss.jpg' http://127.0.0.1:8000/user/avatar/</code></pre>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><blockquote>
 <p>这个场景呢，主要就是使用了windows系统，但是有些功能只能在linux下测试，但是我的linux云服务器又只有一个终端界面，出于无奈之举，只能使用这样的方法来进行。希望能帮到大家。</p>
 </blockquote>

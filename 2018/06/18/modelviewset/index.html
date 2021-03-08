@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="ModelViewSet是封装度最高的DRF的视图类。包含了怎删改查中的所有接口操作。   它继承自GenericViewSet、ListModelMixin、RetrieveModelMixin、CreateModelMixin、UpdateModelMixin、DestoryModelMixin。 ！！！！！注意，因为继承关系，必须在内部定义属性，queryset和serializer_c">
@@ -105,75 +105,75 @@
 <td>自定义</td>
 </tr>
 </tbody></table>
-<pre class="language-python" data-language="python"><code class="language-python">#views中
-class BookInfoViewSet(ModelViewSet):
-    """增删改查图书信息"""
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#views中</span>
+<span class="token keyword">class</span> <span class="token class-name">BookInfoViewSet</span><span class="token punctuation">(</span>ModelViewSet<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""增删改查图书信息"""</span>
 
-    # 指定查询集
-    queryset = BookInfo.objects.all()
-    # 指定序列化器
-    serializer_class = BookInfoModelSerializer
+    <span class="token comment" spellcheck="true"># 指定查询集</span>
+    queryset <span class="token operator">=</span> BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 指定序列化器</span>
+    serializer_class <span class="token operator">=</span> BookInfoModelSerializer
 </code></pre>
 <blockquote>
 <p>定义好了API视图后，需要在路由中，将请求方法与action进行绑定</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from django.conf.urls import url
-from django.urls import path,include
-from . import views
-#导入路由控制类
-from rest_framework.routers import SimpleRouter,DefaultRouter
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>urls <span class="token keyword">import</span> path<span class="token punctuation">,</span>include
+<span class="token keyword">from</span> <span class="token punctuation">.</span> <span class="token keyword">import</span> views
+<span class="token comment" spellcheck="true">#导入路由控制类</span>
+<span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>routers <span class="token keyword">import</span> SimpleRouter<span class="token punctuation">,</span>DefaultRouter
 
-#实例化路由控制对象
-router = DefaultRouter()
-#注册
-router.register(r'book',views.BookInfoViewSet)
+<span class="token comment" spellcheck="true">#实例化路由控制对象</span>
+router <span class="token operator">=</span> DefaultRouter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#注册</span>
+router<span class="token punctuation">.</span>register<span class="token punctuation">(</span>r<span class="token string">'book'</span><span class="token punctuation">,</span>views<span class="token punctuation">.</span>BookInfoViewSet<span class="token punctuation">)</span>
 
-#编写路由，固定写法，不清楚是否还有其他写法
-urlpatterns = [
-    url(r'',include(router.urls)),
-]</code></pre>
+<span class="token comment" spellcheck="true">#编写路由，固定写法，不清楚是否还有其他写法</span>
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">''</span><span class="token punctuation">,</span>include<span class="token punctuation">(</span>router<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span></code></pre>
 <h3 id="action-自定义方法"><a href="#action-自定义方法" class="headerlink" title="action(自定义方法)"></a>action(自定义方法)</h3><blockquote>
 <p>DRF框架提供的action根本不能满足某些无良老板的奇葩需求,这时候，就需要自定义<code>action</code></p>
 </blockquote>
 <blockquote>
 <p>只需要在ModelViewSet定义的api类中，自定action函数后，再将自定义的函数在路由中绑定即可</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">def 函数名(self, request):
-        '''
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> 函数名<span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">'''
         自定义action
         return: JSON数据
-        '''
-        pass
-#示例：
-def latest(self, request):
-    '''获取最后一条记录'''
+        '''</span>
+        <span class="token keyword">pass</span>
+<span class="token comment" spellcheck="true">#示例：</span>
+<span class="token keyword">def</span> <span class="token function">latest</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">'''获取最后一条记录'''</span>
 
-    # 获取模型数据
-    book = BookInfo.objects.latest('id')
-    # 获取序列化器对象
-    s = BookInfoModelSerializer(instance=book)
-    return Response(s.data)</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#路由
-urlpatterns = [
-    url(r'^books/$', views.BookInfoViewSet.as_view({'get':'action函数名'{)),
-    #示例：
-url(r'^books/$', views.BookInfoViewSet.as_view({'get':'latest'{)),
+    <span class="token comment" spellcheck="true"># 获取模型数据</span>
+    book <span class="token operator">=</span> BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>latest<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 获取序列化器对象</span>
+    s <span class="token operator">=</span> BookInfoModelSerializer<span class="token punctuation">(</span>instance<span class="token operator">=</span>book<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span>s<span class="token punctuation">.</span>data<span class="token punctuation">)</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#路由</span>
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">'^books/$'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>BookInfoViewSet<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'get'</span><span class="token punctuation">:</span><span class="token string">'action函数名'</span><span class="token punctuation">{</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">#示例：</span>
+url<span class="token punctuation">(</span>r<span class="token string">'^books/$'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>BookInfoViewSet<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'get'</span><span class="token punctuation">:</span><span class="token string">'latest'</span><span class="token punctuation">{</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 
-]</code></pre>
+<span class="token punctuation">]</span></code></pre>
 <blockquote>
 <p>之后，使用<code>http://127.0.0.1:8000/app01/books/</code>进行测试</p>
 </blockquote>
 <p>或者使用装饰器方法：</p>
-<pre class="language-python" data-language="python"><code class="language-python">from rest_framework.decorators import action
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> rest_framework<span class="token punctuation">.</span>decorators <span class="token keyword">import</span> action
 
-@action(methods=['get'],detail=False,url_path='bookw')
-def use(self,request):
+@action<span class="token punctuation">(</span>methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'get'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>detail<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>url_path<span class="token operator">=</span><span class="token string">'bookw'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">use</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    return Response({'name':'天听'{)
-'''
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'天听'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
 http://127.0.0.1:8000/app01/book/bookw/
 如果不加url_path，路由就成了http://127.0.0.1:8000/app01/book/use/
-'''</code></pre>
+'''</span></code></pre>
 <blockquote>
 <p>注意，此写法不需要再注册路由，需要在装饰器内部进行定义<br><code>url_path</code><br>如果不定义<code>url_path</code>，路由默认为函数名</p>
 <p><code>detail=False</code>表示不需要匹配主键的正则，函数不需要传入主键就设为False</p>

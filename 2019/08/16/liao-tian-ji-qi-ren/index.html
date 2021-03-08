@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是聊天机器人 好吧其实没什么好解释的，就是能够一天二十四小时陪伴你到老的机器人，具有一定的学习能力，越来越像人，让你在没人陪的时候也能有人聊聊天解解闷  由于我还不太熟悉花里胡哨的机器学习，虽然对这方面有着很大的兴趣，但是奈何需要一定的门槛，不过没关系，我们可以先做一个调包侠 这篇教程，让我们一起用python来实现三款免费而且好用的机器人 从最简单的青云客开始吧 青云客首先呢，青云客可谓是相">
@@ -43,9 +43,9 @@
 <p>这篇教程，让我们一起用python来实现三款免费而且好用的机器人</p>
 <p>从最简单的青云客开始吧</p>
 <h2 id="青云客"><a href="#青云客" class="headerlink" title="青云客"></a>青云客</h2><p>首先呢，青云客可谓是相当的简单了，也不需要注册，不需要登录，直接上代码吧</p>
-<pre class="language-python" data-language="python"><code class="language-python">url = 'http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=%s'%(urllib.parse.quote('你好呀'))
-html = requests.get(url)
-print(html.json()['content'])</code></pre>
+<pre class=" language-python"><code class="language-python">url <span class="token operator">=</span> <span class="token string">'http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=%s'</span><span class="token operator">%</span><span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span><span class="token string">'你好呀'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+html <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>唯一需要注意的一点是，中文在url里，必须得转码，避免报错的可能，使用urllib</p>
 </blockquote>
@@ -59,33 +59,33 @@ print(html.json()['content'])</code></pre>
 <p>之后，随便再发一条消息，找到<code>new.json</code>数据包，找到uid和source</p>
 <p><img src="/2019/08/16/liao-tian-ji-qi-ren/image-20201116201243607.png" loading="lazy"></p>
 <p>最后构造参数</p>
-<pre class="language-python" data-language="python"><code class="language-python">def xiaobing():
-    uid = '你的uid'
-    source = '你的source'
-    SUB = '你的SUB'
-    url_send = 'https://api.weibo.com/webim/2/direct_messages/new.json'
-    data = {
-        'text': 你要说的话,
-        'uid': uid,
-        'source': source
-    }
-    headers = {
-        'cookie': 'SUB='+SUB,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36',
-        'Referer': 'https://api.weibo.com/chat/'
-    }
-    response = requests.post(url_send, data=data, headers=headers).json()
-    sendMsg = response['text']
-    time.sleep(1)
-    while True:
-        url_get = 'https://api.weibo.com/webim/2/direct_messages/conversation.json?uid={}&amp;source={}'.format(uid, source)
-        response = requests.get(url=url_get,headers=headers).json()
-        getMsg = response['direct_messages'][0]['text']
-        if sendMsg == getMsg:
-            time.sleep(1)
-            else:
-                return getMsg</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">xiaobing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    uid <span class="token operator">=</span> <span class="token string">'你的uid'</span>
+    source <span class="token operator">=</span> <span class="token string">'你的source'</span>
+    SUB <span class="token operator">=</span> <span class="token string">'你的SUB'</span>
+    url_send <span class="token operator">=</span> <span class="token string">'https://api.weibo.com/webim/2/direct_messages/new.json'</span>
+    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'text'</span><span class="token punctuation">:</span> 你要说的话<span class="token punctuation">,</span>
+        <span class="token string">'uid'</span><span class="token punctuation">:</span> uid<span class="token punctuation">,</span>
+        <span class="token string">'source'</span><span class="token punctuation">:</span> source
+    <span class="token punctuation">}</span>
+    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'cookie'</span><span class="token punctuation">:</span> <span class="token string">'SUB='</span><span class="token operator">+</span>SUB<span class="token punctuation">,</span>
+        <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/x-www-form-urlencoded'</span><span class="token punctuation">,</span>
+        <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'</span><span class="token punctuation">,</span>
+        <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://api.weibo.com/chat/'</span>
+    <span class="token punctuation">}</span>
+    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url_send<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sendMsg <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        url_get <span class="token operator">=</span> <span class="token string">'https://api.weibo.com/webim/2/direct_messages/conversation.json?uid={}&amp;source={}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>uid<span class="token punctuation">,</span> source<span class="token punctuation">)</span>
+        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url_get<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        getMsg <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">'direct_messages'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
+        <span class="token keyword">if</span> sendMsg <span class="token operator">==</span> getMsg<span class="token punctuation">:</span>
+            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> getMsg</code></pre>
 <p>也是调包侠的日常，没啥难度</p>
 <h2 id="腾讯闲聊"><a href="#腾讯闲聊" class="headerlink" title="腾讯闲聊"></a>腾讯闲聊</h2><p> 这个也和小冰类似</p>
 <p>先创建应用</p>
@@ -95,34 +95,34 @@ print(html.json()['content'])</code></pre>
 <img src="/2019/08/16/liao-tian-ji-qi-ren/image-20201116201641496.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>欧克，准备工作完成，上代码</p>
-<pre class="language-python" data-language="python"><code class="language-python">def tencent(msg):
-    APPID = '123'
-    APPKEY = '123'
-    url = 'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'
-    params = {
-        'app_id': APPID,
-        'time_stamp': str(int(time.time())),
-        'nonce_str': ''.join(random.choice(string.ascii_letters + string.digits) for x in range(16)),
-        'session': '10000'.encode('utf-8'),
-        'question': msg.encode('utf-8')
-    }
-    sign_before = ''
-    for key in sorted(params):
-        # 键值拼接过程value部分需要URL编码，URL编码算法用大写字母，例如%E8。quote默认大写。
-        sign_before += '{}={}&amp;'.format(key, urllib.parse.quote(params[key], safe=''))
-        # 将应用密钥以app_key为键名，拼接到字符串sign_before末尾
-    sign_before += 'app_key={}'.format(APPKEY)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">tencent</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    APPID <span class="token operator">=</span> <span class="token string">'123'</span>
+    APPKEY <span class="token operator">=</span> <span class="token string">'123'</span>
+    url <span class="token operator">=</span> <span class="token string">'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'</span>
+    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">'app_id'</span><span class="token punctuation">:</span> APPID<span class="token punctuation">,</span>
+        <span class="token string">'time_stamp'</span><span class="token punctuation">:</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'nonce_str'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters <span class="token operator">+</span> string<span class="token punctuation">.</span>digits<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'session'</span><span class="token punctuation">:</span> <span class="token string">'10000'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">'question'</span><span class="token punctuation">:</span> msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    sign_before <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">for</span> key <span class="token keyword">in</span> sorted<span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 键值拼接过程value部分需要URL编码，URL编码算法用大写字母，例如%E8。quote默认大写。</span>
+        sign_before <span class="token operator">+=</span> <span class="token string">'{}={}&amp;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>key<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>params<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> safe<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 将应用密钥以app_key为键名，拼接到字符串sign_before末尾</span>
+    sign_before <span class="token operator">+=</span> <span class="token string">'app_key={}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>APPKEY<span class="token punctuation">)</span>
 
-    # 对字符串sign_before进行MD5运算，得到接口请求签名
-    sign = hashlib.md5(sign_before.encode('UTF-8')).hexdigest().upper()
-    params['sign'] = sign
-    # print(params)
-    html = requests.post(url, data=params).json()
-    return html['data']['answer']
-msg= '我好看吗'
-print("原话&gt;&gt;", msg)
-res = tencent(msg)
-print("腾讯&gt;&gt;", res)</code></pre>
+    <span class="token comment" spellcheck="true"># 对字符串sign_before进行MD5运算，得到接口请求签名</span>
+    sign <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>sign_before<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    params<span class="token punctuation">[</span><span class="token string">'sign'</span><span class="token punctuation">]</span> <span class="token operator">=</span> sign
+    <span class="token comment" spellcheck="true"># print(params)</span>
+    html <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>params<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> html<span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'answer'</span><span class="token punctuation">]</span>
+msg<span class="token operator">=</span> <span class="token string">'我好看吗'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"原话>>"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span>
+res <span class="token operator">=</span> tencent<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"腾讯>>"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span></code></pre>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2019/08/16/liao-tian-ji-qi-ren/" title="聊天机器人">http://godhearing.cn/2019/08/16/liao-tian-ji-qi-ren/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2019/08/28/acl-yu-rbac/" rel="prev" title="ACL与RBAC访问权限模型"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">ACL与RBAC访问权限模型</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/" rel="next" title="python数据结构与算法"><span class="post-nav-text">python数据结构与算法</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+聊天机器人">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');

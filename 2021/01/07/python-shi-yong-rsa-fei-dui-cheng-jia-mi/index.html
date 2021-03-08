@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 RSA公钥加密算法是1977年由罗纳德·李维斯特（Ron Rivest）、阿迪·萨莫尔（Adi Shamir）和伦纳德·阿德曼（Leonard Adleman）一起提出的。RSA就是他们三人姓氏开头字母拼在一起组成的。RSA是目前最有影响力的公钥加密算法，它能够抵抗到目前为止已知的绝大多数密码攻击，RSA算法基于一个十分简单的数论事实：将两个大质数相乘十分容易，但是想要对其乘积进行因式分解却">
@@ -46,56 +46,56 @@
 <p>在 Windows 中，不管是 Python2 和 Python3 ，都不能用 crypto 和 pycrypto ，可以用 pycryptodome 。</p>
 <p>在 Linux 中，不管是 Python2 和 Python3 ，都不能用 crypto ，可以用 pycrypto 和 pycryptodome 。</p>
 <p>所以，总结一句话，直接都用 pycryptodome 就行了，(保证pip正常能用的情况下)安装命令如下：</p>
-<pre class="language-none"><code class="language-none">pip install pycryptodome</code></pre>
+<pre><code>pip install pycryptodome</code></pre>
 <blockquote>
 <p>安装之前，最好先把 crypto 和 pycrypto 卸载了(uninstall)，避免不必要的麻烦。</p>
 </blockquote>
-<h2 id="生成RSA公钥和私钥"><a href="#生成RSA公钥和私钥" class="headerlink" title="生成RSA公钥和私钥"></a>生成RSA公钥和私钥</h2><pre class="language-python" data-language="python"><code class="language-python">from Crypto import Random
-from Crypto.PublicKey import RSA
+<h2 id="生成RSA公钥和私钥"><a href="#生成RSA公钥和私钥" class="headerlink" title="生成RSA公钥和私钥"></a>生成RSA公钥和私钥</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> Crypto <span class="token keyword">import</span> Random
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>PublicKey <span class="token keyword">import</span> RSA
 
 
-def generate_Key():
+<span class="token keyword">def</span> <span class="token function">generate_Key</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    random_generator = Random.new().read
-    rsa = RSA.generate(2048, random_generator)
-    private_key = rsa.exportKey()
-    # 写入私钥文件
-    with open('private_rsa_key.bin', 'wb') as f:
-        f.write(private_key)
+    random_generator <span class="token operator">=</span> Random<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read
+    rsa <span class="token operator">=</span> RSA<span class="token punctuation">.</span>generate<span class="token punctuation">(</span><span class="token number">2048</span><span class="token punctuation">,</span> random_generator<span class="token punctuation">)</span>
+    private_key <span class="token operator">=</span> rsa<span class="token punctuation">.</span>exportKey<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 写入私钥文件</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'private_rsa_key.bin'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>private_key<span class="token punctuation">)</span>
 
-    public_key = rsa.publickey().exportKey()
-    # 写入公钥文件
-    with open('rsa_public.pem', 'wb') as f:
-        f.write(public_key)</code></pre>
+    public_key <span class="token operator">=</span> rsa<span class="token punctuation">.</span>publickey<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exportKey<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 写入公钥文件</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'rsa_public.pem'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>public_key<span class="token punctuation">)</span></code></pre>
 <p>上面的代码中，生成了一对公钥和私钥。</p>
 <p>导入了 RSA ，通过 RSA 的 generate() 方法实例化一个对象 rsa 。再通过 rsa 的 exportKey() 方法和 publickey() 方法生成公钥和私钥。</p>
 <p>执行这个函数，可以看到，生成了一对公钥和私钥</p>
 <blockquote>
 <p>当然每次运行的结果都不一定，公钥是公开的，任何人都可以看到，但是私钥一定要保存好，否则一旦泄露，意味着你的信息也不安全了。</p>
 </blockquote>
-<h2 id="进行加密和解密"><a href="#进行加密和解密" class="headerlink" title="进行加密和解密"></a>进行加密和解密</h2><pre class="language-python" data-language="python"><code class="language-python">from Crypto import Random
-from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_v1_5 as PKCS1_cipher
-import base64
+<h2 id="进行加密和解密"><a href="#进行加密和解密" class="headerlink" title="进行加密和解密"></a>进行加密和解密</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> Crypto <span class="token keyword">import</span> Random
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>PublicKey <span class="token keyword">import</span> RSA
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> PKCS1_v1_5 <span class="token keyword">as</span> PKCS1_cipher
+<span class="token keyword">import</span> base64
 
 
-# 加密
-def encryption(keys):
-    with open('rsa_public.pem') as f:
-        key = f.read()
-        pub_key = RSA.importKey(str(key))
-        cipher = PKCS1_cipher.new(pub_key)
-        rsa_text = base64.b64encode(cipher.encrypt(bytes(keys.encode("utf8"))))
-        return rsa_text.decode('utf-8')
+<span class="token comment" spellcheck="true"># 加密</span>
+<span class="token keyword">def</span> <span class="token function">encryption</span><span class="token punctuation">(</span>keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'rsa_public.pem'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        key <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        pub_key <span class="token operator">=</span> RSA<span class="token punctuation">.</span>importKey<span class="token punctuation">(</span>str<span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        cipher <span class="token operator">=</span> PKCS1_cipher<span class="token punctuation">.</span>new<span class="token punctuation">(</span>pub_key<span class="token punctuation">)</span>
+        rsa_text <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>cipher<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>bytes<span class="token punctuation">(</span>keys<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> rsa_text<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
 
-# 解密
-def decrypt(keys):
-    with open('private_rsa_key.bin') as f:
-        key = f.read()
-        pri_key = RSA.importKey(key)
-        cipher = PKCS1_cipher.new(pri_key)
-        back_text = cipher.decrypt(base64.b64decode(keys),0)
-        return back_text.decode('utf-8')
+<span class="token comment" spellcheck="true"># 解密</span>
+<span class="token keyword">def</span> <span class="token function">decrypt</span><span class="token punctuation">(</span>keys<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'private_rsa_key.bin'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        key <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        pri_key <span class="token operator">=</span> RSA<span class="token punctuation">.</span>importKey<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+        cipher <span class="token operator">=</span> PKCS1_cipher<span class="token punctuation">.</span>new<span class="token punctuation">(</span>pri_key<span class="token punctuation">)</span>
+        back_text <span class="token operator">=</span> cipher<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>keys<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> back_text<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
 </code></pre>
 <blockquote>
 <p>上面的函数，我们将保存的公钥和私钥读出来，然后进行加密和解密的过程，不过千万要注意的是，私钥不要泄露。</p>
@@ -104,31 +104,31 @@ def decrypt(keys):
 <p>RSA还可以用来签名和验签，正好与加密相反的是，他是使用私钥来签名，公钥来验签</p>
 <p>废话不多说，上代码</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from Crypto.PublicKey import RSA
-from Crypto.Hash import SHA
-import base64
-from Crypto.Signature import PKCS1_v1_5 as PKCS1_signature
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>PublicKey <span class="token keyword">import</span> RSA
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Hash <span class="token keyword">import</span> SHA
+<span class="token keyword">import</span> base64
+<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Signature <span class="token keyword">import</span> PKCS1_v1_5 <span class="token keyword">as</span> PKCS1_signature
 
-message = "需要加密的信息"
-# 使用私钥生成签名
-with open('private_rsa_key.bin') as f:
-    key = f.read()
-    pri_key = RSA.importKey(key)
-    signer = PKCS1_signature.new(pri_key)
-    digest = SHA.new()
-    digest.update(message.encode("utf8"))
-    sign = signer.sign(digest)
-    signature = base64.b64encode(sign)
-    print(signature.decode('utf-8'))
+message <span class="token operator">=</span> <span class="token string">"需要加密的信息"</span>
+<span class="token comment" spellcheck="true"># 使用私钥生成签名</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'private_rsa_key.bin'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    key <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pri_key <span class="token operator">=</span> RSA<span class="token punctuation">.</span>importKey<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    signer <span class="token operator">=</span> PKCS1_signature<span class="token punctuation">.</span>new<span class="token punctuation">(</span>pri_key<span class="token punctuation">)</span>
+    digest <span class="token operator">=</span> SHA<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    digest<span class="token punctuation">.</span>update<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    sign <span class="token operator">=</span> signer<span class="token punctuation">.</span>sign<span class="token punctuation">(</span>digest<span class="token punctuation">)</span>
+    signature <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>sign<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>signature<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# 使用公钥验证签名
-with open('rsa_public.pem') as f:
-    key = f.read()
-    pub_key = RSA.importKey(key)
-    verifier = PKCS1_signature.new(pub_key)
-    digest = SHA.new()
-    digest.update(message.encode("utf8"))
-    print(verifier.verify(digest, base64.b64decode(signature)))</code></pre>
+<span class="token comment" spellcheck="true"># 使用公钥验证签名</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'rsa_public.pem'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    key <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pub_key <span class="token operator">=</span> RSA<span class="token punctuation">.</span>importKey<span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+    verifier <span class="token operator">=</span> PKCS1_signature<span class="token punctuation">.</span>new<span class="token punctuation">(</span>pub_key<span class="token punctuation">)</span>
+    digest <span class="token operator">=</span> SHA<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    digest<span class="token punctuation">.</span>update<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>verifier<span class="token punctuation">.</span>verify<span class="token punctuation">(</span>digest<span class="token punctuation">,</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>signature<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>继续使用之前写入文件中的私钥和公钥，使用私钥来生成信息的签名，然后使用公钥来验证签名。</p>
 <p>生成签名时，使用 RSA 的 importKey() 方法对(从文件中读取的)私钥字符串进行处理，处理成可用的私钥用于生成签名。</p>

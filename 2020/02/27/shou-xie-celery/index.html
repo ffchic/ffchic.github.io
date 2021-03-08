@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 众所周知，celery是一个基于python开发的任务消息队列，轻松实现任务的异步处理，如果对celery不了解，请观阅之前一篇文章Celery   关于celery，它的底层也不是很难，假如，我们在一个需要celery的场景下，例如，我们发送邮件，使用celery是不是有些过重了。这时候，与其调用celery，还不如自己动手去实现一下，这样既轻量，又好用 我们需要用到的东西，第一就是多线程">
@@ -40,66 +40,70 @@
 </ul>
 <h2 id="实现celery"><a href="#实现celery" class="headerlink" title="实现celery"></a>实现celery</h2><ul>
 <li><p>要知道，celery的本质，是队列，所以，我们手动写一个队列</p>
-<pre class="language-python" data-language="python"><code class="language-python">class MyQueue:
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyQueue</span><span class="token punctuation">:</span>
 
-    def __init__(self,kename:str,**redis_kwargs):
-        # 链接redis   decode_response的作用是，字符串不会转换成bytes
-        self.__db = redis.Redis(**redis_kwargs,decode_responses=True)
-        self.key = kename
-        self.queue = []
-    # 添加数据
-    def push(self,x:str) -&gt; None:
-        self.__db.rpush(self.key,x)
-    # 删除数据
-    def pop(self) -&gt; int:
-        return self.queue.pop(0)
-    # 获取数据
-    def peek(self) -&gt; str:
-        return self.__db.lpop(self.key)
-    # 判断是否执行完毕
-    def empty(self)-&gt;bool:
-        return self.__db.llen(self.key)</code></pre></li>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>kename<span class="token punctuation">:</span>str<span class="token punctuation">,</span><span class="token operator">**</span>redis_kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 链接redis   decode_response的作用是，字符串不会转换成bytes</span>
+        self<span class="token punctuation">.</span>__db <span class="token operator">=</span> redis<span class="token punctuation">.</span>Redis<span class="token punctuation">(</span><span class="token operator">**</span>redis_kwargs<span class="token punctuation">,</span>decode_responses<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>key <span class="token operator">=</span> kename
+        self<span class="token punctuation">.</span>queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 添加数据</span>
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>x<span class="token punctuation">:</span>str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>rpush<span class="token punctuation">(</span>self<span class="token punctuation">.</span>key<span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 删除数据</span>
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 获取数据</span>
+    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>lpop<span class="token punctuation">(</span>self<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 判断是否执行完毕</span>
+    <span class="token keyword">def</span> <span class="token function">empty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>bool<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>llen<span class="token punctuation">(</span>self<span class="token punctuation">.</span>key<span class="token punctuation">)</span></code></pre>
+</li>
 <li><p>实例化</p>
-<pre class="language-python" data-language="python"><code class="language-python">task_queue = MyQueue('myqueue')</code></pre></li>
+<pre class=" language-python"><code class="language-python">task_queue <span class="token operator">=</span> MyQueue<span class="token punctuation">(</span><span class="token string">'myqueue'</span><span class="token punctuation">)</span></code></pre>
+</li>
 <li><p>我们就以模拟发送邮件为生产者</p>
-<pre class="language-python" data-language="python"><code class="language-python">result = ['1111111@qq.com','22222@qq.com','3333333@qq.com','4444444444@qq.com','55555555555@qq.com']
-for i in result:
-    if i[0]:
-        task_queue.push(i[0])</code></pre></li>
+<pre class=" language-python"><code class="language-python">result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'1111111@qq.com'</span><span class="token punctuation">,</span><span class="token string">'22222@qq.com'</span><span class="token punctuation">,</span><span class="token string">'3333333@qq.com'</span><span class="token punctuation">,</span><span class="token string">'4444444444@qq.com'</span><span class="token punctuation">,</span><span class="token string">'55555555555@qq.com'</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> result<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        task_queue<span class="token punctuation">.</span>push<span class="token punctuation">(</span>i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+</li>
 <li><p>然后，我们使用多线程来模拟消费者</p>
-<pre class="language-python" data-language="python"><code class="language-python">def task():
-    # 如果队列空了，证明任务完成
-    while task_queue.empty() != 0:
-        # 取出任务，模拟消费
-        print(task_queue.peek())
-        time.sleep(1)
-    return '执行完毕'
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 如果队列空了，证明任务完成</span>
+    <span class="token keyword">while</span> task_queue<span class="token punctuation">.</span>empty<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 取出任务，模拟消费</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>task_queue<span class="token punctuation">.</span>peek<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">'执行完毕'</span>
 
-if __name__ == '__main__':
-    t1 = threading.Thread(target=task)
-    t2 = threading.Thread(target=task)
-    t1.start()
-    t2.start()
-    t1.join()
-    t2.join()</code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>task<span class="token punctuation">)</span>
+    t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>task<span class="token punctuation">)</span>
+    t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t1<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    t2<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>需要几个消费者，就可以开启多个线程，当然了，也可以通过继承threading.Thread创建新的子类，实例化后调用start方法启动新线程，即它调用了线程的<code>run()</code>方法</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Thread_test(threading.Thread):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Thread_test</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __init__(self,queue_task):
-        threading.Thread.__init__(self)
-        self.queue = queue_task
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>queue_task<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>queue <span class="token operator">=</span> queue_task
 
-    def run(self) -&gt; None:
-        print(self.queue)
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>queue<span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    # 队列为空，即为停止
-    while task_queue.empty() != 0:
-        # 创建线程
-        for i in range(2):
-            a = Thread_test(task_queue.peek())
-            a.start()
-        time.sleep(1)</code></pre></li>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 队列为空，即为停止</span>
+    <span class="token keyword">while</span> task_queue<span class="token punctuation">.</span>empty<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 创建线程</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            a <span class="token operator">=</span> Thread_test<span class="token punctuation">(</span>task_queue<span class="token punctuation">.</span>peek<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            a<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+</li>
 <li><p>如此，我们便简单的实现了celery的底层</p>
 </li>
 </ul>

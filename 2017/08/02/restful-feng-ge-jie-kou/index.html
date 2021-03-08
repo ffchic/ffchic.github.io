@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是restful风格API 网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备……）。因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，甚至出现API First的设计思想。RESTful API是目前比较成熟的一套互联网应用程序的API设计理论。   协议API与用户的通信协议，总是使用HTTPS">
@@ -42,30 +42,30 @@
 <hr>
 <h4 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h4><p>路径又称为终点，代表了API的具体网址，每个网址代表一种资源，所以网址中不能有动词，只能有名词，而且所用的名词往往和数据库的表格名相互对应，一般来说，每个数据库中的表都是同种记录的集合，所以API中的名词也要使用复数</p>
 <p>举个栗子：</p>
-<pre class="language-python" data-language="python"><code class="language-python">#  有一个API提供商品信息
-https://api.example.com/v1/goods
-https://api.example.com/v1/categorys</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#  有一个API提供商品信息</span>
+https<span class="token punctuation">:</span><span class="token operator">//</span>api<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token operator">/</span>v1<span class="token operator">/</span>goods
+https<span class="token punctuation">:</span><span class="token operator">//</span>api<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com<span class="token operator">/</span>v1<span class="token operator">/</span>categorys</code></pre>
 <hr>
 <h4 id="HTTP动词"><a href="#HTTP动词" class="headerlink" title="HTTP动词"></a>HTTP动词</h4><p>对于资源的具体操作类型， 由HTTP动词表示</p>
-<pre class="language-python" data-language="python"><code class="language-python">GET(SELECT):从服务器中取出资源(一项或多项)
-POST(CREATE):在服务器新建一个资源
-PUT(UPDATE):在服务器更新资源(客户端提供改变后的完整资源)
-PATCH(UPDATE):在服务器更新资源(客户端提供改变的属性)
-DELETE(DELETE):从服务器删除资源
-HEAD:获取资源的元数据    
-OPTIONS:获取信息，关于资源的哪些属性是客户端可以改变的</code></pre>
+<pre class=" language-python"><code class="language-python">GET<span class="token punctuation">(</span>SELECT<span class="token punctuation">)</span><span class="token punctuation">:</span>从服务器中取出资源<span class="token punctuation">(</span>一项或多项<span class="token punctuation">)</span>
+POST<span class="token punctuation">(</span>CREATE<span class="token punctuation">)</span><span class="token punctuation">:</span>在服务器新建一个资源
+PUT<span class="token punctuation">(</span>UPDATE<span class="token punctuation">)</span><span class="token punctuation">:</span>在服务器更新资源<span class="token punctuation">(</span>客户端提供改变后的完整资源<span class="token punctuation">)</span>
+PATCH<span class="token punctuation">(</span>UPDATE<span class="token punctuation">)</span><span class="token punctuation">:</span>在服务器更新资源<span class="token punctuation">(</span>客户端提供改变的属性<span class="token punctuation">)</span>
+DELETE<span class="token punctuation">(</span>DELETE<span class="token punctuation">)</span><span class="token punctuation">:</span>从服务器删除资源
+HEAD<span class="token punctuation">:</span>获取资源的元数据    
+OPTIONS<span class="token punctuation">:</span>获取信息，关于资源的哪些属性是客户端可以改变的</code></pre>
 <p>拿上边的商品信息举例子</p>
-<pre class="language-python" data-language="python"><code class="language-python">GET /goods:列出所有商品
-POST /goods:新建商品
-GET /goods/ID:获取某个指定商品的信息
-PUT /goods/ID:更新某个指定商品的信息(全部信息)
-PATCH /goods/ID:更新某个商品的信息(部分信息)
-DELETE /goods/ID:删除某个商品
-GET /categorys/ID/good:列出商品类ID下所有商品
-DELETE /categorys/ID/good/ID:删除某个指定商品类下的某个指定商品</code></pre>
+<pre class=" language-python"><code class="language-python">GET <span class="token operator">/</span>goods<span class="token punctuation">:</span>列出所有商品
+POST <span class="token operator">/</span>goods<span class="token punctuation">:</span>新建商品
+GET <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>获取某个指定商品的信息
+PUT <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>更新某个指定商品的信息<span class="token punctuation">(</span>全部信息<span class="token punctuation">)</span>
+PATCH <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>更新某个商品的信息<span class="token punctuation">(</span>部分信息<span class="token punctuation">)</span>
+DELETE <span class="token operator">/</span>goods<span class="token operator">/</span>ID<span class="token punctuation">:</span>删除某个商品
+GET <span class="token operator">/</span>categorys<span class="token operator">/</span>ID<span class="token operator">/</span>good<span class="token punctuation">:</span>列出商品类ID下所有商品
+DELETE <span class="token operator">/</span>categorys<span class="token operator">/</span>ID<span class="token operator">/</span>good<span class="token operator">/</span>ID<span class="token punctuation">:</span>删除某个指定商品类下的某个指定商品</code></pre>
 <hr>
 <h4 id="过滤信息"><a href="#过滤信息" class="headerlink" title="过滤信息"></a>过滤信息</h4><p>如果记录数量很多，服务器不可能都将它们返回给用户，API应该提供参数，过滤返回结果</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">?</span>limit<span class="token operator">=</span><span class="token number">10</span>：指定返回记录的数量
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">?</span>limit<span class="token operator">=</span><span class="token number">10</span>：指定返回记录的数量
 <span class="token operator">?</span>offset<span class="token operator">=</span><span class="token number">10</span>：指定返回记录的开始位置。
 <span class="token operator">?</span>page<span class="token operator">=</span><span class="token number">2</span><span class="token operator">&amp;</span>per_page<span class="token operator">=</span><span class="token number">100</span>：指定第几页，以及每页的记录数。
 <span class="token operator">?</span>sortby<span class="token operator">=</span>name<span class="token operator">&amp;</span>order<span class="token operator">=</span>asc：指定返回结果按照哪个属性排序，以及排序顺序。
@@ -77,50 +77,50 @@ DELETE /categorys/ID/good/ID:删除某个指定商品类下的某个指定商品
 <h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><blockquote>
 <p>服务器向用户返回的状态码和提示信息，常见的有以下一些（方括号中是该状态码对应的HTTP动词）</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">200 OK - [GET]：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。
-201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功。
-202 Accepted - [*]：表示一个请求已经进入后台排队（异步任务）
-204 NO CONTENT - [DELETE]：用户删除数据成功。
-400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。
-401 Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。
-403 Forbidden - [*] 表示用户得到授权（与401错误相对），但是访问是被禁止的。
-404 NOT FOUND - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。
-406 Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。
-410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。
-422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。
-500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功。</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token number">200</span> OK <span class="token operator">-</span> <span class="token punctuation">[</span>GET<span class="token punctuation">]</span>：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。
+<span class="token number">201</span> CREATED <span class="token operator">-</span> <span class="token punctuation">[</span>POST<span class="token operator">/</span>PUT<span class="token operator">/</span>PATCH<span class="token punctuation">]</span>：用户新建或修改数据成功。
+<span class="token number">202</span> Accepted <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：表示一个请求已经进入后台排队（异步任务）
+<span class="token number">204</span> NO CONTENT <span class="token operator">-</span> <span class="token punctuation">[</span>DELETE<span class="token punctuation">]</span>：用户删除数据成功。
+<span class="token number">400</span> INVALID REQUEST <span class="token operator">-</span> <span class="token punctuation">[</span>POST<span class="token operator">/</span>PUT<span class="token operator">/</span>PATCH<span class="token punctuation">]</span>：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。
+<span class="token number">401</span> Unauthorized <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：表示用户没有权限（令牌、用户名、密码错误）。
+<span class="token number">403</span> Forbidden <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span> 表示用户得到授权（与<span class="token number">401</span>错误相对），但是访问是被禁止的。
+<span class="token number">404</span> NOT FOUND <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。
+<span class="token number">406</span> Not Acceptable <span class="token operator">-</span> <span class="token punctuation">[</span>GET<span class="token punctuation">]</span>：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。
+<span class="token number">410</span> Gone <span class="token operator">-</span><span class="token punctuation">[</span>GET<span class="token punctuation">]</span>：用户请求的资源被永久删除，且不会再得到的。
+<span class="token number">422</span> Unprocesable entity <span class="token operator">-</span> <span class="token punctuation">[</span>POST<span class="token operator">/</span>PUT<span class="token operator">/</span>PATCH<span class="token punctuation">]</span> 当创建一个对象时，发生一个验证错误。
+<span class="token number">500</span> INTERNAL SERVER ERROR <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：服务器发生错误，用户将无法判断发出的请求是否成功。</code></pre>
 <hr>
 <h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>如果状态码是<code>4xx</code>，就应该向用户返回出错信息，一般来说，返回的信息中将error作为键名，出错信息作为键值即可</p>
-<pre class="language-json" data-language="json"><code class="language-json">{
-    "error":"Invalid API key"
-{</code></pre>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"error"</span><span class="token operator">:</span><span class="token string">"Invalid API key"</span>
+<span class="token punctuation">{</span></code></pre>
 <hr>
 <h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4><p>针对不同操作，服务器向用户返回的结果应该符合以下规范</p>
-<pre class="language-python" data-language="python"><code class="language-python">GET /collection：返回资源对象的列表（数组）
-GET /collection/resource：返回单个资源对象
-POST /collection：返回新生成的资源对象
-PUT /collection/resource：返回完整的资源对象
-PATCH /collection/resource：返回完整的资源对象
-DELETE /collection/resource：返回一个空文档</code></pre>
+<pre class=" language-python"><code class="language-python">GET <span class="token operator">/</span>collection：返回资源对象的列表（数组）
+GET <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回单个资源对象
+POST <span class="token operator">/</span>collection：返回新生成的资源对象
+PUT <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回完整的资源对象
+PATCH <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回完整的资源对象
+DELETE <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回一个空文档</code></pre>
 <hr>
 <h4 id="面向文档"><a href="#面向文档" class="headerlink" title="面向文档"></a>面向文档</h4><p>RESTful API最好做到面向文档，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么，比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。</p>
-<pre class="language-python" data-language="python"><code class="language-python">{"link": {
-  "rel":   "collection https://www.example.com/goods",
-  "href":  "https://api.example.com/goods",
-  "title": "List of goods",
-  "type":  "application/vnd.yourformat+json"
-{{
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token string">"link"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">"rel"</span><span class="token punctuation">:</span>   <span class="token string">"collection https://www.example.com/goods"</span><span class="token punctuation">,</span>
+  <span class="token string">"href"</span><span class="token punctuation">:</span>  <span class="token string">"https://api.example.com/goods"</span><span class="token punctuation">,</span>
+  <span class="token string">"title"</span><span class="token punctuation">:</span> <span class="token string">"List of goods"</span><span class="token punctuation">,</span>
+  <span class="token string">"type"</span><span class="token punctuation">:</span>  <span class="token string">"application/vnd.yourformat+json"</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span>
 
 上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，type表示返回类型。</code></pre>
 <hr>
 <p>所以，API有四个级别，分别为：</p>
-<pre class="language-python" data-language="python"><code class="language-python">level 0 ：面向过程，只是把HTTP当做一个传输的通道，没有把HTTP当做一种传输协议
+<pre class=" language-python"><code class="language-python">level <span class="token number">0</span> ：面向过程，只是把HTTP当做一个传输的通道，没有把HTTP当做一种传输协议
 
-level 1：面向资源，通过参数判断
+level <span class="token number">1</span>：面向资源，通过参数判断
 
-level 2：面向标签，真正将HTTP作为了一种传输协议，最直观的一点就是Level2使用了HTTP动词，GET/PUT/POST/DELETE/PATCH....,这些都是HTTP的规范
+level <span class="token number">2</span>：面向标签，真正将HTTP作为了一种传输协议，最直观的一点就是Level2使用了HTTP动词，GET<span class="token operator">/</span>PUT<span class="token operator">/</span>POST<span class="token operator">/</span>DELETE<span class="token operator">/</span>PATCH<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>这些都是HTTP的规范
 
-level 3：面向文档,使用者只需要知道如何获取资源的入口，之后的每个URI都可以通过请求获得，无法获得就说明无法执行那个请求</code></pre>
+level <span class="token number">3</span>：面向文档<span class="token punctuation">,</span>使用者只需要知道如何获取资源的入口，之后的每个URI都可以通过请求获得，无法获得就说明无法执行那个请求</code></pre>
 <p>所以，我们写API时，要朝着最高级别迈进，才能逐渐的成长起来</p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/" title="Restful风格接口">http://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2017/09/15/qian-tan-jin-cheng-he-xian-cheng/" rel="prev" title="浅谈进程和线程"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">浅谈进程和线程</span></a></div><div class="post-nav-item"></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+Restful风格接口">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);

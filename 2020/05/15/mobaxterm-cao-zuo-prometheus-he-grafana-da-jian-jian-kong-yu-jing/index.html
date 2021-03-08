@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 MobalXterm又名MobalXVT，是一款增强型终端，X服务器和Unix命令集工具箱，可以用它来连接服务器  MobaXterm主要功能：  支持各种连接 SSH，X11，RDP，VNC，FTP，MOSH 支持 Unix 命令(bash，ls，cat，sed，grep，awk，rsync，…) 连接 SSH 终端后支持 SFTP 传输文件 各种丰富的插件(git&#x2F;dig&#x2F;aria2…)">
@@ -74,51 +74,51 @@
 <p>文件传输和下载，可以采用直接拖拽的方式，或者采用鼠标右键选择相应功能。</p>
 <p>但是，有一个问题，就是编码，编码问题是一个难以看出的问题，基本上，一些根本找不出错误的代码，一运行就出错，这就有可能是编码的问题，今天我在服务器上修改docker容器内的配置文件，但是由于想偷个懒，在主机上将配置文件拖出来，然后修改完再挂载回去，可是呢，报了一个及其恶心的错误</p>
 </blockquote>
-<pre class="language-none"><code class="language-none">level=error ts=2018-12-07T07:16:42.642Z caller=main.go:808 err="error loading config from \"/etc/prometheus/prometheus.yml\": one or more errors occurred while applying the new configuration (--config.file=\"/etc/prometheus/prometheus.yml\")"</code></pre>
+<pre><code>level=error ts=2018-12-07T07:16:42.642Z caller=main.go:808 err="error loading config from \"/etc/prometheus/prometheus.yml\": one or more errors occurred while applying the new configuration (--config.file=\"/etc/prometheus/prometheus.yml\")"</code></pre>
 <p>这个呢，找了很久也没有找到问题，最后灵机一动，是不是编码有问题，然后又转头回来整编码，结果还是没用，没办法，只能使用服务器里唯一的一个神一样的编辑器<strong>VIM</strong>，来进行一个字一个字的敲，最后神奇的是，问题解决了</p>
 <p>虽然呢，编码都是<code>utf8</code>，但是，总有些说不上来的错误，反正呢，乖乖的用内部的<strong>VIM</strong>，一点问题没有。</p>
 <p>还有一点是，在使用MobaXerm中的vim时，在修改文件的时候，经常会遇到<code>readonly option is set （add！to override）</code>这样的错误，解决办法也非常简单，如果是root权限，可以直接<code>:wq!</code>，或者按下ESC，输入<code>set noreadonly</code>，然后就正常保存就可以了</p>
 <p>在服务器上部署，用docker是很方便的，我之前也有过几篇攻略，虽然可能说的很磕磕绊绊，但是还是希望能帮到大家。</p>
 <h2 id="进入正题"><a href="#进入正题" class="headerlink" title="进入正题"></a>进入正题</h2><p><code>Prometheus</code>，是自动化运维领域很常用的软件，它中文名为普罗米修斯，它的作用就是监控告警</p>
 <p>话不多说，路程还长，首先是安装问题，安装呢，我们在MobalXterm的终端中，使用docker来进行安装</p>
-<pre class="language-python" data-language="python"><code class="language-python">#升级yum
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#升级yum</span>
 sudo yum update
-#卸载旧版本docker
-sudo yum remove docker  docker-common docker-selinux docker-engine
-#安装依赖
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-#设置源
-sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+<span class="token comment" spellcheck="true">#卸载旧版本docker</span>
+sudo yum remove docker  docker<span class="token operator">-</span>common docker<span class="token operator">-</span>selinux docker<span class="token operator">-</span>engine
+<span class="token comment" spellcheck="true">#安装依赖</span>
+sudo yum install <span class="token operator">-</span>y yum<span class="token operator">-</span>utils device<span class="token operator">-</span>mapper<span class="token operator">-</span>persistent<span class="token operator">-</span>data lvm2
+<span class="token comment" spellcheck="true">#设置源</span>
+sudo yum<span class="token operator">-</span>config<span class="token operator">-</span>manager <span class="token operator">-</span><span class="token operator">-</span>add<span class="token operator">-</span>repo http<span class="token punctuation">:</span><span class="token operator">//</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>docker<span class="token operator">-</span>ce<span class="token operator">/</span>linux<span class="token operator">/</span>centos<span class="token operator">/</span>docker<span class="token operator">-</span>ce<span class="token punctuation">.</span>repo
 sudo yum makecache fast
-#安装docker
-sudo yum install docker-ce
-#启动服务
+<span class="token comment" spellcheck="true">#安装docker</span>
+sudo yum install docker<span class="token operator">-</span>ce
+<span class="token comment" spellcheck="true">#启动服务</span>
 sudo systemctl start docker</code></pre>
 <p>安装成功后查看版本:</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker -v</code></pre>
+<pre class=" language-python"><code class="language-python">docker <span class="token operator">-</span>v</code></pre>
 <p>显示版本号即为成功</p>
 <p>然后可以换国内源来提升下载速度</p>
-<pre class="language-python" data-language="python"><code class="language-python">1.先执行
-sudo vim /etc/docker/daemon.json
+<pre class=" language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span>先执行
+sudo vim <span class="token operator">/</span>etc<span class="token operator">/</span>docker<span class="token operator">/</span>daemon<span class="token punctuation">.</span>json
 
-2.添加如下代码
-{
-    "registry-mirrors": ["https://d7grpode.mirror.aliyuncs.com"]
-}</code></pre>
+<span class="token number">2</span><span class="token punctuation">.</span>添加如下代码
+<span class="token punctuation">{</span>
+    <span class="token string">"registry-mirrors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"https://d7grpode.mirror.aliyuncs.com"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
 <p>重启docker</p>
-<pre class="language-python" data-language="python"><code class="language-python">sudo systemctl restart docker</code></pre>
+<pre class=" language-python"><code class="language-python">sudo systemctl restart docker</code></pre>
 <p>随后拉取普罗米修斯的镜像</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker pull prom/prometheus:latest</code></pre>
+<pre class=" language-python"><code class="language-python">docker pull prom<span class="token operator">/</span>prometheus<span class="token punctuation">:</span>latest</code></pre>
 <p>这里我们以监控Redis数据库为例子，所以还需要拉取redis和redis状态收集器两个镜像：</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker pull redis
-docker pull oliver006/redis_exporter:latest</code></pre>
+<pre class=" language-python"><code class="language-python">docker pull redis
+docker pull oliver006<span class="token operator">/</span>redis_exporter<span class="token punctuation">:</span>latest</code></pre>
 <p>然后启动一下</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker run -d --name redis -p 6379:6379 redis
+<pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>d <span class="token operator">-</span><span class="token operator">-</span>name redis <span class="token operator">-</span>p <span class="token number">6379</span><span class="token punctuation">:</span><span class="token number">6379</span> redis
 
-    
-docker run -d --name redis_exporter -p 9121:9121 oliver006/redis_exporter:latest --redis.addr redis://公网ip:6379</code></pre>
+
+docker run <span class="token operator">-</span>d <span class="token operator">-</span><span class="token operator">-</span>name redis_exporter <span class="token operator">-</span>p <span class="token number">9121</span><span class="token punctuation">:</span><span class="token number">9121</span> oliver006<span class="token operator">/</span>redis_exporter<span class="token punctuation">:</span>latest <span class="token operator">-</span><span class="token operator">-</span>redis<span class="token punctuation">.</span>addr redis<span class="token punctuation">:</span><span class="token operator">//</span>公网ip<span class="token punctuation">:</span><span class="token number">6379</span></code></pre>
 <p>随后创建普罗米修斯的配置文件</p>
-<pre class="language-none"><code class="language-none"># 执行这条命令
+<pre><code># 执行这条命令
 vim /tmp/prometheus.yml
 
 # 加入下面代码
@@ -126,7 +126,7 @@ scrape_configs:
 
   # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
   - job_name: 'redis'
- 
+
 
     # Override the global default and scrape targets from this job every 5 seconds.
 
@@ -137,7 +137,7 @@ scrape_configs:
 
       - targets: ['公网ip:9121']</code></pre>
 <p>这里每隔5秒获取一下运行的信息，然后启动</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest</code></pre>
+<pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">9090</span><span class="token punctuation">:</span><span class="token number">9090</span> <span class="token operator">-</span>v <span class="token operator">/</span>tmp<span class="token operator">/</span>prometheus<span class="token punctuation">.</span>yml<span class="token punctuation">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>prometheus<span class="token operator">/</span>prometheus<span class="token punctuation">.</span>yml prom<span class="token operator">/</span>prometheus<span class="token punctuation">:</span>latest</code></pre>
 <p>然后可以访问一下<code>http://公网ip:9090/targets</code></p>
 <p>然后，我们新创建一个机器人</p>
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207190120623.png" alt="" style="zoom:50%;" loading="lazy">
@@ -148,7 +148,7 @@ scrape_configs:
 <p>然后再拉取一个告警模块以及顶顶机器人的插件</p>
 <p>如果普罗米修斯的告警模块检测到异常，就会通过钉钉机器人的webhook的地址发送消息</p>
 <p>编写告警配置文件</p>
-<pre class="language-none"><code class="language-none">global:
+<pre><code>global:
   resolve_timeout: 5m
 route:
   receiver: webhook
@@ -165,7 +165,7 @@ receivers:
   - url: http://公网ip:8060/dingtalk/webhook1/send
     send_resolved: true</code></pre>
 <p>编写警告规则</p>
-<pre class="language-none"><code class="language-none"># 运行这条命令
+<pre><code># 运行这条命令
 vim /tmp/redis.rules
 
 # 添加代码
@@ -181,7 +181,7 @@ groups:
     annotations:
       summary: "Redis服务在您的帮助下已经成功死机，老板限你一小时之内把它救回来。"</code></pre>
 <p>修改普罗米修斯的配置文件，将告警设置配置好</p>
-<pre class="language-none"><code class="language-none"># 执行这条命令
+<pre><code># 执行这条命令
 vim /tmp/prometheus.yml
 
 # 追加这些代码
@@ -194,16 +194,16 @@ alerting:
 rule_files:
   - "/etc/prometheus/redis.rules"</code></pre>
 <p>重启普罗米修斯服务，我们需要再次挂载一个redis.rules。</p>
-<pre class="language-none"><code class="language-none">docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml -v /tmp/redis.rules:/etc/prometheus/redis.rules  prom/prometheus:latest</code></pre>
+<pre><code>docker run -d -p 9090:9090 -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml -v /tmp/redis.rules:/etc/prometheus/redis.rules  prom/prometheus:latest</code></pre>
 <p>启动告警模块</p>
-<pre class="language-none"><code class="language-none">docker run -d --name alertmanager -p 9093:9093 -v /tmp/alertmanager.yml:/etc/alertmanager/alertmanager.yml prom/alertmanager:latest</code></pre>
+<pre><code>docker run -d --name alertmanager -p 9093:9093 -v /tmp/alertmanager.yml:/etc/alertmanager/alertmanager.yml prom/alertmanager:latest</code></pre>
 <p>启动钉钉插件</p>
-<pre class="language-none"><code class="language-none">docker run -d -p 8060:8060 --name webhook timonwong/prometheus-webhook-dingtalk --ding.profile="webhook1=https://oapi.dingtalk.com/robot/send?access_token=钉钉token"</code></pre>
+<pre><code>docker run -d -p 8060:8060 --name webhook timonwong/prometheus-webhook-dingtalk --ding.profile="webhook1=https://oapi.dingtalk.com/robot/send?access_token=钉钉token"</code></pre>
 <p>然后访问一下<code>http://公网ip:9090/rules</code></p>
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/MobaXterm操作prometheus和grafana搭建监控预警\image-20201207192642565.png" alt="" style="zoom:80%;" loading="lazy">
 
 <p>然后我们关闭<code>redis_exporter</code>，来模拟redis宕机</p>
-<pre class="language-none"><code class="language-none">docker stop redis_exporter</code></pre>
+<pre><code>docker stop redis_exporter</code></pre>
 <p>普罗米修斯的监控立刻就发现了问题</p>
 <img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207192944667.png" alt="" style="zoom:67%;" loading="lazy">
 
@@ -213,9 +213,9 @@ rule_files:
 <p>ok，完毕</p>
 <h2 id="Grafana可视化界面"><a href="#Grafana可视化界面" class="headerlink" title="Grafana可视化界面"></a>Grafana可视化界面</h2><p>这是一个很酷炫的可视化界面，可以将我们的监控界面导入到里面，隔壁小孩崇拜的很</p>
 <p>首先拉取镜像：</p>
-<pre class="language-none"><code class="language-none">sudo docker pull grafana/grafana</code></pre>
+<pre><code>sudo docker pull grafana/grafana</code></pre>
 <p>然后启动</p>
-<pre class="language-none"><code class="language-none">sudo docker run -d -p 3000:3000 --name grafana grafana/grafana</code></pre>
+<pre><code>sudo docker run -d -p 3000:3000 --name grafana grafana/grafana</code></pre>
 <ul>
 <li>登录<code>http://公网ip:3000</code></li>
 <li>默认账号和密码都是admin</li>

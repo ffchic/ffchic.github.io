@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="为什么要使用Docker 作为一种新兴的虚拟化方式，Docker跟传统的虚拟化方式相比具有众多的优势 首先，Docker的启动可以在秒级实现，这相比传统的虚拟机方式要快得多。 其次，Docker 对系统资源的利用率很高，一台主机上可以同时运行数千个 Docker 容器。 容器除了运行其中应用外，基本不消耗额外的系统资源，使得应用的性能很高，同时系统的开销尽量小。传统虚拟机方式运行 10 个不同的应">
@@ -78,44 +78,45 @@
 <h2 id="部署Django"><a href="#部署Django" class="headerlink" title="部署Django"></a>部署Django</h2><ol>
 <li>在安装好Docker之后，在宿主机安装<code>gunicorn</code>，容器内我们用异步的方式来启动Django</li>
 </ol>
-<pre class="language-python" data-language="python"><code class="language-python">pip isntall gunicorn gevent</code></pre>
+<pre class=" language-python"><code class="language-python">pip isntall gunicorn gevent</code></pre>
 <ol start="2">
 <li><p>Django配置<code>settings.py</code>对应的应用:</p>
-<pre class="language-python" data-language="python"><code class="language-python">INSTALLED_APPS = [
-    'gunicorn'
-]</code></pre></li>
+<pre class=" language-python"><code class="language-python">INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'gunicorn'</span>
+<span class="token punctuation">]</span></code></pre>
+</li>
 <li><p>在<code>Django</code>项目的根目录编写<code>gunicorn</code>的配置文件：<code>gunicorn.conf.py</code></p>
-<pre class="language-python" data-language="python"><code class="language-python">import multiprocessing
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> multiprocessing
 
-bind = "0.0.0.0:8000"   #绑定的ip与端口
-workers = 1                #进程数</code></pre>
+bind <span class="token operator">=</span> <span class="token string">"0.0.0.0:8000"</span>   <span class="token comment" spellcheck="true">#绑定的ip与端口</span>
+workers <span class="token operator">=</span> <span class="token number">1</span>                <span class="token comment" spellcheck="true">#进程数</span></code></pre>
 <blockquote>
 <p>这里注意一点，<code>ip</code>必须是0.0.0.0，不要写成127.0.0.1,否则外部环境会访问不到容器内的服务</p>
 </blockquote>
 </li>
 <li><p>导出你的python对应的依赖列表:</p>
-<pre class="language-python" data-language="python"><code class="language-python">pip freeze &gt; requirements.txt</code></pre></li>
+<pre class=" language-python"><code class="language-python">pip freeze <span class="token operator">></span> requirements<span class="token punctuation">.</span>txt</code></pre>
+</li>
 <li><p>在根目录编写<code>Dockerfile</code>文件</p>
-<pre class="language-python" data-language="python"><code class="language-python">FROM python:3.7
-WORKDIR /Project/mydjango
+<pre class=" language-python"><code class="language-python">FROM python<span class="token punctuation">:</span><span class="token number">3.7</span>
+WORKDIR <span class="token operator">/</span>Project<span class="token operator">/</span>mydjango
 
-COPY requirements.txt ./
-RUN pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+COPY requirements<span class="token punctuation">.</span>txt <span class="token punctuation">.</span><span class="token operator">/</span>
+RUN pip install <span class="token operator">-</span>r requirements<span class="token punctuation">.</span>txt <span class="token operator">-</span>i https<span class="token punctuation">:</span><span class="token operator">//</span>pypi<span class="token punctuation">.</span>tuna<span class="token punctuation">.</span>tsinghua<span class="token punctuation">.</span>edu<span class="token punctuation">.</span>cn<span class="token operator">/</span>simple
 
-COPY . .
-ENV LANG C.UTF-8
+COPY <span class="token punctuation">.</span> <span class="token punctuation">.</span>
+ENV LANG C<span class="token punctuation">.</span>UTF<span class="token number">-8</span>
 
-CMD ["gunicorn", "mydjango.wsgi:application","-c","./gunicorn.conf.py"]</code></pre></li>
+CMD <span class="token punctuation">[</span><span class="token string">"gunicorn"</span><span class="token punctuation">,</span> <span class="token string">"mydjango.wsgi:application"</span><span class="token punctuation">,</span><span class="token string">"-c"</span><span class="token punctuation">,</span><span class="token string">"./gunicorn.conf.py"</span><span class="token punctuation">]</span></code></pre>
+</li>
 <li><p>打包</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker build -t '你的项目名' .</code></pre></li>
+<pre class=" language-python"><code class="language-python">docker build <span class="token operator">-</span>t <span class="token string">'你的项目名'</span> <span class="token punctuation">.</span></code></pre>
+</li>
 <li><p>然后查看镜像</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker images</code></pre></li>
+<pre class=" language-python"><code class="language-python">docker images</code></pre>
+</li>
 <li><p>启动镜像服务</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker run -it --rm -p 8000:8000 你的项目名</code></pre>
-
-
-
-
+<pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>it <span class="token operator">-</span><span class="token operator">-</span>rm <span class="token operator">-</span>p <span class="token number">8000</span><span class="token punctuation">:</span><span class="token number">8000</span> 你的项目名</code></pre>
 </li>
 </ol>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/07/21/docker-bu-shu-django-xiang-mu/" title="Docker部署Django项目">http://godhearing.cn/2018/07/21/docker-bu-shu-django-xiang-mu/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/10/07/axios-feng-zhuang/" rel="prev" title="axios的封装"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">axios的封装</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2018/07/15/gong-han-mo-shi/" rel="next" title="工厂模式"><span class="post-nav-text">工厂模式</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+Docker部署Django项目">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {

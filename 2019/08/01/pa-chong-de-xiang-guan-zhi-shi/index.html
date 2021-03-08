@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="1.虚拟环境 虚拟环境就是一个隔离的python环境，不同的项目应该使用不同的虚拟环境(可以使用同一个虚拟环境)   虚拟环境不会导致环境之间的污染  1.1  虚拟环境管理模块virtualenvwrapper 安装 pip install virtualenvwrapper-win virtualenvwrapper的使用 查看所有虚拟环境：lsvirtualenv 创建虚拟环境：mkvirt">
@@ -113,39 +113,39 @@
 <li>将数据存储到本地，数据持久化</li>
 </ol>
 </blockquote>
-<h2 id="2-5-requests模块"><a href="#2-5-requests模块" class="headerlink" title="2.5  requests模块"></a>2.5  requests模块</h2><pre class="language-python" data-language="python"><code class="language-python">#导包
-import requests
-url = '*****'
-#res是获取的响应数据
-res = requests.get(url)</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#响应数据的获取方式
-1.文本形式：res.text
-2.json形式：res.json()
-3.流形式：res.content</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#数据持久化(mysql入库)
-#1.导包
-import pymysql
-#2.创建链接
-conn = pymysql.connect(host='127.0.0.1',port=3306,user='root',password='root',charset='utf8',database='***')
-#3.创建游标
-cursor = conn.cursor()
-#4.构造sql语句
-sql  = 'insert into *** values(数据)'
-#5.执行sql语句
-try:
-    cursor.execute(sql)
-    #提交事务
-    conn.commit()
-except Exception as e:
-    print(e)
-    #回滚
-    conn.rollback()</code></pre>
+<h2 id="2-5-requests模块"><a href="#2-5-requests模块" class="headerlink" title="2.5  requests模块"></a>2.5  requests模块</h2><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#导包</span>
+<span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">'*****'</span>
+<span class="token comment" spellcheck="true">#res是获取的响应数据</span>
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#响应数据的获取方式</span>
+<span class="token number">1</span><span class="token punctuation">.</span>文本形式：res<span class="token punctuation">.</span>text
+<span class="token number">2.</span>json形式：res<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">3</span><span class="token punctuation">.</span>流形式：res<span class="token punctuation">.</span>content</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#数据持久化(mysql入库)</span>
+<span class="token comment" spellcheck="true">#1.导包</span>
+<span class="token keyword">import</span> pymysql
+<span class="token comment" spellcheck="true">#2.创建链接</span>
+conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>password<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">,</span>database<span class="token operator">=</span><span class="token string">'***'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#3.创建游标</span>
+cursor <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#4.构造sql语句</span>
+sql  <span class="token operator">=</span> <span class="token string">'insert into *** values(数据)'</span>
+<span class="token comment" spellcheck="true">#5.执行sql语句</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#提交事务</span>
+    conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#回滚</span>
+    conn<span class="token punctuation">.</span>rollback<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p><code>params</code>参数</p>
 <blockquote>
 <p>get方式传参的拼接，将参数拼接到目标<code>url</code>中</p>
 </blockquote>
 <h4 id="2-6-OSI七层模型"><a href="#2-6-OSI七层模型" class="headerlink" title="2.6  OSI七层模型"></a>2.6  <code>OSI</code>七层模型</h4><p>应用层：</p>
-<pre class="language-none"><code class="language-none">https/http/ftp
+<pre><code>https/http/ftp
 
 http协议：明文传输，端口80
 https协议：加密传输，端口443</code></pre>
@@ -180,7 +180,7 @@ https协议：加密传输，端口443</code></pre>
 <h5 id="2-9-1-ssh"><a href="#2-9-1-ssh" class="headerlink" title="2.9.1  ssh"></a>2.9.1  ssh</h5><blockquote>
 <p>远程登录会话</p>
 </blockquote>
-<h5 id="2-9-2-服务器创建的默认端口"><a href="#2-9-2-服务器创建的默认端口" class="headerlink" title="2.9.2  服务器创建的默认端口"></a>2.9.2  服务器创建的默认端口</h5><pre class="language-none"><code class="language-none">ftp:21
+<h5 id="2-9-2-服务器创建的默认端口"><a href="#2-9-2-服务器创建的默认端口" class="headerlink" title="2.9.2  服务器创建的默认端口"></a>2.9.2  服务器创建的默认端口</h5><pre><code>ftp:21
 ssh:22
 mySQL:3306
 MongoDB:27017
@@ -200,7 +200,7 @@ Redis:6379</code></pre>
 <p>请求由客户端向服务器发出的，可以分为四部分：请求方法(<code>Request Method</code>),请求网址(<code>Request.URL</code>),请求头(<code>Request Headers</code>) 请求体(<code>Request Body</code>)</p>
 </blockquote>
 <h4 id="3-2-请求方法"><a href="#3-2-请求方法" class="headerlink" title="3.2  请求方法"></a>3.2  请求方法</h4><p>常见的有八种</p>
-<pre class="language-none"><code class="language-none">GET：请求页面，并返回内容
+<pre><code>GET：请求页面，并返回内容
 POST：用于提交表单数据或者文件等，数据包含在请求体中
 PUT：从客户端向服务器传送的数据取代指定文档中的内容
 DELETE：请求服务器删除指定的页面
@@ -227,13 +227,13 @@ TRACE：会回显服务器收到的请求，主要用于测试或诊断</code></
 <blockquote>
 <p>请求体一般承载的内容时POST请求中的表单数据，GET请求没有请求体，为空</p>
 </blockquote>
-<h4 id="3-4-反爬机制与反反爬策略"><a href="#3-4-反爬机制与反反爬策略" class="headerlink" title="3.4  反爬机制与反反爬策略"></a>3.4  反爬机制与反反爬策略</h4><pre class="language-python" data-language="python"><code class="language-python">#反爬机制：
+<h4 id="3-4-反爬机制与反反爬策略"><a href="#3-4-反爬机制与反反爬策略" class="headerlink" title="3.4  反爬机制与反反爬策略"></a>3.4  反爬机制与反反爬策略</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#反爬机制：</span>
 为了不让数据泄露，设置了各种阻碍，这就是反爬机制
 
-#反反爬策略
+<span class="token comment" spellcheck="true">#反反爬策略</span>
 针对网站的反爬机制，采取不同策略
-1.脚本：直接忽略
-2.scrapy框架：修改配置文件，让爬虫不遵守robots协议</code></pre>
+<span class="token number">1</span><span class="token punctuation">.</span>脚本：直接忽略
+<span class="token number">2.</span>scrapy框架：修改配置文件，让爬虫不遵守robots协议</code></pre>
 <hr>
 <h2 id="4-响应"><a href="#4-响应" class="headerlink" title="4.响应"></a>4.响应</h2><blockquote>
 <p>响应是由服务端返回给客户端的，可 以分为三部分：响应状态码，响应头，响应体</p>
@@ -241,7 +241,7 @@ TRACE：会回显服务器收到的请求，主要用于测试或诊断</code></
 <blockquote>
 <p>响应体，响应的正文数据都在响应体中，比如请求网页时，它的响应体就是网页的HTML代码，我们要爬虫请求网页后，要解析的内容就是响应体</p>
 </blockquote>
-<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><pre class="language-none"><code class="language-none">200：成功
+<h4 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h4><pre><code>200：成功
 301：永久重定向
 302：临时重定向
 400：错误的请求
@@ -256,10 +256,10 @@ TRACE：会回显服务器收到的请求，主要用于测试或诊断</code></
 <blockquote>
 <p>状态码不能完全代表相应状态，部分网站的状态码是自定义的，一切以响应数据为准</p>
 </blockquote>
-<h4 id="4-1-响应数据的几种形式"><a href="#4-1-响应数据的几种形式" class="headerlink" title="4.1  响应数据的几种形式"></a>4.1  响应数据的几种形式</h4><pre class="language-python" data-language="python"><code class="language-python">res = requests.get(url='https://www.guidaye.com/cp/')
-res.text &gt;&gt;&gt;将响应对象转化为str类型
-res.json()  &gt;&gt;&gt; 将响应对象转化为python中的dict类型，形式(类json)
-res.content  &gt;&gt;&gt;流形式(数据流，图片就是流形式)</code></pre>
+<h4 id="4-1-响应数据的几种形式"><a href="#4-1-响应数据的几种形式" class="headerlink" title="4.1  响应数据的几种形式"></a>4.1  响应数据的几种形式</h4><pre class=" language-python"><code class="language-python">res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">'https://www.guidaye.com/cp/'</span><span class="token punctuation">)</span>
+res<span class="token punctuation">.</span>text <span class="token operator">>></span><span class="token operator">></span>将响应对象转化为str类型
+res<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">>></span><span class="token operator">></span> 将响应对象转化为python中的dict类型，形式<span class="token punctuation">(</span>类json<span class="token punctuation">)</span>
+res<span class="token punctuation">.</span>content  <span class="token operator">>></span><span class="token operator">></span>流形式<span class="token punctuation">(</span>数据流，图片就是流形式<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>如果响应数据中文乱码，可以用<code>content.decode('utf-8')</code>来解决</p>
 </blockquote>
@@ -267,40 +267,38 @@ res.content  &gt;&gt;&gt;流形式(数据流，图片就是流形式)</code></pr
 <p>通用唯一标识符，时间戳，命名空间，随机数，伪随机数来保证生成ID的唯一性</p>
 <p>python的<code>uuid</code>模块提供<code>UUID</code>类和函数<code>uuid1()</code>, <code>uuid3()</code>,<code> uuid4()</code>,<code> uuid5()</code> 来生成1, 3, 4, 5各个版本的<code>UUID</code><br>( 需要注意的是: python中没有**<code>uuid2()</code>**这个函数)</p>
 </blockquote>
-<pre class="language-none"><code class="language-none">uuid1：基于时间戳
+<pre><code>uuid1：基于时间戳
 uuid3：基于名字的MD5散列值
 uuid4：基于随机数，有一定重复概率
 uuid5：基于名字的SHA=1散列值</code></pre>
 <hr>
-<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5.正则表达式"></a>5.正则表达式</h2><h4 id="5-1-元字符"><a href="#5-1-元字符" class="headerlink" title="5.1  元字符"></a>5.1  元字符</h4><pre class="language-python" data-language="python"><code class="language-python">.:任意字符，换行符除外
-\d:任意数字
-\w:任意数字字母下划线
-\s:空白符
+<h2 id="5-正则表达式"><a href="#5-正则表达式" class="headerlink" title="5.正则表达式"></a>5.正则表达式</h2><h4 id="5-1-元字符"><a href="#5-1-元字符" class="headerlink" title="5.1  元字符"></a>5.1  元字符</h4><pre class=" language-python"><code class="language-python"><span class="token punctuation">.</span><span class="token punctuation">:</span>任意字符，换行符除外
+\d<span class="token punctuation">:</span>任意数字
+\w<span class="token punctuation">:</span>任意数字字母下划线
+\s<span class="token punctuation">:</span>空白符
 
-#如果是大写的s，w，d，代表'非'</code></pre>
-<h4 id="5-2-字符组"><a href="#5-2-字符组" class="headerlink" title="5.2  字符组"></a>5.2  字符组</h4><pre class="language-python" data-language="python"><code class="language-python">[a-z]:
-[A-Z]:
-[0-9]:
+<span class="token comment" spellcheck="true">#如果是大写的s，w，d，代表'非'</span></code></pre>
+<h4 id="5-2-字符组"><a href="#5-2-字符组" class="headerlink" title="5.2  字符组"></a>5.2  字符组</h4><pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span>a<span class="token operator">-</span>z<span class="token punctuation">]</span><span class="token punctuation">:</span>
+<span class="token punctuation">[</span>A<span class="token operator">-</span>Z<span class="token punctuation">]</span><span class="token punctuation">:</span>
+<span class="token punctuation">[</span><span class="token number">0</span><span class="token operator">-</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
 
-[^...]
-#匹配非其中元素，举例：[^abc]---&gt;匹配除了abc之外的字符</code></pre>
-<h4 id="5-3-量词"><a href="#5-3-量词" class="headerlink" title="5.3  量词"></a>5.3  量词</h4><pre class="language-python" data-language="python"><code class="language-python">*:匹配0次或多次
-+:匹配1次或多次
-?:匹配0次或1次  #非贪婪匹配
-{m}:m次
-{m,}:至少m次
-{m,n}:m-n次
-{,n}:最多n次</code></pre>
+<span class="token punctuation">[</span><span class="token operator">^</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true">#匹配非其中元素，举例：[^abc]--->匹配除了abc之外的字符</span></code></pre>
+<h4 id="5-3-量词"><a href="#5-3-量词" class="headerlink" title="5.3  量词"></a>5.3  量词</h4><pre class=" language-python"><code class="language-python"><span class="token operator">*</span><span class="token punctuation">:</span>匹配<span class="token number">0</span>次或多次
+<span class="token operator">+</span><span class="token punctuation">:</span>匹配<span class="token number">1</span>次或多次
+?<span class="token punctuation">:</span>匹配<span class="token number">0</span>次或<span class="token number">1</span>次  <span class="token comment" spellcheck="true">#非贪婪匹配</span>
+<span class="token punctuation">{</span>m<span class="token punctuation">}</span><span class="token punctuation">:</span>m次
+<span class="token punctuation">{</span>m<span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">:</span>至少m次
+<span class="token punctuation">{</span>m<span class="token punctuation">,</span>n<span class="token punctuation">}</span><span class="token punctuation">:</span>m<span class="token operator">-</span>n次
+<span class="token punctuation">{</span><span class="token punctuation">,</span>n<span class="token punctuation">}</span><span class="token punctuation">:</span>最多n次</code></pre>
 <h4 id="5-4-边界修饰"><a href="#5-4-边界修饰" class="headerlink" title="5.4   边界修饰"></a>5.4   边界修饰</h4><blockquote>
 <p>^匹配开始</p>
 <p>$匹配结尾</p>
 </blockquote>
-<h4 id="5-5-分组"><a href="#5-5-分组" class="headerlink" title="5.5   分组"></a>5.5   分组</h4><pre class="language-python" data-language="python"><code class="language-python">import re
-s = "&lt;a href='asdsdjfiohssdbfkjsdbkjsd'&gt;"
+<h4 id="5-5-分组"><a href="#5-5-分组" class="headerlink" title="5.5   分组"></a>5.5   分组</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> re
+s <span class="token operator">=</span> <span class="token string">"&lt;a href='asdsdjfiohssdbfkjsdbkjsd'>"</span>
 
-res = re.findall(r"href='(.*?)'&gt;",s)</code></pre>
-
-
+res <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">"href='(.*?)'>"</span><span class="token punctuation">,</span>s<span class="token punctuation">)</span></code></pre>
 <h4 id="5-6-贪婪与非贪婪"><a href="#5-6-贪婪与非贪婪" class="headerlink" title="5.6  贪婪与非贪婪"></a>5.6  贪婪与非贪婪</h4><blockquote>
 <p>贪婪，尽可能多的匹配</p>
 <p>非贪婪，尽可能往少了匹配</p>
@@ -310,37 +308,37 @@ res = re.findall(r"href='(.*?)'&gt;",s)</code></pre>
 <p><code>re.match(r'正则表达式','str')</code>从字符串开始进行匹配，返回一个对象，使用<code>group</code>取值，如果未匹配到，返回None </p>
 <p><code>re.complie</code>将正则表达式编译为<strong>对象</strong>，在需要按正则表达式匹配是可以在直接使用该对象调用以上方法</p>
 <hr>
-<h2 id="6-requests高阶应用"><a href="#6-requests高阶应用" class="headerlink" title="6. requests高阶应用"></a>6. requests高阶应用</h2><h4 id="6-1-文件处理"><a href="#6-1-文件处理" class="headerlink" title="6.1  文件处理"></a>6.1  文件处理</h4><pre class="language-python" data-language="python"><code class="language-python">import requests
-#打开文件，注意要以rb形式打开
-f = open('chn.jpg','rb')
-files = {
-    'file':f
-}
-res = requests.post(url='***',files = files)</code></pre>
+<h2 id="6-requests高阶应用"><a href="#6-requests高阶应用" class="headerlink" title="6. requests高阶应用"></a>6. requests高阶应用</h2><h4 id="6-1-文件处理"><a href="#6-1-文件处理" class="headerlink" title="6.1  文件处理"></a>6.1  文件处理</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token comment" spellcheck="true">#打开文件，注意要以rb形式打开</span>
+f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">'chn.jpg'</span><span class="token punctuation">,</span><span class="token string">'rb'</span><span class="token punctuation">)</span>
+files <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'file'</span><span class="token punctuation">:</span>f
+<span class="token punctuation">}</span>
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">'***'</span><span class="token punctuation">,</span>files <span class="token operator">=</span> files<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>文件也是一种数据，所以，可以通过<code>files</code>参数来进行文件的上传</p>
 </blockquote>
-<h4 id="6-2-会话维持"><a href="#6-2-会话维持" class="headerlink" title="6.2  会话维持"></a>6.2  会话维持</h4><pre class="language-python" data-language="python"><code class="language-python">from requests import Session
-#1.实例化一个对象
-session = Session()
-#2.url
-url = '*****'
-#3.session.get()或者session.post(url=url.headers=headers)
-res = session.post(url=url.headers=headers)</code></pre>
+<h4 id="6-2-会话维持"><a href="#6-2-会话维持" class="headerlink" title="6.2  会话维持"></a>6.2  会话维持</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requests <span class="token keyword">import</span> Session
+<span class="token comment" spellcheck="true">#1.实例化一个对象</span>
+session <span class="token operator">=</span> Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#2.url</span>
+url <span class="token operator">=</span> <span class="token string">'*****'</span>
+<span class="token comment" spellcheck="true">#3.session.get()或者session.post(url=url.headers=headers)</span>
+res <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">.</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span></code></pre>
 <h4 id="6-3-ssl证书验证"><a href="#6-3-ssl证书验证" class="headerlink" title="6.3  ssl证书验证"></a>6.3  <code>ssl</code>证书验证</h4><p><code>https</code>是<code>http</code>的安全版本，<code>HTTPS</code>在<code>http</code>的基础上多了一个<code>ssl</code>安全套接层</p>
 <blockquote>
 <p>requests提供了证书验证的功能，当发起HTTP请求时，模块会检查<code>SSL</code>证书，但检查的行为可以用verify参数来控制</p>
 </blockquote>
 <p>添加了一个参数<code>verify=false   ---&gt;不检查ssl证书</code>,如果等于<code>True</code>，则检查<code>SSL</code>证书</p>
-<pre class="language-python" data-language="python"><code class="language-python">#ssl证书验证
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#ssl证书验证</span>
 
-#添加一个verify=false参数，禁止证书验证
-import requests
-url = '******'
-#阻止抛出警告
-requests.packages.urllib3.disable_warinings()
+<span class="token comment" spellcheck="true">#添加一个verify=false参数，禁止证书验证</span>
+<span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">'******'</span>
+<span class="token comment" spellcheck="true">#阻止抛出警告</span>
+requests<span class="token punctuation">.</span>packages<span class="token punctuation">.</span>urllib3<span class="token punctuation">.</span>disable_warinings<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-res = requests.get(url=url,verify=false)</code></pre>
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>verify<span class="token operator">=</span>false<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>简单来说，在爬取网站时，有可能网站的证书是有问题的，这时如果使用<code>requests</code>模块去请求时，会报错，所以需要<code>ssl</code>证书验证</p>
 </blockquote>
@@ -353,21 +351,21 @@ res = requests.get(url=url,verify=false)</code></pre>
 <blockquote>
 <p>代理类别：基于接口的，基于隧道的</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">反爬：ip封禁---&gt;使用代理ip
+<pre class=" language-python"><code class="language-python">反爬：ip封禁<span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>使用代理ip
 
-import requests
-url = '*********'
-proxies = {
-    #或者是https
-    'http':'http://ip地址:端口号',
-    #无论是http还是https，后面一定是http
-    'https':'http://ip地址:端口号'
-}
-res = requests.get(url=url,proxies = proxies)</code></pre>
+<span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">'*********'</span>
+proxies <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">#或者是https</span>
+    <span class="token string">'http'</span><span class="token punctuation">:</span><span class="token string">'http://ip地址:端口号'</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">#无论是http还是https，后面一定是http</span>
+    <span class="token string">'https'</span><span class="token punctuation">:</span><span class="token string">'http://ip地址:端口号'</span>
+<span class="token punctuation">}</span>
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>proxies <span class="token operator">=</span> proxies<span class="token punctuation">)</span></code></pre>
 <h4 id="6-5-超时设置"><a href="#6-5-超时设置" class="headerlink" title="6.5  超时设置"></a>6.5  超时设置</h4><p>添加了一个参数，以<strong>秒</strong>计量<code>timeout=0.1</code></p>
-<pre class="language-python" data-language="python"><code class="language-python">#添加timeout参数，秒数
-import requests
-res=requests.get(url=url,timeout=0.1)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#添加timeout参数，秒数</span>
+<span class="token keyword">import</span> requests
+res<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">0.1</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>给予爬虫与服务器连接的时间限定，设置一个时间，在指定的时间内完成了正常的连接，不报错，如果没有完成，就会报错</p>
 <p>requests模块发送请求可以设置超时时间，在超时时间内未得到响应，便会抛出异常</p>
@@ -391,44 +389,44 @@ res=requests.get(url=url,timeout=0.1)</code></pre>
 <li>自动封装cookie的类：<code>Session</code></li>
 </ol>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#cookie的处理
-	#1.url = 'https://www.baidu.com/'
-        headers = {
-            'Cookie':'BIDUPSID=B63BDB40304991E9FF3159864CC9C302; PSTM=1586308511; BAIDUID=B63BDB40304991E9CC4E4ECFFCFFB23D:FG=1; BD_UPN=12314753; BDUSS=VWNmZu',
-            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
-        }
-        res = requests.get(url=url,headers=headers)
-        
-    #2.cookiejar对象
-    from requests.cookies import RequestCookieJar
-   	1.首先需要获取Cookies
-    Cookie = ***********
-    2.实例化一个jar对象
-    jar = RequestsCookieJar()
-    3.处理Cookies，封装进jar对象中
-    for i in Cookie.split(','):
-        #再次分割，分成dict的键值，每分割一次添加一次
-        k,v = i.split('=',1)
-        jar.set(k,v)
-    
-    #3.Session类，会话维持
-    from requests import Session
-    1.实例化一个对象
-    session = Session()
-    2.url
-    url = '*****'
-    3.session.get()或者session.post(url=url.headers=headers)
-    res = session.post(url=url.headers=headers)</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">from requests import Session
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#cookie的处理</span>
+    <span class="token comment" spellcheck="true">#1.url = 'https://www.baidu.com/'</span>
+        headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'Cookie'</span><span class="token punctuation">:</span><span class="token string">'BIDUPSID=B63BDB40304991E9FF3159864CC9C302; PSTM=1586308511; BAIDUID=B63BDB40304991E9CC4E4ECFFCFFB23D:FG=1; BD_UPN=12314753; BDUSS=VWNmZu'</span><span class="token punctuation">,</span>
+            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'</span>
+        <span class="token punctuation">}</span>
+        res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
 
-session = Session()
+    <span class="token comment" spellcheck="true">#2.cookiejar对象</span>
+    <span class="token keyword">from</span> requests<span class="token punctuation">.</span>cookies <span class="token keyword">import</span> RequestCookieJar
+       <span class="token number">1</span><span class="token punctuation">.</span>首先需要获取Cookies
+    Cookie <span class="token operator">=</span> <span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">*</span>
+    <span class="token number">2</span><span class="token punctuation">.</span>实例化一个jar对象
+    jar <span class="token operator">=</span> RequestsCookieJar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token number">3</span><span class="token punctuation">.</span>处理Cookies，封装进jar对象中
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> Cookie<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true">#再次分割，分成dict的键值，每分割一次添加一次</span>
+        k<span class="token punctuation">,</span>v <span class="token operator">=</span> i<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+        jar<span class="token punctuation">.</span>set<span class="token punctuation">(</span>k<span class="token punctuation">,</span>v<span class="token punctuation">)</span>
 
-data = {
-    'username':"天听",
-    'password':'123456'
-}
+    <span class="token comment" spellcheck="true">#3.Session类，会话维持</span>
+    <span class="token keyword">from</span> requests <span class="token keyword">import</span> Session
+    <span class="token number">1</span><span class="token punctuation">.</span>实例化一个对象
+    session <span class="token operator">=</span> Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token number">2.</span>url
+    url <span class="token operator">=</span> <span class="token string">'*****'</span>
+    <span class="token number">3.</span>session<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>或者session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">.</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    res <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">.</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requests <span class="token keyword">import</span> Session
 
-res = session.post(url=url,headers=headers,data=data)</code></pre>
+session <span class="token operator">=</span> Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'username'</span><span class="token punctuation">:</span><span class="token string">"天听"</span><span class="token punctuation">,</span>
+    <span class="token string">'password'</span><span class="token punctuation">:</span><span class="token string">'123456'</span>
+<span class="token punctuation">}</span>
+
+res <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span></code></pre>
 <hr>
 <h2 id="7-lxm库"><a href="#7-lxm库" class="headerlink" title="7.lxm库"></a>7.<code>lxm</code>库</h2><blockquote>
 <p>从响应数据中抽取出目标数据的过程，就叫做数据解析<br>数据解析：<br><code>re</code>,<code>xpath</code>,<code>BS4</code>,<code>Pyquery</code></p>
@@ -448,10 +446,13 @@ res = session.post(url=url,headers=headers,data=data)</code></pre>
 <p><code>text()</code>:获取节点的文本<br><code>//div[@class='asdds']/p/text()</code></p>
 <h4 id="7-2-属性匹配"><a href="#7-2-属性匹配" class="headerlink" title="7.2  属性匹配"></a>7.2  属性匹配</h4><ul>
 <li><p>单属性多值匹配：当节点的一个属性有多个值时，根据其中一个进行定位，使用<code>contai ns</code>函数</p>
-<pre class="language-python" data-language="python"><code class="language-python">'//div[contains(@class,"属性值")]'</code></pre></li>
+<pre class=" language-python"><code class="language-python"><span class="token string">'//div[contains(@class,"属性值")]'</span></code></pre>
+</li>
 <li><p>多属性匹配：用节点的多个属性共同定位节点<code>and</code></p>
-<pre class="language-python" data-language="python"><code class="language-python">'//div[@class="asds" and @name="adsadasd"]'</code></pre>
-<h4 id="7-3-按序选择"><a href="#7-3-按序选择" class="headerlink" title="7.3  按序选择"></a>7.3  按序选择</h4></li>
+<pre class=" language-python"><code class="language-python"><span class="token string">'//div[@class="asds" and @name="adsadasd"]'</span></code></pre>
+</li>
+</ul>
+<h4 id="7-3-按序选择"><a href="#7-3-按序选择" class="headerlink" title="7.3  按序选择"></a>7.3  按序选择</h4><ul>
 <li><p>索引定位：[6] </p>
 <blockquote>
 <p><strong>注意，索引从1开始，跟python有区别</strong></p>
@@ -466,21 +467,19 @@ res = session.post(url=url,headers=headers,data=data)</code></pre>
 <p>加载网页<code>html</code>,直接使用HTML<br>例：<code>tree = etree.HTML()</code></p>
 <p>然后些<code>xpath</code>语法<br><code>tree.xpath('//ul[@class="pli"]/li/div/a/img/@src')</code></p>
 <p><code>xpath</code>获得的结果是一个列表2  </p>
-<pre class="language-python" data-language="python"><code class="language-python">#编码流程
-from lxml import etree
-res = requests.get(...)
-tree = etree.HTML(res.text) #etree加载的是响应数据的文本形式
-tree.xpath('xpath表达式')</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#编码流程</span>
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> etree
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+tree <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#etree加载的是响应数据的文本形式</span>
+tree<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'xpath表达式'</span><span class="token punctuation">)</span></code></pre>
+<h4 id="7-5-补充"><a href="#7-5-补充" class="headerlink" title="7.5  补充"></a>7.5  补充</h4><pre class=" language-python"><code class="language-python">res1 <span class="token operator">=</span> tree<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//div[@id='007']/text()"</span><span class="token punctuation">)</span>
 
+res2 <span class="token operator">=</span> tree<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">"//div[@id='007']//text()"</span><span class="token punctuation">)</span>
 
-<h4 id="7-5-补充"><a href="#7-5-补充" class="headerlink" title="7.5  补充"></a>7.5  补充</h4><pre class="language-python" data-language="python"><code class="language-python">res1 = tree.xpath("//div[@id='007']/text()")
-
-res2 = tree.xpath("//div[@id='007']//text()")
-
-'''
+<span class="token triple-quoted-string string">'''
 res1展示的是以divid007为根节点的结果，其div下的其他标签不显示
 res2展示的是以divid007任意位置的结果，其div下的其他标签内容也一同显示
-'''</code></pre>
+'''</span></code></pre>
 <hr>
 <h2 id="8-动态数据加载"><a href="#8-动态数据加载" class="headerlink" title="8.动态数据加载"></a>8.动态数据加载</h2><blockquote>
 <p>网页HTML上，有些数据是通过<code>js</code>代码填充，所以如果直接使用爬虫，只会爬取到一个标签，并没有其中的元素</p>
@@ -497,116 +496,116 @@ res2展示的是以divid007任意位置的结果，其div下的其他标签内�
 </ol>
 <p>3.驱动程序：下载<br>   <code>http://npm.taobao.org/mirrors/chromedriver/</code><br>   查看浏览器版本<br>   选择对应的版本</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">编码流程：
-	#首先需要将下载的chromedriver.exe放到代码文件夹下
-    #导包
-    from seleniumi import webdriver
-    
-    
-    #调用chromedriver.exe
-    bro = webdriver.Chrome('./chromedriver.exe')
-    
-    #访问
-    bro.get('https://www.iqiyi.com/')
-    
-    #获取网页源代码
-	(对象)bro.page_source   ---&gt;字符串</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#如何获取网页的元素
-#根据标签内属性定位，一般用id定位
-find_element_by_id('id')
-find_element_by_name('name')
-find_element_by_class_name('class')#根据class属性定位
-find_element_by_xpath()#根据xpath定位节点
-find_element_by_css_selector()#css选择器
-find_element_by_link_text()#根据超链接文本定位
-find_element_by_partial_link_text()#根据超链接文本的一部分定位
-
-#执行js脚本
-execute_script(js)
-
-#节点交互操作：
-1.输入内容：对象.send_keys()
-
-2.清空内容：对象.clear()
-
-3.点击操作：对象.click()
-
-4.退出浏览器：对象.quit()
-
-#获取网页的数据
-获取元素属性：get_attribute()
-获取元素文本：get_text()
-获取元素位置：element.location
-获取元素尺寸：element.size
-获取网页源码：browser.page_source(*****)
+<pre class=" language-python"><code class="language-python">编码流程：
+    <span class="token comment" spellcheck="true">#首先需要将下载的chromedriver.exe放到代码文件夹下</span>
+    <span class="token comment" spellcheck="true">#导包</span>
+    <span class="token keyword">from</span> seleniumi <span class="token keyword">import</span> webdriver
 
 
-#执行js脚本
-js = 'window.scrollTo(0,300)'#向下滚动300距离
+    <span class="token comment" spellcheck="true">#调用chromedriver.exe</span>
+    bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token string">'./chromedriver.exe'</span><span class="token punctuation">)</span>
 
-js = 'window.scrollTo(0,document.body.scrollHeight)'#滚动到底部
+    <span class="token comment" spellcheck="true">#访问</span>
+    bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.iqiyi.com/'</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">#获取网页源代码</span>
+    <span class="token punctuation">(</span>对象<span class="token punctuation">)</span>bro<span class="token punctuation">.</span>page_source   <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">></span>字符串</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#如何获取网页的元素</span>
+<span class="token comment" spellcheck="true">#根据标签内属性定位，一般用id定位</span>
+find_element_by_id<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
+find_element_by_name<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span>
+find_element_by_class_name<span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#根据class属性定位</span>
+find_element_by_xpath<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#根据xpath定位节点</span>
+find_element_by_css_selector<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#css选择器</span>
+find_element_by_link_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#根据超链接文本定位</span>
+find_element_by_partial_link_text<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#根据超链接文本的一部分定位</span>
+
+<span class="token comment" spellcheck="true">#执行js脚本</span>
+execute_script<span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#节点交互操作：</span>
+<span class="token number">1</span><span class="token punctuation">.</span>输入内容：对象<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token number">2</span><span class="token punctuation">.</span>清空内容：对象<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token number">3</span><span class="token punctuation">.</span>点击操作：对象<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token number">4</span><span class="token punctuation">.</span>退出浏览器：对象<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#获取网页的数据</span>
+获取元素属性：get_attribute<span class="token punctuation">(</span><span class="token punctuation">)</span>
+获取元素文本：get_text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+获取元素位置：element<span class="token punctuation">.</span>location
+获取元素尺寸：element<span class="token punctuation">.</span>size
+获取网页源码：browser<span class="token punctuation">.</span>page_source<span class="token punctuation">(</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">*</span><span class="token punctuation">)</span>
 
 
-对象.execute_script(js)</code></pre>
+<span class="token comment" spellcheck="true">#执行js脚本</span>
+js <span class="token operator">=</span> <span class="token string">'window.scrollTo(0,300)'</span><span class="token comment" spellcheck="true">#向下滚动300距离</span>
+
+js <span class="token operator">=</span> <span class="token string">'window.scrollTo(0,document.body.scrollHeight)'</span><span class="token comment" spellcheck="true">#滚动到底部</span>
+
+
+对象<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span>js<span class="token punctuation">)</span></code></pre>
 <h4 id="iframe标签跳转"><a href="#iframe标签跳转" class="headerlink" title="iframe标签跳转"></a><code>iframe</code>标签跳转</h4><p><code>switch_to.frname('frameid')</code></p>
 <p><code>switch_to.default_content()</code></p>
 <p>实例：</p>
-<pre class="language-python" data-language="python"><code class="language-python">from selenium import webdriver
-from time import sleep
-from selenium.webdriver.chrome.options import Options
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+<span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
 
-options = Options()
+options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-options.add_experimental_option('excludeSwitches',['enable-automation'])
+options<span class="token punctuation">.</span>add_experimental_option<span class="token punctuation">(</span><span class="token string">'excludeSwitches'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'enable-automation'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-#调用chromedriver.exe
-bro = webdriver.Chrome('./chromedriver.exe',options=options)
+<span class="token comment" spellcheck="true">#调用chromedriver.exe</span>
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token string">'./chromedriver.exe'</span><span class="token punctuation">,</span>options<span class="token operator">=</span>options<span class="token punctuation">)</span>
 
-bro.get('https://www.baidu.com/')
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'https://www.baidu.com/'</span><span class="token punctuation">)</span>
 
-#根据id--&gt;kw获取input输入框
-input_tag = bro.find_element_by_id('kw')
+<span class="token comment" spellcheck="true">#根据id-->kw获取input输入框</span>
+input_tag <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'kw'</span><span class="token punctuation">)</span>
 
-#根据id--&gt;su获取百度一下点击按钮
-button_baidu = bro.find_element_by_id('su')
+<span class="token comment" spellcheck="true">#根据id-->su获取百度一下点击按钮</span>
+button_baidu <span class="token operator">=</span> bro<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'su'</span><span class="token punctuation">)</span>
 
-#输入框输入
-input_tag.send_keys('黑洞')
+<span class="token comment" spellcheck="true">#输入框输入</span>
+input_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'黑洞'</span><span class="token punctuation">)</span>
 
-#点击
-button_baidu.click()
+<span class="token comment" spellcheck="true">#点击</span>
+button_baidu<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-#睡眠两秒之后清空输入框
-sleep(2)
-input_tag.clear()
+<span class="token comment" spellcheck="true">#睡眠两秒之后清空输入框</span>
+sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+input_tag<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-input_tag.send_keys('抖动')
-button_baidu.click()
-sleep(3)
-input_tag.clear()
+input_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'抖动'</span><span class="token punctuation">)</span>
+button_baidu<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+input_tag<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-input_tag.send_keys('翻转')
-button_baidu.click()
-sleep(3)
-input_tag.clear()
+input_tag<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'翻转'</span><span class="token punctuation">)</span>
+button_baidu<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+input_tag<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-bro.quit()</code></pre>
+bro<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h4 id="8-3-子级页面和父级页面"><a href="#8-3-子级页面和父级页面" class="headerlink" title="8.3  子级页面和父级页面"></a>8.3  子级页面和父级页面</h4><blockquote>
 <p>HTML页面嵌套另一个HTML页面</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#子页面的跳转
-switch_to.frame('id')
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#子页面的跳转</span>
+switch_to<span class="token punctuation">.</span>frame<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">)</span>
 
-#跳转到父级页面
-switch_to_default.conent()</code></pre>
+<span class="token comment" spellcheck="true">#跳转到父级页面</span>
+switch_to_default<span class="token punctuation">.</span>conent<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>注意，selenium默认操作父级页面</p>
 </blockquote>
-<h4 id="8-4-防检测"><a href="#8-4-防检测" class="headerlink" title="8.4  防检测"></a>8.4  防检测</h4><pre class="language-python" data-language="python"><code class="language-python">from selenium.webdriver.chrome.options import Options
-options = Options()
-options.add_experimental_option('excludeSwitches',['enable-automation'])
-bro = webdriver.Chrome('./chromedriver.exe',options=options)</code></pre>
+<h4 id="8-4-防检测"><a href="#8-4-防检测" class="headerlink" title="8.4  防检测"></a>8.4  防检测</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium<span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
+options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+options<span class="token punctuation">.</span>add_experimental_option<span class="token punctuation">(</span><span class="token string">'excludeSwitches'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'enable-automation'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token string">'./chromedriver.exe'</span><span class="token punctuation">,</span>options<span class="token operator">=</span>options<span class="token punctuation">)</span></code></pre>
 <hr>
 <h2 id="9-多线程爬虫"><a href="#9-多线程爬虫" class="headerlink" title="9.多线程爬虫"></a>9.多线程爬虫</h2><blockquote>
 <p>在爬取数据量大的数据时，耗费时间较长，为了提高效率，可采用多线程爬虫，提高效率，但是，多线程不是原子性，操纵数据可能会导致数据紊乱，不安全</p>
@@ -615,86 +614,86 @@ bro = webdriver.Chrome('./chromedriver.exe',options=options)</code></pre>
 <p>并行：在同一时刻，多个任务同时执行</p>
 <p>并发：在同一时间段内，多个任务同时执行<br>并发时，一般采用了时间片轮转法，即在一个时间段内，给每个程序添加一个时间片，也可以叫做进度条，进度条走完，下一个程序再继续运行，不过时间片轮转时，停顿时间非常的短，所以会造成多个任务同时运行的错误</p>
 </blockquote>
-<h4 id="9-2-示例"><a href="#9-2-示例" class="headerlink" title="9.2  示例"></a>9.2  示例</h4><pre class="language-python" data-language="python"><code class="language-python">from threading import Thread
-from queue import Queue
-import requests
-from lxml import etree
-import pymongo
-from threading import Lock
+<h4 id="9-2-示例"><a href="#9-2-示例" class="headerlink" title="9.2  示例"></a>9.2  示例</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">from</span> queue <span class="token keyword">import</span> Queue
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> lxml <span class="token keyword">import</span> etree
+<span class="token keyword">import</span> pymongo
+<span class="token keyword">from</span> threading <span class="token keyword">import</span> Lock
 
-#负责爬取的类
-class SpiderThread(Thread):
-    def __init__(self, name, url_queue, data_queue):
-        super().__init__()
-        self.name = name
-        self.url_queue = url_queue
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
-        }
-        self.data_queue = data_queue
+<span class="token comment" spellcheck="true">#负责爬取的类</span>
+<span class="token keyword">class</span> <span class="token class-name">SpiderThread</span><span class="token punctuation">(</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> url_queue<span class="token punctuation">,</span> data_queue<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>url_queue <span class="token operator">=</span> url_queue
+        self<span class="token punctuation">.</span>headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'</span>
+        <span class="token punctuation">}</span>
+        self<span class="token punctuation">.</span>data_queue <span class="token operator">=</span> data_queue
 
-    def run(self):
-        base_url = 'http://xiaohua.zol.com.cn/lengxiaohua/%s.html'
-        while 1:
-            try:
-                page = self.url_queue.get(block=False)
-                print('%s正在爬取数据' % self.name )
-                res = requests.get(url=base_url % page, headers=self.headers)
-                self.data_queue.put(res.text)
-            except:
-                break
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        base_url <span class="token operator">=</span> <span class="token string">'http://xiaohua.zol.com.cn/lengxiaohua/%s.html'</span>
+        <span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                page <span class="token operator">=</span> self<span class="token punctuation">.</span>url_queue<span class="token punctuation">.</span>get<span class="token punctuation">(</span>block<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s正在爬取数据'</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name <span class="token punctuation">)</span>
+                res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>base_url <span class="token operator">%</span> page<span class="token punctuation">,</span> headers<span class="token operator">=</span>self<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>data_queue<span class="token punctuation">.</span>put<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+            <span class="token keyword">except</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
 
-#负责解析的类
-class ParseThread(Thread):
-    def __init__(self, name, data_queue, lock):
-        super().__init__()
-        self.name = name
-        self.data_queue = data_queue
-        self.lock = lock
+<span class="token comment" spellcheck="true">#负责解析的类</span>
+<span class="token keyword">class</span> <span class="token class-name">ParseThread</span><span class="token punctuation">(</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> data_queue<span class="token punctuation">,</span> lock<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>data_queue <span class="token operator">=</span> data_queue
+        self<span class="token punctuation">.</span>lock <span class="token operator">=</span> lock
 
-    def run(self):
-        # 调用解析方法
-        while 1:
-            try:
-                html = self.data_queue.get(block=False)
-                print('%s 正在解析数据' % self.name)
-                self.parse(html)
-            except:
-                break
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 调用解析方法</span>
+        <span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                html <span class="token operator">=</span> self<span class="token punctuation">.</span>data_queue<span class="token punctuation">.</span>get<span class="token punctuation">(</span>block<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s 正在解析数据'</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+                self<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+            <span class="token keyword">except</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
 
-    def parse(self, html):
-        tree = etree.HTML(html)
-        li_list = tree.xpath('//li[@class="article-summary"]')
-        for li in li_list:
-            title = li.xpath('.//span[@class="article-title"]/a/text()')
-            content = ''.join(li.xpath('.//div[@class="summary-text"]//text()'))
-            if title and content:
-                data = {
-                    'title': title[0],
-                    'content': content
-                }
-                with self.lock:
-                    self.save(data)
+    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        tree <span class="token operator">=</span> etree<span class="token punctuation">.</span>HTML<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+        li_list <span class="token operator">=</span> tree<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//li[@class="article-summary"]'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> li <span class="token keyword">in</span> li_list<span class="token punctuation">:</span>
+            title <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//span[@class="article-title"]/a/text()'</span><span class="token punctuation">)</span>
+            content <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//div[@class="summary-text"]//text()'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> title <span class="token operator">and</span> content<span class="token punctuation">:</span>
+                data <span class="token operator">=</span> <span class="token punctuation">{</span>
+                    <span class="token string">'title'</span><span class="token punctuation">:</span> title<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    <span class="token string">'content'</span><span class="token punctuation">:</span> content
+                <span class="token punctuation">}</span>
+                <span class="token keyword">with</span> self<span class="token punctuation">.</span>lock<span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>save<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 
-    def save(self, data):
-        # 简历连接
-        conn = pymongo.MongoClient()
-        db = conn.lilong
-        table = db.liuyueyang
-        table.insert_one(data)</code></pre>
+    <span class="token keyword">def</span> <span class="token function">save</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 简历连接</span>
+        conn <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        db <span class="token operator">=</span> conn<span class="token punctuation">.</span>lilong
+        table <span class="token operator">=</span> db<span class="token punctuation">.</span>liuyueyang
+        table<span class="token punctuation">.</span>insert_one<span class="token punctuation">(</span>data<span class="token punctuation">)</span></code></pre>
 <hr>
 <h2 id="10-无头浏览器与BS4"><a href="#10-无头浏览器与BS4" class="headerlink" title="10.无头浏览器与BS4"></a>10.无头浏览器与<code>BS4</code></h2><h4 id="10-1-无头浏览器"><a href="#10-1-无头浏览器" class="headerlink" title="10.1  无头浏览器"></a>10.1  无头浏览器</h4><blockquote>
 <p>什么是无头浏览器（headless browser），简单来说是一种<strong>没有界面</strong>的浏览器。既然是浏览器那么浏览器该有的东西它都应该有，只是看不到界面而已。我们日常使用浏览器的步骤为：启动浏览器、打开一个网页、进行交互。而无头浏览器指的是我们使用脚本来执行以上过程的浏览器，能模拟真实的浏览器使用场景。</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from selenium import webdriver
-from selenium .webdriver.chrome.options import Options
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token keyword">from</span> selenium <span class="token punctuation">.</span>webdriver<span class="token punctuation">.</span>chrome<span class="token punctuation">.</span>options <span class="token keyword">import</span> Options
 
-chrome_options = Options()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--dissble-gpu')
-bro = webdriver.Chrome(chrome_options = chrome_options)
-bro.get(******)
-print(bro.page_source)</code></pre>
+chrome_options <span class="token operator">=</span> Options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--headless'</span><span class="token punctuation">)</span>
+chrome_options<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--dissble-gpu'</span><span class="token punctuation">)</span>
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>chrome_options <span class="token operator">=</span> chrome_options<span class="token punctuation">)</span>
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token operator">**</span><span class="token operator">**</span><span class="token operator">**</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bro<span class="token punctuation">.</span>page_source<span class="token punctuation">)</span></code></pre>
 <h4 id="10-2-BS4语法"><a href="#10-2-BS4语法" class="headerlink" title="10.2  BS4语法"></a>10.2  <code>BS4</code>语法</h4><blockquote>
 <p>编码流程：</p>
 <ol>
@@ -703,71 +702,71 @@ print(bro.page_source)</code></pre>
 <li>选择器解析</li>
 </ol>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#bs4编码流程
-from bs4 import BeautifulSoup
-suop = BeautifulSoup(res.text,'lxml')
-tag = soup.select('css选择器表达式')
-tag = soup.节点() #节点选择器
-tag = soup.findall() # 方法选择器</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#节点选择器
-from bs4 import BeautifulSoup
-soup = BeautifulSoup(res.text,'lxml')
-tag = soup.a  #取a标签，只取一个</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#方法选择器
-find_all(name,attrs,text,limit):
-    soup.findall(name='***')  #根据节点名字定位
-    soup.findall(attrs={'属性名(scr,class等)':'值'})#根据属性定位，多个属性时，一个即可定位
-    soup.findall(text=res.compile(r'***'))#根据节点文本定位，返回文本
-    soup.findall(name='***',limit=2)#只返回两个结果
-    
-find(name,attrs,text,limit):区别于find_all，find返回的是一个对象结果
-    
-find_all(name=节点名,{attrs:属性值})返回的是一个列表</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">#css选择器
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#bs4编码流程</span>
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+suop <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'css选择器表达式'</span><span class="token punctuation">)</span>
+tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>节点<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#节点选择器</span>
+tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 方法选择器</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#节点选择器</span>
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">,</span><span class="token string">'lxml'</span><span class="token punctuation">)</span>
+tag <span class="token operator">=</span> soup<span class="token punctuation">.</span>a  <span class="token comment" spellcheck="true">#取a标签，只取一个</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#方法选择器</span>
+find_all<span class="token punctuation">(</span>name<span class="token punctuation">,</span>attrs<span class="token punctuation">,</span>text<span class="token punctuation">,</span>limit<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    soup<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'***'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#根据节点名字定位</span>
+    soup<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>attrs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'属性名(scr,class等)'</span><span class="token punctuation">:</span><span class="token string">'值'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#根据属性定位，多个属性时，一个即可定位</span>
+    soup<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>text<span class="token operator">=</span>res<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>r<span class="token string">'***'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#根据节点文本定位，返回文本</span>
+    soup<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'***'</span><span class="token punctuation">,</span>limit<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#只返回两个结果</span>
+
+find<span class="token punctuation">(</span>name<span class="token punctuation">,</span>attrs<span class="token punctuation">,</span>text<span class="token punctuation">,</span>limit<span class="token punctuation">)</span><span class="token punctuation">:</span>区别于find_all，find返回的是一个对象结果
+
+find_all<span class="token punctuation">(</span>name<span class="token operator">=</span>节点名<span class="token punctuation">,</span><span class="token punctuation">{</span>attrs<span class="token punctuation">:</span>属性值<span class="token punctuation">}</span><span class="token punctuation">)</span>返回的是一个列表</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#css选择器</span>
 属性选择器：
-1.根据节点名定位标签：标签选择器
-soup.select('***(title,a,p等)')
-2.根据节点的class属性定位：css选择器
-soup.select('.***')
-3.根据id定位
-soup.select('#***')
-4.嵌套选择：
-ss = soup.select('ul')#得到的是一个列表
-for i in ss:
-    print(i.select("li"))
-5.层级选择器
-soup.select('div &gt; ul &gt; li') #单层级选择器，按照顺序找到直属li
-soup.select('div li') #多层级选择器，包含了div下的所有li
+<span class="token number">1</span><span class="token punctuation">.</span>根据节点名定位标签：标签选择器
+soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'***(title,a,p等)'</span><span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token punctuation">.</span>根据节点的<span class="token keyword">class</span>属性定位：css选择器
+soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'.***'</span><span class="token punctuation">)</span>
+<span class="token number">3</span><span class="token punctuation">.</span>根据id定位
+soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'#***'</span><span class="token punctuation">)</span>
+<span class="token number">4</span><span class="token punctuation">.</span>嵌套选择：
+ss <span class="token operator">=</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'ul'</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#得到的是一个列表</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> ss<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">"li"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token number">5</span><span class="token punctuation">.</span>层级选择器
+soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'div > ul > li'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#单层级选择器，按照顺序找到直属li</span>
+soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'div li'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#多层级选择器，包含了div下的所有li</span>
 
-#获取节点的文本或属性
-obj.string:获取直接子文本，如果节点内有平行的节点，则结果是None
-obj.get_text()：获取子孙节点的所有文本
-obj['***(属性)']：获取节点属性</code></pre>
+<span class="token comment" spellcheck="true">#获取节点的文本或属性</span>
+obj<span class="token punctuation">.</span>string<span class="token punctuation">:</span>获取直接子文本，如果节点内有平行的节点，则结果是None
+obj<span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span>：获取子孙节点的所有文本
+obj<span class="token punctuation">[</span><span class="token string">'***(属性)'</span><span class="token punctuation">]</span>：获取节点属性</code></pre>
 <hr>
-<h2 id="11-快代理网站的模拟登录"><a href="#11-快代理网站的模拟登录" class="headerlink" title="11.快代理网站的模拟登录"></a>11.快代理网站的模拟登录</h2><pre class="language-python" data-language="python"><code class="language-python">from requests import Session
+<h2 id="11-快代理网站的模拟登录"><a href="#11-快代理网站的模拟登录" class="headerlink" title="11.快代理网站的模拟登录"></a>11.快代理网站的模拟登录</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> requests <span class="token keyword">import</span> Session
 
-#实例化session对象
-session = Session()
-#登录的url
-url = 'https://www.kuaidaili.com/login/'
-#构造数据
-data = {
-    'next': '',
-    'kf5_return_to': '',
-    'username': '2274201339@qq.com',
-    'passwd': 'o66.'
-}
-#浏览器头
-headers = {
-    "User-Agent":'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'
-}
+<span class="token comment" spellcheck="true">#实例化session对象</span>
+session <span class="token operator">=</span> Session<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#登录的url</span>
+url <span class="token operator">=</span> <span class="token string">'https://www.kuaidaili.com/login/'</span>
+<span class="token comment" spellcheck="true">#构造数据</span>
+data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'next'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'kf5_return_to'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'username'</span><span class="token punctuation">:</span> <span class="token string">'2274201339@qq.com'</span><span class="token punctuation">,</span>
+    <span class="token string">'passwd'</span><span class="token punctuation">:</span> <span class="token string">'o66.'</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">#浏览器头</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"User-Agent"</span><span class="token punctuation">:</span><span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36'</span>
+<span class="token punctuation">}</span>
 
-#用post请求将数据传进去，此时，已经模拟了登录，访问这个网站的其他网页时，会保存登录状态
-res = session.post(url=url,headers=headers,data=data)
+<span class="token comment" spellcheck="true">#用post请求将数据传进去，此时，已经模拟了登录，访问这个网站的其他网页时，会保存登录状态</span>
+res <span class="token operator">=</span> session<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
 
-#访问时，可以获得到返回的数据，用户名在其中，模拟登录完成
-ret = session.get(url='https://www.kuaidaili.com/api/checkuser/',headers=headers)
-print(ret.json())</code></pre>
+<span class="token comment" spellcheck="true">#访问时，可以获得到返回的数据，用户名在其中，模拟登录完成</span>
+ret <span class="token operator">=</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">'https://www.kuaidaili.com/api/checkuser/'</span><span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ret<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h4 id="11-1-第三方打码平台"><a href="#11-1-第三方打码平台" class="headerlink" title="11.1  第三方打码平台"></a>11.1  第三方打码平台</h4><blockquote>
 <p>我们在模拟登录时，时常会遇到一些验证码代码无法准确的识别不同的验证码，这时，就用到了打码平台，它会将图片上的字符或者数字转成字符串返回给你</p>
 </blockquote>
@@ -840,30 +839,30 @@ print(ret.json())</code></pre>
 <blockquote>
 <p>实例化item,两种方法，一种是实例化对象，另一种是直接<code>yield 类名(字段名=值)</code></p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">class BlogSpider(scrapy.Spider):
-    #爬虫名，爬虫唯一的身份标识，不可重复
-    name = 'blog'
-    #域名的限定，限制了爬虫的范围，可以注释
-    # allowed_domains = ['baidu.com']
-    #起始url，当项目启动，自动对这个url发起请求
-    start_urls = ['http://baidu.com/']
-    #parse是默认的解析回调方法，如果发送一个请求，未指定回调解析，默认调用parse
-    def parse(self,response):
-        li_list = response.xpath('//ul[@id="menu-list"]/li')
-        for li in li_list:
-            item = Test01Item()
-            #名字
-            item['title'] = li.xpath('.//h2/a/@title').extract_first()
-            #简介
-            item['brief'] = ''.join(li.xpath('./text()').extract()).replace('\n','')
-            #时间
-            item['date'] = re.findall(r'\d+-\d+-\d+', li.xpath('.//p/text()').extract_first())[0]
-            #链接
-            item['link'] = li.xpath('.//h2/a/@href').extract_first()
-            yield item
-            
-            #第二种实例化方法
-            yield Test01Item(title=title)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">BlogSpider</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#爬虫名，爬虫唯一的身份标识，不可重复</span>
+    name <span class="token operator">=</span> <span class="token string">'blog'</span>
+    <span class="token comment" spellcheck="true">#域名的限定，限制了爬虫的范围，可以注释</span>
+    <span class="token comment" spellcheck="true"># allowed_domains = ['baidu.com']</span>
+    <span class="token comment" spellcheck="true">#起始url，当项目启动，自动对这个url发起请求</span>
+    start_urls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'http://baidu.com/'</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true">#parse是默认的解析回调方法，如果发送一个请求，未指定回调解析，默认调用parse</span>
+    <span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        li_list <span class="token operator">=</span> response<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//ul[@id="menu-list"]/li'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> li <span class="token keyword">in</span> li_list<span class="token punctuation">:</span>
+            item <span class="token operator">=</span> Test01Item<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#名字</span>
+            item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span> <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//h2/a/@title'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#简介</span>
+            item<span class="token punctuation">[</span><span class="token string">'brief'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#时间</span>
+            item<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'\d+-\d+-\d+'</span><span class="token punctuation">,</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//p/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            <span class="token comment" spellcheck="true">#链接</span>
+            item<span class="token punctuation">[</span><span class="token string">'link'</span><span class="token punctuation">]</span> <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//h2/a/@href'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">yield</span> item
+
+            <span class="token comment" spellcheck="true">#第二种实例化方法</span>
+            <span class="token keyword">yield</span> Test01Item<span class="token punctuation">(</span>title<span class="token operator">=</span>title<span class="token punctuation">)</span></code></pre>
 <ul>
 <li>item</li>
 </ul>
@@ -880,21 +879,21 @@ print(ret.json())</code></pre>
 <li>通过键值对的字典形式将数据添加进items</li>
 <li>通过yield将items返回</li>
 </ol>
-<pre class="language-python" data-language="python"><code class="language-python">class Test01Item(scrapy.Item):
-    title = scrapy.Field()
-    jianjie = scrapy.Field()
-    
-#爬虫组件中：
-item = Test01Item()
-            #名字
-item['title'] = li.xpath('.//h2/a/@title').extract_first()
-    #简介
-item['brief'] = ''.join(li.xpath('./text()').extract()).replace('\n','')
-    #时间
-item['date'] = re.findall(r'\d+-\d+-\d+', li.xpath('.//p/text()').extract_first())[0]
-    #链接
-item['link'] = li.xpath('.//h2/a/@href').extract_first()
-    yield item</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Test01Item</span><span class="token punctuation">(</span>scrapy<span class="token punctuation">.</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    jianjie <span class="token operator">=</span> scrapy<span class="token punctuation">.</span>Field<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#爬虫组件中：</span>
+item <span class="token operator">=</span> Test01Item<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true">#名字</span>
+item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span> <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//h2/a/@title'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#简介</span>
+item<span class="token punctuation">[</span><span class="token string">'brief'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'./text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#时间</span>
+item<span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">]</span> <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>r<span class="token string">'\d+-\d+-\d+'</span><span class="token punctuation">,</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//p/text()'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true">#链接</span>
+item<span class="token punctuation">[</span><span class="token string">'link'</span><span class="token punctuation">]</span> <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'.//h2/a/@href'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>extract_first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">yield</span> item</code></pre>
 <ul>
 <li>管道(<code>pipelines</code>)</li>
 </ul>
@@ -904,27 +903,27 @@ item['link'] = li.xpath('.//h2/a/@href').extract_first()
 <blockquote>
 <p>如果爬虫组件中，传出了item，那么就需要将item走过这个process_item方法</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#数据库的连接
-conn = pymongo.MongoClient('localhost',27017)
-db = conn.Longtan
-table = db.ss
-#自定义类
-class TextPipline:
-#实现process_item方法,item就是爬虫组件中传来的item
-    def process_item(self,item,spider):
-        table.insert_one(dict(item))
-        return item</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#数据库的连接</span>
+conn <span class="token operator">=</span> pymongo<span class="token punctuation">.</span>MongoClient<span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span><span class="token number">27017</span><span class="token punctuation">)</span>
+db <span class="token operator">=</span> conn<span class="token punctuation">.</span>Longtan
+table <span class="token operator">=</span> db<span class="token punctuation">.</span>ss
+<span class="token comment" spellcheck="true">#自定义类</span>
+<span class="token keyword">class</span> <span class="token class-name">TextPipline</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true">#实现process_item方法,item就是爬虫组件中传来的item</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>item<span class="token punctuation">,</span>spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        table<span class="token punctuation">.</span>insert_one<span class="token punctuation">(</span>dict<span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> item</code></pre>
 <ul>
 <li>settings</li>
 </ul>
 <blockquote>
 <p>需要修改的是<code>ROBOTSTXT_OBEY</code>,<code>UA</code>,</p>
-<pre class="language-python" data-language="python"><code class="language-python">ITEM_PIPELINES = {
-   'test01.pipelines.TextPipline': 300,
-}</code></pre>
+<pre class=" language-python"><code class="language-python">ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token string">'test01.pipelines.TextPipline'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 </blockquote>
 <h4 id="12-7-保存数据"><a href="#12-7-保存数据" class="headerlink" title="12.7  保存数据"></a>12.7  保存数据</h4><p>保存到<code>json</code>中</p>
-<pre class="language-python" data-language="python"><code class="language-python">scrapy crawl 爬虫名 -o blog_data.json</code></pre>
+<pre class=" language-python"><code class="language-python">scrapy crawl 爬虫名 <span class="token operator">-</span>o blog_data<span class="token punctuation">.</span>json</code></pre>
 <blockquote>
 <p>另外，也可以每一个Item输出一行<code>JSON</code>,输出后缀改为<code>jl</code>，命令:<code>scrapy crawl 爬虫名 -o blog_data.jl</code></p>
 </blockquote>
@@ -935,15 +934,13 @@ class TextPipline:
 <h4 id="12-8-管道-Item-Pipline-的使用"><a href="#12-8-管道-Item-Pipline-的使用" class="headerlink" title="12.8  管道(Item Pipline)的使用"></a>12.8  管道(<code>Item Pipline</code>)的使用</h4><blockquote>
 <p>注意，<code>pipline</code>是需要被注册的</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">1. 在settings中，解封或者重新在底下写上
+<pre class=" language-python"><code class="language-python"><span class="token number">1</span><span class="token punctuation">.</span> 在settings中，解封或者重新在底下写上
 
-ITEM_PIPELINES = {
-   'test01.pipelines.TextPipline': 300,
-	#项目名.pipelines.自定义的管道名:
-}
-# 300：代表着优先级，数字越小，代表着优先级越高</code></pre>
-
-
+ITEM_PIPELINES <span class="token operator">=</span> <span class="token punctuation">{</span>
+   <span class="token string">'test01.pipelines.TextPipline'</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">#项目名.pipelines.自定义的管道名:</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 300：代表着优先级，数字越小，代表着优先级越高</span></code></pre>
 <blockquote>
 <p>当<code>Item</code>生成后，它会自动被送到管道进行处理，我们常用管道来实现以下:</p>
 <ul>
@@ -953,9 +950,9 @@ ITEM_PIPELINES = {
 <li>将爬取结果保存到数据库中</li>
 </ul>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">class Test01Pipeline:
-    def process_item(self, item, spider):
-        return item</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Test01Pipeline</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">process_item</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> item<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> item</code></pre>
 <h4 id="12-9-整体流程"><a href="#12-9-整体流程" class="headerlink" title="12.9  整体流程"></a>12.9  整体流程</h4><blockquote>
 <ol>
 <li>需要在items中，定义要爬取的字段</li>
@@ -968,35 +965,35 @@ ITEM_PIPELINES = {
 <h4 id="12-91-手动发送请求"><a href="#12-91-手动发送请求" class="headerlink" title="12.91  手动发送请求"></a>12.91  手动发送请求</h4><blockquote>
 <p><code>srcapy</code>框架在启动时，会自动对起始<code>url</code>发起请求，是因为爬虫组件继承的<code>scrapy.Spider</code>实现了一个<code>start_requests</code>方法，所以，想要手动发送请求，需要自己在类中实现此方法，这样，便不会再自动继承父类的方法，而是从自己类中实现方法</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#手动发送get请求
-#callback参数，是指定回调，如果不指定此参数，就会默认回调到parse
-yield scrapy.Request(url=url,callback=self.parse)
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#手动发送get请求</span>
+<span class="token comment" spellcheck="true">#callback参数，是指定回调，如果不指定此参数，就会默认回调到parse</span>
+<span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>parse<span class="token punctuation">)</span>
 
-#手动发送post请求
-yield scrapy.FormRequest(url=next_page,formdata=data)</code></pre>
+<span class="token comment" spellcheck="true">#手动发送post请求</span>
+<span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>FormRequest<span class="token punctuation">(</span>url<span class="token operator">=</span>next_page<span class="token punctuation">,</span>formdata<span class="token operator">=</span>data<span class="token punctuation">)</span></code></pre>
 <h4 id="12-92-中间件"><a href="#12-92-中间件" class="headerlink" title="12.92  中间件"></a>12.92  中间件</h4><h5 id="篡改UA"><a href="#篡改UA" class="headerlink" title="篡改UA"></a>篡改<code>UA</code></h5><blockquote>
 <p>需要用到的模块<code>fake-useragent</code>，用<code>pip</code>安装</p>
 </blockquote>
- <pre class="language-python" data-language="python"><code class="language-python">#在middlewares中，TestIpUaDownloaderMiddleware下载器中间件中，
-#导包
-from fake_useragent import UserAgent
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#在middlewares中，TestIpUaDownloaderMiddleware下载器中间件中，</span>
+<span class="token comment" spellcheck="true">#导包</span>
+<span class="token keyword">from</span> fake_useragent <span class="token keyword">import</span> UserAgent
 
-#实例化对象
-ua = UserAgent()
+<span class="token comment" spellcheck="true">#实例化对象</span>
+ua <span class="token operator">=</span> UserAgent<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-def process_request(self, request, spider):
-    request.headers['User-Agent'] = ua.random
-    return None
+<span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   request<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'User-Agent'</span><span class="token punctuation">]</span> <span class="token operator">=</span> ua<span class="token punctuation">.</span>random
+   <span class="token keyword">return</span> None
 
-ua.random
-#生成的ua是随机的</code></pre>
+ua<span class="token punctuation">.</span>random
+<span class="token comment" spellcheck="true">#生成的ua是随机的</span></code></pre>
 <blockquote>
 <p>注意，需要把<code>settings</code>中的<code>DOWNLOADER_MIDDLEWARES</code>打开</p>
 </blockquote>
-<h5 id="篡改ip"><a href="#篡改ip" class="headerlink" title="篡改ip"></a>篡改<code>ip</code></h5><pre class="language-python" data-language="python"><code class="language-python">def process_request(self, request, spider):
-    #篡改ip
-    request.meta['proxy'] = 'http://ip:port'
-    return None</code></pre>
+<h5 id="篡改ip"><a href="#篡改ip" class="headerlink" title="篡改ip"></a>篡改<code>ip</code></h5><pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">process_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> spider<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#篡改ip</span>
+    request<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'proxy'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'http://ip:port'</span>
+    <span class="token keyword">return</span> None</code></pre>
 <h5 id="selenium的使用"><a href="#selenium的使用" class="headerlink" title="selenium的使用"></a><code>selenium</code>的使用</h5><blockquote>
 <ol>
 <li>拦截res响应，在<code>process_response</code>方法中</li>
@@ -1008,70 +1005,70 @@ ua.random
 <blockquote>
 <p>注意！如果在中间件中实例化对象，那么，每次请求都会实例化对象，比较耗费资源，所以，最好在爬虫组件中实例化</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#爬虫组件中
-from selenium import webdriver
-#构建响应对象
-from scrapy.http import HttpResponse
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#爬虫组件中</span>
+<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+<span class="token comment" spellcheck="true">#构建响应对象</span>
+<span class="token keyword">from</span> scrapy<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
 
-bro = webdriver.Chrome(executable_path='设置绝对路径')
+bro <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span>executable_path<span class="token operator">=</span><span class="token string">'设置绝对路径'</span><span class="token punctuation">)</span>
 
-#中间件中，使用方法process_response自带的spider参数，从爬虫组件可以直接传过去
-bro = spider.bro
-bro.get(url=response.url)
-#设置滚动一屏脚本
-js = 'window.scrollTo(0,document.body.scrollHeight)'
-#执行js脚本
-bro.execute_script(js)
-#网页源码
-html = bro.page_source
+<span class="token comment" spellcheck="true">#中间件中，使用方法process_response自带的spider参数，从爬虫组件可以直接传过去</span>
+bro <span class="token operator">=</span> spider<span class="token punctuation">.</span>bro
+bro<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#设置滚动一屏脚本</span>
+js <span class="token operator">=</span> <span class="token string">'window.scrollTo(0,document.body.scrollHeight)'</span>
+<span class="token comment" spellcheck="true">#执行js脚本</span>
+bro<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span>js<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#网页源码</span>
+html <span class="token operator">=</span> bro<span class="token punctuation">.</span>page_source
 
-#自己构建响应对象
-myres = HttpResponse(url=response.url,body=html,encoding='utf-8',request=request)
+<span class="token comment" spellcheck="true">#自己构建响应对象</span>
+myres <span class="token operator">=</span> HttpResponse<span class="token punctuation">(</span>url<span class="token operator">=</span>response<span class="token punctuation">.</span>url<span class="token punctuation">,</span>body<span class="token operator">=</span>html<span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">,</span>request<span class="token operator">=</span>request<span class="token punctuation">)</span>
 
-#替换原来的响应对象
-return myres</code></pre>
+<span class="token comment" spellcheck="true">#替换原来的响应对象</span>
+<span class="token keyword">return</span> myres</code></pre>
 <blockquote>
 <p>根据需要添加判断是否使用<code>selenium</code></p>
 </blockquote>
 <h4 id="12-93-meta传值"><a href="#12-93-meta传值" class="headerlink" title="12.93  meta传值"></a>12.93  <code>meta</code>传值</h4><blockquote>
 <p>在爬虫组件中，如果回调解析方法之间相互传值，可以使用<code>meta</code></p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">def parse(self,response):
-    ...
-    yield scrapy.Request(url=url,callback=self.da_parse,meta={'title':title})
-    
-def da_parse(self,response):
-    title = response.meta['title']</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">yield</span> scrapy<span class="token punctuation">.</span>Request<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>callback<span class="token operator">=</span>self<span class="token punctuation">.</span>da_parse<span class="token punctuation">,</span>meta<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'title'</span><span class="token punctuation">:</span>title<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">da_parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title <span class="token operator">=</span> response<span class="token punctuation">.</span>meta<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span></code></pre>
 <h4 id="12-94-全站数据爬取"><a href="#12-94-全站数据爬取" class="headerlink" title="12.94   全站数据爬取"></a>12.94   全站数据爬取</h4><blockquote>
 <p>全站数据爬取就是爬取多页时自动帮助翻页，省去了写代码的时间</p>
 </blockquote>
 <blockquote>
 <p>创建爬虫文件时，在<code>genspider</code>后，添加<code>-t crawl</code>再添加爬虫名和域名，这样，爬虫会成为一个全站爬虫</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">#链接提取器，根据给定的规则进行链接的提起
-link = LinkExtractor(allow=r'Items/')
-    rules = (
-        #规则解析器，根据给定的规则解析数据，follow是递归提取页码，就是逐级访问url，对各个url来追踪访问
-        Rule(link,callback='parse_item', follow=True),
-    )</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#链接提取器，根据给定的规则进行链接的提起</span>
+link <span class="token operator">=</span> LinkExtractor<span class="token punctuation">(</span>allow<span class="token operator">=</span>r<span class="token string">'Items/'</span><span class="token punctuation">)</span>
+    rules <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token comment" spellcheck="true">#规则解析器，根据给定的规则解析数据，follow是递归提取页码，就是逐级访问url，对各个url来追踪访问</span>
+        Rule<span class="token punctuation">(</span>link<span class="token punctuation">,</span>callback<span class="token operator">=</span><span class="token string">'parse_item'</span><span class="token punctuation">,</span> follow<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span></code></pre>
 <h4 id="12-95-增量式爬虫"><a href="#12-95-增量式爬虫" class="headerlink" title="12.95  增量式爬虫"></a>12.95  增量式爬虫</h4><blockquote>
 <p>增量式就是自写爬虫监控目标网站，如果目标有更新的数据，则将更新的数据爬取下来，已经爬取的数据，则通过去重的方式来忽略</p>
 </blockquote>
 <blockquote>
 <p>而这其中，又分为两种去重方式，分别是根据<code>url</code>去重和数据指纹去重</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from redis import Redis
-conn = Redis('127.0.0.1',6379)
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> redis <span class="token keyword">import</span> Redis
+conn <span class="token operator">=</span> Redis<span class="token punctuation">(</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span><span class="token number">6379</span><span class="token punctuation">)</span>
 
-def detail_parse(self,response):
-    name = li.xpath('//text()')
-    content = li.xpath('//text()')
-    #连起来生成指纹
-    data = name+content
-    fp = md5(data.encode('utf-8')).hexdigest()
-    #添加进redis的集合中
-    conn.sadd('ggsfp',fp)
-    #如果返回结果为0，则证明已经添加过，如果为1，则没有添加过</code></pre>
+<span class="token keyword">def</span> <span class="token function">detail_parse</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//text()'</span><span class="token punctuation">)</span>
+    content <span class="token operator">=</span> li<span class="token punctuation">.</span>xpath<span class="token punctuation">(</span><span class="token string">'//text()'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#连起来生成指纹</span>
+    data <span class="token operator">=</span> name<span class="token operator">+</span>content
+    fp <span class="token operator">=</span> md5<span class="token punctuation">(</span>data<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#添加进redis的集合中</span>
+    conn<span class="token punctuation">.</span>sadd<span class="token punctuation">(</span><span class="token string">'ggsfp'</span><span class="token punctuation">,</span>fp<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#如果返回结果为0，则证明已经添加过，如果为1，则没有添加过</span></code></pre>
 <p>对应<code>day14</code>视频</p>
 <hr>
 <h2 id="13-MongoDB数据库"><a href="#13-MongoDB数据库" class="headerlink" title="13.MongoDB数据库"></a>13.<code>MongoDB</code>数据库</h2><h4 id="13-1-数据库操作"><a href="#13-1-数据库操作" class="headerlink" title="13.1  数据库操作"></a>13.1  数据库操作</h4><blockquote>

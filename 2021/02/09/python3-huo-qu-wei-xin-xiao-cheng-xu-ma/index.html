@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 微信小程序是现在开发者经常接触到的了，对微信小程序的一些功能也在逐渐的了解当中，这篇文章记录一下获取微信小程序码遇到的问题  获取access_token 话不多说，直接上代码  url &#x3D; &quot;https:&#x2F;&#x2F;api.weixin.qq.com&#x2F;cgi-bin&#x2F;token?grant_type&#x3D;client_credential&quot; res &#x3D; requests.get(     url&#x3D;ur">
@@ -36,28 +36,28 @@
 <h2 id="获取access-token"><a href="#获取access-token" class="headerlink" title="获取access_token"></a>获取access_token</h2><blockquote>
 <p>话不多说，直接上代码</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential"
-res = requests.get(
-    url=url,
-    params={
-        'appid': 你的APPID,
-        'secret': 你的SECRET,
-    }
-).json().get('access_token')</code></pre>
+<pre class=" language-python"><code class="language-python">url <span class="token operator">=</span> <span class="token string">"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential"</span>
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
+    url<span class="token operator">=</span>url<span class="token punctuation">,</span>
+    params<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token string">'appid'</span><span class="token punctuation">:</span> 你的APPID<span class="token punctuation">,</span>
+        <span class="token string">'secret'</span><span class="token punctuation">:</span> 你的SECRET<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'access_token'</span><span class="token punctuation">)</span></code></pre>
 <h2 id="获取小程序码"><a href="#获取小程序码" class="headerlink" title="获取小程序码"></a>获取小程序码</h2><p>首先就是要注意，它发送的是json，而不是data数据，所以我们在使用<code>requests</code>的时候，一定要先注意，发送json</p>
-<pre class="language-python" data-language="python"><code class="language-python"># 获取小程序码
-url2 = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=TOKEN"
-req = {
-    'scene': scene,
-    'page': page,
-    'width': width,
-}
-res = requests.post(url=url2, json=req).content
-buf = io.BytesIO()
-buf.write(res)
-response = HttpResponse(content=buf.getvalue(), content_type='image/png')
-response['sss'] = 'sss'
-return response</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 获取小程序码</span>
+url2 <span class="token operator">=</span> <span class="token string">"https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=TOKEN"</span>
+req <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'scene'</span><span class="token punctuation">:</span> scene<span class="token punctuation">,</span>
+    <span class="token string">'page'</span><span class="token punctuation">:</span> page<span class="token punctuation">,</span>
+    <span class="token string">'width'</span><span class="token punctuation">:</span> width<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url2<span class="token punctuation">,</span> json<span class="token operator">=</span>req<span class="token punctuation">)</span><span class="token punctuation">.</span>content
+buf <span class="token operator">=</span> io<span class="token punctuation">.</span>BytesIO<span class="token punctuation">(</span><span class="token punctuation">)</span>
+buf<span class="token punctuation">.</span>write<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+response <span class="token operator">=</span> HttpResponse<span class="token punctuation">(</span>content<span class="token operator">=</span>buf<span class="token punctuation">.</span>getvalue<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> content_type<span class="token operator">=</span><span class="token string">'image/png'</span><span class="token punctuation">)</span>
+response<span class="token punctuation">[</span><span class="token string">'sss'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'sss'</span>
+<span class="token keyword">return</span> response</code></pre>
 <p>此时要注意，我们在url里传<code>access_token</code>，而不是在json里。他的文档写的并不是很清楚，如果在json中加上<code>access_token</code>，那么就有可能会报错<code>47001</code>。</p>
 <p>还有，如果没注意到，用了data传参，也有可能会报错<code>47129</code>，改成json即可。</p>
 <p>如果成功，返回的是一个二进制文件，需要怎么处理就看自己的了。我这里是以文件流形式返回回去并且添加一个响应头参数。</p>

@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是PayPal PayPal又称为贝宝，是一种外贸支付方式，目前在国际的贸易支付中有着极高的地位，它就好像中国的支付宝，都是第三方支付平台。 PayPal的优势是，其业务网络遍布全球。目前PayPal的庞大网络覆盖了全球200多个国家，可提供20多种语言服务，并接受100多种货币付款和56种货币提现。   需要注意的一点是，也是我个人感觉非常好的一个地方，PayPal的支付逻辑，是一个事务性的">
@@ -68,69 +68,69 @@
 <img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105524864.png" alt="" style="zoom:50%" loading="lazy">
 
 <hr>
-<h2 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h2><pre class="language-python" data-language="python"><code class="language-python">pip install paypalrestsdk</code></pre>
+<h2 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h2><pre class=" language-python"><code class="language-python">pip install paypalrestsdk</code></pre>
 <p>先安装paypal的sdk</p>
 <p>然后新建app，注册好路由和应用，然后view中的代码</p>
-<pre class="language-python" data-language="python"><code class="language-python">import paypalrestsdk
-from django.http import HttpResponse
-from django.shortcuts import redirect
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> paypalrestsdk
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> redirect
 
-Client_id = '你的Client_id'
+Client_id <span class="token operator">=</span> <span class="token string">'你的Client_id'</span>
 
-Secret = '你的Secret'
+Secret <span class="token operator">=</span> <span class="token string">'你的Secret'</span>
 
-def payment(request):
+<span class="token keyword">def</span> <span class="token function">payment</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    paypalrestsdk.configure({
-      "mode": "sandbox", # sandbox代表沙盒
-      "client_id": Client_id,
-      "client_secret": Secret,
-    })
+    paypalrestsdk<span class="token punctuation">.</span>configure<span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token string">"mode"</span><span class="token punctuation">:</span> <span class="token string">"sandbox"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># sandbox代表沙盒</span>
+      <span class="token string">"client_id"</span><span class="token punctuation">:</span> Client_id<span class="token punctuation">,</span>
+      <span class="token string">"client_secret"</span><span class="token punctuation">:</span> Secret<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-    payment = paypalrestsdk.Payment({
-        "intent": "sale",
-        "payer": {
-            "payment_method": "paypal"},
-        "redirect_urls": {
-            "return_url": "http://192.168.1.157:8000/palpay/pay/", # 支付成功跳转页面
-            "cancel_url": "http://192.168.1.157:3000/paypal/cancel/"}, # 取消支付页面
-        "transactions": [{
-            "amount": {
-                "total": "5.00", # 付款金额
-                "currency": "USD"}, # 货币类型
-            "description": "这是一个订单测试"}]})
+    payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token string">"intent"</span><span class="token punctuation">:</span> <span class="token string">"sale"</span><span class="token punctuation">,</span>
+        <span class="token string">"payer"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"payment_method"</span><span class="token punctuation">:</span> <span class="token string">"paypal"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">"redirect_urls"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"return_url"</span><span class="token punctuation">:</span> <span class="token string">"http://192.168.1.157:8000/palpay/pay/"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 支付成功跳转页面</span>
+            <span class="token string">"cancel_url"</span><span class="token punctuation">:</span> <span class="token string">"http://192.168.1.157:3000/paypal/cancel/"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 取消支付页面</span>
+        <span class="token string">"transactions"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token string">"amount"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">"total"</span><span class="token punctuation">:</span> <span class="token string">"5.00"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 付款金额</span>
+                <span class="token string">"currency"</span><span class="token punctuation">:</span> <span class="token string">"USD"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 货币类型</span>
+            <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"这是一个订单测试"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-    if payment.create():
-        print("Payment created successfully")
-        for link in payment.links:
-            if link.rel == "approval_url":
-                approval_url = str(link.href)
-                print("Redirect for approval: %s" % (approval_url))
-                return redirect(approval_url)
-    else:
-        print(payment.error)
-        return HttpResponse("支付失败")</code></pre>
+    <span class="token keyword">if</span> payment<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Payment created successfully"</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> link <span class="token keyword">in</span> payment<span class="token punctuation">.</span>links<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> link<span class="token punctuation">.</span>rel <span class="token operator">==</span> <span class="token string">"approval_url"</span><span class="token punctuation">:</span>
+                approval_url <span class="token operator">=</span> str<span class="token punctuation">(</span>link<span class="token punctuation">.</span>href<span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Redirect for approval: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>approval_url<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>approval_url<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">.</span>error<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"支付失败"</span><span class="token punctuation">)</span></code></pre>
 <p>启动项目，网页访问该视图，即可看到这样</p>
 <img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129112525018.png" alt="image-20201129112525018" style="zoom:50%;" loading="lazy">
 
 <p>点击继续，可以看到，回调的地址传来了三个参数</p>
-<pre class="language-none"><code class="language-none">http://192.168.1.157:8000/palpay/pay/?paymentId=PAYID-L7BRGHA28162157FN083293V&amp;token=EC-1S659222KF8901217&amp;PayerID=QFV2E28KASNQS</code></pre>
+<pre><code>http://192.168.1.157:8000/palpay/pay/?paymentId=PAYID-L7BRGHA28162157FN083293V&amp;token=EC-1S659222KF8901217&amp;PayerID=QFV2E28KASNQS</code></pre>
 <p>支付id,token和支付者id</p>
 <hr>
 <p>然后，我们写一个回调方法，需要通过支付者id进行确认验证支付</p>
-<pre class="language-python" data-language="python"><code class="language-python">def payment_execute(request):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">payment_execute</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    paymentid = request.GET.get("paymentId") #订单id
-    payerid = request.GET.get("PayerID")  #支付者id
-    payment = paypalrestsdk.Payment.find(paymentid)
-	print(payment)
+    paymentid <span class="token operator">=</span> request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"paymentId"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#订单id</span>
+    payerid <span class="token operator">=</span> request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"PayerID"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#支付者id</span>
+    payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">.</span>find<span class="token punctuation">(</span>paymentid<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">)</span>
 
-    if payment.execute({"payer_id": payerid}):
-        print("Payment execute successfully")
-        return HttpResponse("支付成功")
-    else:
-        print(payment.error) # Error Hash
-        return HttpResponse("支付失败")</code></pre>
+    <span class="token keyword">if</span> payment<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"payer_id"</span><span class="token punctuation">:</span> payerid<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Payment execute successfully"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"支付成功"</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">.</span>error<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># Error Hash</span>
+        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"支付失败"</span><span class="token punctuation">)</span></code></pre>
 <p>然后点击支付即可看到，少了五块钱</p>
 <img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129114412124.png" alt="" style="zoom:50%;" loading="lazy">
 

@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="什么是工厂模式 所谓的工厂模式，是设计模式中比较常用的，这种类型的设计模式 在这种模式下，不会暴露创建逻辑，只是通过某个标识来确定实例化哪个工厂实例 简单的举个例子，如果你要买一辆汽车，不用知道他是怎样做出来的，只需要把参数传递进去，到时候来提车就好了。 无论是车还是什么，都不用管工厂内部是怎样实现的，只需要将参数传进去就可以  工厂模式从简到难，分为简单工厂模式，工厂方法模式以及抽象工厂模式 简">
@@ -47,32 +47,32 @@
 <p>现实生活中，工厂是负责生产产品的；同样在设计模式中，简单工厂模式我们可以理解为负责生产对象的一个类，称为“工厂类”。</p>
 </blockquote>
 <p>再举个栗子，假如，你要生产瓶子，客户说要什么样的瓶子，你就拿着这个瓶子的参数，去该瓶子的生产车间去取。</p>
-<pre class="language-python" data-language="python"><code class="language-python"># 定义三个具体的工厂，他们用来生产具体的东西
-class A:
-    def __init__(self):
-        self.name = 'A瓶子'
-class B:
-    def __init__(self):
-        self.name = 'B瓶子'
-class C:
-    def __init__(self):
-        self.name = 'C瓶子'
-# 工厂类
-class factory():
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义三个具体的工厂，他们用来生产具体的东西</span>
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'A瓶子'</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'B瓶子'</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'C瓶子'</span>
+<span class="token comment" spellcheck="true"># 工厂类</span>
+<span class="token keyword">class</span> <span class="token class-name">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def example(self,name):
-        if name=='A':
-            s = A()
-            print(s.name)
-        elif name == 'B':
-            s = B()
-            print(s.name)
-        elif name == 'C':
-            s = C()
-            print(s.name)
+    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> name<span class="token operator">==</span><span class="token string">'A'</span><span class="token punctuation">:</span>
+            s <span class="token operator">=</span> A<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> name <span class="token operator">==</span> <span class="token string">'B'</span><span class="token punctuation">:</span>
+            s <span class="token operator">=</span> B<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> name <span class="token operator">==</span> <span class="token string">'C'</span><span class="token punctuation">:</span>
+            s <span class="token operator">=</span> C<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 
-w = factory()
-w.example('B')</code></pre>
+w <span class="token operator">=</span> factory<span class="token punctuation">(</span><span class="token punctuation">)</span>
+w<span class="token punctuation">.</span>example<span class="token punctuation">(</span><span class="token string">'B'</span><span class="token punctuation">)</span></code></pre>
 <p>可以看到，只需要在工厂<code>factory</code>中，传入你想要什么瓶子，他就可以通过内部方法实例化某个工厂，从而达到你想要的某个东西</p>
 <hr>
 <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><blockquote>
@@ -80,42 +80,42 @@ w.example('B')</code></pre>
 <p>以上面的例子为例，假如要再多一个D瓶子，除了要新建一个D类，还要修改工厂类中的代码，这样就违背了软件设计中的开闭原则，即再扩展新的类时，尽量不要修改原有的代码</p>
 </blockquote>
 <p>说的再简单点，就是工厂类被具体的工厂继承</p>
-<pre class="language-python" data-language="python"><code class="language-python">
-# 工厂类
-class factory():
+<pre class=" language-python"><code class="language-python">
+<span class="token comment" spellcheck="true"># 工厂类</span>
+<span class="token keyword">class</span> <span class="token class-name">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
     @staticmethod
-    def example(self):
-        pass
+    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
 
-class A(factory):
-    def __init__(self):
-        self.name = 'A瓶子'
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'A瓶子'</span>
 
-    def example(self):
-        print(self.name)
+    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 
-class B(factory):
-    def __init__(self):
-        self.name = 'B瓶子'
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'B瓶子'</span>
 
-    def example(self):
-        print(self.name)
+    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 
-class C(factory):
-    def __init__(self):
-        self.name = 'C瓶子'
-    def example(self):
-        print(self.name)
+<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'C瓶子'</span>
+    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
 
-class D(factory):
-    def __init__(self):
-        self.name = 'D瓶子'
-    def example(self):
-        print(self.name)
-# 无论你加了多少个工厂，只需要实例化对应的那个具体工厂
-w = D()
-w.example()</code></pre>
+<span class="token keyword">class</span> <span class="token class-name">D</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'D瓶子'</span>
+    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 无论你加了多少个工厂，只需要实例化对应的那个具体工厂</span>
+w <span class="token operator">=</span> D<span class="token punctuation">(</span><span class="token punctuation">)</span>
+w<span class="token punctuation">.</span>example<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>这样做的好处就是，在工厂类里，无需改动任何代码，只需要在需要的时候实例化某个具体工厂即可，便于维护</p>
 <hr>
 <h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><blockquote>
@@ -123,57 +123,57 @@ w.example()</code></pre>
 <p>抽象工厂模式中有工厂和产品簇的概念。而一簇的产品都是成套出现的。比如现在要给每个士兵发一套武器，包括枪和子弹。步枪和步枪子弹，手枪和手枪子弹。生产步枪的工厂就是步枪工厂，而生产手枪的工厂就是手枪工厂。步枪工厂和手枪工厂都是工厂，这就是一种抽象工厂的例子</p>
 </blockquote>
 <p>用一个简单的代码来实现:</p>
-<pre class="language-python" data-language="python"><code class="language-python">import abc
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> abc
 
-# 工厂类
-class factory():
+<span class="token comment" spellcheck="true"># 工厂类</span>
+<span class="token keyword">class</span> <span class="token class-name">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
     @staticmethod
-    def Rifle(self):
-        pass
-    def Pistol(self):
-        pass
+    <span class="token keyword">def</span> <span class="token function">Rifle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+    <span class="token keyword">def</span> <span class="token function">Pistol</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
 
 
-# M4工厂
-class M4(category):
-    def Rifle(self):
-        return M4Rifle()
-    def Pistol(self):
-        return M4Pistol()
+<span class="token comment" spellcheck="true"># M4工厂</span>
+<span class="token keyword">class</span> <span class="token class-name">M4</span><span class="token punctuation">(</span>category<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">Rifle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> M4Rifle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">Pistol</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> M4Pistol<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# AK工厂
-class AK(category):
-    def Rifle(self):
-        return AKRifle()
-    def Pistol(self):
-        return AKPistol()
+<span class="token comment" spellcheck="true"># AK工厂</span>
+<span class="token keyword">class</span> <span class="token class-name">AK</span><span class="token punctuation">(</span>category<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">Rifle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> AKRifle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">Pistol</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> AKPistol<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# M4工厂
+<span class="token comment" spellcheck="true"># M4工厂</span>
 
-class M4Rifle():
+<span class="token keyword">class</span> <span class="token class-name">M4Rifle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
 
-    def __repr__(self):
-        return 'M4A1步枪'
+    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'M4A1步枪'</span>
 
-class M4Pistol():
+<span class="token keyword">class</span> <span class="token class-name">M4Pistol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __repr__(self):
-        return 'M4A1手枪'
+    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'M4A1手枪'</span>
 
-class AKRifle():
+<span class="token keyword">class</span> <span class="token class-name">AKRifle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __repr__(self):
-        return 'AK47步枪'
+    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'AK47步枪'</span>
 
-class AKPistol():
+<span class="token keyword">class</span> <span class="token class-name">AKPistol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __repr__(self):
-        return 'AK47手枪'
+    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'AK47手枪'</span>
 
-w = M4().Rifle()
-print(w)</code></pre>
+w <span class="token operator">=</span> M4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Rifle<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>进入工厂类，无论是要AK系列的，还是<code>M4</code>系列的，都只实例化那个类就可以了，因为，无论是<code>M4</code>还是AK都能生产该类的手枪和步枪</p>
 <p>虽然我也不知道他们是不是生产手枪</p>

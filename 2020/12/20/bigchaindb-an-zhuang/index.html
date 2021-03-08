@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 在很久没有更新博客以及自己技术的前提下，感受到了来自编程界的毒打，接受新事物，本是开发者应该作为本能的一件事，但实际上，我并没有坚持多久，很拒绝的接受新事物，所以，今日起，重铸开发荣光，我辈义不容辞。 今天带来的是BigChainDB，这是一个可用的去中心数据库，听到这个词，是不是意识到另一样某个同样是去中心的东西，是的，区块链。 BigChainDB是一个区块链数据库，它具有每秒百万次写操">
@@ -44,30 +44,28 @@
 <p>安装我采用的是docker</p>
 </blockquote>
 <p>在安装了docker的前提下，直接拉取镜像</p>
-<pre class="language-none"><code class="language-none">docker pull  bigchaindb/bigchaindb:all-in-one</code></pre>
+<pre><code>docker pull  bigchaindb/bigchaindb:all-in-one</code></pre>
 <p>大概有300M左右，可以执行命令启动一下</p>
-<pre class="language-none"><code class="language-none">docker run -it -d -p 9984:9984 镜像id</code></pre>
+<pre><code>docker run -it -d -p 9984:9984 镜像id</code></pre>
 <p>访问一下9984，可以看到你的版本号</p>
 <img src="/2020/12/20/bigchaindb-an-zhuang/image-20201220154358244.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>安装一些依赖</p>
-<pre class="language-none"><code class="language-none">sudo apt-get update
+<pre><code>sudo apt-get update
 
 sudo apt-get install libffi-dev
 
 pip install --upgrade setuptools
 
 pip3 install pytest-runner</code></pre>
-
-
 <p>然后安装驱动，对应你的版本号</p>
 <img src="/2020/12/20/bigchaindb-an-zhuang/image-20201220154540628.png" alt="" style="zoom:67%;" loading="lazy">
 
-<pre class="language-none"><code class="language-none">pip install -U bigchaindb-driver==版本号</code></pre>
+<pre><code>pip install -U bigchaindb-driver==版本号</code></pre>
 <p>不过，可能会找不到这个包啊这些错误，没关系，我们直接去github上拉取他源码<code>git clone https://github.com/bigchaindb/bigchaindb-driver.git</code></p>
 <p>然后进入这个文件夹，执行<code>python setup.py install</code>，强行给他装上，不只是这个包，任何包都可以通过这个办法来进行安装</p>
 <p>之后，在docker内重新启动服务，命令为：</p>
-<pre class="language-none"><code class="language-none">$ docker run \
+<pre><code>$ docker run \
   --detach \
   --name bigchaindb \
   --publish 9984:9984 \
@@ -85,30 +83,24 @@ pip3 install pytest-runner</code></pre>
 </li>
 <li><p><code>--detach</code> 在后台运行容器</p>
 </li>
-<li><pre><code>publish 9984:9984 将主机端口映射9984到容器端口9984
-<pre class="language-none"><code class="language-none">
-   （BigchainDB API服务器）
-
-  - `9985` BigchainDB Websocket服务器
-  - `27017` MongoDB的默认端口
-  - `26657` Tendermint RPC服务器
-
-- ```
-  --volume "$HOME/bigchaindb_docker/mongodb:/data"</code></pre>
-
-将主机目录映射 
-
-<pre class="language-none"><code class="language-none">$HOME/bigchaindb_docker/mongodb</code></pre>
-
-到容器目录
-
-<pre class="language-none"><code class="language-none">/data</code></pre>
-
-; 这使我们能够将数据持久保存在主机上，您可以在[官方Docker文档中](https://docs.docker.com/engine/tutorials/dockervolumes)阅读更多
-
-内容
-
-- `$HOME/bigchaindb_docker/tendermint:/tendermint` 保留Tendermint数据。</code></pre>
+<li><pre><code>publish 9984:9984 将主机端口映射9984到容器端口9984</code></pre>
+<p> （BigchainDB API服务器）</p>
+<ul>
+<li><code>9985</code> BigchainDB Websocket服务器</li>
+<li><code>27017</code> MongoDB的默认端口</li>
+<li><code>26657</code> Tendermint RPC服务器</li>
+</ul>
+</li>
+<li><pre><code>--volume "$HOME/bigchaindb_docker/mongodb:/data"</code></pre>
+<p>将主机目录映射 </p>
+<pre><code>$HOME/bigchaindb_docker/mongodb</code></pre>
+<p>到容器目录</p>
+<pre><code>/data</code></pre>
+<p>; 这使我们能够将数据持久保存在主机上，您可以在<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/tutorials/dockervolumes">官方Docker文档中</a>阅读更多</p>
+<p>内容</p>
+<ul>
+<li><code>$HOME/bigchaindb_docker/tendermint:/tendermint</code> 保留Tendermint数据。</li>
+</ul>
 </li>
 <li><p><code>bigchaindb/bigchaindb:all-in-one</code>要使用的图像。容器名称之后的所有选项都将传递到容器内部的入口点。</p>
 </li>
@@ -117,50 +109,50 @@ pip3 install pytest-runner</code></pre>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
 <p>官方文档可以说是非常详细了，我们从创建开始</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python"># 创建用户的密钥与公钥
-alice, bob = generate_keypair(), generate_keypair()
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 创建用户的密钥与公钥</span>
+alice<span class="token punctuation">,</span> bob <span class="token operator">=</span> generate_keypair<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> generate_keypair<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 链接
-def conn():
-    bdb = BigchainDB('http://127.0.0.1:9984')
+<span class="token comment" spellcheck="true"># 链接</span>
+<span class="token keyword">def</span> <span class="token function">conn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    bdb <span class="token operator">=</span> BigchainDB<span class="token punctuation">(</span><span class="token string">'http://127.0.0.1:9984'</span><span class="token punctuation">)</span>
 
-    return bdb
-# 创建一个链接
-bdb = conn()
+    <span class="token keyword">return</span> bdb
+<span class="token comment" spellcheck="true"># 创建一个链接</span>
+bdb <span class="token operator">=</span> conn<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-# 构造交易数据
-bicycle_asset = {
-    'data': {
-        'bicycle': {
-            'serial_number': 'abcd1234',
-            'manufacturer': 'bkfab'
-        },
-    },
-}
-# 元数据
-bicycle_asset_metadata = {
-    'planet': 'earth'
-}
+<span class="token comment" spellcheck="true"># 构造交易数据</span>
+bicycle_asset <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'data'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'bicycle'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">'serial_number'</span><span class="token punctuation">:</span> <span class="token string">'abcd1234'</span><span class="token punctuation">,</span>
+            <span class="token string">'manufacturer'</span><span class="token punctuation">:</span> <span class="token string">'bkfab'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true"># 元数据</span>
+bicycle_asset_metadata <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'planet'</span><span class="token punctuation">:</span> <span class="token string">'earth'</span>
+<span class="token punctuation">}</span>
 
-# 准备交易(operation是操作，create代表创建，singners是公钥，创建出来供谁拥有，asset是交易的东西，metadata是元数据)
-prepared_creation_tx = bdb.transactions.prepare(
-    operation='CREATE',
-    signers=alice.public_key,
-    asset=bicycle_asset,
-    metadata=bicycle_asset_metadata
-)
+<span class="token comment" spellcheck="true"># 准备交易(operation是操作，create代表创建，singners是公钥，创建出来供谁拥有，asset是交易的东西，metadata是元数据)</span>
+prepared_creation_tx <span class="token operator">=</span> bdb<span class="token punctuation">.</span>transactions<span class="token punctuation">.</span>prepare<span class="token punctuation">(</span>
+    operation<span class="token operator">=</span><span class="token string">'CREATE'</span><span class="token punctuation">,</span>
+    signers<span class="token operator">=</span>alice<span class="token punctuation">.</span>public_key<span class="token punctuation">,</span>
+    asset<span class="token operator">=</span>bicycle_asset<span class="token punctuation">,</span>
+    metadata<span class="token operator">=</span>bicycle_asset_metadata
+<span class="token punctuation">)</span>
 
-# 通过私钥签名来完成交易(拥有者的私钥来进行交易签名)
-fulfilled_creation_tx = bdb.transactions.fulfill(
-    prepared_creation_tx,
-    private_keys=alice.private_key
-)
+<span class="token comment" spellcheck="true"># 通过私钥签名来完成交易(拥有者的私钥来进行交易签名)</span>
+fulfilled_creation_tx <span class="token operator">=</span> bdb<span class="token punctuation">.</span>transactions<span class="token punctuation">.</span>fulfill<span class="token punctuation">(</span>
+    prepared_creation_tx<span class="token punctuation">,</span>
+    private_keys<span class="token operator">=</span>alice<span class="token punctuation">.</span>private_key
+<span class="token punctuation">)</span>
 
 
-# 发送到bigchaindb节点
-sent_creation_tx = bdb.transactions.send_commit(fulfilled_creation_tx)
-# 完成创建
-txid = fulfilled_creation_tx['id']</code></pre>
+<span class="token comment" spellcheck="true"># 发送到bigchaindb节点</span>
+sent_creation_tx <span class="token operator">=</span> bdb<span class="token punctuation">.</span>transactions<span class="token punctuation">.</span>send_commit<span class="token punctuation">(</span>fulfilled_creation_tx<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 完成创建</span>
+txid <span class="token operator">=</span> fulfilled_creation_tx<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span></code></pre>
 <p>这样，我们就创建好了一个可交易的资产</p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2020/12/20/bigchaindb-an-zhuang/" title="bigchaindb安装">http://godhearing.cn/2020/12/20/bigchaindb-an-zhuang/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/12/22/seaweedfs/" rel="prev" title="seaweedfs"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">seaweedfs</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/" rel="next" title="MobaXterm操作prometheus和grafana搭建监控预警"><span class="post-nav-text">MobaXterm操作prometheus和grafana搭建监控预警</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+bigchaindb安装">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);

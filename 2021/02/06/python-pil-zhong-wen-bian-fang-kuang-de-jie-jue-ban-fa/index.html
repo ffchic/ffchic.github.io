@@ -3,15 +3,15 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
-  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 最近有个小功能，我看来十分容易，无非就是往图片上添加个文字，但是，在服务器上，瞬间爆炸，所有的中文，都变成一个个的框框，我走了很多弯路，踩了很多坑，在这里记录一下，希望能帮助到同样遇到这个问题的人。  问题描述  代码from PIL import Image, ImageDraw, ImageFont   image&#x3D; Image.new(&#39;RGB&#39;, (559, 320),(255,25">
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 最近有个小功能，我看来十分容易，无非就是往图片上添加个文字，但是，在服务器上，瞬间爆炸，所有的中文，都变成一个个的框框，我走了很多弯路，踩了很多坑，在这里记录一下，希望能帮助到同样遇到这个问题的人。  问题描述  代码from PIL import Image, ImageDraw, ImageFont  image&#x3D; Image.new(&#39;RGB&#39;, (559, 320),(255,255">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python PIL中文变方框的解决办法">
 <meta property="og:url" content="http://godhearing.cn/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/index.html">
 <meta property="og:site_name" content="天听のblog">
-<meta property="og:description" content="前言 最近有个小功能，我看来十分容易，无非就是往图片上添加个文字，但是，在服务器上，瞬间爆炸，所有的中文，都变成一个个的框框，我走了很多弯路，踩了很多坑，在这里记录一下，希望能帮助到同样遇到这个问题的人。  问题描述  代码from PIL import Image, ImageDraw, ImageFont   image&#x3D; Image.new(&#39;RGB&#39;, (559, 320),(255,25">
+<meta property="og:description" content="前言 最近有个小功能，我看来十分容易，无非就是往图片上添加个文字，但是，在服务器上，瞬间爆炸，所有的中文，都变成一个个的框框，我走了很多弯路，踩了很多坑，在这里记录一下，希望能帮助到同样遇到这个问题的人。  问题描述  代码from PIL import Image, ImageDraw, ImageFont  image&#x3D; Image.new(&#39;RGB&#39;, (559, 320),(255,255">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://godhearing.cn/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/image-20210206090744358.png">
 <meta property="og:image" content="http://godhearing.cn/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/image-20210206091500505.png">
@@ -38,16 +38,16 @@
 </blockquote>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><img src="/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/image-20210206090744358.png" alt="" style="zoom:67%;" loading="lazy">
 
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="language-python" data-language="python"><code class="language-python">from PIL import Image, ImageDraw, ImageFont
- 
-image= Image.new('RGB', (559, 320),(255,255,255))
-draw = ImageDraw.Draw(image)
- 
-# draw.text()
-font = ImageFont.truetype("arial", 40, encoding="unic") # 设置字体
-draw.text((100, 50), "哈哈哈", 'black', font)
-# del draw
-image.show()</code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image<span class="token punctuation">,</span> ImageDraw<span class="token punctuation">,</span> ImageFont
+
+image<span class="token operator">=</span> Image<span class="token punctuation">.</span>new<span class="token punctuation">(</span><span class="token string">'RGB'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token number">559</span><span class="token punctuation">,</span> <span class="token number">320</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+draw <span class="token operator">=</span> ImageDraw<span class="token punctuation">.</span>Draw<span class="token punctuation">(</span>image<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># draw.text()</span>
+font <span class="token operator">=</span> ImageFont<span class="token punctuation">.</span>truetype<span class="token punctuation">(</span><span class="token string">"arial"</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"unic"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 设置字体</span>
+draw<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"哈哈哈"</span><span class="token punctuation">,</span> <span class="token string">'black'</span><span class="token punctuation">,</span> font<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># del draw</span>
+image<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><blockquote>
 <p>我踩了很多的坑，发现有一种及其简易的方式来解决这个问题</p>
 <p>修改字体为simsun.ttc即可，听着简单，但是，假如身处服务器，根本没有这个字体，你需要从windows下copy过去</p>

@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 DRF作为django的伴生框架，也封装了很多及其好用的东西 1.认证 2.权限 3.限流 4.序列化 5.分页   认证 Drf内置的四种API认证方式： 认证方式说明： **BasicAuthentication**每次提交请求的时候附加用户名和密码来进行认证 **TokenAuthentication**每次提交请求的时候在HTTP headers里附加Token进行认证 **Sess">
@@ -45,26 +45,26 @@
 <p>我选择的是基于Token的认证，客户端登录之后维护一个token，每次请求附加到HTTP headers，还算是方便。</p>
 <p>Drf还可以自定义认证方式，只要继承<code>authentication.BaseAuthentication</code>这个类然后重写<code>authenticate</code>方法就好了。</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">class MyAuthentication(BaseAuthentication):
-	def authenticate(self, request):
-		# 认证逻辑，如果认证通过，返回两个值
-		# 如果认证失败，抛出Authentication异常
-		token = request.GET.get('token')
-		if token:
-			user_token = UserToken.objects.filter(token=token).first()
-			# 认证通过
-			if user_token:
-				return user_token.user,token
-			else:
-				raise AuthenticationFailed('认证失败')
-		else:
-			raise AuthenticationFailed('请求地址中需要携带token')</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyAuthentication</span><span class="token punctuation">(</span>BaseAuthentication<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">authenticate</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 认证逻辑，如果认证通过，返回两个值</span>
+        <span class="token comment" spellcheck="true"># 如果认证失败，抛出Authentication异常</span>
+        token <span class="token operator">=</span> request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> token<span class="token punctuation">:</span>
+            user_token <span class="token operator">=</span> UserToken<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>token<span class="token operator">=</span>token<span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 认证通过</span>
+            <span class="token keyword">if</span> user_token<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> user_token<span class="token punctuation">.</span>user<span class="token punctuation">,</span>token
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> AuthenticationFailed<span class="token punctuation">(</span><span class="token string">'认证失败'</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> AuthenticationFailed<span class="token punctuation">(</span><span class="token string">'请求地址中需要携带token'</span><span class="token punctuation">)</span></code></pre>
 <p>然后在视图中使用即可</p>
-<pre class="language-python" data-language="python"><code class="language-python">class StudentViewSet(viewsets.ModelViewSet):
-	authentication_classes = [SessionAuthentication, BasicAuthentication,MyAuthentication]
-	permission_classes = [IsAuthenticated]
-	queryset = Student.objects.all()
-    serializer_class = StudentSerializer</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">StudentViewSet</span><span class="token punctuation">(</span>viewsets<span class="token punctuation">.</span>ModelViewSet<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    authentication_classes <span class="token operator">=</span> <span class="token punctuation">[</span>SessionAuthentication<span class="token punctuation">,</span> BasicAuthentication<span class="token punctuation">,</span>MyAuthentication<span class="token punctuation">]</span>
+    permission_classes <span class="token operator">=</span> <span class="token punctuation">[</span>IsAuthenticated<span class="token punctuation">]</span>
+    queryset <span class="token operator">=</span> Student<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    serializer_class <span class="token operator">=</span> StudentSerializer</code></pre>
 <ul>
 <li>创建认证类：继承<code>BaseAuthentication</code>、重写<code>authenticate</code>方法</li>
 <li><code>authenticate()</code>返回值</li>
@@ -75,7 +75,7 @@
 <li>有返回值元组形式：（元素1，元素2）元素1复制给<code>request.user</code>、元素2复制给<code>request.auth</code></li>
 </ol>
 <p>在<code>settings.py</code>中可以配置默认的认证方式，这里我添加了三个：</p>
-<pre class="language-text" data-language="text"><code class="language-text">REST_FRAMEWORK = {
+<pre class=" language-text"><code class="language-text">REST_FRAMEWORK = {
     # 身份验证
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
@@ -96,38 +96,38 @@
 <p>一般来说小网站用到<code>DjangoModelPermissions</code>就是够用的，或者干脆简单一点，用<code>IsAuthenticated</code>和<code>queryset</code>限定请求的数据即可。</p>
 <p>介绍完了基本概念，来看看代码中是如何操作的。</p>
 <p>对于操作用户信息的viewset，我只用了<code>permissions.IsAuthenticated</code>这个权限，然后覆盖了<code>ReadOnlyModelViewSet</code>的<code>get_queryset</code>方法，把queryset变成只包括当前用户，这样就保证了一个用户只能操作自己的信息。</p>
-<pre class="language-python" data-language="python"><code class="language-python">from rest_framework import authentication, permissions, viewsets
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> rest_framework <span class="token keyword">import</span> authentication<span class="token punctuation">,</span> permissions<span class="token punctuation">,</span> viewsets
 
-class UserViewSet(viewsets.ReadOnlyModelViewSet):
-    permission_classes = [permissions.IsAuthenticated]
-    serializer_class = UserSerializer
+<span class="token keyword">class</span> <span class="token class-name">UserViewSet</span><span class="token punctuation">(</span>viewsets<span class="token punctuation">.</span>ReadOnlyModelViewSet<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    permission_classes <span class="token operator">=</span> <span class="token punctuation">[</span>permissions<span class="token punctuation">.</span>IsAuthenticated<span class="token punctuation">]</span>
+    serializer_class <span class="token operator">=</span> UserSerializer
 
-    def get_queryset(self):
-        return User.objects.filter(pk=self.request.user.pk)</code></pre>
+    <span class="token keyword">def</span> <span class="token function">get_queryset</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> User<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>pk<span class="token operator">=</span>self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>user<span class="token punctuation">.</span>pk<span class="token punctuation">)</span></code></pre>
 <p>viewset的action同样可以使用权限，加在装饰器的参数上即可：</p>
-<pre class="language-python" data-language="python"><code class="language-python">@action(detail=True, methods=['GET'], permission_classes=[permissions.IsAuthenticated])
-def some_actions(self, request, pk=None):
+<pre class=" language-python"><code class="language-python">@action<span class="token punctuation">(</span>detail<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> permission_classes<span class="token operator">=</span><span class="token punctuation">[</span>permissions<span class="token punctuation">.</span>IsAuthenticated<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">some_actions</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> pk<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
     dosomething
-    return Response(SomeSerializer(some_data, many=True).data)</code></pre>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span>SomeSerializer<span class="token punctuation">(</span>some_data<span class="token punctuation">,</span> many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span></code></pre>
 <p>这里提一下装饰器的detail参数，这个代表了是对列表操作还是对单个对象操作，True就是对单个对象。</p>
 <blockquote>
 <p>ApiView和ViewSet同样通过在类字段中加入<code>authentication_classes</code>和<code>permission_classes</code>实现认证和授权。</p>
 </blockquote>
 <h2 id="分页-PAGINATION"><a href="#分页-PAGINATION" class="headerlink" title="分页 PAGINATION"></a>分页 PAGINATION</h2><p>Drf和Django一样自带分页功能，很好用（当然也支持使用第三方的分页功能）。</p>
 <p>首先进行配置（不配置的话使用默认配置），这里我设置每页显示十条记录：</p>
-<pre class="language-text" data-language="text"><code class="language-text">REST_FRAMEWORK = {
+<pre class=" language-text"><code class="language-text">REST_FRAMEWORK = {
     # 设置分页
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }</code></pre>
 <p>使用得最多的<code>ModelViewSet</code>已经自带分页了，这个我们不用操心，不过如果自己定义了action来返回列表数据的话，就没有分页，这时候要用<code>paginate_queryset</code>方法来处理。</p>
 <p>代码如下：</p>
-<pre class="language-text" data-language="text"><code class="language-text">@action(detail=False)
+<pre class=" language-text"><code class="language-text">@action(detail=False)
 def tag(self, request):
     queryset = SomeModel.objects.all().order_by('-add_time')
     page = self.paginate_queryset(queryset)
     if page is not None:
-    	return self.get_paginated_response(self.get_serializer(page, many=True).data)
+        return self.get_paginated_response(self.get_serializer(page, many=True).data)
     return Response(self.get_serializer(queryset, many=True).data)</code></pre>
 <p>可以看出Drf自动处理了不同页面的请求，不用像Django一样自己从GET或者POST数据里读取page，分页相关的方法直接在viewset对象里面，非常方便。</p>
 <h2 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h2><p>其实就是一个自定义的认证过程。</p>
@@ -137,7 +137,7 @@ def tag(self, request):
 <li><code>SimpleRateThrottle</code>重写<code>get_cache_key</code>和设置<code>scope</code>名称就可以，更简单</li>
 </ul>
 <h3 id="实现1分钟内只能访问3次的限流"><a href="#实现1分钟内只能访问3次的限流" class="headerlink" title="实现1分钟内只能访问3次的限流"></a><strong>实现1分钟内只能访问3次的限流</strong></h3><p><code>SimpleRateThrottle</code>代码如下：</p>
-<pre class="language-python3" data-language="python3"><code class="language-python3">from rest_framework.throttling import SimpleRateThrottle
+<pre class=" language-python3"><code class="language-python3">from rest_framework.throttling import SimpleRateThrottle
 
 class VisitThrottle(SimpleRateThrottle):
     '''匿名用户60s只能访问三次（根据ip）'''
@@ -154,7 +154,7 @@ class UserThrottle(SimpleRateThrottle):
     def get_cache_key(self, request, view):
         return request.user.user_id</code></pre>
 <p><code>BaseThrottle</code> 代码如下：</p>
-<pre class="language-python3" data-language="python3"><code class="language-python3">from rest_framework.throttling import BaseThrottle
+<pre class=" language-python3"><code class="language-python3">from rest_framework.throttling import BaseThrottle
 import time
 VISIT_RECORD = {}   #保存访问记录
 
@@ -179,10 +179,10 @@ class VisitThrottle(BaseThrottle):
 
         #如果有历史访问记录，并且最早一次的访问记录离当前时间超过60s，就删除最早的那个访问记录，
         #只要为True，就一直循环删除最早的一次访问记录
-        while history and history[-1] &lt; ctime - 60:
+        while history and history[-1] < ctime - 60:
             history.pop()
         #如果访问记录不超过三次，就把当前的访问记录插到第一个位置（pop删除最后一个）
-        if len(history) &lt; 3:
+        if len(history) < 3:
             history.insert(0,ctime)
             return True
 
@@ -190,7 +190,7 @@ class VisitThrottle(BaseThrottle):
         '''还需要等多久才能访问'''
         ctime = time.time()
         return 60 - (ctime - self.history[-1])</code></pre>
-<h3 id="配置节流"><a href="#配置节流" class="headerlink" title="配置节流"></a><strong>配置节流</strong></h3><pre class="language-text" data-language="text"><code class="language-text">#全局
+<h3 id="配置节流"><a href="#配置节流" class="headerlink" title="配置节流"></a><strong>配置节流</strong></h3><pre class=" language-text"><code class="language-text">#全局
 REST_FRAMEWORK = {
     # 设置全局节流
     "DEFAULT_THROTTLE_CLASSES":['api.utils.throttle.UserThrottle'],   #全局配置，登录用户节流限制（10/m）

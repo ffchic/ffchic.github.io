@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="预设值 如果你有一个接收路径参数的路径操作，但你希望预先设定可能的有效参数值，则可以使用标准的 Python Enum 类型。 就类似于choise枚举，举个栗子，你现在可能要接收一个性别  from enum import Enum  class ModelName(str, Enum):     nan &#x3D; &quot;男&quot;     nv &#x3D; &quot;女&quot;     lenet &#x3D; &quot;未知&quot;  @app.pos">
@@ -34,17 +34,17 @@
 <p>如果你有一个接收路径参数的路径操作，但你希望预先设定可能的有效参数值，则可以使用标准的 Python <code>Enum</code> 类型。</p>
 <p>就类似于choise枚举，举个栗子，你现在可能要接收一个性别</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from enum import Enum
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
 
-class ModelName(str, Enum):
-    nan = "男"
-    nv = "女"
-    lenet = "未知"
+<span class="token keyword">class</span> <span class="token class-name">ModelName</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    nan <span class="token operator">=</span> <span class="token string">"男"</span>
+    nv <span class="token operator">=</span> <span class="token string">"女"</span>
+    lenet <span class="token operator">=</span> <span class="token string">"未知"</span>
 
-@app.post("/Yawp/")
-async def transfer(model_name: ModelName):
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/Yawp/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">transfer</span><span class="token punctuation">(</span>model_name<span class="token punctuation">:</span> ModelName<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    return {'msg':model_name}</code></pre>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'msg'</span><span class="token punctuation">:</span>model_name<span class="token punctuation">}</span></code></pre>
 <p>这样，我们需要传的model_name，只剩下这三个选项</p>
 <p>同时，他也可以声明路径参数</p>
 <blockquote>
@@ -57,16 +57,16 @@ async def transfer(model_name: ModelName):
 <p>请求体就不用过多介绍了，这是基础中的基础了，如果不懂请自行百度</p>
 <p>我们需要先导入BaseModel，来创建数据模型</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from pydantic import BaseModel
-class Item(BaseModel):
-    name:str
-    description: Optional[str] = None
-    price:float
-    tax:Optional[float] = None
-async def main(item:Item):
-    print(item.dict())
-    print(item.name)
-    return </code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span>str
+    description<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None
+    price<span class="token punctuation">:</span>float
+    tax<span class="token punctuation">:</span>Optional<span class="token punctuation">[</span>float<span class="token punctuation">]</span> <span class="token operator">=</span> None
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>item<span class="token punctuation">:</span>Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> </code></pre>
 <p>和声明查询参数时一样，当一个模型属性具有默认值时，它不是必需的。否则它是一个必需属性。将默认值设为 <code>None</code> 可使其成为可选属性。</p>
 <p>我们可以在函数内通过某个字段来进行查看，或者直接dict，获取所有数据</p>
 <p>值得说的一点是，请求体传值并不影响url传参，也就是说，我们依旧可以使用路径参数</p>
@@ -90,20 +90,20 @@ async def main(item:Item):
 <p>将其默认值设置为<code>...</code>时，他就是一个必须传入的参数了</p>
 </blockquote>
 <h2 id="请求体字段验证"><a href="#请求体字段验证" class="headerlink" title="请求体字段验证"></a>请求体字段验证</h2><p>与使用 <code>Query</code>、<code>Path</code> 和 <code>Body</code> 在<em>路径操作函数</em>中声明额外的校验和元数据的方式相同，你可以使用 Pydantic 的 <code>Field</code> 在 Pydantic 模型内部声明校验和元数据。像这样</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Item(BaseModel):
-    name:str
-    description: Optional[str] = Field(None, title="The description of the item", max_length=300)
-    price:float
-    tax:Optional[float] = None</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span>str
+    description<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>None<span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The description of the item"</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">300</span><span class="token punctuation">)</span>
+    price<span class="token punctuation">:</span>float
+    tax<span class="token punctuation">:</span>Optional<span class="token punctuation">[</span>float<span class="token punctuation">]</span> <span class="token operator">=</span> None</code></pre>
 <h2 id="模型嵌套"><a href="#模型嵌套" class="headerlink" title="模型嵌套"></a>模型嵌套</h2><blockquote>
 <p>在我们声明模型的时候，他的值不只是单一的字符串，数字等， 像一些列表，集合也同样可以定义，像这样</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">class Item(BaseModel):
-    name: str
-    description: Optional[str] = None
-    price: float
-    tax: Optional[float] = None
-    tags: list = []</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span> str
+    description<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None
+    price<span class="token punctuation">:</span> float
+    tax<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>float<span class="token punctuation">]</span> <span class="token operator">=</span> None
+    tags<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></code></pre>
 <p>这将使 <code>tags</code> 成为一个由元素组成的列表。不过它没有声明每个元素的类型。</p>
 <p>但是 Python 有一种特定的方法来声明具有子类型的列表。</p>
 <p>我们需要从<code>typing</code>导入<code>List</code>，将模型内部改为<code>tags: List[str] = []</code></p>
@@ -114,20 +114,20 @@ async def main(item:Item):
 <blockquote>
 <p>最后，有一点很重要，我们如果希望传一种像这样的数据:<code>[{a:1},{a:2}]</code>，则可以在路径操作函数的参数中声明此类型，就像声明 Pydantic 模型一样：<code>images: List[Image]</code></p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from pydantic import BaseModel,Field,HttpUrl
-class img(BaseModel):
-    url:HttpUrl
-    name:str
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel<span class="token punctuation">,</span>Field<span class="token punctuation">,</span>HttpUrl
+<span class="token keyword">class</span> <span class="token class-name">img</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url<span class="token punctuation">:</span>HttpUrl
+    name<span class="token punctuation">:</span>str
 
 
-@app.post("/Yawp/")
-async def transfer(*,a:List[img]):
-    for i in a:
-        print(i.name)
-        print(i.url)
-    # for i in a:
-    #     print(i)
-    return {'msg':a}</code></pre>
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/Yawp/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">,</span>a<span class="token punctuation">:</span>List<span class="token punctuation">[</span>img<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># for i in a:</span>
+    <span class="token comment" spellcheck="true">#     print(i)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'msg'</span><span class="token punctuation">:</span>a<span class="token punctuation">}</span></code></pre>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/" title="FastAPI学习之路-3  模型与校验">http://godhearing.cn/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/01/17/vue-sheng-cheng-tu-pian-bing-xia-zai/" rel="prev" title="vue生成图片并下载"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">vue生成图片并下载</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/" rel="next" title="微信小程序授权登录"><span class="post-nav-text">微信小程序授权登录</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+FastAPI学习之路-3  模型与校验">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');

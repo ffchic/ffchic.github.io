@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言对于刚开始接触网站搭建的新手来说，好多东西都需要去了解学习，搭建网站首先需要购买服务器，然后购买域名，然后是域名解析，最后是域名备案等这些大的流程步骤。本节就来将域名的购买备案和解析的步骤，服务器是以阿里云服务器来讲。 申请域名 首先就是去万网购买域名，地址在这里，选择你喜欢的域名和后缀，之后就可以加入清单并且购买。    然后，在国内的域名是需要去备案的 备案首先就是要有了自己的服务器实例，">
@@ -65,32 +65,32 @@
 <h2 id="在nginx中配置域名"><a href="#在nginx中配置域名" class="headerlink" title="在nginx中配置域名"></a>在nginx中配置域名</h2><blockquote>
 <p>解析完成，你的服务器和你的域名都处于可用状态，这时候，你就可以将自己的域名配置到nginx中。</p>
 </blockquote>
-<pre class="language-nginx" data-language="nginx"><code class="language-nginx">server {
-       listen       8000 default_server;
-       listen       [::]:8000 default_server;
-       server_name  # 改为自己的域名
-       root         /usr/share/nginx/html;
+<pre class=" language-nginx"><code class="language-nginx"> <span class="token keyword">server</span> <span class="token punctuation">{</span>
+        <span class="token keyword">listen</span>       <span class="token number">8000</span> default_server<span class="token punctuation">;</span>
+        <span class="token keyword">listen</span>       <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token number">8000</span> default_server<span class="token punctuation">;</span>
+        <span class="token keyword">server_name</span>  <span class="token comment" spellcheck="true"># 改为自己的域名</span>
+        <span class="token keyword">root</span>         <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
 
-       # Load configuration files for the default server block.
-       include /etc/nginx/default.d/*.conf;
+        <span class="token comment" spellcheck="true"># Load configuration files for the default server block.</span>
+        <span class="token keyword">include</span> <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>default<span class="token punctuation">.</span>d<span class="token operator">/</span><span class="token operator">*</span><span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
 
-       location / {
-           root   /home/hexo;      # 你的博客地址
-           index  index.html index.htm;
-       }
+        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+            <span class="token keyword">root</span>   <span class="token operator">/</span>home<span class="token operator">/</span>hexo<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true"># 你的博客地址</span>
+            <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-       error_page 404 /404.html;
-       location = /404.html {
-       }
+        <span class="token keyword">error_page</span> <span class="token number">404</span> <span class="token operator">/</span><span class="token number">404</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">404</span><span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
 
-       error_page 500 502 503 504 /50x.html;
-       location = /50x.html {
-       }
-   }
+        <span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> <span class="token operator">/</span>50x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span>50x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
 </code></pre>
 <p>然后执行这两条命令，重启nginx，就可以通过自己的域名来访问啦。</p>
-<pre class="language-none"><code class="language-none">systemctl stop nginx
+<pre><code>systemctl stop nginx
 systemctl start nginx</code></pre>
 <h2 id="https解析"><a href="#https解析" class="headerlink" title="https解析"></a>https解析</h2><blockquote>
 <p>在阿里云上，是会赠送免费的ssl证书的，首先需要打开控制台，搜索ssl并进入，然后选择云盾ssl证书</p>
@@ -102,35 +102,35 @@ systemctl start nginx</code></pre>
 
 <p>然后支付0元之后，他就在你的云盾ssl证书中了，直接申请即可，点击下载，选择nginx，你会下载一个压缩包，把其中的两个文件放在你的服务器上，你自己知道的位置即可。</p>
 <p>然后再在nginx配置中，重新配置一个server，使用443端口。并加上如下配置.</p>
-<pre class="language-nginx" data-language="nginx"><code class="language-nginx">server {
-        listen       443 ssl http2 default_server;
-        listen       [::]:443 ssl http2 default_server;
-        server_name  www/godhearing.cn;
-        root         /usr/share/nginx/html;
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">server</span> <span class="token punctuation">{</span>
+        <span class="token keyword">listen</span>       <span class="token number">443</span> <span class="token keyword">ssl</span> http2 default_server<span class="token punctuation">;</span>
+        <span class="token keyword">listen</span>       <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token number">443</span> <span class="token keyword">ssl</span> http2 default_server<span class="token punctuation">;</span>
+        <span class="token keyword">server_name</span>  www<span class="token operator">/</span>godhearing<span class="token punctuation">.</span>cn<span class="token punctuation">;</span>
+        <span class="token keyword">root</span>         <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
 
-        ssl_certificate "你下载的位置.pem";
-        ssl_certificate_key "你下载的位置.key";
-        ssl_session_cache shared:SSL:1m;
-        ssl_session_timeout  10m;
-        ssl_ciphers HIGH:!aNULL:!MD5;
-        ssl_prefer_server_ciphers on;
+        <span class="token keyword">ssl_certificate</span> <span class="token string">"你下载的位置.pem"</span><span class="token punctuation">;</span>
+        <span class="token keyword">ssl_certificate_key</span> <span class="token string">"你下载的位置.key"</span><span class="token punctuation">;</span>
+        <span class="token keyword">ssl_session_cache</span> shared<span class="token punctuation">:</span><span class="token keyword">SSL</span><span class="token punctuation">:</span>1m<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_session_timeout</span>  10m<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_ciphers</span> HIGH<span class="token punctuation">:</span><span class="token operator">!</span>aNULL<span class="token punctuation">:</span><span class="token operator">!</span>MD5<span class="token punctuation">;</span>
+        <span class="token keyword">ssl_prefer_server_ciphers</span> on<span class="token punctuation">;</span>
 
-        # Load configuration files for the default server block.
-#        include /etc/nginx/default.d/*.conf;
-#
-        location / {
-            root   /home/hexo;
-            index  index.html index.htm;
-        }
-		error_page 404 /404.html;
-        	location = /404.html {
-        }
+        <span class="token comment" spellcheck="true"># Load configuration files for the default server block.</span>
+<span class="token comment" spellcheck="true">#        include /etc/nginx/default.d/*.conf;</span>
+<span class="token comment" spellcheck="true">#</span>
+        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+            <span class="token keyword">root</span>   <span class="token operator">/</span>home<span class="token operator">/</span>hexo<span class="token punctuation">;</span>
+            <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">error_page</span> <span class="token number">404</span> <span class="token operator">/</span><span class="token number">404</span><span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+            <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">404</span><span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
 
-        error_page 500 502 503 504 /50x.html;
-        	location = /50x.html {
-        }
-    }
-}</code></pre>
+        <span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> <span class="token operator">/</span>50x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+            <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span>50x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>然后，重启nginx即可。</p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/" title="阿里云域名解析">http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/" rel="prev" title="阿里云服务器搭建hexo博客教程"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">阿里云服务器搭建hexo博客教程</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/" rel="next" title="python3获取微信小程序码"><span class="post-nav-text">python3获取微信小程序码</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+阿里云域名解析">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);

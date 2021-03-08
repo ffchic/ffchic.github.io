@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="FastAPI框架 FastAPI 是一个用于构建 API 的现代、快速（高性能）的 web 框架，天生的支持异步(async)  它的主要优势在于，高效，几乎可与NodeJS和Go比肩的极高性能，自动生成交互式的文档，省去了开发之后写文档的步骤 安装好了话不多说，我们从头开始，边学边补充吧，争取细到不能再细 首先是安装，安装非常的简单 pip install fastapi pip instal">
@@ -41,29 +41,30 @@
 <p>它的主要优势在于，高效，几乎可与NodeJS和Go比肩的极高性能，自动生成交互式的文档，省去了开发之后写文档的步骤</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>好了话不多说，我们从头开始，边学边补充吧，争取细到不能再细</p>
 <p>首先是安装，安装非常的简单</p>
-<pre class="language-python" data-language="python"><code class="language-python">pip install fastapi
+<pre class=" language-python"><code class="language-python">pip install fastapi
 pip install uvicorn</code></pre>
 <p>好啦，完成之后，做一个基础的API吧</p>
 <p> 创建py文件</p>
-<pre class="language-python" data-language="python"><code class="language-python">from fastapi import FastAPI
-    app = FastAPI()
-    @app.get("/")
-async def root():
-    return {"message": "Hello World"}</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
+    app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    @app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello World"</span><span class="token punctuation">}</span></code></pre>
 <ul>
 <li><p><code>from fastapi import FastAPI</code>这是一个python类，提供了<code>API</code>的所有功能</p>
 </li>
 <li><p><code>app=FastAPI()</code>将该类实例化</p>
 </li>
 <li><p><code>@app.get('/')</code>定义路径操作装饰器，告诉<code>FastAPI</code>是正下方的功能负责处理该请求,可用的其他方式：</p>
-<pre class="language-python" data-language="python"><code class="language-python"> @app:get()
-@app.post()
-@app:put()
-@app:delete()
-@app.options()
-@app:head()
-@app:patch()
-@app:trace()</code></pre></li>
+<pre class=" language-python"><code class="language-python"> @app<span class="token punctuation">:</span>get<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">:</span>put<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">:</span>delete<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">.</span>options<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">:</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">:</span>patch<span class="token punctuation">(</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">:</span>trace<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+</li>
 <li><p><code>async def root():</code>定义路径操作功能，带有<code>async</code>功能的函数</p>
 </li>
 <li><p><code>return {"message": "Hello World"{</code>返回内容，默认是一个<code>json</code>格式，还可以返回<code>dict、list、str、int</code>等类型，还可以返回<code>Pydantic</code>模型</p>
@@ -75,23 +76,23 @@ async def root():
 </blockquote>
 <p>第二种方法:</p>
 <p>程序入口直接运行:</p>
-<pre class="language-python" data-language="python"><code class="language-python">import uvicorn
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> uvicorn
 
-if __name__ == '__main__':
-    uvicorn.run(app=app)
-    #还可以指定host，port等</code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    uvicorn<span class="token punctuation">.</span>run<span class="token punctuation">(</span>app<span class="token operator">=</span>app<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#还可以指定host，port等</span></code></pre>
 <hr>
 <h2 id="声明类型"><a href="#声明类型" class="headerlink" title="声明类型"></a>声明类型</h2><blockquote>
 <p>FastAPI的类型声明使用的是  :</p>
 </blockquote>
 <p>做个例子:</p>
-<pre class="language-python" data-language="python"><code class="language-python">from typing import str
-def get_full_name(first_name,last_name):
-    full_name = first_name.title() + " " + last_name.title()
-    return full_name
-# 上面这是没加类型提示的
-def get_full_name(first_name: str, last_name: str):
-# 这事加了类型提示的，添加了这个类型提示不会改变原来的运行结果</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> str
+<span class="token keyword">def</span> <span class="token function">get_full_name</span><span class="token punctuation">(</span>first_name<span class="token punctuation">,</span>last_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    full_name <span class="token operator">=</span> first_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> last_name<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> full_name
+<span class="token comment" spellcheck="true"># 上面这是没加类型提示的</span>
+<span class="token keyword">def</span> <span class="token function">get_full_name</span><span class="token punctuation">(</span>first_name<span class="token punctuation">:</span> str<span class="token punctuation">,</span> last_name<span class="token punctuation">:</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token comment" spellcheck="true"># 这事加了类型提示的，添加了这个类型提示不会改变原来的运行结果</span></code></pre>
 <blockquote>
 <p>这个呢，大家把它当做习惯就好了，无论是否使用这个框架的人 ，都能看懂传参需要什么类型</p>
 <p>Optional:可选类型，例：q:Optional[str] = None<br>q类型可以为str也可以为None</p>
@@ -100,9 +101,9 @@ def get_full_name(first_name: str, last_name: str):
 <p>比如：int float bool bytes</p>
 <p>或者是：dict list set tuple</p>
 <p>统统可以使用typing库来声明</p>
-<pre class="language-python" data-language="python"><code class="language-python">from typing import List</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> List</code></pre>
 <p>而，在List这些嵌套类型中，也可以声明其元素的类型，比如：</p>
-<pre class="language-python" data-language="python"><code class="language-python">def process_items(items:List[str]):</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">process_items</span><span class="token punctuation">(</span>items<span class="token punctuation">:</span>List<span class="token punctuation">[</span>str<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span></code></pre>
 <blockquote>
 <p>Dict的key和value都可以各自声明</p>
 </blockquote>
@@ -110,11 +111,11 @@ def get_full_name(first_name: str, last_name: str):
 <p>Optional:可选类型，例：q:Optional[str] = None<br>q类型可以为str也可以为None</p>
 </blockquote>
 <p>哦对，差点忘了，类，也是可以作为类型传递的</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Person:
-    def __init__(selfm,name:str):
-        self.name = name
-def get_person_name(one:Person):
-    return one_person.name</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>selfm<span class="token punctuation">,</span>name<span class="token punctuation">:</span>str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+<span class="token keyword">def</span> <span class="token function">get_person_name</span><span class="token punctuation">(</span>one<span class="token punctuation">:</span>Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> one_person<span class="token punctuation">.</span>name</code></pre>
 <hr>
 <h2 id="交互式文档"><a href="#交互式文档" class="headerlink" title="交互式文档"></a>交互式文档</h2><blockquote>
 <p>交互式文档，在你启动的项目路径的docs下</p>
@@ -143,79 +144,79 @@ def get_person_name(one:Person):
 <p>可用于限制长度或者正则表达式</p>
 </blockquote>
 <p>举个栗子:</p>
-<pre class="language-python" data-language="python"><code class="language-python">#q参数必须为字符串，默认值为None，如果为...,则这个参数必须给值，最小长度3，最大长度50
-async def reds(q:str = Query(None,min_length=3,max+length=50)</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#q参数必须为字符串，默认值为None，如果为...,则这个参数必须给值，最小长度3，最大长度50</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">reds</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span>str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span>min_length<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>max<span class="token operator">+</span>length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>注意!!!!此处只是参数，如果路径与参数一致，则不会生效</p>
 </blockquote>
 <h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><blockquote>
 <p>添加<code>regex</code>参数</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">async def reds(q:str = Query(None,min_length=3,max+length=50,regex='^nice'))</code></pre>
-<h4 id="别名-alias"><a href="#别名-alias" class="headerlink" title="别名(alias)"></a>别名(alias)</h4><pre class="language-python" data-language="python"><code class="language-python">async def reds(q:str = Query(None,alias = 'asd'))</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">reds</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span>str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span>min_length<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>max<span class="token operator">+</span>length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span>regex<span class="token operator">=</span><span class="token string">'^nice'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<h4 id="别名-alias"><a href="#别名-alias" class="headerlink" title="别名(alias)"></a>别名(alias)</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">reds</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span>str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span>alias <span class="token operator">=</span> <span class="token string">'asd'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>此时，参数名不再是q，而是<code>asd</code>，函数内部仍使用q</p>
 </blockquote>
-<h4 id="弃用参数-deprecated"><a href="#弃用参数-deprecated" class="headerlink" title="弃用参数(deprecated)"></a>弃用参数(deprecated)</h4><pre class="language-python" data-language="python"><code class="language-python"># 我自己测试得出结论，只是提醒作用，并不是不可写入
-# 写入Query中，可以改为弃用参数
-    deprecated = True</code></pre>
-<h4 id="路径参数-path"><a href="#路径参数-path" class="headerlink" title="路径参数(path)"></a>路径参数(path)</h4><pre class="language-python" data-language="python"><code class="language-python">首先导入path
-from fastapi import path
+<h4 id="弃用参数-deprecated"><a href="#弃用参数-deprecated" class="headerlink" title="弃用参数(deprecated)"></a>弃用参数(deprecated)</h4><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 我自己测试得出结论，只是提醒作用，并不是不可写入</span>
+<span class="token comment" spellcheck="true"># 写入Query中，可以改为弃用参数</span>
+    deprecated <span class="token operator">=</span> <span class="token boolean">True</span></code></pre>
+<h4 id="路径参数-path"><a href="#路径参数-path" class="headerlink" title="路径参数(path)"></a>路径参数(path)</h4><pre class=" language-python"><code class="language-python">首先导入path
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> path
 
-#和Query使用方法类似，在参数定义之后添加
-@app.get("/items/{item_id}")
-async def read_items(item_id: int = Path(..., title="The ID of the item to get"))
+<span class="token comment" spellcheck="true">#和Query使用方法类似，在参数定义之后添加</span>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> int <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-#注意，由于是路径参数，所以不能为空，所以，应该用...声明</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">ge代表大于等于，le代表小于等于，gt代表大于，lt代表小于
+<span class="token comment" spellcheck="true">#注意，由于是路径参数，所以不能为空，所以，应该用...声明</span></code></pre>
+<pre class=" language-python"><code class="language-python">ge代表大于等于，le代表小于等于，gt代表大于，lt代表小于
 
-#将*作为函数第一个参数的话，那么这个函数内所有参数都是关键字参数kwargs，即便没有默认值
+<span class="token comment" spellcheck="true">#将*作为函数第一个参数的话，那么这个函数内所有参数都是关键字参数kwargs，即便没有默认值</span>
 举个例子，参数q不带默认值，而it参数带了path
-async def re(*,q:str,it:int = path(..., title="The ID of the item to get"))</code></pre>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">re</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">,</span>q<span class="token punctuation">:</span>str<span class="token punctuation">,</span>it<span class="token punctuation">:</span>int <span class="token operator">=</span> path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>传递 <code>*</code> 作为函数的第一个参数。</p>
 <p>Python 不会对该 <code>*</code> 做任何事情，但是它将知道之后的所有参数都应作为关键字参数（键值对），也被称为 <code>kwargs</code>，来调用。即使它们没有默认值。</p>
 <hr>
 <h2 id="pydantic"><a href="#pydantic" class="headerlink" title="pydantic"></a><code>pydantic</code></h2><p><code>FastAPI</code>内置的数据模型</p>
-<pre class="language-python" data-language="python"><code class="language-python">from pydantic import BaseModel
-class Item(BaseModel):
-    name:str
-    price:float
-    tax:float = None
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span>str
+    price<span class="token punctuation">:</span>float
+    tax<span class="token punctuation">:</span>float <span class="token operator">=</span> None
 
-from pydantic import EmailStr
-#还提供了EmailStr类型，邮件地址类型</code></pre>
+<span class="token keyword">from</span> pydantic <span class="token keyword">import</span> EmailStr
+<span class="token comment" spellcheck="true">#还提供了EmailStr类型，邮件地址类型</span></code></pre>
 <p>类似Django内的<code>Model</code></p>
 <h2 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h2><blockquote>
 <p>参数中，如果参数=body(…)，则这个参数不会在<code>url</code>中，而是会出现在请求体中</p>
 </blockquote>
 <p>栗子：</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Item(BaseModel):
-    name:str
-    age:int
-    price:float
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name<span class="token punctuation">:</span>str
+    age<span class="token punctuation">:</span>int
+    price<span class="token punctuation">:</span>float
 
 
-@app.post("/items/ss")
-async  def root(a:Item=Body(...,embed=True)):
-     
-    return {'item':a{</code></pre>
-<pre class="language-python" data-language="python"><code class="language-python">嵌套请求体参数embed=True
-参数A=body(...,embed=True)
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/items/ss"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span>  <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span>Item<span class="token operator">=</span>Body<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>embed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'item'</span><span class="token punctuation">:</span>a<span class="token punctuation">{</span></code></pre>
+<pre class=" language-python"><code class="language-python">嵌套请求体参数embed<span class="token operator">=</span><span class="token boolean">True</span>
+参数A<span class="token operator">=</span>body<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>embed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 则可以将参数A当做一个字典的键嵌套进请求体中，例：
-    A = body(...,embed=True)
-    {
-        A:{
-            q:1
-            w:2
-            e:3
-        {
-    {
-    不加embed效果:
-    {
-        q:1
-        w:2
-        e:3
-    {</code></pre>
+    A <span class="token operator">=</span> body<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>embed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        A<span class="token punctuation">:</span><span class="token punctuation">{</span>
+            q<span class="token punctuation">:</span><span class="token number">1</span>
+            w<span class="token punctuation">:</span><span class="token number">2</span>
+            e<span class="token punctuation">:</span><span class="token number">3</span>
+        <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
+    不加embed效果<span class="token punctuation">:</span>
+    <span class="token punctuation">{</span>
+        q<span class="token punctuation">:</span><span class="token number">1</span>
+        w<span class="token punctuation">:</span><span class="token number">2</span>
+        e<span class="token punctuation">:</span><span class="token number">3</span>
+    <span class="token punctuation">{</span></code></pre>
 <hr>
 <h2 id="响应模型"><a href="#响应模型" class="headerlink" title="响应模型"></a>响应模型</h2><blockquote>
 <p>response_model=<strong>**参数，此参数写在</strong>路径<strong>中，而不是</strong>函数**</p>
@@ -226,16 +227,16 @@ async  def root(a:Item=Body(...,embed=True)):
 <p><code>response_model_include = [某字段1,某字段2]</code>,返回时只包含其中的某字段</p>
 </blockquote>
 <p><code>**</code>是解包的意思<br>    假如有多个<code>BaseModel</code>，数据类型有相同的情况下，可以使用<code>.dict</code>形式相互传输数据<br>但是，前边加了<code>**</code></p>
-<h4 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h4><pre class="language-python" data-language="python"><code class="language-python">from fastapi import status
-#如果报错的话，则使用starlette引入
-from starlette import status
-#可使用HTTP状态码
+<h4 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> status
+<span class="token comment" spellcheck="true">#如果报错的话，则使用starlette引入</span>
+<span class="token keyword">from</span> starlette <span class="token keyword">import</span> status
+<span class="token comment" spellcheck="true">#可使用HTTP状态码</span>
 
-#错误处理：
-from fastapi import HTTPException
+<span class="token comment" spellcheck="true">#错误处理：</span>
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> HTTPException
 
-#在路径中
-@post(/itmes/, status_code=***)</code></pre>
+<span class="token comment" spellcheck="true">#在路径中</span>
+@post<span class="token punctuation">(</span><span class="token operator">/</span>itmes<span class="token operator">/</span><span class="token punctuation">,</span> status_code<span class="token operator">=</span><span class="token operator">**</span><span class="token operator">*</span><span class="token punctuation">)</span></code></pre>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2018/01/05/fastapi-xue-xi-zhi-lu-1/" title="FastAPI学习之路-1">http://godhearing.cn/2018/01/05/fastapi-xue-xi-zhi-lu-1/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2018/01/15/fastapi-xue-xi-zhi-lu-2-sqlalchemy/" rel="prev" title="FastAPI学习之路-2 SQLAlchemy"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">FastAPI学习之路-2 SQLAlchemy</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2017/12/31/git-ji-ben-cao-zuo/" rel="next" title="Git"><span class="post-nav-text">Git</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+FastAPI学习之路-1">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');

@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="python3利用腾讯云发送短信如何发送短信 首先，注册一个腾讯云的账号，然后点击这里   注册成功后，腾讯云会自动生成一个短信应用，如果没有默认应用，需要新建一下  记录一下应用的 appid 以及 appkey 一会要用到   配置短信的签名，用来限制短信接口的权限，防止被恶意调用  然后配置模板  好了，进入正题，下面安装腾讯云短信的sdkpip install qcloudsms_py">
@@ -49,123 +49,125 @@
 <li><p>好了，进入正题，下面安装腾讯云短信的sdk<br><code>pip install qcloudsms_py</code></p>
 </li>
 <li><p>按照官网文档，准备必要的参数</p>
-<pre class="language-python" data-language="python"><code class="language-python"># 短信应用 SDK AppID
-appid = 1400009099  # SDK AppID 以1400开头
-# 短信应用 SDK AppKey
-appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad"
-# 需要发送短信的手机号码
-phone_numbers = ["21212313123", "12345678902", "12345678903"]
-# 短信模板ID，需要在短信控制台中申请
-template_id = 7839  # NOTE: 这里的模板 ID`7839` 只是示例，真实的模板 ID 需要在短信控制台中申请
-# 签名
-sms_sign = "腾讯云"  # NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台中申请</code></pre></li>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 短信应用 SDK AppID</span>
+appid <span class="token operator">=</span> <span class="token number">1400009099</span>  <span class="token comment" spellcheck="true"># SDK AppID 以1400开头</span>
+<span class="token comment" spellcheck="true"># 短信应用 SDK AppKey</span>
+appkey <span class="token operator">=</span> <span class="token string">"9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad"</span>
+<span class="token comment" spellcheck="true"># 需要发送短信的手机号码</span>
+phone_numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"21212313123"</span><span class="token punctuation">,</span> <span class="token string">"12345678902"</span><span class="token punctuation">,</span> <span class="token string">"12345678903"</span><span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># 短信模板ID，需要在短信控制台中申请</span>
+template_id <span class="token operator">=</span> <span class="token number">7839</span>  <span class="token comment" spellcheck="true"># NOTE: 这里的模板 ID`7839` 只是示例，真实的模板 ID 需要在短信控制台中申请</span>
+<span class="token comment" spellcheck="true"># 签名</span>
+sms_sign <span class="token operator">=</span> <span class="token string">"腾讯云"</span>  <span class="token comment" spellcheck="true"># NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台中申请</span></code></pre>
+</li>
 <li><p>指定模板ID单发短信</p>
-<pre class="language-python" data-language="python"><code class="language-python">from qcloudsms_py import SmsSingleSender
-from qcloudsms_py.httpclient import HTTPError
-ssender = SmsSingleSender(appid, appkey)
-params = ["5678"]  # 当模板没有参数时，`params = []`可以发送随机数，用来做短信验证码,如果指定为["5678",'5']，则过期时间为5分钟
-try:
- 	result = ssender.send_with_param(86, phone_numbers[0],
-      template_id, params, sign=sms_sign, extend="", ext="") 
-except HTTPError as e:
- 	print(e)
-except Exception as e:
- 	print(e)
-print(result)</code></pre></li>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> qcloudsms_py <span class="token keyword">import</span> SmsSingleSender
+<span class="token keyword">from</span> qcloudsms_py<span class="token punctuation">.</span>httpclient <span class="token keyword">import</span> HTTPError
+ssender <span class="token operator">=</span> SmsSingleSender<span class="token punctuation">(</span>appid<span class="token punctuation">,</span> appkey<span class="token punctuation">)</span>
+params <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"5678"</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 当模板没有参数时，`params = []`可以发送随机数，用来做短信验证码,如果指定为["5678",'5']，则过期时间为5分钟</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+     result <span class="token operator">=</span> ssender<span class="token punctuation">.</span>send_with_param<span class="token punctuation">(</span><span class="token number">86</span><span class="token punctuation">,</span> phone_numbers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      template_id<span class="token punctuation">,</span> params<span class="token punctuation">,</span> sign<span class="token operator">=</span>sms_sign<span class="token punctuation">,</span> extend<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">,</span> ext<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">)</span> 
+<span class="token keyword">except</span> HTTPError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+     <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span></code></pre>
+</li>
 <li><p>如果要群发短信，<code>phone_numbers</code>不取0值，发送全部</p>
 </li>
 </ol>
 <hr>
 <h4 id="点击发送短信验证码"><a href="#点击发送短信验证码" class="headerlink" title="点击发送短信验证码"></a>点击发送短信验证码</h4><p>视图定义，获取手机号，这里，我是把上面的脚本封装成函数<code>phone_s</code>了，两个参数，分别为手机号和随机数验证码</p>
-<pre class="language-python" data-language="python"><code class="language-python">class phoneView(APIView):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">phoneView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def post(self,request):
-        phone = request.POST.get('phone')
-		# 随机数，用来做验证码
-        uuid = random.randint(1000,9999)
-        # 调用发送短信的接口，传入手机号和随机数验证码
-        pwg = phone_s(phone,uuid)
-        if pwg:
-            # 连接redis
-            redis_client = get_redis_connection('phone')
+    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        phone <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'phone'</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 随机数，用来做验证码</span>
+        uuid <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">9999</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 调用发送短信的接口，传入手机号和随机数验证码</span>
+        pwg <span class="token operator">=</span> phone_s<span class="token punctuation">(</span>phone<span class="token punctuation">,</span>uuid<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> pwg<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 连接redis</span>
+            redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'phone'</span><span class="token punctuation">)</span>
 
-            redis_phone = redis_client.get(phone)
-			# 防止频繁发送，如果redis中有，就不必再发
-            if redis_phone:
-                return Response({'code': 1003, 'msg': '频繁发送'{)
-            # 存入redis,邮箱为键，uuid为值
-            redis_client = get_redis_connection('phone')  # 获取redis客户端
-            redis_client.setex(phone, 60 * 5, uuid)
-            return Response({'code':1000,'msg':'发送成功'{)
-        return Response({'code':1004,'msg':'发送失败'{)</code></pre>
+            redis_phone <span class="token operator">=</span> redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>phone<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 防止频繁发送，如果redis中有，就不必再发</span>
+            <span class="token keyword">if</span> redis_phone<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1003</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'频繁发送'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 存入redis,邮箱为键，uuid为值</span>
+            redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'phone'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取redis客户端</span>
+            redis_client<span class="token punctuation">.</span>setex<span class="token punctuation">(</span>phone<span class="token punctuation">,</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">,</span> uuid<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送成功'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1004</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送失败'</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
 <p>至于验证，只需要从redis中取出验证码来比对即可</p>
 <hr>
 <h2 id="邮箱验证码"><a href="#邮箱验证码" class="headerlink" title="邮箱验证码"></a>邮箱验证码</h2><p>发送邮箱验证码，我们使用的是QQ邮箱，打开QQ邮箱，打开设置，在里面找到</p>
 <p><strong><code>POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务</code></strong></p>
 <p>打开POP3/SMTP服务</p>
 <p>获取到授权码之后，我们就可以直接可以开始</p>
-<pre class="language-python" data-language="python"><code class="language-python">#定义参数
-my_mail = "你申请授权的邮箱"
-#授权码
-my_pass = "授权码"
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true">#定义参数</span>
+my_mail <span class="token operator">=</span> <span class="token string">"你申请授权的邮箱"</span>
+<span class="token comment" spellcheck="true">#授权码</span>
+my_pass <span class="token operator">=</span> <span class="token string">"授权码"</span>
 
-#定义发送邮件的方法
-def mail(subject,content,mailaddr):
+<span class="token comment" spellcheck="true">#定义发送邮件的方法</span>
+<span class="token keyword">def</span> <span class="token function">mail</span><span class="token punctuation">(</span>subject<span class="token punctuation">,</span>content<span class="token punctuation">,</span>mailaddr<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    #声明邮件对象
-    msg = MIMEText(content,'plain','utf-8')
+    <span class="token comment" spellcheck="true">#声明邮件对象</span>
+    msg <span class="token operator">=</span> MIMEText<span class="token punctuation">(</span>content<span class="token punctuation">,</span><span class="token string">'plain'</span><span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
 
-    #设置发送方对象
-    msg['From'] = formataddr(['在线教育平台',my_mail])
+    <span class="token comment" spellcheck="true">#设置发送方对象</span>
+    msg<span class="token punctuation">[</span><span class="token string">'From'</span><span class="token punctuation">]</span> <span class="token operator">=</span> formataddr<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'在线教育平台'</span><span class="token punctuation">,</span>my_mail<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-    #设置收件方对象
-    msg['To'] = formataddr(['尊敬的客户',mailaddr])
+    <span class="token comment" spellcheck="true">#设置收件方对象</span>
+    msg<span class="token punctuation">[</span><span class="token string">'To'</span><span class="token punctuation">]</span> <span class="token operator">=</span> formataddr<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'尊敬的客户'</span><span class="token punctuation">,</span>mailaddr<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-    #设置标题
-    msg['Subject'] = subject
+    <span class="token comment" spellcheck="true">#设置标题</span>
+    msg<span class="token punctuation">[</span><span class="token string">'Subject'</span><span class="token punctuation">]</span> <span class="token operator">=</span> subject
 
-    #设置smtp服务器
-    server = smtplib.SMTP_SSL("smtp.qq.com",465)
+    <span class="token comment" spellcheck="true">#设置smtp服务器</span>
+    server <span class="token operator">=</span> smtplib<span class="token punctuation">.</span>SMTP_SSL<span class="token punctuation">(</span><span class="token string">"smtp.qq.com"</span><span class="token punctuation">,</span><span class="token number">465</span><span class="token punctuation">)</span>
 
-    #登录邮箱
-    server.login(my_mail,my_pass)
+    <span class="token comment" spellcheck="true">#登录邮箱</span>
+    server<span class="token punctuation">.</span>login<span class="token punctuation">(</span>my_mail<span class="token punctuation">,</span>my_pass<span class="token punctuation">)</span>
 
-    #发送邮件
-    server.sendmail(my_mail,[mailaddr],msg.as_string())
+    <span class="token comment" spellcheck="true">#发送邮件</span>
+    server<span class="token punctuation">.</span>sendmail<span class="token punctuation">(</span>my_mail<span class="token punctuation">,</span><span class="token punctuation">[</span>mailaddr<span class="token punctuation">]</span><span class="token punctuation">,</span>msg<span class="token punctuation">.</span>as_string<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    #关闭smtp链接
-    server.quit()</code></pre>
+    <span class="token comment" spellcheck="true">#关闭smtp链接</span>
+    server<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>然后定义视图</p>
-<pre class="language-python" data-language="python"><code class="language-python">class Go_emailView(APIView):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Go_emailView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def post(self,request):
-        # 验证邮箱有效性
-        email = request.POST.get('email',None)
-        try:
-            re.match(r'[a-zA-Z0-9]{0,19{@(qq|163|126)\.(com|cn|net)$', email)
-        except Exception as e:
-            return Response({'code': 1002, 'msg': '电子邮箱不正确'{)
+    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 验证邮箱有效性</span>
+        email <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">,</span>None<span class="token punctuation">)</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>r<span class="token string">'[a-zA-Z0-9]{0,19{@(qq|163|126)\.(com|cn|net)$'</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1002</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'电子邮箱不正确'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
-        # 查询redis中是否有这个数据，如果有，则不需要再次发送
-        # 验证邮箱验证码
-        redis_client = get_redis_connection('email')
-        # 获取redis中的库
-        redis_email = redis_client.get(email)
-        if redis_email:
-            return Response({'code':1003,'msg':'频繁发送'{)
+        <span class="token comment" spellcheck="true"># 查询redis中是否有这个数据，如果有，则不需要再次发送</span>
+        <span class="token comment" spellcheck="true"># 验证邮箱验证码</span>
+        redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 获取redis中的库</span>
+        redis_email <span class="token operator">=</span> redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>email<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> redis_email<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1003</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'频繁发送'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
-        uuid = random.randint(0,9999)
+        uuid <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">9999</span><span class="token punctuation">)</span>
 
-        try:
-            # 调用发送邮件的函数
-            mail('龙潭技术博客验证', '您的验证码是{{，有限期为2分钟'.format(uuid), email)
-            # 存入redis,邮箱为键，uuid为值
-            redis_client = get_redis_connection('email')  # 获取redis客户端
-            redis_client.setex(email, 60 * 2, uuid)
-            return Response({'code':1000,'msg':'发送成功'{)
-        except Exception as e:
-            print(e)
-            return Response({'code':1001,'msg':'发送失败'{)</code></pre>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 调用发送邮件的函数</span>
+            mail<span class="token punctuation">(</span><span class="token string">'龙潭技术博客验证'</span><span class="token punctuation">,</span> <span class="token string">'您的验证码是{{，有限期为2分钟'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 存入redis,邮箱为键，uuid为值</span>
+            redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取redis客户端</span>
+            redis_client<span class="token punctuation">.</span>setex<span class="token punctuation">(</span>email<span class="token punctuation">,</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> uuid<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送成功'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送失败'</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2019/08/31/yan-zheng-ma-xi-lie/" title="验证码系列(邮箱、短信)">http://godhearing.cn/2019/08/31/yan-zheng-ma-xi-lie/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2019/09/13/zhi-fu-bao-zhi-fu/" rel="prev" title="支付宝支付"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">支付宝支付</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2019/08/29/abac-quan-xian-mo-xing/" rel="next" title="ABAC权限模型"><span class="post-nav-text">ABAC权限模型</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+验证码系列(邮箱、短信)">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');

@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言  Saeweedfs是一个由golang语言开发的分布式对象存储系统，很适合做图片服务器，性能很好，并且可兼容挂载提供路径访问的方式，使得文件储存在云端变得非常方便。  seaweedfs的特点：   可以成存储上亿的文件（根据你硬盘大小变化）  速度刚刚的  github地址 安装安装呢，需要从官网上下载对应系统的版本，地址，我以windows为例，可以看到，下载下来的是个压缩包，解压后就">
@@ -48,7 +48,7 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/chrislusf/seaweedfs">github地址</a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装呢，需要从官网上下载对应系统的版本，<a target="_blank" rel="noopener" href="https://github.com/chrislusf/seaweedfs/releases">地址</a>，我以windows为例，可以看到，下载下来的是个压缩包，解压后就是一个exe安装包，但是我们直接点是没有用的，所以，我们通过命令来进行</p>
 <p>首先呢，我们查看一下所有的命令，得知，可以使用master命令来进行启动</p>
-<pre class="language-python" data-language="python"><code class="language-python">weed master -ip=127.0.0.1</code></pre>
+<pre class=" language-python"><code class="language-python">weed master <span class="token operator">-</span>ip<span class="token operator">=</span><span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span></code></pre>
 <img src="/2020/12/22/seaweedfs/image-20201222171848122.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>master节点设置好了之后，继续看文档，来设置volume节点</p>
@@ -56,11 +56,11 @@
 <p>如果没有data这个文件夹，就自己创建一个</p>
 <p><code>mserver</code>是master节点地址</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">weed volume -dir="./data" -max=10 -mserver="127.0.0.1:9333" -port=9000 -index=leveldb</code></pre>
+<pre class=" language-python"><code class="language-python">weed volume <span class="token operator">-</span>dir<span class="token operator">=</span><span class="token string">"./data"</span> <span class="token operator">-</span>max<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">-</span>mserver<span class="token operator">=</span><span class="token string">"127.0.0.1:9333"</span> <span class="token operator">-</span>port<span class="token operator">=</span><span class="token number">9000</span> <span class="token operator">-</span>index<span class="token operator">=</span>leveldb</code></pre>
 <img src="/2020/12/22/seaweedfs/image-20201222172215662.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>然后访问一下<code>http://localhost:9333/</code>即可，好，一切ok，再查看一下状态</p>
-<pre class="language-python" data-language="python"><code class="language-python">"http://127.0.0.1:9333/cluster/status?pretty=y"</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token string">"http://127.0.0.1:9333/cluster/status?pretty=y"</span></code></pre>
 <img src="/2020/12/22/seaweedfs/image-20201222172408636.png" alt="" style="zoom:50%;" loading="lazy">
 
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>继续看文档，如果要写入文件，则需要发送请求到<code>/dir/assign</code>来获取<code>fid</code>和volume服务器url</p>
@@ -80,7 +80,7 @@
 <img src="/2020/12/22/seaweedfs/image-20201222180246784.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>要注意，这时，不只是可以用这个方式来访问，还可以使用</p>
-<pre class="language-none"><code class="language-none"># 卷id/密钥+文件cookie/文件名
+<pre><code># 卷id/密钥+文件cookie/文件名
 http://localhost:8080/3/01637037d6/my_preferred_name.jpg
 # 卷id/密钥+文件你cookie.后缀名
 http://localhost:8080/3/01637037d6.jpg
@@ -89,15 +89,15 @@ http://localhost:8080/3,01637037d6.jpg
 http://localhost:8080/3/01637037d6
 http://localhost:8080/3,01637037d6</code></pre>
 <p>如果要获取图像的缩放版本，则可以添加一些参数：</p>
-<pre class="language-none"><code class="language-none">http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200
+<pre><code>http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200
 http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200&amp;mode=fit
 http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200&amp;mode=fill</code></pre>
 <p>要更新，请发送另一个具有更新文件内容的POST请求，就是fid不变的情况下，再发一个新的文件，它就会自动给覆盖掉</p>
 <p>删除的话，直接发送delete请求到相同的地址，删除成功会给你返回一个size，文件不存在的话这个size的值为0</p>
 <p>何谓分布式，当然是可以分布啦，它本身提供了机架感知和数据中心感知复制，SeaweedFS在卷级别应用复制策略。因此，在获取文件ID时，可以指定复制策略。例如：</p>
-<pre class="language-none"><code class="language-none">curl http://localhost:9333/dir/assign?replication=001</code></pre>
+<pre><code>curl http://localhost:9333/dir/assign?replication=001</code></pre>
 <p>复制参数选项包括：</p>
-<pre class="language-none"><code class="language-none">000:无复制
+<pre><code>000:无复制
 001:在同一机架上复制一次
 010:在不同机架上复制一次，但数据中心相同
 100:在不同的数据中心复制一次
@@ -108,59 +108,59 @@ http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200&amp;mode=fill</c
 <p>我们如果要在python中使用这个seaweedfs，则需要先安装一个包<code>pip install pyseaweed</code></p>
 </blockquote>
 <p>使用的方法，非常的简单，在GitHub上，作者也给写的相当明白了</p>
-<pre class="language-python" data-language="python"><code class="language-python">from pyseaweed import WeedFS
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pyseaweed <span class="token keyword">import</span> WeedFS
 
-# File upload
-w = WeedFS("localhost", 9333) # weed-fs master address and port
-fid = w.upload_file("n.txt") # path to file
+<span class="token comment" spellcheck="true"># File upload</span>
+w <span class="token operator">=</span> WeedFS<span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span> <span class="token number">9333</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># weed-fs master address and port</span>
+fid <span class="token operator">=</span> w<span class="token punctuation">.</span>upload_file<span class="token punctuation">(</span><span class="token string">"n.txt"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># path to file</span>
 
-# Get file url
-file_url = w.get_file_url(fid)
+<span class="token comment" spellcheck="true"># Get file url</span>
+file_url <span class="token operator">=</span> w<span class="token punctuation">.</span>get_file_url<span class="token punctuation">(</span>fid<span class="token punctuation">)</span>
 
-# Delete file
-res = w.delete_file(fid)
-# res is boolean (True if file was deleted)</code></pre>
+<span class="token comment" spellcheck="true"># Delete file</span>
+res <span class="token operator">=</span> w<span class="token punctuation">.</span>delete_file<span class="token punctuation">(</span>fid<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># res is boolean (True if file was deleted)</span></code></pre>
 <p>我们简单的封装一下</p>
-<pre class="language-python" data-language="python"><code class="language-python">from pyseaweed import WeedFS
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> pyseaweed <span class="token keyword">import</span> WeedFS
 
 
-# 上传文件
-def upload_file(seaweed_address,file,name):
-    w = WeedFS(*seaweed_address)
-    fid = w.upload_file(stream=file,name=name)
-    if fid:
-        return fid
-    else:
-        return False
+<span class="token comment" spellcheck="true"># 上传文件</span>
+<span class="token keyword">def</span> <span class="token function">upload_file</span><span class="token punctuation">(</span>seaweed_address<span class="token punctuation">,</span>file<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    w <span class="token operator">=</span> WeedFS<span class="token punctuation">(</span><span class="token operator">*</span>seaweed_address<span class="token punctuation">)</span>
+    fid <span class="token operator">=</span> w<span class="token punctuation">.</span>upload_file<span class="token punctuation">(</span>stream<span class="token operator">=</span>file<span class="token punctuation">,</span>name<span class="token operator">=</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> fid<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> fid
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
 
 
-#
-# 查看文件的域名
-def get_file_url(seaweed_address, fid):
-    w = WeedFS(*seaweed_address)
-    file_url = w.get_file_url(fid)
-    if file_url:
-        return file_url
-    else:
-        return '该资源不存在'
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># 查看文件的域名</span>
+<span class="token keyword">def</span> <span class="token function">get_file_url</span><span class="token punctuation">(</span>seaweed_address<span class="token punctuation">,</span> fid<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    w <span class="token operator">=</span> WeedFS<span class="token punctuation">(</span><span class="token operator">*</span>seaweed_address<span class="token punctuation">)</span>
+    file_url <span class="token operator">=</span> w<span class="token punctuation">.</span>get_file_url<span class="token punctuation">(</span>fid<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> file_url<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> file_url
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'该资源不存在'</span>
 
 
-def del_file(seaweed_address,fid):
-    w = WeedFS(*seaweed_address)
-    res = w.delete_file(fid)
-    return res  # True or False</code></pre>
+<span class="token keyword">def</span> <span class="token function">del_file</span><span class="token punctuation">(</span>seaweed_address<span class="token punctuation">,</span>fid<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    w <span class="token operator">=</span> WeedFS<span class="token punctuation">(</span><span class="token operator">*</span>seaweed_address<span class="token punctuation">)</span>
+    res <span class="token operator">=</span> w<span class="token punctuation">.</span>delete_file<span class="token punctuation">(</span>fid<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res  <span class="token comment" spellcheck="true"># True or False</span></code></pre>
 <blockquote>
 <p>这里为什么要指定stream和name呢，这是因为如果传一个参数，就必须是文件的路径，如果不传文件路径，就只能将他的数据流和名字传进来。</p>
 </blockquote>
 <p>我们使用视图来测试一下吧,<code>seaweed_address</code>是我自己配置的一个地址，这个可以写死，也可以写成元组，然后像我这样使用</p>
-<pre class="language-python" data-language="python"><code class="language-python">class avatar_upload(APIView):
-    def post(self,request):
-        avatar = request.FILES.get('avatar')
-        # 调用文件存储系统，将返回的fid存下
-        for chunk in avatar.chunks():
-            fid = upload.upload_file(USER_AVATAR,chunk,avatar.name)
-            print(fid)
-            return Response({})</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">avatar_upload</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        avatar <span class="token operator">=</span> request<span class="token punctuation">.</span>FILES<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'avatar'</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 调用文件存储系统，将返回的fid存下</span>
+        <span class="token keyword">for</span> chunk <span class="token keyword">in</span> avatar<span class="token punctuation">.</span>chunks<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            fid <span class="token operator">=</span> upload<span class="token punctuation">.</span>upload_file<span class="token punctuation">(</span>USER_AVATAR<span class="token punctuation">,</span>chunk<span class="token punctuation">,</span>avatar<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>fid<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>ok，完美，不过需要注意的是，在本地是没法测的，我也在找这个问题，服务器上是没有问题</p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://godhearing.cn/2020/12/22/seaweedfs/" title="seaweedfs">http://godhearing.cn/2020/12/22/seaweedfs/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/12/24/er-wei-ma-yu-python/" rel="prev" title="二维码与python"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">二维码与python</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/12/20/bigchaindb-an-zhuang/" rel="next" title="bigchaindb安装"><span class="post-nav-text">bigchaindb安装</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"><span>点击按钮跳转 GitHub Issues 评论。</span><br><span>若没有本文 Issue，您可以使用 Comment 模版新建。</span><br><a class="hty-button hty-button--raised" id="github-issues" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/issues?q=is:issue+seaweedfs">GitHub Issues</a><a class="hty-button hty-button--raised" id="github-discussions" target="_blank" rel="noopener" href="https://github.com/YunYouJun/yunyoujun.github.io/discussions/new">GitHub Discussions</a></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);

@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="redis集群 Redis 集群是一个可以在多个 Redis 节点之间进行数据共享的设施。 它有几个好处：  高性能，集群的性能和单节点的性能是同一个级别，并不会降低 高可用，在使用集群承担高负载的同时，也能进行高可用的容灾机制 易扩展，向集群添加新的节点，或者移除节点，都是透明化操作，不需要停机 原生，不需要其他代理或工具，和单机redis几乎完全兼容   何为哨兵模式 哨兵模式，是监控redi">
@@ -52,7 +52,7 @@
 <li><p>建一个文件夹，进入项目文件夹，再建一个专门存放哨兵的脚本sentinel，cd  sentinel</p>
 </li>
 <li><p>建立sentinel.conf配置文件</p>
-<pre class="language-none"><code class="language-none">sentinel monitor mymaster redis-master 6379 2
+<pre><code>sentinel monitor mymaster redis-master 6379 2
 sentinel down-after-milliseconds mymaster 5000
 sentinel parallel-syncs mymaster 1
 sentinel failover-timeout mymaster 5000</code></pre>
@@ -61,7 +61,7 @@ sentinel failover-timeout mymaster 5000</code></pre>
 </blockquote>
 </li>
 <li><p>建立sentinel-entypoint.sh脚本</p>
-<pre class="language-none"><code class="language-none">#!/bin/sh
+<pre><code>#!/bin/sh
 
 sed -i "s/$SENTINEL_QUORUM/$SENTINEL_QUORUM/g" /etc/redis/sentinel.conf
 sed -i "s/$SENTINEL_DOWN_AFTER/$SENTINEL_DOWN_AFTER/g" /etc/redis/sentinel.conf
@@ -73,16 +73,17 @@ exec docker-entrypoint.sh redis-server /etc/redis/sentinel.conf --sentinel</code
 </blockquote>
 </li>
 <li><p>建立Dockerfile指定基础镜像，同时拷贝配置文件到镜像内部</p>
-<pre class="language-none"><code class="language-none">FROM redis
+<pre><code>FROM redis
 
 EXPOSE 26379
 ADD sentinel.conf /etc/redis/sentinel.conf
 RUN chown redis:redis /etc/redis/sentinel.conf
 COPY sentinel-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/sentinel-entrypoint.sh
-ENTRYPOINT ["sentinel-entrypoint.sh"]</code></pre></li>
+ENTRYPOINT ["sentinel-entrypoint.sh"]</code></pre>
+</li>
 <li><p>最后退到项目的根目录，建<code>docker-compose.yml</code>配置文件</p>
-<pre class="language-none"><code class="language-none">master:
+<pre><code>master:
   image: redis
   ports:
     - "6379:6379"
@@ -122,12 +123,13 @@ sentinel2:
 <img src="/2020/04/01/docker-compons-da-jian-redis-ji-qun-shao-bing-mo-shi/wwww.png" alt=" " style="zoom:90%;" loading="lazy">
 </li>
 <li><p>在项目根目录下，启动服务：</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker-compose up --force-recreate
-# 如果希望在后台运行可以加-d参数</code></pre></li>
+<pre class=" language-python"><code class="language-python">docker<span class="token operator">-</span>compose up <span class="token operator">-</span><span class="token operator">-</span>force<span class="token operator">-</span>recreate
+<span class="token comment" spellcheck="true"># 如果希望在后台运行可以加-d参数</span></code></pre>
+</li>
 <li><p>测试一下，打开三个终端，分别进入redis-cli -p 6379，6380，6381<br>在主服务器6379下，添加一个数据，然后分别get</p>
 </li>
 <li><p>测试哨兵<br>手动停止主库的容器进程，来模拟宕机的情况</p>
-<pre class="language-python" data-language="python"><code class="language-python">docker stop redissentinel_master_1</code></pre>
+<pre class=" language-python"><code class="language-python">docker stop redissentinel_master_1</code></pre>
 <p>使用<code>info</code>命令查询服务器的角色，可以看到，原本是slave，现在成为了master</p>
 </li>
 </ol>

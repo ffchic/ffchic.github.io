@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 最近，碰到了一个很尴尬的需求，在我使用python苦苦支撑却实现不了的时候，vue就像一道光，哗啦啦的就来了，这个需求就是合成一张图片，然后把这张图片下载下来，而python我又不会使用opencv等库，所以，只能使用PIL强行搞，但是效果并不好。然后，我求助了我的小伙伴，她很轻易的就帮助我搞定了，(太感谢我的小伙伴了。)，但是下载这个图片，成了一个事。所以，今天这篇攻略带来如何生成图片并且">
@@ -39,26 +39,26 @@
 <ol>
 <li>安装</li>
 </ol>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">npm install <span class="token operator">--</span>save html2canvas</code></pre>
+<pre class=" language-javascript"><code class="language-javascript">npm install <span class="token operator">--</span>save html2canvas</code></pre>
 <p>或者：</p>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">yarn add html2canvas</code></pre>
+<pre class=" language-javascript"><code class="language-javascript">yarn add html2canvas</code></pre>
 <ol start="2">
 <li>将html2canvas引入到组件中</li>
 </ol>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> html2canvas <span class="token keyword">from</span> <span class="token string">"html2canvas"</span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> html2canvas <span class="token keyword">from</span> <span class="token string">"html2canvas"</span></code></pre>
 <ol start="3">
 <li>将你想生成的区域转成图片，你需要让html2canvas获取到你想要转换的节点内容，因此，你需要添加ref标记。</li>
 </ol>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span> ref<span class="token operator">=</span><span class="token string">"imageDom"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span> ref<span class="token operator">=</span><span class="token string">"imageDom"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
 <blockquote>
 <p>imageDom需要是你想转换的页面内容的父容器，即你想转换的页面内容需要全部包含在imageDom节点内。</p>
 </blockquote>
 <ol start="4">
 <li>转换</li>
 </ol>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">clickGeneratePicture</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token function">html2canvas</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>imageDom<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">canvas</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 转成图片，生成图片地址</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">clickGeneratePicture</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">html2canvas</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>imageDom<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>canvas <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 转成图片，生成图片地址</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl<span class="token punctuation">)</span>
       <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -69,18 +69,18 @@
 <ol start="5">
 <li>直接触发方法， 将图片下载下来</li>
 </ol>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token function">clickGeneratePicture</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token function">html2canvas</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>imageDom<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">canvas</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 转成图片，生成图片地址</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">clickGeneratePicture</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">html2canvas</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>imageDom<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>canvas <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 转成图片，生成图片地址</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">"image/png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// 创建隐藏的可下载链接</span>
+        <span class="token comment" spellcheck="true">// 创建隐藏的可下载链接</span>
         <span class="token keyword">var</span> eleLink <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        eleLink<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl<span class="token punctuation">;</span> <span class="token comment">// 转换后的图片地址</span>
+        eleLink<span class="token punctuation">.</span>href <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 转换后的图片地址</span>
         eleLink<span class="token punctuation">.</span>download <span class="token operator">=</span> <span class="token string">"pictureName"</span><span class="token punctuation">;</span>
-        <span class="token comment">// 触发点击</span>
+        <span class="token comment" spellcheck="true">// 触发点击</span>
         document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>eleLink<span class="token punctuation">)</span><span class="token punctuation">;</span>
         eleLink<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">// 然后移除</span>
+        <span class="token comment" spellcheck="true">// 然后移除</span>
         document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>eleLink<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>

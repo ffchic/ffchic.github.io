@@ -3,7 +3,7 @@
     ScrollReveal().reveal(target);
   })
 });
-</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+</script><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
     window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="SQLAlchemy简介 它是一个ORM(Object-Relational Mapping)框架，是python最好的ORM工具之一，为高效和高性能的数据库访问设计，实现了完整的企业级持久模型 提示一点：ORM并非是非用不可，但是，为了代码的健壮性，我们最好还是使用ORM，一方面，为了提高开发效率，另一方面，为了使别人能够看懂代码。  安装安装sqlalchemy： pip install sq">
@@ -38,57 +38,57 @@
 <p>提示一点：ORM并非是非用不可，但是，为了代码的健壮性，我们最好还是使用ORM，一方面，为了提高开发效率，另一方面，为了使别人能够看懂代码。</p>
 </blockquote>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>安装sqlalchemy：</p>
-<pre class="language-python" data-language="python"><code class="language-python">pip install sqlalchemy</code></pre>
+<pre class=" language-python"><code class="language-python">pip install sqlalchemy</code></pre>
 <h4 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h4><blockquote>
 <p>所有的关系型数据库，都可以通过这样连接</p>
-<pre class="language-none"><code class="language-none">'数据库类型+数据库驱动名称://用户名:密码@机器地址:端口号/数据库名'</code></pre>
-<p>我们就拿mysql打个比方：</p>
+<pre><code>'数据库类型+数据库驱动名称://用户名:密码@机器地址:端口号/数据库名'</code></pre>
 </blockquote>
+<p>我们就拿mysql打个比方：</p>
 <blockquote>
 <p>需要安装pymysql，因为引擎基于pymysql</p>
 <p><code>pip install pymysql</code></p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python"># 首先，导包
-from sqlalchemy import create_engine
-# 创建数据库连接
-connect = create_engine('mysql+pymysql://root:mySQL@localhost:3306/test01')
-# 可以顺便指定一下编码方式
-# create_engine('mysql+pymysql://root:mySQL@localhost:3306/test01?charset=utf8')</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 首先，导包</span>
+<span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
+<span class="token comment" spellcheck="true"># 创建数据库连接</span>
+connect <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">'mysql+pymysql://root:mySQL@localhost:3306/test01'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 可以顺便指定一下编码方式</span>
+<span class="token comment" spellcheck="true"># create_engine('mysql+pymysql://root:mySQL@localhost:3306/test01?charset=utf8')</span></code></pre>
 <p>这样，我们就能连接上数据库了</p>
 <h4 id="描述表结构-模型"><a href="#描述表结构-模型" class="headerlink" title="描述表结构(模型)"></a>描述表结构(模型)</h4><blockquote>
 <p>要使用 ORM, 我们需要将数据表的结构用 ORM 的语言描述出来。SQLAlchmey 提供了一套 Declarative 系统来完成这个任务。我们以创建一个 <code>user</code> 表为例，看看它是怎么用 SQLAlchemy 的语言来描述的</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from sqlalchemy.ext.declarative import declarative_base
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>declarative <span class="token keyword">import</span> declarative_base
 
-ModelBase = declarative_base() #&lt;-元类
+ModelBase <span class="token operator">=</span> declarative_base<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#&lt;-元类</span>
 
-class User(ModelBase):
-    # 定义表名
-    __tablename__ = "user"
-    # 声明字段
-    id = Column(Integer, primary_key=True)
-    username = Column(String(length=255))
-    password = Column(String(length=255))</code></pre>
+<span class="token keyword">class</span> <span class="token class-name">User</span><span class="token punctuation">(</span>ModelBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 定义表名</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"user"</span>
+    <span class="token comment" spellcheck="true"># 声明字段</span>
+    id <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    username <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    password <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>这个模型，是对数据表结构的映射，无论是进行迁移文件还是操作数据库，都需要使用到它</p>
 </blockquote>
 <h4 id="一对多关系"><a href="#一对多关系" class="headerlink" title="一对多关系"></a>一对多关系</h4><blockquote>
 <p>一对多，也就是我们所谓的外键，假如，有个user表，要求每个user都要有一个角色，我们就需要另外建立一张角色表，来通过外键连接角色表，用来实现关联，一个角色可以被多个user关联，一个user只能有一个角色，这，就是一对多的关系</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">class User(ModelBase):
-    # 定义表名
-    __tablename__ = "user"
-    # 声明字段
-    id = Column(Integer, primary_key=True)
-    username = Column(String(length=255))
-    password = Column(String(length=255))
-    role = Column(Integer,ForeignKey('role.id'))
-    
-class Role(ModelBase):
-    __tablename__ = 'role'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(length=255))
-    isnn = relationship('User')</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">User</span><span class="token punctuation">(</span>ModelBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 定义表名</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"user"</span>
+    <span class="token comment" spellcheck="true"># 声明字段</span>
+    id <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    username <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    password <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    role <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span>ForeignKey<span class="token punctuation">(</span><span class="token string">'role.id'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Role</span><span class="token punctuation">(</span>ModelBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">'role'</span>
+    id <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    name <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    isnn <span class="token operator">=</span> relationship<span class="token punctuation">(</span><span class="token string">'User'</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>可以看到，我们定义了ForeignKey来指定关联哪张表，连接哪个字段</p>
 <p>而“一”这里，提供了一个relationship方法来表明两个模型中的关系</p>
@@ -99,20 +99,20 @@ class Role(ModelBase):
 <blockquote>
 <p>⚠！！！在SQLAlchemy中，CRUD都是通过会话(session)进行的，所以我们必须要先创建会话，每一个SessionLocal实例就是一个数据库session</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">from sqlalchemy.orm import sessionmaker
-# 创建DBSession类型
-# flush()是指发送数据库语句到数据库，但数据库不一定执行写入磁盘；commit()是指提交事务，将变更保存到数据库文件
-DBSession = sessionmaker(bind=connect,autoflush=False, autocommit=False, expire_on_commit=True)
-# 创建session对象
-session = DBSession()
-# 创建新User对象(我们要添加的数据)
-new_user = User(id=1,username='Bob',password='123')
-# 添加到session
-session.add(new_user)
-# 提交即保存到数据库
-session.commit()
-# 关闭session
-session.close()</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword">import</span> sessionmaker
+<span class="token comment" spellcheck="true"># 创建DBSession类型</span>
+<span class="token comment" spellcheck="true"># flush()是指发送数据库语句到数据库，但数据库不一定执行写入磁盘；commit()是指提交事务，将变更保存到数据库文件</span>
+DBSession <span class="token operator">=</span> sessionmaker<span class="token punctuation">(</span>bind<span class="token operator">=</span>connect<span class="token punctuation">,</span>autoflush<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> autocommit<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> expire_on_commit<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 创建session对象</span>
+session <span class="token operator">=</span> DBSession<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 创建新User对象(我们要添加的数据)</span>
+new_user <span class="token operator">=</span> User<span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>username<span class="token operator">=</span><span class="token string">'Bob'</span><span class="token punctuation">,</span>password<span class="token operator">=</span><span class="token string">'123'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 添加到session</span>
+session<span class="token punctuation">.</span>add<span class="token punctuation">(</span>new_user<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 提交即保存到数据库</span>
+session<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 关闭session</span>
+session<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>ok，执行一下，可以看到我们的数据库中已经有了这条数据</p>
 </blockquote>
@@ -123,30 +123,30 @@ session.close()</code></pre>
 <h4 id="查找数据（Retrieve）"><a href="#查找数据（Retrieve）" class="headerlink" title="查找数据（Retrieve）"></a>查找数据（Retrieve）</h4><blockquote>
 <p>重新得到数据</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">user = session.query(User).filter(User.id==5).one()
-print(type(user))
-print('name',user.username)</code></pre>
+<pre class=" language-python"><code class="language-python">user <span class="token operator">=</span> session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>id<span class="token operator">==</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>one<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span>user<span class="token punctuation">.</span>username<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>这只是查找第一条</p>
 <p>如果要获取多条，那么就可以将one换成all</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">user = session.query(User).filter(User.id==5).all()
-print(type(user))
-for i in user:
-    print(i.username)</code></pre>
+<pre class=" language-python"><code class="language-python">user <span class="token operator">=</span> session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>id<span class="token operator">==</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> user<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">.</span>username<span class="token punctuation">)</span></code></pre>
 <p>注意，因为获取多条，他的类型是列表，所以，我们需要处理一下</p>
 <hr>
 <h4 id="更新数据（Update）"><a href="#更新数据（Update）" class="headerlink" title="更新数据（Update）"></a>更新数据（Update）</h4><blockquote>
 <p>首先呢，我们需要找出需要修改的数据，然后直接进行update修改</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">session.query(User).filter(User.id==1).update({'username':'haoye'{)
-session.commit()</code></pre>
+<pre class=" language-python"><code class="language-python">session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>id<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'username'</span><span class="token punctuation">:</span><span class="token string">'haoye'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+session<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <hr>
 <h4 id="删除数据（delete）"><a href="#删除数据（delete）" class="headerlink" title="删除数据（delete）"></a>删除数据（delete）</h4><blockquote>
 <p>操作和update一致，只是最后换成dalete</p>
 </blockquote>
-<pre class="language-python" data-language="python"><code class="language-python">session.query(User).filter(User.id==1).delete()
-session.commit()</code></pre>
+<pre class=" language-python"><code class="language-python">session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>id<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>delete<span class="token punctuation">(</span><span class="token punctuation">)</span>
+session<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <hr>
 <p>总结：最为简单的CRUD操作并没有什么难度，只是需要注意的是，为了节约内存资源，最好是做完操作之后，将session进行关闭</p>
 <p>如果我们要学习除了django之外的web框架，几乎都离不开sqlachemy，所以，将sqlachemy学好收益还是非常大的</p>
