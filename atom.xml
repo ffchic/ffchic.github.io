@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>天听のblog</title>
+  <title>Salmonのblog</title>
   
-  <subtitle>天听</subtitle>
+  <subtitle>Salmon</subtitle>
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-03-09T10:29:06.783Z</updated>
+  <updated>2021-03-12T09:40:12.960Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Casbin</title>
+    <link href="http://godhearing.cn/2021/03/12/casbin/"/>
+    <id>http://godhearing.cn/2021/03/12/casbin/</id>
+    <published>2021-03-12T09:40:48.666Z</published>
+    <updated>2021-03-12T09:40:12.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Casbin" scheme="http://godhearing.cn/categories/Casbin/"/>
+    
+    
+    <category term="Casbin" scheme="http://godhearing.cn/tags/Casbin/"/>
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker详解(巨详)</title>
@@ -505,33 +532,6 @@
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
     <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu系统下安装mysql8.0以及Django与mysql交互的问题</title>
-    <link href="http://godhearing.cn/2021/01/18/ubuntu-xi-tong-xia-an-zhuang-mysql8.0-yi-ji-django-yu-mysql-jiao-hu-de-wen-ti/"/>
-    <id>http://godhearing.cn/2021/01/18/ubuntu-xi-tong-xia-an-zhuang-mysql8.0-yi-ji-django-yu-mysql-jiao-hu-de-wen-ti/</id>
-    <published>2021-01-18T08:33:02.925Z</published>
-    <updated>2020-05-15T07:33:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Django-运行时出错总结&quot;&gt;&lt;a href=&quot;#Django-运行时出错总结&quot; class=&quot;headerlink&quot; title=&quot;Django 运行时出错总结&quot;&gt;&lt;/a&gt;Django 运行时出错总结&lt;/h2&gt;&lt;h4</summary>
-        
-      
-    
-    
-    
-    <category term="mysql" scheme="http://godhearing.cn/categories/mysql/"/>
-    
-    
-    <category term="Django" scheme="http://godhearing.cn/tags/Django/"/>
-    
-    <category term="mysql" scheme="http://godhearing.cn/tags/mysql/"/>
     
   </entry>
   

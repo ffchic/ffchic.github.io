@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分布一致性算法(雪花算法), 天听のblog">
+    <meta name="keywords" content="分布一致性算法(雪花算法), Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分布一致性算法(雪花算法) | 天听のblog</title>
+    <title>分布一致性算法(雪花算法) | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -31,7 +31,7 @@
 
 <meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Salmonのblog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -46,7 +46,7 @@
                     
                     <img src="/medias/dragon.jpg" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">天听のblog</span>
+                    <span class="logo-span">Salmonのblog</span>
                 </a>
             </div>
             
@@ -197,7 +197,7 @@
         
         <img src="/medias/dragon.jpg" class="logo-img circle responsive-img">
         
-        <div class="logo-name">天听のblog</div>
+        <div class="logo-name">Salmonのblog</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -635,11 +635,11 @@
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> snowflake<span class="token punctuation">.</span>client
 <span class="token keyword">print</span><span class="token punctuation">(</span>snowflake<span class="token punctuation">.</span>client<span class="token punctuation">.</span>get_guid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 多次输出一下，就会发现，有递增的连续性</span></code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221520785.png" alt style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221520785.png" alt="" style="zoom:50%;">
 
 <p>将其转换成二进制码</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>bin<span class="token punctuation">(</span><span class="token number">4431128039883018241</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221746952.png" alt style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221746952.png" alt="" style="zoom:50%;">
 
 <p>然后我们通过二进制码反推</p>
 <ul>
@@ -649,7 +649,7 @@
 <p>从右方数，12位的递增序列，再数5位就是机器标识，这个机器标识就是某个节点的存储标识00001</p>
 <p>但是啊，目前他是二进制，我们再将其转换为10进制</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'00001'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130222356449.png" alt style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130222356449.png" alt="" style="zoom:50%;">
             </div>
             <hr/>
 
@@ -1093,7 +1093,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.4k</span>&nbsp;字
+                class="white-color">103.6k</span>&nbsp;字
             
             
             

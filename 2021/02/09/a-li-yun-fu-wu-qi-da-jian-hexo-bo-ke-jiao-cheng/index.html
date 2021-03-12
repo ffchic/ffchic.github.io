@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="阿里云服务器搭建hexo博客教程, 天听のblog">
+    <meta name="keywords" content="阿里云服务器搭建hexo博客教程, Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>阿里云服务器搭建hexo博客教程 | 天听のblog</title>
+    <title>阿里云服务器搭建hexo博客教程 | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -31,7 +31,7 @@
 
 <meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听のblog" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Salmonのblog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -46,7 +46,7 @@
                     
                     <img src="/medias/dragon.jpg" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">天听のblog</span>
+                    <span class="logo-span">Salmonのblog</span>
                 </a>
             </div>
             
@@ -197,7 +197,7 @@
         
         <img src="/medias/dragon.jpg" class="logo-img circle responsive-img">
         
-        <div class="logo-name">天听のblog</div>
+        <div class="logo-name">Salmonのblog</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -611,17 +611,17 @@
 <p>这里呢，Hexo怎么搭建，我就不说了，相信大家都有搭建hexo的能力。</p>
 <h2 id="服务端准备工作"><a href="#服务端准备工作" class="headerlink" title="服务端准备工作"></a>服务端准备工作</h2><h3 id="域名注册"><a href="#域名注册" class="headerlink" title="域名注册"></a>域名注册</h3><p>登陆 <code>https://wanwang.aliyun.com/</code> 挑选一个自己喜欢的域名，具体操作如下：</p>
 <p>1、进入网站主页后，点击“域名注册”:</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120656914.png" alt style="zoom:50%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120656914.png" alt="" style="zoom:50%;">
 
 <p>2、然后在万网进行域名搜索和购买。</p>
 <p>3、初始化自己的服务器</p>
-<p>4、备案，在阿里云的控制台界面，具体备案步骤呢，也就不多说了，往后有机会出一篇备案的攻略。<br><img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120903699.png" alt style="zoom:67%;"></p>
+<p>4、备案，在阿里云的控制台界面，具体备案步骤呢，也就不多说了，往后有机会出一篇备案的攻略。<br><img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120903699.png" alt="" style="zoom:67%;"></p>
 <p>5、阿里云的服务器默认不开放端口号，这样使得我们在网站部署完成之后仍然无法访问。因此我们需要新建安全组并添加 80 端口，再将安全组添加到 ECS 实例中。具体操作如下。在控制台的 ECS 实例中点击安全组，然后新建安全组。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122807387.png" alt style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122807387.png" alt="" style="zoom:67%;">
 
 <p>在访问规则为 <strong>入方向</strong> 的标签下添加 80 端口。</p>
 <p>最后回到 ECS 服务器实例，将刚刚配置的安全组加入到实例中。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122901251.png" alt style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122901251.png" alt="" style="zoom:67%;">
 
 <h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><p>我们使用 nginx 作为 web 服务器，这里可以将 nginx 理解为安装在服务器上的一个软件。</p>
 <p>还有可以直接使用yum等来安装，不是非得必要用我这个办法。</p>
@@ -660,10 +660,10 @@ ls
 vim nginx.conf</code></pre>
 <p>打开后按 <code>i</code> 键由命令模式切换到编辑模式，修改三处地方：</p>
 <p>首先将最顶端的用户改为 root；</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110112486.png" alt style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110112486.png" alt="" style="zoom:67%;">
 
 <p>其次将 <code>server_name</code> 改为自己的域名，如果没有备案，可以先填写自己的公网 IP（在控制台 ECS 实例中查看），访问时暂时用公网 IP 进行访问。最后将 <code>root</code> 项中的值改为你自己博客的根目录</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110148969.png" alt style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110148969.png" alt="" style="zoom:67%;">
 
 
 
@@ -742,7 +742,7 @@ sudo chmod -R 777 /home/hexo</code></pre>
 <h2 id="本地Hexo配置"><a href="#本地Hexo配置" class="headerlink" title="本地Hexo配置"></a>本地Hexo配置</h2><p>安装两个插件</p>
 <p>修改 <code>_config.yml</code> 文件</p>
 <p>把 <code>deploy</code> 参数改成如下方式，注意填写自己的公网 IP 哦。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209133357909.png" alt style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209133357909.png" alt="" style="zoom:67%;">
 
 <p>除此之外，URL 项改为自己的域名，没有备案的化可以先填写公网 IP。</p>
 <p>然后我们就可以进行发布啦</p>
@@ -1187,7 +1187,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">102.4k</span>&nbsp;字
+                class="white-color">103.6k</span>&nbsp;字
             
             
             
