@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python的垃圾回收机制, Salmonのblog">
+    <meta name="keywords" content="协同过滤算法, Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python的垃圾回收机制 | Salmonのblog</title>
+    <title>协同过滤算法 | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/80.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python的垃圾回收机制</h1>
+                    <h1 class="description center-align post-title">协同过滤算法</h1>
                 </div>
             </div>
         </div>
@@ -546,6 +546,10 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -567,28 +571,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-02-02
+                    2021-03-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2018-02-02
+                    2021-03-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    646
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -598,32 +602,90 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="浅谈一下python的内存管理机制"><a href="#浅谈一下python的内存管理机制" class="headerlink" title="浅谈一下python的内存管理机制"></a>浅谈一下python的内存管理机制</h2><blockquote>
-<p>python采用的是<strong>引用计数</strong>机制为主，<strong>标记-清除</strong>和<strong>分代回收</strong>两种机制为辅的策略</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>协同过滤算法，这是一个比较著名的推荐算法，其主要的功能就是预测和推荐，算法通过对用户历史行为数据的挖掘发现用户的偏好，基于不同的偏好对用户进行群组划分并推荐品味相似的商品，协同过滤算法分为两类，分别是基于用户的协同过滤算法和基于物品的协同过滤算法，简单的说，就是物以类聚，人以群分。</p>
 </blockquote>
-<p>在python中，每一个对象的核心就是一个结构体，它的内部有一个引用计数器，程序运行过程中会实时的更新ob_refcnt的值，来反映引用当前对象的名称数量，当某个对象的引用计数为0，那么它的内存就会被立即释放掉</p>
-<h2 id="对象存储"><a href="#对象存储" class="headerlink" title="对象存储"></a>对象存储</h2><blockquote>
-<p>在Python中万物皆对象</p>
-<p>不存在基本数据类型，<code>0, 1.2, True, False, "abc"</code>等，这些全都是对象</p>
-<p>所有对象, 都会在内存中开辟一块空间进行存储</p>
+<h2 id="基于用户的协同过滤"><a href="#基于用户的协同过滤" class="headerlink" title="基于用户的协同过滤"></a>基于用户的协同过滤</h2><blockquote>
+<p>基于用户的协同过滤算法是通过用户的历史行为数据发现用户对商品或内容的喜欢(如商品购买，收藏，内容评论或分享)，并对这些喜好进行度量和打分。根据不同用户对相同商品或内容的态度和偏好程度计算用户之间的关系。在有相同喜好的用户间进行商品推荐。</p>
 </blockquote>
-<h2 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h2><blockquote>
-<p>分代回收是一种以空间换时间的操作方式，Python将内存根据对象的存活时间划分为不同的集合，每个集合称为一个代，Python将内存分为三代，分别为年轻代(0代)，中年代(1代)，老年代(2代)，他们对应的是三个链表，它们的垃圾收集频率与对象的存活时间的增大而减小</p>
-<p>新创建的对象都会分配在<strong>年轻代</strong>，年轻代链表的总数达到上限时，Python垃圾收集机制就会被触发，把那些可以被回收的对象回收掉，而那些不会回收的对象就会被移到中年代去，以此类推，老年代中的对象是存活时间最久的对象，甚至是存活于整个系统的生命周期内。</p>
-<p>同时，分代回收是建立在标记清除技术基础之上。作为Python的辅助垃圾收集技术处理那些容器对象</p>
-</blockquote>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p>有三种情况会触发垃圾回收：</p>
+<p>说的再简单点，就是，你去买了一个XX手办，对它评价挺高，然后有一个路人甲也买了一个XX手办，评价和你很类似，然后根据算法算出你们的喜好可能是相近的，所以，下次路人甲买了其他的商品，也会把这件商品推荐给你，因为你们的相似度很高。当然了，这就是一个例子，商品的数量足够多，那么，推荐的也就越准确。</p>
+<p>实现这个协同过滤算法的第一个重要步骤就是计算用户之间的相似度。而 计算相似简历相关系数矩阵目前主要分为：</p>
 <ol>
-<li>调用<code>gc.collect()</code>,需要先导入<code>gc</code>模块。</li>
-<li>当<code>gc</code>模块的计数器达到阀值的时候。</li>
-<li>程序退出的时候。</li>
+<li>皮尔逊相关系数</li>
+<li>基于欧几里德距离的相似度</li>
+<li>余弦相似度</li>
 </ol>
-<h4 id="gc模块"><a href="#gc模块" class="headerlink" title="gc模块"></a><code>gc</code>模块</h4><p><code>gc</code>模块提供一个接口给开发者设置垃圾回收的选项。上面说到，采用引用计数的方法管理内存的一个缺陷是循环引用，而<code>gc</code>模块的一个主要功能就是解决循环引用的问题。</p>
-<h2 id="多次赋值"><a href="#多次赋值" class="headerlink" title="多次赋值"></a>多次赋值</h2><blockquote>
-<p>对于整数和短小的字符，Python会进行缓存，不会创建多个相同对象</p>
-<p>此时，被多次赋值，只会有多份引用</p>
+<p>我们这里就说基于欧几里德距离(又称欧式距离)这一种。</p>
+<p>欧式距离计算相似度是所有相似度计算里面最简单、最易理解的方法。它以经过人们一致评价的物品为坐标轴，然后将参与评价的人绘制到坐标系上，并计算他们彼此之间的直线距离。计算出来的欧几里德距离是一个大0的数，为了使其更能体现用户之间的相似度，可以把它规约到(0.1]之间，最终得到如下计算公式：<br><img src="/2021/03/16/xie-tong-guo-lu-suan-fa/image-20210316173558673.png" alt style="zoom:30%;"></p>
+<p>只要有一个共同评分的项，就能用欧式距离计算相似度，如果没有共同评分项，那也就意味着两个用户或者物品并不相似。</p>
+<h2 id="python实现协同过滤"><a href="#python实现协同过滤" class="headerlink" title="python实现协同过滤"></a>python实现协同过滤</h2><blockquote>
+<p>我们使用代码来实现一下协同过滤，我们首先创造模型，比如说，我们都喜欢看动漫，我们就可以根据个人的喜好来进行推荐，首先，新建txt文件，名字随意。</p>
 </blockquote>
-<h2 id="id和hex"><a href="#id和hex" class="headerlink" title="id和hex"></a>id和hex</h2><p>在python的内置函数中，可以通过id获取内存地址(10进制)，通过hex()可以查看16进制地址</p>
+<pre class=" language-txt"><code class="language-txt">1,海贼王,2.0
+1,火影忍者,5.0
+1,全职猎人,2.6
+2,刀剑神域,1.0
+2,海贼王,5.0
+2,犬夜叉,4.6
+3,画江湖,2.0
+3,全职高手,5.0
+3,喜羊羊与灰太狼,2.6</code></pre>
+<p>解释一下：1喜欢看海贼王，给出了2.0的评分。以此类推，可以看到，1、2、3三个人中，只有1和2喜欢看海贼王，这也是他们之间唯一的交集。</p>
+<pre class=" language-python"><code class="language-python">content <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'./comic.txt'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+    content <span class="token operator">=</span> fp<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span></code></pre>
+<p>首先，读取，这里就不用多说了。</p>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 将用户、评分、和动漫写入字典data</span>
+data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> line <span class="token keyword">in</span> content<span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true"># 处理掉多余的空格并分割</span>
+    line <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 如果字典中没有某位用户，则使用用户ID来创建这位用户</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> line<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">in</span> data<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        data<span class="token punctuation">[</span>line<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>line<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span> line<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true"># 否则直接添加以该用户ID为key字典中</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        data<span class="token punctuation">[</span>line<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span>line<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> line<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Euclid</span><span class="token punctuation">(</span>user1<span class="token punctuation">,</span> user2<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 取出两位用户看过的动漫和评分</span>
+    user1_data <span class="token operator">=</span> data<span class="token punctuation">[</span>user1<span class="token punctuation">]</span>
+    user2_data <span class="token operator">=</span> data<span class="token punctuation">[</span>user2<span class="token punctuation">]</span>
+    distance <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token comment" spellcheck="true"># 找到两位用户都看过的动漫，并计算欧式距离</span>
+    <span class="token keyword">for</span> key <span class="token keyword">in</span> user1_data<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> key <span class="token keyword">in</span> user2_data<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># 注意，distance越大表示两者越相似</span>
+            distance <span class="token operator">+=</span> pow<span class="token punctuation">(</span>float<span class="token punctuation">(</span>user1_data<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span> float<span class="token punctuation">(</span>user2_data<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sqrt<span class="token punctuation">(</span>distance<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这里的返回值越小，相似度越大</span></code></pre>
+<p>计算某个用户和其他用户的相似度</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">top_simliar</span><span class="token punctuation">(</span>userID<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    res <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> userid <span class="token keyword">in</span> data<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 排除与自己计算相似度</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> userid <span class="token operator">==</span> userID<span class="token punctuation">:</span>
+            simliar <span class="token operator">=</span> Euclid<span class="token punctuation">(</span>userID<span class="token punctuation">,</span> userid<span class="token punctuation">)</span>
+            res<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>userid<span class="token punctuation">,</span> simliar<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 排序</span>
+    res<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> val<span class="token punctuation">:</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> res</code></pre>
+<p>可以看到，与其他两位用户的相似度已经被推算出来了。</p>
+<p>接下来，我们可以根据相似度来进行推送，按照我们这个例子，1和2之间是唯一有交集的，如果我们要给1推送，也只能推送2看过的，也就是犬夜叉和刀剑神域。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">recommend</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 相似度最高的用户</span>
+    top_sim_user <span class="token operator">=</span> top_simliar<span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 相似度最高的用户看过的动漫</span>
+    items <span class="token operator">=</span> data<span class="token punctuation">[</span>top_sim_user<span class="token punctuation">]</span>
+    recommendations <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token comment" spellcheck="true"># 筛选出该用户未看过的动漫</span>
+    <span class="token keyword">for</span> item <span class="token keyword">in</span> items<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> item <span class="token operator">not</span> <span class="token keyword">in</span> data<span class="token punctuation">[</span>user<span class="token punctuation">]</span><span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            recommendations<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> items<span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    recommendations<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> val<span class="token punctuation">:</span> val<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 按照评分排序</span>
+
+    <span class="token keyword">return</span> recommendations</code></pre>
+<p>ok，结果还算不错，按照我们所想。</p>
 
             </div>
             <hr/>
@@ -649,7 +711,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/">http://godhearing.cn/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/</a>
+                    <a href="http://godhearing.cn/2021/03/16/xie-tong-guo-lu-suan-fa/">http://godhearing.cn/2021/03/16/xie-tong-guo-lu-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -689,6 +751,10 @@
                             
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -733,7 +799,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-02-02T20-34-00',
+        id: '2021-03-16T16-16-41',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -757,16 +823,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2018/02/13/celery/">
+                <a href="/2021/03/16/xie-tong-guo-lu-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Celery">
+                        <img src="/medias/featureimages/80.jpg" class="responsive-img" alt="协同过滤算法">
                         
-                        <span class="card-title">Celery</span>
+                        <span class="card-title">协同过滤算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,21 +843,22 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Celery/" class="post-category">
-                                    Celery
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -798,12 +866,8 @@
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
-                    </a>
-                    
-                    <a href="/tags/Celery/">
-                        <span class="chip bg-color">Celery</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -817,12 +881,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/01/24/hexo-jie-jue-yin-yong-ben-di-tu-pian-wu-fa-xian-shi/">
+                <a href="/2021/03/12/casbin/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="Hexo解决引用本地图片无法显示">
+                        <img src="/medias/featureimages/79.png" class="responsive-img" alt="Casbin">
                         
-                        <span class="card-title">Hexo解决引用本地图片无法显示</span>
+                        <span class="card-title">Casbin</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,14 +897,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Casbin/" class="post-category">
+                                    Casbin
                                 </a>
                             
                             
@@ -850,8 +914,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Casbin/">
+                        <span class="chip bg-color">Casbin</span>
+                    </a>
+                    
+                    <a href="/tags/FastAPI/">
+                        <span class="chip bg-color">FastAPI</span>
                     </a>
                     
                 </div>
