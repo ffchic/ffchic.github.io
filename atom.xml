@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-03-16T12:31:20.943Z</updated>
+  <updated>2021-03-18T04:10:43.559Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac下破解pycharm</title>
+    <link href="http://godhearing.cn/2021/03/18/mac-xia-po-jie-pycharm/"/>
+    <id>http://godhearing.cn/2021/03/18/mac-xia-po-jie-pycharm/</id>
+    <published>2021-03-18T03:48:26.242Z</published>
+    <updated>2021-03-18T04:10:43.559Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
+    
+    
+    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
+    
+    <category term="pycharm" scheme="http://godhearing.cn/tags/pycharm/"/>
+    
+  </entry>
   
   <entry>
     <title>协同过滤算法</title>
@@ -503,35 +530,6 @@
     
     
     <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信小程序用户认证逻辑</title>
-    <link href="http://godhearing.cn/2021/01/21/wei-xin-xiao-cheng-xu-yong-hu-ren-zheng-luo-ji/"/>
-    <id>http://godhearing.cn/2021/01/21/wei-xin-xiao-cheng-xu-yong-hu-ren-zheng-luo-ji/</id>
-    <published>2021-01-20T16:00:00.000Z</published>
-    <updated>2021-01-20T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;strong&gt;调用&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="微信小程序" scheme="http://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-    <category term="微信小程序" scheme="http://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   

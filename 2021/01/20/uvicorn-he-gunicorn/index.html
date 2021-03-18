@@ -542,12 +542,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/FastAPI/">
-                                <span class="chip bg-color">FastAPI</span>
-                            </a>
-                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/FastAPI/">
+                                <span class="chip bg-color">FastAPI</span>
                             </a>
                         
                     </div>
@@ -605,11 +605,11 @@
                 <h2 id="什么是wsgi"><a href="#什么是wsgi" class="headerlink" title="什么是wsgi"></a>什么是wsgi</h2><blockquote>
 <p>Wsgi是同步通信服务规范，客户端请求一项服务，并等待服务完成，只有当它收到服务的结果时，它才会继续工作。当然了，可以定义一个超时时间，如果服务在规定的时间内没有完成，则认为调用失败，调用方继续工作。</p>
 </blockquote>
-<img src="/2021/01/20/uvicorn-he-gunicorn/image-20210120124037533.png" alt style="zoom:50%;">
+<img src="/2021/01/20/uvicorn-he-gunicorn/image-20210120124037533.png" alt="" style="zoom:50%;">
 
 <p>wsgi简单工作图</p>
 <h2 id="什么是asgi"><a href="#什么是asgi" class="headerlink" title="什么是asgi"></a>什么是asgi</h2><p>Asgi是异步通信服务规范。客户端发起服务呼叫，但不等待结果。调用方立即继续其工作，并不关心结果。如果调用方对结果感兴趣，有一些机制可以让其随时被回调方法返回结果。</p>
-<img src="/2021/01/20/uvicorn-he-gunicorn/image-20210120124131615.png" alt style="zoom:75%;">
+<img src="/2021/01/20/uvicorn-he-gunicorn/image-20210120124131615.png" alt="" style="zoom:75%;">
 
 <p>简单总结一下：Asgi是异步的，Wsgi是同步的，而基于Wsgi的Flask是同步框架，基于Asgi的FastAPI是异步框架，就这么简单。</p>
 <h2 id="正题"><a href="#正题" class="headerlink" title="正题"></a>正题</h2><blockquote>
@@ -661,7 +661,7 @@ app <span class="token operator">=</span> FastAPI<span class="token punctuation"
 <h3 id="关闭gunicron进程"><a href="#关闭gunicron进程" class="headerlink" title="关闭gunicron进程"></a>关闭gunicron进程</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 查询</span>
 pstree <span class="token operator">-</span>ap<span class="token operator">|</span>grep gunicorn</code></pre>
 <p>结果为：</p>
-<img src="/2021/01/20/uvicorn-he-gunicorn/image-20210120134339197.png" alt style="zoom:67%;">
+<img src="/2021/01/20/uvicorn-he-gunicorn/image-20210120134339197.png" alt="" style="zoom:67%;">
 
 <p>关闭进程</p>
 <pre class=" language-python"><code class="language-python">kill <span class="token operator">-</span><span class="token number">9</span> <span class="token number">15624</span>
@@ -730,12 +730,12 @@ pstree <span class="token operator">-</span>ap<span class="token operator">|</sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/FastAPI/">
-                                    <span class="chip bg-color">FastAPI</span>
-                                </a>
-                            
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/FastAPI/">
+                                    <span class="chip bg-color">FastAPI</span>
                                 </a>
                             
                         </div>
@@ -1101,7 +1101,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">104.9k</span>&nbsp;字
+                class="white-color">105.2k</span>&nbsp;字
             
             
             
