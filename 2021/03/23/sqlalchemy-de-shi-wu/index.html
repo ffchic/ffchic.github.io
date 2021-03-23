@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker编译时遇到的bug, Salmonのblog">
+    <meta name="keywords" content="sqlalchemy的事务, Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker编译时遇到的bug | Salmonのblog</title>
+    <title>sqlalchemy的事务 | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/64.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/82.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker编译时遇到的bug</h1>
+                    <h1 class="description center-align post-title">sqlalchemy的事务</h1>
                 </div>
             </div>
         </div>
@@ -542,8 +542,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Docker/">
-                                <span class="chip bg-color">Docker</span>
+                            <a href="/tags/FastAPI/">
+                                <span class="chip bg-color">FastAPI</span>
+                            </a>
+                        
+                            <a href="/tags/SQLAlchemy/">
+                                <span class="chip bg-color">SQLAlchemy</span>
                             </a>
                         
                     </div>
@@ -554,8 +558,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Docker/" class="post-category">
-                                Docker
+                            <a href="/categories/FastAPI/" class="post-category">
+                                FastAPI
                             </a>
                         
                     </div>
@@ -567,28 +571,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-01-25
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-01-25
+                    2021-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    140
+                    618
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -598,29 +602,73 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><img src="/2021/01/25/docker-bian-yi-shi-yu-dao-de-bug/image-20210125175514698.png" alt="" style="zoom:50%;">
-
-
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><blockquote>
-<p>在<a target="_blank" rel="noopener" href="https://hub.docker.com/">这里</a>注册一个账号，然后终端输入<code>docker login</code>，输入账号密码之后，再次执行打包命令即可</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>说起事务，后端工程师都不会陌生，这是存在于关系型数据库中的一个特性，它具有四个特性：</p>
+<ul>
+<li>原子性<br>事务包含的所有操作要么都执行成功，要么都失败，不可分割</li>
+<li>一致性<br>中间过程不管怎么执行，结果一定是一致的</li>
+<li>隔离性<br>事务在执行过程中，不受其他事务的影响</li>
+<li>持久性<br>执行成功之后，结果时永久修改的，不能撤回</li>
+</ul>
+<p>MySQL执行的SQL是autocommit的，SALAlchemy 查询语句也是 autocommit的，就是说如果没有明确声明事务的begin，每个单独的SQL都是一个独立的事务。但是在做交易系统时，比如银行给用户A转账给用户B时，有两个操作，从A里面减100，然后给B加100。这两个操作必须放在一个事务里面才行，否是就会出现钱扣了，对方又没到账的情况。</p>
+<p>所以，事务，是sqlalchemy乃至所有orm不可或缺的一环</p>
 </blockquote>
-<h2 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h2><blockquote>
-<p>第二种方法就比较简单加粗暴了，换源，推荐阿里的镜像源， 其他的也可以</p>
+<h2 id="开启事务"><a href="#开启事务" class="headerlink" title="开启事务"></a>开启事务</h2><blockquote>
+<p>开启事务有两种方法，这里只说最简单的一种方法，就是利用with，为了更加真实的模拟业务场景，我们创建两张表和sqlalchemy的连接</p>
 </blockquote>
-<ol>
-<li><p>按照<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/60750.html?spm=5176.12901015.0.i12901015.281e525cFBbUpU">这里</a>，去获得分配的加速器地址。</p>
-</li>
-<li><p>打开docker桌面版的设置，也就是settings</p>
-<img src="/2021/01/25/docker-bian-yi-shi-yu-dao-de-bug/image-20210126163650810.png" alt="" style="zoom:80%;">
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine<span class="token punctuation">,</span> Column<span class="token punctuation">,</span> Integer<span class="token punctuation">,</span> String
+<span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>ext<span class="token punctuation">.</span>declarative <span class="token keyword">import</span> declarative_base
+<span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword">import</span> sessionmaker
 
+connect <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">'mysql+pymysql://root:root@localhost:3306/test01'</span><span class="token punctuation">)</span>
+ModelBase <span class="token operator">=</span> declarative_base<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">User</span><span class="token punctuation">(</span>ModelBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 定义表名</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">"user"</span>
+    <span class="token comment" spellcheck="true"># 声明字段</span>
+    id <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    name <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Role</span><span class="token punctuation">(</span>ModelBase<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    __tablename__ <span class="token operator">=</span> <span class="token string">'role'</span>
+    id <span class="token operator">=</span> Column<span class="token punctuation">(</span>Integer<span class="token punctuation">,</span> primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    role <span class="token operator">=</span> Column<span class="token punctuation">(</span>String<span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+DBSession <span class="token operator">=</span> sessionmaker<span class="token punctuation">(</span>bind<span class="token operator">=</span>connect<span class="token punctuation">,</span>autoflush<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> autocommit<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> expire_on_commit<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></code></pre>
+<p>然后我们利用一个fastapi框架来模拟一下</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> HTTPException<span class="token punctuation">,</span> status
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_sqlalchemy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token comment" spellcheck="true"># 使用上下文管理器开启事务</span>
+    <span class="token keyword">with</span> DBSession<span class="token punctuation">.</span>begin<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> session<span class="token punctuation">:</span>
+        data <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Salmon'</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true"># 添加user数据</span>
+        new_user <span class="token operator">=</span> User<span class="token punctuation">(</span><span class="token operator">**</span>data<span class="token punctuation">)</span>
+        session<span class="token punctuation">.</span>add<span class="token punctuation">(</span>new_user<span class="token punctuation">)</span>
+        data2 <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+              <span class="token comment" spellcheck="true"># 'id':'添加错误数据'</span>
+            <span class="token string">'role'</span><span class="token punctuation">:</span><span class="token string">'SuperUser1'</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true"># 添加role数据</span>
+        new_role <span class="token operator">=</span> Role<span class="token punctuation">(</span><span class="token operator">**</span>data2<span class="token punctuation">)</span>
+        session<span class="token punctuation">.</span>add<span class="token punctuation">(</span>new_role<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 模拟错误</span>
+        <span class="token keyword">if</span> data2<span class="token punctuation">[</span><span class="token string">'role'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'SuperUser1'</span><span class="token punctuation">:</span>
+          <span class="token keyword">raise</span> HTTPException<span class="token punctuation">(</span>status_code<span class="token operator">=</span>status<span class="token punctuation">.</span>HTTP_400_BAD_REQUEST<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">'ok'</span></code></pre>
 <blockquote>
-<p>将这里的地址换成阿里云给分配的地址</p>
+<p>需要知道的是，在事务开启后，使用with不需要自己来执行commit操作,执行完sql会自动提交，如果报异常会自动rollback 。</p>
+<p>我们这里，主动抛出异常，两个表中的数据都没有改变。然后我们发送一个错误数据，不主动抛出，再来试试，解开那个id注释。然后把if和raise这两行删掉，然后，引发他原生错误。数据也不会发生改变。</p>
 </blockquote>
-</li>
-<li><p>然后终端输入<code>docker info</code> 查看换源成功，即可</p>
-</li>
-</ol>
 
             </div>
             <hr/>
@@ -646,7 +694,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2021/01/25/docker-bian-yi-shi-yu-dao-de-bug/">http://godhearing.cn/2021/01/25/docker-bian-yi-shi-yu-dao-de-bug/</a>
+                    <a href="http://godhearing.cn/2021/03/23/sqlalchemy-de-shi-wu/">http://godhearing.cn/2021/03/23/sqlalchemy-de-shi-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -684,8 +732,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Docker/">
-                                    <span class="chip bg-color">Docker</span>
+                                <a href="/tags/FastAPI/">
+                                    <span class="chip bg-color">FastAPI</span>
+                                </a>
+                            
+                                <a href="/tags/SQLAlchemy/">
+                                    <span class="chip bg-color">SQLAlchemy</span>
                                 </a>
                             
                         </div>
@@ -730,7 +782,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-01-25T00-00-00',
+        id: '2021-03-23T15-46-01',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -754,16 +806,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/01/27/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/">
+                <a href="/2021/03/23/sqlalchemy-de-shi-wu/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/65.jpg" class="responsive-img" alt="Vue解决html2canvas截图不全的问题">
+                        <img src="/medias/featureimages/82.png" class="responsive-img" alt="sqlalchemy的事务">
                         
-                        <span class="card-title">Vue解决html2canvas截图不全的问题</span>
+                        <span class="card-title">sqlalchemy的事务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -773,26 +826,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/FastAPI/" class="post-category">
+                                    FastAPI
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/FastAPI/">
+                        <span class="chip bg-color">FastAPI</span>
+                    </a>
+                    
+                    <a href="/tags/SQLAlchemy/">
+                        <span class="chip bg-color">SQLAlchemy</span>
                     </a>
                     
                 </div>
@@ -806,12 +864,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/23/axios-huo-qu-wen-jian-liu-xing-shi-ru-he-zhan-shi/">
+                <a href="/2021/03/18/mac-xia-po-jie-pycharm/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/63.jpg" class="responsive-img" alt="axios获取文件流并且展示为图片">
+                        <img src="/medias/featureimages/81.png" class="responsive-img" alt="mac下破解pycharm">
                         
-                        <span class="card-title">axios获取文件流并且展示为图片</span>
+                        <span class="card-title">mac下破解pycharm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -822,14 +880,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/axios/" class="post-category">
-                                    axios
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -839,12 +897,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/axios/">
-                        <span class="chip bg-color">axios</span>
+                    <a href="/tags/pycharm/">
+                        <span class="chip bg-color">pycharm</span>
                     </a>
                     
                 </div>
