@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-03-25T10:47:36.700Z</updated>
+  <updated>2021-03-30T05:56:26.835Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ubuntu下pip安装问题</title>
+    <link href="http://godhearing.cn/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/"/>
+    <id>http://godhearing.cn/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/</id>
+    <published>2021-03-30T05:53:11.213Z</published>
+    <updated>2021-03-30T05:56:26.835Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;Command</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="http://godhearing.cn/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="http://godhearing.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://godhearing.cn/2021/03/30/failed/"/>
+    <id>http://godhearing.cn/2021/03/30/failed/</id>
+    <published>2021-03-30T05:50:59.349Z</published>
+    <updated>2021-03-30T05:50:59.349Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Docker打包vue多处/static/css路径解决办法</title>
     <link href="http://godhearing.cn/2021/03/25/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/"/>
     <id>http://godhearing.cn/2021/03/25/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/</id>
     <published>2021-03-25T10:44:01.132Z</published>
-    <updated>2021-03-25T10:47:36.700Z</updated>
+    <updated>2021-03-25T10:48:20.566Z</updated>
     
     
       
@@ -478,58 +516,6 @@
     
     
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker部署Django应用</title>
-    <link href="http://godhearing.cn/2021/01/29/docker-bu-shu-django-ying-yong/"/>
-    <id>http://godhearing.cn/2021/01/29/docker-bu-shu-django-ying-yong/</id>
-    <published>2021-01-28T16:00:00.000Z</published>
-    <updated>2021-01-28T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Docker" scheme="http://godhearing.cn/categories/Docker/"/>
-    
-    
-    <category term="Django" scheme="http://godhearing.cn/tags/Django/"/>
-    
-    <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue解决html2canvas截图不全的问题</title>
-    <link href="http://godhearing.cn/2021/01/27/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/"/>
-    <id>http://godhearing.cn/2021/01/27/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/</id>
-    <published>2021-01-26T16:00:00.000Z</published>
-    <updated>2021-01-26T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Vue" scheme="http://godhearing.cn/categories/Vue/"/>
-    
-    
-    <category term="Vue" scheme="http://godhearing.cn/tags/Vue/"/>
     
   </entry>
   
