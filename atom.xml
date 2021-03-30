@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-03-30T06:00:57.247Z</updated>
+  <updated>2021-03-30T08:15:09.013Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx负载均衡配置</title>
+    <link href="http://godhearing.cn/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/"/>
+    <id>http://godhearing.cn/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/</id>
+    <published>2021-03-30T07:59:22.378Z</published>
+    <updated>2021-03-30T08:15:09.013Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Nginx" scheme="http://godhearing.cn/categories/Nginx/"/>
+    
+    
+    <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>ubuntu下pip安装问题</title>
@@ -432,9 +457,9 @@
   </entry>
   
   <entry>
-    <title>阿里云服务器搭建hexo博客教程</title>
-    <link href="http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
-    <id>http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
+    <title>阿里云域名解析</title>
+    <link href="http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
+    <id>http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -457,9 +482,9 @@
   </entry>
   
   <entry>
-    <title>阿里云域名解析</title>
-    <link href="http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
-    <id>http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
+    <title>阿里云服务器搭建hexo博客教程</title>
+    <link href="http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
+    <id>http://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -503,33 +528,6 @@
     
     
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker部署Django应用</title>
-    <link href="http://godhearing.cn/2021/01/29/docker-bu-shu-django-ying-yong/"/>
-    <id>http://godhearing.cn/2021/01/29/docker-bu-shu-django-ying-yong/</id>
-    <published>2021-01-28T16:00:00.000Z</published>
-    <updated>2021-01-28T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Docker" scheme="http://godhearing.cn/categories/Docker/"/>
-    
-    
-    <category term="Django" scheme="http://godhearing.cn/tags/Django/"/>
-    
-    <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
     
   </entry>
   

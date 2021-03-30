@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="FastAPI学习之路-4  依赖注入, Salmonのblog">
+    <meta name="keywords" content="nginx负载均衡配置, Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>FastAPI学习之路-4  依赖注入 | Salmonのblog</title>
+    <title>nginx负载均衡配置 | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/76.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/86.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">FastAPI学习之路-4  依赖注入</h1>
+                    <h1 class="description center-align post-title">nginx负载均衡配置</h1>
                 </div>
             </div>
         </div>
@@ -542,8 +542,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/FastAPI/">
-                                <span class="chip bg-color">FastAPI</span>
+                            <a href="/tags/Nginx/">
+                                <span class="chip bg-color">Nginx</span>
                             </a>
                         
                     </div>
@@ -554,8 +554,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/FastAPI/" class="post-category">
-                                FastAPI
+                            <a href="/categories/Nginx/" class="post-category">
+                                Nginx
                             </a>
                         
                     </div>
@@ -567,28 +567,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.3k
+                    696
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    2 Min
                 </div>
                 
 
@@ -599,98 +599,36 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>依赖注入系统，可以说是fastapi框架中很重要也是一个核心的系统。因为fastapi主要用的都是函数式编程实现API的方式，不像Django里面，有FBV和CBV。为了实现和Django一样的视图编程方式，于是就引入了这个依赖注入的概念。</p>
-<p>依赖注入的优势：</p>
-<ul>
-<li>提高代码的复用率，一些公共的资源，比如，函数，提取出来复用，一些pydantic验证也是如此。</li>
-<li>共享数据库连接，避免操作数据库CURD时创造多条连接。</li>
-<li>增强安全、认证和角色管理，就比如，超级管理员拥有什么权限。管理员拥有超级管理员之中的某些权限，而用户又只拥有管理员之下的某些权限。</li>
-</ul>
-<p>从这个fastapi框架的角度来看，他的兼容性也是非常的强大的。通过依赖注入系统，可以支持SQL数据库，和NoSQL数据库。</p>
+<p>nginx的作用呢，相信大家都是特别熟悉的了，这里也就不多说了，但是以防还有处于懵懂状态的同学，还是简单介绍一下负载均衡。</p>
+<p>我们平时在一台服务器搭建起应用后，万一承受量超过了他的极限，这样的话，服务就会垮掉，所以，我们为了不让这样的事情发生，通常情况下是使用nginx的一个负载均衡的功能，他能够将发来的请求，均匀的，或者是特定的去分配给多台服务器，来提高承受并发的能力。</p>
 </blockquote>
-<h2 id="声明依赖项"><a href="#声明依赖项" class="headerlink" title="声明依赖项"></a>声明依赖项</h2><blockquote>
-<p>我们不以复杂的理论和代码来论证这个依赖注入，我们声明一个函数，用来当作依赖项来进行讲解。</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">common_parameters</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span> skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">,</span> <span class="token string">"skip"</span><span class="token punctuation">:</span> skip<span class="token punctuation">,</span> <span class="token string">"limit"</span><span class="token punctuation">:</span> limit<span class="token punctuation">}</span></code></pre>
-<p>这里，我们声明了一个函数，有三个参数，<code>q</code>、<code>skip</code>、<code>limit</code>，我没有对他进行任何处理，只是原封不动的返回了，如果在真实的开发场景中，我们如果把所有的业务处理全部放在一个函数中，那就成了祖传代码，除了你自己，几乎别人没人看得懂。(PS：你自己也不一定看得懂了~~(●’◡’●))</p>
-<p>好了，回到我们这个场景，假如，我们要多次传入这三个参数，我们按照正常来说，也可以这么写：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">test1</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span> skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
-
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">test2</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span> skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span></code></pre>
-<p>然后，你会发现你的代码重复了，如果要进行相同的校验或者业务逻辑处理，需要更加繁琐的代码，也是需要一一重复。</p>
-<p>这时候，我们把这个当作依赖，直接注入到函数中，就会减少重复。</p>
-<pre class=" language-python"><code class="language-python">@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>common_parameters<span class="token punctuation">:</span>dict <span class="token operator">=</span> Depends<span class="token punctuation">(</span>common_parameters<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> common_parameters</code></pre>
-<p>这样，我们同样传入这三个参数，但是，在这个函数中，相应的减少了一些业务代码的处理。</p>
-<h2 id="类作为依赖项"><a href="#类作为依赖项" class="headerlink" title="类作为依赖项"></a>类作为依赖项</h2><blockquote>
-<p>fastapi不只是可以将函数作为依赖项，一切可以被称为资源的，都可以作为依赖项。比如，类。用法，几乎是一致的。</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">common_parameters</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>q<span class="token punctuation">:</span>Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span>skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>q <span class="token operator">=</span> q
-        self<span class="token punctuation">.</span>skip <span class="token operator">=</span> skip
-        self<span class="token punctuation">.</span>limit <span class="token operator">=</span> limit
-
-@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>common_parameters<span class="token punctuation">:</span>dict <span class="token operator">=</span> Depends<span class="token punctuation">(</span>common_parameters<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> common_parameters</code></pre>
-<h2 id="子依赖"><a href="#子依赖" class="headerlink" title="子依赖"></a>子依赖</h2><blockquote>
-<p>可以理解为类的继承， 声明了一个依赖项，经过一些处理后，再被另一个依赖给处理，有点像二次加工</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 声明一个子依赖项</span>
-<span class="token keyword">def</span> <span class="token function">query_extractor</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> q
-
-<span class="token comment" spellcheck="true"># 声明第二个依赖项，将子依赖作为依赖注入</span>
-<span class="token keyword">def</span> <span class="token function">query_or_cookie_extractor</span><span class="token punctuation">(</span>
-    q<span class="token punctuation">:</span> str <span class="token operator">=</span> Depends<span class="token punctuation">(</span>query_extractor<span class="token punctuation">)</span><span class="token punctuation">,</span> last_query<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> Cookie<span class="token punctuation">(</span>None<span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> <span class="token operator">not</span> q<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> last_query
-    <span class="token keyword">return</span> q
-
-<span class="token comment" spellcheck="true"># 最后传到的</span>
-@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_query</span><span class="token punctuation">(</span>query_or_default<span class="token punctuation">:</span> str <span class="token operator">=</span> Depends<span class="token punctuation">(</span>query_or_cookie_extractor<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"q_or_cookie"</span><span class="token punctuation">:</span> query_or_default<span class="token punctuation">}</span></code></pre>
-<h2 id="路径中操作依赖项"><a href="#路径中操作依赖项" class="headerlink" title="路径中操作依赖项"></a>路径中操作依赖项</h2><blockquote>
-<p>在路径中，无论是fastapi项目的实例还是APIrouter的实例，所导的路径装饰器中，都可以进行依赖的注入。在路由中，使用<code>dependencies</code>来进行依赖的注入。他可以是一个<code>Depends</code>，也可以是一个列表，来进行多个依赖项的注入</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 声明两个依赖</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">verify_token</span><span class="token punctuation">(</span>x_token<span class="token punctuation">:</span> str <span class="token operator">=</span> Header<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> x_token <span class="token operator">!=</span> <span class="token string">"fake-super-secret-token"</span><span class="token punctuation">:</span>
-        <span class="token keyword">raise</span> HTTPException<span class="token punctuation">(</span>status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span> detail<span class="token operator">=</span><span class="token string">"X-Token header invalid"</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">verify_key</span><span class="token punctuation">(</span>x_key<span class="token punctuation">:</span> str <span class="token operator">=</span> Header<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> x_key <span class="token operator">!=</span> <span class="token string">"fake-super-secret-key"</span><span class="token punctuation">:</span>
-        <span class="token keyword">raise</span> HTTPException<span class="token punctuation">(</span>status_code<span class="token operator">=</span><span class="token number">400</span><span class="token punctuation">,</span> detail<span class="token operator">=</span><span class="token string">"X-Key header invalid"</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> x_key
-<span class="token comment" spellcheck="true"># 在路由装饰器中，列表形式注入多个依赖项</span>
-@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">,</span> dependencies<span class="token operator">=</span><span class="token punctuation">[</span>Depends<span class="token punctuation">(</span>verify_token<span class="token punctuation">)</span><span class="token punctuation">,</span> Depends<span class="token punctuation">(</span>verify_key<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
-<h2 id="全局依赖"><a href="#全局依赖" class="headerlink" title="全局依赖"></a>全局依赖</h2><blockquote>
-<p>在全局中，无论是<code>APIRouter</code>还是<code>FastAPI</code>,他们所实例的变量都可以通过<code>dependencies</code>来进行依赖的注入，这样，所有使用了他们的路由装饰器，都会进行其依赖的操作。</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 在FastAPI中使用依赖注入</span>
-app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span>dependencies<span class="token operator">=</span><span class="token punctuation">[</span>Depends<span class="token punctuation">(</span>verify_token<span class="token punctuation">)</span><span class="token punctuation">,</span> Depends<span class="token punctuation">(</span>verify_key<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># 在APIRouter中使用</span>
-apirouter <span class="token operator">=</span> APIRouter<span class="token punctuation">(</span>dependencies<span class="token operator">=</span><span class="token punctuation">[</span>Depends<span class="token punctuation">(</span>verify_token<span class="token punctuation">)</span><span class="token punctuation">,</span> Depends<span class="token punctuation">(</span>verify_key<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
-<h2 id="关于fastapi"><a href="#关于fastapi" class="headerlink" title="关于fastapi"></a>关于fastapi</h2><blockquote>
-<p>对于fastapi，我个人把他分成了几个部分，如果有感觉模糊不清的道友，可以参照这个思路，fastapi就非常的好理解了。</p>
-<ol>
-<li>验证部分<br>这里分为了几个验证部分，分别为：<code>Body、Header、Path、Query、Cookie</code>，其中，Body包括了pydantic，这里需要注意的一点就是，pydantic和fastapi不是一体的。不要搞混了。</li>
-<li>请求部分<br>关于对请求的处理，这里也包括了对Path的验证</li>
-<li>依赖注入系统<br>这个就不用多说了，😄</li>
-<li>响应处理<br>包括json、表单、文件等请求或者响应，这个不应该单独分出来，应该是和请求部分一致学习的</li>
-<li>认证授权数据库等</li>
-</ol>
-<p>只要是好好的给他分割开来，逐一击破，对于新的框架学习来说，学习成本实际上并没有这么的高。</p>
-</blockquote>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在<code>/etc/nginx</code>下，(这是默认目录，如果你的nginx不在这里，那去对应的地方即可)</p>
+<p>打开nginx.conf，在http模块下任意位置写上如下配置，这个服务器集群名可以随意起</p>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> 服务器集群名<span class="token punctuation">{</span>
+            <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
+            <span class="token keyword">server</span> <span class="token number">39.98</span><span class="token punctuation">.</span><span class="token number">35.129</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span></code></pre>
+<p>然后我们去<code>server</code>配置，然后注释掉我们本来的地址<code>proxy_pass</code>，改为变量绑定，要注意的是，nginx是一个很神奇的东西，所以，多一个斜杠少一个斜杠都会定成败，一定要注意。</p>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
+            <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true"># proxy_pass http://127.0.0.1:8000/;</span>
+            <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>服务器集群名<span class="token operator">/</span><span class="token punctuation">;</span>
+            <span class="token keyword">proxy_set_header</span>   Host    <span class="token variable">$host</span><span class="token punctuation">;</span>
+            <span class="token keyword">proxy_set_header</span>   X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span></code></pre>
+<p>nginx负载均衡的默认策略是轮询，也就是轮着来，如果你的服务器配置是差不多的情况下，是不用改的。还有一种常见的策略，就是权重，在配置服务器集群的那里，来给每个节点配置不同的权重，他们就会接到对应的几率来获得访问，像这样：</p>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> 服务器集群名 <span class="token punctuation">{</span>
+    <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8000</span> weight<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> <span class="token number">39.98</span><span class="token punctuation">.</span><span class="token number">35.129</span><span class="token punctuation">:</span><span class="token number">8000</span> weight<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>ip_hash（ IP绑定）<br>上述方式存在一个问题就是说，在负载均衡系统中，假如用户在某台服务器上登录了，那么该用户第二次请求的时候，因为我们是负载均衡系统，每次请求都会重新定位到服务器集群中的某一个，那么已经登录某一个服务器的用户再重新定位到另一个服务器，其登录信息将会丢失，这样显然是不妥的。</p>
+<p>我们可以采用ip_hash指令解决这个问题，如果客户已经访问了某个服务器，当用户再次访问时，会将该请求通过哈希算法，自动定位到该服务器。</p>
+<p>每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> backserver <span class="token punctuation">{</span>
+    <span class="token keyword">ip_hash</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
+    <span class="token keyword">server</span> <span class="token number">39.98</span><span class="token punctuation">.</span><span class="token number">35.129</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -716,7 +654,7 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/">http://godhearing.cn/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/</a>
+                    <a href="http://godhearing.cn/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/">http://godhearing.cn/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -754,8 +692,8 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/FastAPI/">
-                                    <span class="chip bg-color">FastAPI</span>
+                                <a href="/tags/Nginx/">
+                                    <span class="chip bg-color">Nginx</span>
                                 </a>
                             
                         </div>
@@ -800,7 +738,7 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-03-03T00-00-00',
+        id: '2021-03-30T15-59-22',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -824,16 +762,17 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/05/nginx-kua-yu-pei-zhi/">
+                <a href="/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/77.jpg" class="responsive-img" alt="nginx跨域配置">
+                        <img src="/medias/featureimages/86.png" class="responsive-img" alt="nginx负载均衡配置">
                         
-                        <span class="card-title">nginx跨域配置</span>
+                        <span class="card-title">nginx负载均衡配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -843,9 +782,9 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -858,6 +797,7 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -876,12 +816,12 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/02/elasticsearch-xiang-jie/">
+                <a href="/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/75.jpg" class="responsive-img" alt="Elasticsearch详解">
+                        <img src="/medias/featureimages/85.png" class="responsive-img" alt="ubuntu下pip安装问题">
                         
-                        <span class="card-title">Elasticsearch详解</span>
+                        <span class="card-title">ubuntu下pip安装问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -892,14 +832,14 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -909,16 +849,8 @@ apirouter <span class="token operator">=</span> APIRouter<span class="token punc
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
-                        <span class="chip bg-color">全文检索</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
