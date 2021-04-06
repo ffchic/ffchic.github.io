@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Salmonのblog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Salmonのblog" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -593,6 +593,11 @@
                 
 
                 
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -690,13 +695,13 @@ insert into 表名(字段名) values(对应数据)</code></pre>
 <pre><code>create sequence serial start 1
 这句话的意思是，创建一个名为serial的序列，从1开始计数</code></pre>
 <p>查看结构</p>
-<img src="/2020/04/13/postgrelsql/image-20201203105005032.png" alt="" style="zoom:67%;">
+<img src="/2020/04/13/postgrelsql/image-20201203105005032.png" alt style="zoom:67%;">
 
 <p>随后，将需要设置的字段的默认值设为序列增长即可</p>
 <pre><code>alter table 表名 alter column 要自增长的字段 set default nextval(序列名)
 例子：
 ALTER TABLE "public"."article" ALTER COLUMN "id" SET DEFAULT nextval('serial');</code></pre>
-<img src="/2020/04/13/postgrelsql/image-20201203105601012.png" alt="" style="zoom:50%;">
+<img src="/2020/04/13/postgrelsql/image-20201203105601012.png" alt style="zoom:50%;">
 
 <p>删除数据</p>
 <pre><code>delete from 表名 where 条件
@@ -714,10 +719,10 @@ update user set name='张三' where name='李四'</code></pre>
 <p>我们来举个例子吧，假设我们有一张表，分别有部门，员工，工资三个字段</p>
 <p>假设我们要查询每个部门的平均工资以及所有员工的对比，在传统做法下，我们需要先通过group by分组，再用表连接统计一下上面的结果</p>
 <p>而使用窗口函数，可以简化很多</p>
-<img src="/2020/04/13/postgrelsql/image-20201203113052844.png" alt="" style="zoom:67%;">
+<img src="/2020/04/13/postgrelsql/image-20201203113052844.png" alt style="zoom:67%;">
 
 <p>而使用<code>order by</code>的话，会造成怎样的结果呢</p>
-<img src="/2020/04/13/postgrelsql/image-20201203113136091.png" alt="" style="zoom:67%;">
+<img src="/2020/04/13/postgrelsql/image-20201203113136091.png" alt style="zoom:67%;">
 
 <p>可以看到，第一个是人事部门的平均工资，第二个，是研发和人事的平均工资，第三个，就是所有部门的平均工资。使用的时候要特别注意。</p>
 <h2 id="python使用PostgrelSQL"><a href="#python使用PostgrelSQL" class="headerlink" title="python使用PostgrelSQL"></a>python使用PostgrelSQL</h2><p>和使用mysql一样，先装三方库</p>
@@ -1171,7 +1176,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">107.2k</span>&nbsp;字
+                class="white-color">108.4k</span>&nbsp;字
             
             
             
