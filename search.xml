@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>bigchaindb安装</title>
+      <link href="2021/04/09/brew-an-zhuang-nginx/"/>
+      <url>2021/04/09/brew-an-zhuang-nginx/</url>
+      
+        <content type="html"><![CDATA[<p>1.安装</p><pre><code>brew install nginx</code></pre><p>或</p><pre><code>sudo brew install nginx</code></pre><p>2.启动</p><pre><code>brew services start nginx或者sudo brew services start nginx</code></pre><p>3.重启</p><pre><code>brew services restart nginx或者sudo brew services restart nginx</code></pre><p>4.停止</p><pre><code>brew services stop nginx或者sudo brew services stop nginx</code></pre><p>5.查看</p><pre><code>cat usr/local/etc/nginx/nginx.conf</code></pre><p>6.编辑</p><pre><code>vi usr/local/etc/nginx/nginx.conf</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>pytest进阶</title>
       <link href="2021/04/09/pytest-jin-jie/"/>
       <url>2021/04/09/pytest-jin-jie/</url>

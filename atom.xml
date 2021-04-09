@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-04-09T04:07:41.009Z</updated>
+  <updated>2021-04-09T04:38:51.705Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>bigchaindb安装</title>
+    <link href="http://godhearing.cn/2021/04/09/brew-an-zhuang-nginx/"/>
+    <id>http://godhearing.cn/2021/04/09/brew-an-zhuang-nginx/</id>
+    <published>2021-04-09T04:34:32.626Z</published>
+    <updated>2021-04-09T04:38:51.705Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1.安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install nginx&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo brew install nginx&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2.启动&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew</summary>
+        
+      
+    
+    
+    
+    <category term="Nginx" scheme="http://godhearing.cn/categories/Nginx/"/>
+    
+    
+    <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
     <title>pytest进阶</title>
     <link href="http://godhearing.cn/2021/04/09/pytest-jin-jie/"/>
     <id>http://godhearing.cn/2021/04/09/pytest-jin-jie/</id>
     <published>2021-04-09T02:42:59.444Z</published>
-    <updated>2021-04-09T04:07:41.009Z</updated>
+    <updated>2021-04-09T04:08:03.008Z</updated>
     
     
       
@@ -509,31 +539,6 @@
     
     
     <category term="Vue" scheme="http://godhearing.cn/tags/Vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python3获取微信小程序码</title>
-    <link href="http://godhearing.cn/2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/"/>
-    <id>http://godhearing.cn/2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/</id>
-    <published>2021-02-08T16:00:00.000Z</published>
-    <updated>2021-02-08T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
   </entry>
   
