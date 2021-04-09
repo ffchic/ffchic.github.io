@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-04-08T09:29:25.716Z</updated>
+  <updated>2021-04-09T04:07:41.009Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pytest进阶</title>
+    <link href="http://godhearing.cn/2021/04/09/pytest-jin-jie/"/>
+    <id>http://godhearing.cn/2021/04/09/pytest-jin-jie/</id>
+    <published>2021-04-09T02:42:59.444Z</published>
+    <updated>2021-04-09T04:07:41.009Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;分组执行&quot;&gt;&lt;a href=&quot;#分组执行&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
+    
+    
+    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
+    
+    <category term="测试" scheme="http://godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>pytest基础使用</title>
@@ -507,31 +534,6 @@
     
     
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>阿里云域名解析</title>
-    <link href="http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
-    <id>http://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
-    <published>2021-02-08T16:00:00.000Z</published>
-    <updated>2021-02-08T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Hexo" scheme="http://godhearing.cn/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="http://godhearing.cn/tags/Hexo/"/>
     
   </entry>
   
