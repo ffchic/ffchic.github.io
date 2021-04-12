@@ -578,14 +578,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
@@ -707,6 +707,14 @@ sched<span class="token punctuation">.</span>add_job<span class="token punctuati
 <pre class=" language-python"><code class="language-python">schedule<span class="token punctuation">.</span>add_job<span class="token punctuation">(</span>hello<span class="token punctuation">,</span> <span class="token string">'date'</span><span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">[</span>db<span class="token punctuation">,</span> <span class="token string">'q'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> run_date<span class="token operator">=</span><span class="token string">'2021-04-06 14:59:00'</span><span class="token punctuation">)</span></code></pre>
 </blockquote>
 <p>至于集成到web框架中，尽情期待，有时间了会补上，最后，<a target="_blank" rel="noopener" href="https://apscheduler.readthedocs.io/en/stable/userguide.html">官方文档</a>，各位有兴趣可以看一看</p>
+<h2 id="补充一则很难搞的错误"><a href="#补充一则很难搞的错误" class="headerlink" title="补充一则很难搞的错误"></a>补充一则很难搞的错误</h2><blockquote>
+<p>我在使用apscheduler定时任务的时候，将他挂载到了fastapi上，使用起来倒是一点毛病没有，但是，我将他储存的时候，他却给我报了一个这样的错误。</p>
+<pre><code>_pickle.PicklingError: Can't pickle &lt;class 'sqlalchemy.orm.session.Session'&gt;: it's not the same object as sqlalchemy.orm.session.Session</code></pre>
+<p>我迟迟没有头绪，而且根据源码，我也确定，我并没有写错什么，但是这个错误就是会出现。</p>
+<p>在我经过了不懈的寻找之后发现….是我自己写的调度函数问题，我在函数中传了一个<code>sqlalchemy.orm.session</code>，然而，它的储存也正好如此，所以，在传参中，他们重复了。</p>
+<p>这个问题，应该很难遇到，因为毕竟没人跟我一样这么搞嘛，不过呢，既然遇到了我就要记录一下，以免再卡这么久。</p>
+<p>只要我们不传session对象就好了。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -1141,7 +1149,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110.3k</span>&nbsp;字
+                class="white-color">110.6k</span>&nbsp;字
             
             
             

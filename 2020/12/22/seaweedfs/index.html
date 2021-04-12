@@ -615,7 +615,7 @@
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装呢，需要从官网上下载对应系统的版本，<a target="_blank" rel="noopener" href="https://github.com/chrislusf/seaweedfs/releases">地址</a>，我以windows为例，可以看到，下载下来的是个压缩包，解压后就是一个exe安装包，但是我们直接点是没有用的，所以，我们通过命令来进行</p>
 <p>首先呢，我们查看一下所有的命令，得知，可以使用master命令来进行启动</p>
 <pre class=" language-python"><code class="language-python">weed master <span class="token operator">-</span>ip<span class="token operator">=</span><span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span></code></pre>
-<img src="/2020/12/22/seaweedfs/image-20201222171848122.png" alt="" style="zoom:50%;">
+<img src="/2020/12/22/seaweedfs/image-20201222171848122.png" alt style="zoom:50%;">
 
 <p>master节点设置好了之后，继续看文档，来设置volume节点</p>
 <blockquote>
@@ -623,17 +623,17 @@
 <p><code>mserver</code>是master节点地址</p>
 </blockquote>
 <pre class=" language-python"><code class="language-python">weed volume <span class="token operator">-</span>dir<span class="token operator">=</span><span class="token string">"./data"</span> <span class="token operator">-</span>max<span class="token operator">=</span><span class="token number">10</span> <span class="token operator">-</span>mserver<span class="token operator">=</span><span class="token string">"127.0.0.1:9333"</span> <span class="token operator">-</span>port<span class="token operator">=</span><span class="token number">9000</span> <span class="token operator">-</span>index<span class="token operator">=</span>leveldb</code></pre>
-<img src="/2020/12/22/seaweedfs/image-20201222172215662.png" alt="" style="zoom:50%;">
+<img src="/2020/12/22/seaweedfs/image-20201222172215662.png" alt style="zoom:50%;">
 
 <p>然后访问一下<code>http://localhost:9333/</code>即可，好，一切ok，再查看一下状态</p>
 <pre class=" language-python"><code class="language-python"><span class="token string">"http://127.0.0.1:9333/cluster/status?pretty=y"</span></code></pre>
-<img src="/2020/12/22/seaweedfs/image-20201222172408636.png" alt="" style="zoom:50%;">
+<img src="/2020/12/22/seaweedfs/image-20201222172408636.png" alt style="zoom:50%;">
 
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>继续看文档，如果要写入文件，则需要发送请求到<code>/dir/assign</code>来获取<code>fid</code>和volume服务器url</p>
-<img src="/2020/12/22/seaweedfs/image-20201222173140239.png" alt="" style="zoom:50%;">
+<img src="/2020/12/22/seaweedfs/image-20201222173140239.png" alt style="zoom:50%;">
 
 <p>然后将fid拼接，发送文件，这里用postman测试一下</p>
-<img src="/2020/12/22/seaweedfs/image-20201222175621056.png" alt="" style="zoom:50%;">
+<img src="/2020/12/22/seaweedfs/image-20201222175621056.png" alt style="zoom:50%;">
 
 <p>发送成功，这时候你可以将<code>fid</code>存下</p>
 <blockquote>
@@ -643,7 +643,7 @@
 <p>文件密钥和文件cookie均以十六进制编码。可以使用自己的格式存储&lt;卷ID，文件密钥，文件cookie&gt;元组，也可以将<code>fid</code>存储。</p>
 </blockquote>
 <p>然后，怎么访问呢，当然是通过刚刚保存的fid啦，不过要<strong>注意</strong>，一定要先查找卷服务器的url，<code>http://localhost:9333/dir/lookup?volumeId=卷ID</code>，然后通过返回的<code>publicUrl</code>这个域名来进行查找</p>
-<img src="/2020/12/22/seaweedfs/image-20201222180246784.png" alt="" style="zoom:50%;">
+<img src="/2020/12/22/seaweedfs/image-20201222180246784.png" alt style="zoom:50%;">
 
 <p>要注意，这时，不只是可以用这个方式来访问，还可以使用</p>
 <pre><code># 卷id/密钥+文件cookie/文件名
@@ -1158,7 +1158,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110.3k</span>&nbsp;字
+                class="white-color">110.6k</span>&nbsp;字
             
             
             
