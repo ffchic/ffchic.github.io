@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>CORS跨域问题</title>
+      <link href="2021/04/18/cors-kua-yu-wen-ti/"/>
+      <url>2021/04/18/cors-kua-yu-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><pre><code>The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by t...</code></pre><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>前端配置了<code>withCredentials=true</code></p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>后端配置<code>Access-Control-Allow-Origin</code>不能为<code>*</code>, 必须是相应地址</p><p>后端需配置<code>Access-Control-Allow-Credentials</code></p><p>后端需要配置<code>Access-Control-Allow-Headers</code>为对应的请求头集合</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> cors </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> cors </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>apscheduler设置时区</title>
+      <link href="2021/04/18/apscheduler-she-zhi-shi-qu/"/>
+      <url>2021/04/18/apscheduler-she-zhi-shi-qu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>在最近的使用中，感觉到这个apscheduler非常的好用，但是吧，一切美好的想象就停留在了部署的那天….</p><p>我本以为一切如我所愿，按照我预期的运行，于是我在开启了一个定时任务后，满怀期待的等待着，只要他执行，我就可以下班走人了，但是，时间到了之后，他还是没有执行，于是我就意识到，事情开始往我意想不到的方向发展了。</p><p>我在查看了redis之后，发现，他的任务还在，并没有报错，只是时间是在八小时之后，哎，我这才意识到是时区的问题。那，废话不多说，直接开始上代码。</p></blockquote><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li><p>直接在添加任务处指定时区，如下：</p><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 这样的话，就是utc时间了。</span>schedudler<span class="token punctuation">.</span>add_job<span class="token punctuation">(</span>worker<span class="token punctuation">,</span><span class="token string">'cron'</span><span class="token punctuation">,</span>day<span class="token operator">=</span><span class="token string">"*/1"</span><span class="token punctuation">,</span> timezone<span class="token operator">=</span>pytz<span class="token punctuation">.</span>utc<span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 改为下面这个时区，就是亚洲上海，与我们时间一致，也就能最好的解决这个问题</span>timezone<span class="token operator">=</span>pytz<span class="token punctuation">.</span>timezone<span class="token punctuation">(</span><span class="token string">'Asia/Shanghai'</span><span class="token punctuation">)</span></code></pre></li><li><p>还有一种方法，就是更改你的系统和docker的时区，因为apscheduler的时间是根据你本机的时区来进行的。</p><p> 1: 以ubuntu为例，更改时区</p><p> <code>date -R</code>或者<code>timedatectl status</code>都能查看时区，然后修改时区<code>timedatectl set-timezone "Asia/Shanghai"</code></p><p> 2: 修改docker的时区</p><p> 这个呢，可以在启动容器时将本地的时区文件挂载映射，看起来像是这样：</p><pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>timezone<span class="token punctuation">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>timezone <span class="token operator">-</span>v <span class="token operator">/</span>etc<span class="token operator">/</span>localtime<span class="token punctuation">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>localtime <span class="token operator">-</span>it ubuntu bash</code></pre><p> 或者直接在dockerfile中添加上<code>RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; echo 'Asia/Shanghai' &gt;/etc/timezone</code></p></li></ol><p>问题完美解决</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 定时任务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>brew安装nginx</title>
       <link href="2021/04/09/brew-an-zhuang-nginx/"/>
       <url>2021/04/09/brew-an-zhuang-nginx/</url>

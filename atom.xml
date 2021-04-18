@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-04-09T04:42:06.871Z</updated>
+  <updated>2021-04-18T00:23:24.284Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CORS跨域问题</title>
+    <link href="http://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/"/>
+    <id>http://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/</id>
+    <published>2021-04-18T00:19:19.529Z</published>
+    <updated>2021-04-18T00:23:24.284Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;The value of the &#39;Access-Control-Allow-Origin&#39; header in the</summary>
+        
+      
+    
+    
+    
+    <category term="cors" scheme="http://godhearing.cn/categories/cors/"/>
+    
+    
+    <category term="cors" scheme="http://godhearing.cn/tags/cors/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>apscheduler设置时区</title>
+    <link href="http://godhearing.cn/2021/04/18/apscheduler-she-zhi-shi-qu/"/>
+    <id>http://godhearing.cn/2021/04/18/apscheduler-she-zhi-shi-qu/</id>
+    <published>2021-04-18T00:02:30.892Z</published>
+    <updated>2021-04-18T00:18:40.255Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
+    
+    
+    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
+    
+    <category term="定时任务" scheme="http://godhearing.cn/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>brew安装nginx</title>
@@ -105,7 +157,7 @@
     <link href="http://godhearing.cn/2021/04/06/apscheduler-ding-shi-ren-wu/"/>
     <id>http://godhearing.cn/2021/04/06/apscheduler-ding-shi-ren-wu/</id>
     <published>2021-04-06T07:51:55.993Z</published>
-    <updated>2021-04-12T07:56:27.869Z</updated>
+    <updated>2021-04-18T00:07:02.557Z</updated>
     
     
       
@@ -488,57 +540,6 @@
     
     
     <category term="mysql" scheme="http://godhearing.cn/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>扫描普通链接进入微信小程序</title>
-    <link href="http://godhearing.cn/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/"/>
-    <id>http://godhearing.cn/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/</id>
-    <published>2021-02-19T16:00:00.000Z</published>
-    <updated>2021-02-19T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="微信小程序" scheme="http://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-    
-    <category term="微信小程序" scheme="http://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue中使用setTimeout遇到的问题</title>
-    <link href="http://godhearing.cn/2021/02/19/vue-zhong-shi-yong-js-settimeout/"/>
-    <id>http://godhearing.cn/2021/02/19/vue-zhong-shi-yong-js-settimeout/</id>
-    <published>2021-02-18T16:00:00.000Z</published>
-    <updated>2021-02-18T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;遇到的问题1&quot;&gt;&lt;a href=&quot;#遇到的问题1&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题1&quot;&gt;&lt;/a&gt;遇到的问题1&lt;/h2&gt;&lt;p&gt;我在执行setTiemout之后，效果并没有触发，然后发现语法错误&lt;/p&gt;
-&lt;pre class=&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Vue" scheme="http://godhearing.cn/categories/Vue/"/>
-    
-    
-    <category term="Vue" scheme="http://godhearing.cn/tags/Vue/"/>
     
   </entry>
   
