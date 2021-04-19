@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-04-18T00:23:24.284Z</updated>
+  <updated>2021-04-19T10:42:46.982Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>致新手指南</title>
+    <link href="http://godhearing.cn/2021/04/19/zhi-xin-shou-zhi-nan/"/>
+    <id>http://godhearing.cn/2021/04/19/zhi-xin-shou-zhi-nan/</id>
+    <published>2021-04-19T09:50:53.842Z</published>
+    <updated>2021-04-19T10:42:46.982Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Book" scheme="http://godhearing.cn/categories/Book/"/>
+    
+    
+    <category term="Book" scheme="http://godhearing.cn/tags/Book/"/>
+    
+  </entry>
+  
+  <entry>
     <title>CORS跨域问题</title>
     <link href="http://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/"/>
     <id>http://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/</id>
     <published>2021-04-18T00:19:19.529Z</published>
-    <updated>2021-04-18T00:23:24.284Z</updated>
+    <updated>2021-04-18T00:23:56.426Z</updated>
     
     
       
@@ -46,7 +71,7 @@
     <link href="http://godhearing.cn/2021/04/18/apscheduler-she-zhi-shi-qu/"/>
     <id>http://godhearing.cn/2021/04/18/apscheduler-she-zhi-shi-qu/</id>
     <published>2021-04-18T00:02:30.892Z</published>
-    <updated>2021-04-18T00:18:40.255Z</updated>
+    <updated>2021-04-18T00:23:56.426Z</updated>
     
     
       
@@ -514,32 +539,6 @@
     
     
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下安装mysqlclient</title>
-    <link href="http://godhearing.cn/2021/02/25/linux-xia-an-zhuang-mysqlclient/"/>
-    <id>http://godhearing.cn/2021/02/25/linux-xia-an-zhuang-mysqlclient/</id>
-    <published>2021-02-24T16:00:00.000Z</published>
-    <updated>2021-02-24T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 下安装 &lt;code&gt;mysqlclient&lt;/code&gt;，如果是选择直接安装的话，一般会报如下错误&lt;/p&gt;
-&lt;pre class=&quot; language-python&quot;&gt;&lt;code</summary>
-        
-      
-    
-    
-    
-    <category term="mysql" scheme="http://godhearing.cn/categories/mysql/"/>
-    
-    
-    <category term="mysql" scheme="http://godhearing.cn/tags/mysql/"/>
     
   </entry>
   
