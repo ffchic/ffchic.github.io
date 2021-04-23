@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="工厂模式, Salmonのblog">
+    <meta name="keywords" content="微信小程序支付后台调用, Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>工厂模式 | Salmonのblog</title>
+    <title>微信小程序支付后台调用 | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/94.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">工厂模式</h1>
+                    <h1 class="description center-align post-title">微信小程序支付后台调用</h1>
                 </div>
             </div>
         </div>
@@ -542,16 +542,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
-                            </a>
-                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/Django/">
-                                <span class="chip bg-color">Django</span>
+                            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                                <span class="chip bg-color">微信小程序</span>
                             </a>
                         
                     </div>
@@ -562,8 +558,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                微信小程序
                             </a>
                         
                     </div>
@@ -575,28 +571,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-07-15
+                    2021-04-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2018-07-15
+                    2021-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    629
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    2 Min
                 </div>
                 
 
@@ -611,175 +607,114 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是工厂模式"><a href="#什么是工厂模式" class="headerlink" title="什么是工厂模式"></a>什么是工厂模式</h2><blockquote>
-<p>所谓的工厂模式，是设计模式中比较常用的，这种类型的设计模式</p>
-<p>在这种模式下，不会暴露创建逻辑，只是通过某个标识来确定实例化哪个工厂实例</p>
-<p>简单的举个例子，如果你要买一辆汽车，不用知道他是怎样做出来的，只需要把参数传递进去，到时候来提车就好了。</p>
-<p>无论是车还是什么，都不用管工厂内部是怎样实现的，只需要将参数传进去就可以</p>
+                <h2 id="支付交互流程"><a href="#支付交互流程" class="headerlink" title="支付交互流程"></a>支付交互流程</h2><blockquote>
+<p>这里呢，就不多说了，先上图</p>
 </blockquote>
-<p>工厂模式从简到难，分为简单工厂模式，工厂方法模式以及抽象工厂模式</p>
-<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p>简单工厂模式其实并不算是一种设计模式，更多的时候更像是一种编程习惯</p>
-<blockquote>
-<p>定义一个工厂类，根据传入的参数返回不同的实例，被创建的实例具有共同的父类或接口</p>
-<p>现实生活中，工厂是负责生产产品的；同样在设计模式中，简单工厂模式我们可以理解为负责生产对象的一个类，称为“工厂类”。</p>
+<img src="/2021/04/23/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/image-20210423162246245.png">
+
+<p>后台调用，只需要调用<a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_1&amp;index=1">统一下单API</a>，就可以了。</p>
+<h2 id="获取openid"><a href="#获取openid" class="headerlink" title="获取openid"></a>获取openid</h2><blockquote>
+<p>这是第一步，openid是微信用户在你的小程序中的唯一标识，只需调用<code>vx.login</code>即可。</p>
 </blockquote>
-<p>再举个栗子，假如，你要生产瓶子，客户说要什么样的瓶子，你就拿着这个瓶子的参数，去该瓶子的生产车间去取。</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 定义三个具体的工厂，他们用来生产具体的东西</span>
-<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'A瓶子'</span>
-<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'B瓶子'</span>
-<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'C瓶子'</span>
-<span class="token comment" spellcheck="true"># 工厂类</span>
-<span class="token keyword">class</span> <span class="token class-name">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> name<span class="token operator">==</span><span class="token string">'A'</span><span class="token punctuation">:</span>
-            s <span class="token operator">=</span> A<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-        <span class="token keyword">elif</span> name <span class="token operator">==</span> <span class="token string">'B'</span><span class="token punctuation">:</span>
-            s <span class="token operator">=</span> B<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-        <span class="token keyword">elif</span> name <span class="token operator">==</span> <span class="token string">'C'</span><span class="token punctuation">:</span>
-            s <span class="token operator">=</span> C<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-
-w <span class="token operator">=</span> factory<span class="token punctuation">(</span><span class="token punctuation">)</span>
-w<span class="token punctuation">.</span>example<span class="token punctuation">(</span><span class="token string">'B'</span><span class="token punctuation">)</span></code></pre>
-<p>可以看到，只需要在工厂<code>factory</code>中，传入你想要什么瓶子，他就可以通过内部方法实例化某个工厂，从而达到你想要的某个东西</p>
-<hr>
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><blockquote>
-<p>工厂方法模式，又称工厂模式、多态工厂模式和虚拟构造器模式，通过定义工厂父类负责定义创建对象的公共接口，而子类则负责生成具体的对象。</p>
-<p>以上面的例子为例，假如要再多一个D瓶子，除了要新建一个D类，还要修改工厂类中的代码，这样就违背了软件设计中的开闭原则，即再扩展新的类时，尽量不要修改原有的代码</p>
-</blockquote>
-<p>说的再简单点，就是工厂类被具体的工厂继承</p>
-<pre class=" language-python"><code class="language-python">
-<span class="token comment" spellcheck="true"># 工厂类</span>
-<span class="token keyword">class</span> <span class="token class-name">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    @staticmethod
-    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">pass</span>
-
-<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'A瓶子'</span>
-
-    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-
-<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'B瓶子'</span>
-
-    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-
-<span class="token keyword">class</span> <span class="token class-name">C</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'C瓶子'</span>
-    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-
-<span class="token keyword">class</span> <span class="token class-name">D</span><span class="token punctuation">(</span>factory<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'D瓶子'</span>
-    <span class="token keyword">def</span> <span class="token function">example</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 无论你加了多少个工厂，只需要实例化对应的那个具体工厂</span>
-w <span class="token operator">=</span> D<span class="token punctuation">(</span><span class="token punctuation">)</span>
-w<span class="token punctuation">.</span>example<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>这样做的好处就是，在工厂类里，无需改动任何代码，只需要在需要的时候实例化某个具体工厂即可，便于维护</p>
-<hr>
-<h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><blockquote>
-<p>提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类。</p>
-<p>抽象工厂模式中有工厂和产品簇的概念。而一簇的产品都是成套出现的。比如现在要给每个士兵发一套武器，包括枪和子弹。步枪和步枪子弹，手枪和手枪子弹。生产步枪的工厂就是步枪工厂，而生产手枪的工厂就是手枪工厂。步枪工厂和手枪工厂都是工厂，这就是一种抽象工厂的例子</p>
-</blockquote>
-<p>用一个简单的代码来实现:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> abc
-
-<span class="token comment" spellcheck="true"># 工厂类</span>
-<span class="token keyword">class</span> <span class="token class-name">factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    @staticmethod
-    <span class="token keyword">def</span> <span class="token function">Rifle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">pass</span>
-    <span class="token keyword">def</span> <span class="token function">Pistol</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">pass</span>
+<span class="token keyword">from</span> config <span class="token keyword">import</span> APPID<span class="token punctuation">,</span> SECRET
 
 
-<span class="token comment" spellcheck="true"># M4工厂</span>
-<span class="token keyword">class</span> <span class="token class-name">M4</span><span class="token punctuation">(</span>category<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">Rifle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> M4Rifle<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">def</span> <span class="token function">Pistol</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> M4Pistol<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">OpenidUtils</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-<span class="token comment" spellcheck="true"># AK工厂</span>
-<span class="token keyword">class</span> <span class="token class-name">AK</span><span class="token punctuation">(</span>category<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">Rifle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> AKRifle<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">def</span> <span class="token function">Pistol</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> AKPistol<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> jscode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>url <span class="token operator">=</span> <span class="token string">"https://api.weixin.qq.com/sns/jscode2session"</span>
+        self<span class="token punctuation">.</span>appid <span class="token operator">=</span> APPID  <span class="token comment" spellcheck="true"># 小程序id</span>
+        self<span class="token punctuation">.</span>secret <span class="token operator">=</span> SECRET  <span class="token comment" spellcheck="true"># 不要跟后面支付的key搞混</span>
+        self<span class="token punctuation">.</span>jscode <span class="token operator">=</span> jscode    <span class="token comment" spellcheck="true"># 前端传回的动态jscode</span>
 
-<span class="token comment" spellcheck="true"># M4工厂</span>
+    <span class="token keyword">def</span> <span class="token function">get_openid</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># url一定要拼接，不可用传参方式</span>
+        url <span class="token operator">=</span> self<span class="token punctuation">.</span>url <span class="token operator">+</span> <span class="token string">"?appid="</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>appid <span class="token operator">+</span> <span class="token string">"&amp;secret="</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>secret <span class="token operator">+</span> <span class="token string">"&amp;js_code="</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>jscode <span class="token operator">+</span> <span class="token string">"&amp;grant_type=authorization_code"</span>
+        r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        openid <span class="token operator">=</span> r<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'openid'</span><span class="token punctuation">]</span>
 
-<span class="token keyword">class</span> <span class="token class-name">M4Rifle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> openid</code></pre>
+<h2 id="支付请求"><a href="#支付请求" class="headerlink" title="支付请求"></a>支付请求</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> string
+<span class="token keyword">import</span> xmltodict
 
+<span class="token keyword">class</span> <span class="token class-name">WX_PayToolUtil</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">""" 微信支付工具 """</span>
 
-    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">'M4A1步枪'</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> APP_ID<span class="token punctuation">,</span> MCH_ID<span class="token punctuation">,</span> API_KEY<span class="token punctuation">,</span> NOTIFY_URL<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>_APP_ID <span class="token operator">=</span> APP_ID  <span class="token comment" spellcheck="true"># 小程序ID</span>
+        self<span class="token punctuation">.</span>_MCH_ID <span class="token operator">=</span> MCH_ID  <span class="token comment" spellcheck="true"># 商户号</span>
+        self<span class="token punctuation">.</span>_API_KEY <span class="token operator">=</span> API_KEY
+        self<span class="token punctuation">.</span>_UFDODER_URL <span class="token operator">=</span> <span class="token string">"https://api.mch.weixin.qq.com/pay/unifiedorder"</span>  <span class="token comment" spellcheck="true"># 接口链接</span>
+        self<span class="token punctuation">.</span>_NOTIFY_URL <span class="token operator">=</span> NOTIFY_URL  <span class="token comment" spellcheck="true"># 异步通知</span>
 
-<span class="token keyword">class</span> <span class="token class-name">M4Pistol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">generate_sign</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> param<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token triple-quoted-string string">'''生成签名'''</span>
+            stringA <span class="token operator">=</span> <span class="token string">''</span>
+            ks <span class="token operator">=</span> sorted<span class="token punctuation">(</span>param<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 参数排序</span>
+            <span class="token keyword">for</span> k <span class="token keyword">in</span> ks<span class="token punctuation">:</span>
+                stringA <span class="token operator">+=</span> <span class="token punctuation">(</span>k <span class="token operator">+</span> <span class="token string">'='</span> <span class="token operator">+</span> param<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'&amp;'</span><span class="token punctuation">)</span>
+            <span class="token comment" spellcheck="true"># 拼接商户KEY</span>
+            stringSignTemp <span class="token operator">=</span> stringA <span class="token operator">+</span> <span class="token string">"key="</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>_API_KEY
+            <span class="token comment" spellcheck="true"># md5加密,也可以用其他方式</span>
+            hash_md5 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>stringSignTemp<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            sign <span class="token operator">=</span> hash_md5<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> sign
 
-    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">'M4A1手枪'</span>
-
-<span class="token keyword">class</span> <span class="token class-name">AKRifle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">'AK47步枪'</span>
-
-<span class="token keyword">class</span> <span class="token class-name">AKPistol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token string">'AK47手枪'</span>
-
-w <span class="token operator">=</span> M4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Rifle<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>进入工厂类，无论是要AK系列的，还是<code>M4</code>系列的，都只实例化那个类就可以了，因为，无论是<code>M4</code>还是AK都能生产该类的手枪和步枪</p>
-<p>虽然我也不知道他们是不是生产手枪</p>
-</blockquote>
-<p>嗯…再画个图吧，low归low，但比较好理解</p>
-<img src="/2018/07/15/gong-han-mo-shi/20201115120419234.png" style="zoom:70%;">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <span class="token keyword">def</span> <span class="token function">getPayUrl</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> orderid<span class="token punctuation">,</span> openid<span class="token punctuation">,</span> goodsPrice<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""向微信支付端发出请求，获取url"""</span>
+        <span class="token comment" spellcheck="true"># key = self._API_KEY</span>
+        nonce_str <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters <span class="token operator">+</span> string<span class="token punctuation">.</span>digits<span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 生成随机字符串，小于32位</span>
+        params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'appid'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_APP_ID<span class="token punctuation">,</span>
+            <span class="token string">'mch_id'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_MCH_ID<span class="token punctuation">,</span>
+            <span class="token string">'nonce_str'</span><span class="token punctuation">:</span> nonce_str<span class="token punctuation">,</span>
+            <span class="token string">"body"</span><span class="token punctuation">:</span> <span class="token string">'艺术品订单'</span><span class="token punctuation">,</span>
+            <span class="token string">'out_trade_no'</span><span class="token punctuation">:</span> orderid<span class="token punctuation">,</span>
+            <span class="token string">'total_fee'</span><span class="token punctuation">:</span> str<span class="token punctuation">(</span>goodsPrice<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">'spbill_create_ip'</span><span class="token punctuation">:</span> <span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>
+            <span class="token string">'notify_url'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_NOTIFY_URL<span class="token punctuation">,</span>
+            <span class="token string">'trade_type'</span><span class="token punctuation">:</span> <span class="token string">"JSAPI"</span><span class="token punctuation">,</span>
+            <span class="token string">"openid"</span><span class="token punctuation">:</span> openid<span class="token punctuation">,</span>
+         <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true"># 生成签名</span>
+        params<span class="token punctuation">[</span><span class="token string">'sign'</span><span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>generate_sign<span class="token punctuation">(</span>params<span class="token punctuation">)</span>
+        param <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'root'</span><span class="token punctuation">:</span> params<span class="token punctuation">}</span>
+        xml <span class="token operator">=</span> xmltodict<span class="token punctuation">.</span>unparse<span class="token punctuation">(</span>param<span class="token punctuation">)</span>
+        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>self<span class="token punctuation">.</span>_UFDODER_URL<span class="token punctuation">,</span> data<span class="token operator">=</span>xml<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'text/xml'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># xml 2 dict</span>
+        msg <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+        xmlmsg <span class="token operator">=</span> xmltodict<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 4. 获取prepay_id</span>
+        <span class="token keyword">if</span> xmlmsg<span class="token punctuation">[</span><span class="token string">'xml'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'return_code'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'SUCCESS'</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> xmlmsg<span class="token punctuation">[</span><span class="token string">'xml'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'result_code'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'SUCCESS'</span><span class="token punctuation">:</span>
+                prepay_id <span class="token operator">=</span> xmlmsg<span class="token punctuation">[</span><span class="token string">'xml'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'prepay_id'</span><span class="token punctuation">]</span>
+                <span class="token comment" spellcheck="true"># 时间戳</span>
+                timeStamp <span class="token operator">=</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token comment" spellcheck="true"># 5. 五个参数</span>
+                data <span class="token operator">=</span> <span class="token punctuation">{</span>
+                    <span class="token string">"appId"</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_APP_ID<span class="token punctuation">,</span>
+                    <span class="token string">"nonceStr"</span><span class="token punctuation">:</span> nonce_str<span class="token punctuation">,</span>
+                    <span class="token string">"package"</span><span class="token punctuation">:</span> <span class="token string">"prepay_id="</span> <span class="token operator">+</span> prepay_id<span class="token punctuation">,</span>
+                    <span class="token string">"signType"</span><span class="token punctuation">:</span> <span class="token string">'MD5'</span><span class="token punctuation">,</span>
+                    <span class="token string">"timeStamp"</span><span class="token punctuation">:</span> timeStamp<span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+                <span class="token comment" spellcheck="true"># 6. paySign签名</span>
+                paySign <span class="token operator">=</span> self<span class="token punctuation">.</span>generate_sign<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+                data<span class="token punctuation">[</span><span class="token string">"paySign"</span><span class="token punctuation">]</span> <span class="token operator">=</span> paySign  <span class="token comment" spellcheck="true"># 加入签名</span>
+                <span class="token comment" spellcheck="true"># 7. 传给前端的签名后的参数</span>
+                <span class="token keyword">return</span> data
+</code></pre>
+<p>当然你可能会遇到的错误有签名错误，一般的情况是你的appSecret和商户号的API密钥两个弄错了，当然如果不是还有可能是其他问题，解决方案链接<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wanghuijie/p/wxpay_sign_error.html%E3%80%82">https://www.cnblogs.com/wanghuijie/p/wxpay_sign_error.html。</a></p>
+<h2 id="很可能遇到的错误"><a href="#很可能遇到的错误" class="headerlink" title="很可能遇到的错误"></a>很可能遇到的错误</h2><p>比如返回<code>invalid total_fee</code>，这是因为，微信支付和支付宝不同，他的计量单位是分，所以不能出现小数点。所以我们系统如果是以元为单位要处理下金额，即先乘以100，再去小数点</p>
 
             </div>
             <hr/>
@@ -805,7 +740,7 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2018/07/15/gong-han-mo-shi/">http://godhearing.cn/2018/07/15/gong-han-mo-shi/</a>
+                    <a href="http://godhearing.cn/2021/04/23/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/">http://godhearing.cn/2021/04/23/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -843,16 +778,12 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
-                                </a>
-                            
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/Django/">
-                                    <span class="chip bg-color">Django</span>
+                                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                                    <span class="chip bg-color">微信小程序</span>
                                 </a>
                             
                         </div>
@@ -897,7 +828,7 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-07-15T00-00-00',
+        id: '2021-04-23T16-17-39',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -921,16 +852,17 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2018/07/21/docker-bu-shu-django-xiang-mu/">
+                <a href="/2021/04/23/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Docker部署Django项目">
+                        <img src="/medias/featureimages/94.jpg" class="responsive-img" alt="微信小程序支付后台调用">
                         
-                        <span class="card-title">Docker部署Django项目</span>
+                        <span class="card-title">微信小程序支付后台调用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -940,30 +872,31 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-07-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
+                                    微信小程序
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+                        <span class="chip bg-color">微信小程序</span>
                     </a>
                     
                 </div>
@@ -977,12 +910,12 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/">
+                <a href="/2021/04/19/zhi-xin-shou-zhi-nan/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="分布一致性算法(雪花算法)">
+                        <img src="/medias/featureimages/93.jpg" class="responsive-img" alt="致新手指南">
                         
-                        <span class="card-title">分布一致性算法(雪花算法)</span>
+                        <span class="card-title">致新手指南</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -993,14 +926,14 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/Book/" class="post-category">
+                                    Book
                                 </a>
                             
                             
@@ -1010,12 +943,8 @@ w <span class="token operator">=</span> M4<span class="token punctuation">(</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/Book/">
+                        <span class="chip bg-color">Book</span>
                     </a>
                     
                 </div>
