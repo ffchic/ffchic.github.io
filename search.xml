@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>docker内ES配置IK分词</title>
+      <link href="2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/"/>
+      <url>2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>使用ES，安装分词器是必不可少的，因为es默认的分词器对中文太不友好，按照每个汉字划分，缺少灵魂，而ik这个分词器，就是一个中文分词器，非常的好用。下面介绍两种安装IK的方式，第一种比较简单，第二种比较繁琐，如果还没有安装ES的话，请移步：<a href="https://www.godhearing.cn/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/">这里</a></p></blockquote><h2 id="第一种方式"><a href="#第一种方式" class="headerlink" title="第一种方式"></a>第一种方式</h2><ol><li><p>进入容器</p><pre><code>docker exec -it 容器id /bin/bash</code></pre></li><li><p>在线下载并安装，需要注意，一定要安装你对应es版本的插件</p><pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.5.4/elasticsearch-analysis-ik-6.5.4.zip</code></pre></li><li><p>cd到<code>plugins</code>看到<code>analysis-ik</code>，就代表安装成功，此时，我们只需要exit退出容器，然后执行<code>docker restart 容器id</code>重启即可</p></li></ol><h2 id="第二种方式"><a href="#第二种方式" class="headerlink" title="第二种方式"></a>第二种方式</h2><p>确认ES版本,去github上下载正确版本的IK分词器</p><pre><code>https://github.com/medcl/elasticsearch-analysis-ik</code></pre><p>然后通过下载页.下载zip包 <a href="https://github.com/medcl/elasticsearch-analysis-ik/releases">https://github.com/medcl/elasticsearch-analysis-ik/releases</a></p><p>通过docker命令将其拷贝进容器内</p><pre><code>docker cp /tmp/elasticsearch-analysis-ik-7.8.0.zip {容器名}:/usr/share/elasticsearch/plugins</code></pre><pre><code># 进入容器docker exec -it elasticsearch /bin/bash# 创建目录mkdir /usr/share/elasticsearch/plugins/ik将文件压缩包移动到ik中mv /usr/share/elasticsearch/plugins/elasticsearch-analysis-ik-7.8.0.zip /usr/share/elasticsearch/plugins/ik# 进入目录cd /usr/share/elasticsearch/plugins/ik# 解压unzip elasticsearch-analysis-ik-7.8.0.zip# 删除压缩包rm -rf elasticsearch-analysis-ik-7.8.0.zip</code></pre><p>重启docker容器即可。</p><p>然后我们来测试一下，打开postman，向<code>localhost:9200/_analyze?pretty</code>地址发送一个post请求，注意要改成json格式</p><img src="/2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/image-20210517175414852.png" alt="" style="zoom:50%;"><p>然后查看结果，不再是一个字一个字的，就对了，ok，测试完毕</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 全文检索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>canal同步ES</title>
       <link href="2021/05/10/canal-tong-bu-es/"/>
       <url>2021/05/10/canal-tong-bu-es/</url>
