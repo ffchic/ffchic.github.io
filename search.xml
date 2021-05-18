@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Docker-compons搭建ES单机集群</title>
+      <link href="2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/"/>
+      <url>2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>也不想前言了，作为一名非专业运维，各种bug层出不穷，不过好在功夫不负有心人，终于是成功了搭建了ES单机集群</p></blockquote><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote><p>首先就是一个巨坑，我在使用docker-compose内写了挂载，他自动创建，然后，就没有然后了，他自动创建的文件夹和文件是没有读写权限的，所以我们手动创建。</p></blockquote><pre><code># 创建数据/日志目录 这里我们部署3个节点mkdir /opt/elasticsearch/data/{node0,node1,node2} -pmkdir /opt/elasticsearch/logs/{node0,node1,node2} -pmkdir /opt/elasticsearch/nodecd /opt/elasticsearch/nodemkdir es1mkdir es2cd /opt/elasticsearch# 给予777最大权限chmod 0777 data/* -R &amp;&amp; chmod 0777 logs/* -</code></pre><p>把该创建完成的都创建完成，之后，又是一个坑，系统参数不足导致的内存一直不够用，这里我们直接修改<code>/etc/sysctl.conf</code></p><pre><code>echo vm.max_map_count=655360 &gt;&gt; /etc/sysctl.conf# 在root账户执行这一句 作用是重新载入sysctl系统参数sysctl -p</code></pre><h2 id="Docker-compose文件"><a href="#Docker-compose文件" class="headerlink" title="Docker-compose文件"></a>Docker-compose文件</h2><blockquote><p>然后进入到<code>/opt/elasticsearch</code>目录下，建立docker-compose.yml文件即docker-compose使用的主模板文件：</p></blockquote><pre class=" language-dockerfile"><code class="language-dockerfile">version: '3'services:  es1:    image: elasticsearch:7.2.0    container_name: es1    privileged: true    environment:      - "ES_JAVA_OPTS=-Xms128m -Xmx128m"    ulimits:      memlock:        soft: -1        hard: -1    volumes:      - ./data/node0:/usr/share/elasticsearch/data      - ./node/es1/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml      - ./logs/node0:/usr/share/elasticsearch/logs    ports:      - 9200:9200    networks:      - esnet  es3:    image: elasticsearch:7.2.0    container_name: es3    privileged: true    environment:      - "ES_JAVA_OPTS=-Xms128m -Xmx128m"    ulimits:      memlock:        soft: -1        hard: -1    volumes:      - ./data/node2:/usr/share/elasticsearch/data      - ./node/es2/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml      - ./logs/node2:/usr/share/elasticsearch/logs    ports:      - 9202:9200    links:      - es1    networks:      - esnet# 使用桥接的网络连接方式networks:  esnet:    driver: bridge</code></pre><p>然后<code>cd node/es1/</code>写<code>elasticsearch.yml</code>配置文件</p><pre><code># 集群名称 EsClustercluster.name: huaweiES# 节点名称node.name: es1# 是否为主节点node.master: true# 该节点是否存储数据node.data: true# 对外开放的http端口http.port: 9200# 回环地址network.host: 0.0.0.0#network.publish_host: master-ipdiscovery.zen.ping.unicast.hosts: ["es1"]bootstrap.memory_lock: true# 是否运行跨域REST请求http.cors.enabled: true# 允许跨域请求来自何处http.cors.allow-origin: "*"# 有成为主节点资格的最小节点数discovery.zen.minimum_master_nodes: 1xpack.security.enabled: false</code></pre><p>从节点的配置文件<code>elasticsearch.yml</code></p><pre><code># 集群名称 EsClustercluster.name: huaweiES# 节点名称node.name: es2# 是否为主节点node.master: false# 该节点是否存储数据node.data: true# 对外开放的http端口http.port: 9200# 回环地址network.host: 0.0.0.0#network.publish_host: master-ip# 有资格成为主节点的资格列表discovery.zen.ping.unicast.hosts: ["es1"]# 是否运行跨域REST请求http.cors.enabled: true# 允许跨域请求来自何处http.cors.allow-origin: "*"# 有成为主节点资格的最小节点数discovery.zen.minimum_master_nodes: 1xpack.security.enabled: false</code></pre><p>然后回到<code>/opt/elasticsearch</code>启动集群 <code>docker-compose up -d</code></p><p>启动成功后通过<code>docker-compose ps</code>查看集群情况，如果你的容器在运行，但是输入这个命令却找不到，请不用担心，停掉容器，重新启动一下就好了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker内ES配置IK分词</title>
       <link href="2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/"/>
       <url>2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/</url>

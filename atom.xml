@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-05-17T09:59:05.291Z</updated>
+  <updated>2021-05-18T10:28:33.622Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker-compons搭建ES单机集群</title>
+    <link href="http://godhearing.cn/2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/"/>
+    <id>http://godhearing.cn/2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/</id>
+    <published>2021-05-18T10:13:42.351Z</published>
+    <updated>2021-05-18T10:28:33.622Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Docker" scheme="http://godhearing.cn/categories/Docker/"/>
+    
+    
+    <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
+    
+    <category term="Redis" scheme="http://godhearing.cn/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>docker内ES配置IK分词</title>
     <link href="http://godhearing.cn/2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/"/>
     <id>http://godhearing.cn/2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/</id>
     <published>2021-05-17T09:44:19.584Z</published>
-    <updated>2021-05-17T09:59:05.291Z</updated>
+    <updated>2021-05-17T09:59:31.443Z</updated>
     
     
       
@@ -522,32 +549,6 @@
     
     
     <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx跨域配置</title>
-    <link href="http://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/"/>
-    <id>http://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/</id>
-    <published>2021-03-04T16:00:00.000Z</published>
-    <updated>2021-03-04T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;当出现403跨域错误的时候 &lt;code&gt;No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource&lt;/code&gt;，需要给Nginx服务器配置响应的header参数&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="Nginx" scheme="http://godhearing.cn/categories/Nginx/"/>
-    
-    
-    <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
     
   </entry>
   
