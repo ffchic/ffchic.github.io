@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python数据结构与算法, Salmonのblog">
+    <meta name="keywords" content="sqlalchemy序列化, Salmonのblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python数据结构与算法 | Salmonのblog</title>
+    <title>sqlalchemy序列化 | Salmonのblog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avata.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/98.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python数据结构与算法</h1>
+                    <h1 class="description center-align post-title">sqlalchemy序列化</h1>
                 </div>
             </div>
         </div>
@@ -542,12 +542,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/FastAPI/">
+                                <span class="chip bg-color">FastAPI</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/SQLAlchemy/">
+                                <span class="chip bg-color">SQLAlchemy</span>
                             </a>
                         
                     </div>
@@ -558,8 +558,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/FastAPI/" class="post-category">
+                                FastAPI
                             </a>
                         
                     </div>
@@ -571,21 +571,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-05
+                    2021-05-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2019-08-05
+                    2021-05-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    573
                 </div>
                 
 
@@ -607,85 +607,145 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h3><blockquote>
-<p>又称存储结构</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>sqlalchemy虽然说是python最好用的orm之一，但是其内部的功能还是有不完善的地方，就比如序列化，如果表字段要破百，假设前后端不分离的情况下还好，但是前后端分离的情况下，前端无法处理，而sqlalchemy又不带序列化，所以我们只能自己写一个序列化了</p>
 </blockquote>
-<h3 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><p> 集合结构：(同属一个整体，但是每个元素之间没有关系)<br>​ 线性结构：队尾元素没有直接后继，队头元素没有直接前驱,其他元素有唯一的直接前驱和后继（一对一）<br>​ 树形结构：除了根元素，其他元素都有一个前驱和多个后继（一对多）<br>​ 图形结构：每个元素都有多个前驱和后继（多对多）</p>
-<p> 重点:<code>线性结构</code></p>
-<ul>
-<li>如果既是线性结构，又是链式结构，这种结构成为链表</li>
-<li>如果既是线性结构，又是顺序结构，这种结构成为顺序表</li>
-</ul>
-<p>链表又分为：单向链表 双向链表 单向循环链表</p>
-<p>单向链表:当连接表中的每个节点只包含一个指针时，他只能指向下一个节点地址，这种只含有一个指针域的链表，称为<strong>单向链表</strong></p>
-<p>双向链表：它的连接表中，每个节点，都有两个指针，指向了直接前驱和直接后继，从双向链表中的任意一个节点开始访问，都能很方便的访问到它的前驱节点和后继节点，这种结构，称为<strong>双向链表</strong></p>
-<p>单向循环链表：普通的单向链表，末尾节点(也叫叶子节点)的指针，不再指向NULL，而是指向第一个节点，即开始节点</p>
-<blockquote>
-<p>为什么要用单向循环链表，打个比方，我们要对单向链表中的某个节点进行访问，只能从头开始访问，而单向循环链表，可以从任意一个节点开始，因为它末尾的的指针指向了第一个节点，极大的增加了其灵活性</p>
-</blockquote>
-<p>接下来，我们用代码来展示一下</p>
-<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">'''
-单向链表：指向空的节点为尾结点
-单向循环链表：指向头结点的节点为尾结点
-'''</span>
-<span class="token comment" spellcheck="true"># 创建节点类</span>
-<span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""节点类"""</span>
-        self<span class="token punctuation">.</span>data <span class="token operator">=</span> data
-        self<span class="token punctuation">.</span>pointer <span class="token operator">=</span> None
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> inspect
+<span class="token keyword">from</span> sqlalchemy<span class="token punctuation">.</span>orm <span class="token keyword">import</span> ONETOMANY<span class="token punctuation">,</span> MANYTOMANY
 
-<span class="token comment" spellcheck="true"># 创建链表类       </span>
-<span class="token keyword">class</span> <span class="token class-name">SCLL</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">""" 初始化函数"""</span>
-        self<span class="token punctuation">.</span>head <span class="token operator">=</span> Node<span class="token punctuation">(</span>None<span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>head<span class="token punctuation">.</span>pointer <span class="token operator">=</span> self<span class="token punctuation">.</span>head
 
-    <span class="token comment" spellcheck="true"># 判断是否位空</span>
-    <span class="token triple-quoted-string string">'''需要判断头结点是否指向自身，从而确定是否为空'''</span>
-    <span class="token keyword">def</span> <span class="token function">is_empty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> self<span class="token punctuation">.</span>head<span class="token punctuation">.</span>pointer <span class="token operator">==</span> self<span class="token punctuation">.</span>head<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
+<span class="token keyword">class</span> <span class="token class-name">Serializer</span><span class="token punctuation">:</span>
 
-    <span class="token comment" spellcheck="true"># 针对空链表可返回None；针对非空链表即采用循环操作，结束条件当前位置是尾结点</span>
-    <span class="token keyword">def</span> <span class="token function">traversal</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">""" 遍历链表"""</span>
-    <span class="token keyword">if</span> self<span class="token punctuation">.</span>is_empty<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token boolean">False</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        counter <span class="token operator">=</span> <span class="token number">1</span>
-        current <span class="token operator">=</span>self<span class="token punctuation">.</span>head<span class="token punctuation">.</span>pointer
-        <span class="token comment" spellcheck="true"># 当前指针不指向头结点时进行循环</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>current <span class="token operator">!=</span> self<span class="token punctuation">.</span>head<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">" Element {{ is {{ "</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>counter<span class="token punctuation">,</span> current<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            counter <span class="token operator">+=</span> <span class="token number">1</span>
-            current <span class="token operator">=</span> current<span class="token punctuation">.</span>pointer
-        <span class="token keyword">return</span> <span class="token boolean">True</span> </code></pre>
-<p>链表和顺序表的区别：<br>链表插入删除方便，修改查找不方便<br>顺序表修改和查找方便，插入删除不方便</p>
-<blockquote>
-<p>顺序结构：逻辑结构相邻，物理结构也相邻<br>​链式结构：逻辑相邻，物理不一定相邻</p>
-</blockquote>
-<hr>
-<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><blockquote>
-<p>官方说法为：解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描述解决问题的策略机制</p>
-<p>通俗的讲：</p>
-<p>算法是特定解决问题的方法步骤</p>
-</blockquote>
-<h3 id="算法特性"><a href="#算法特性" class="headerlink" title="算法特性"></a>算法特性</h3><ul>
-<li>输入：有零个或多个输入</li>
-<li>输出：有一个或多个输出</li>
-<li>有穷性：有限的时间或有限的步骤可以结束算法</li>
-<li>确定性：每个步骤只有唯一的意思，不会产生歧义</li>
-<li>可行性：可用现有的条件可以实现</li>
-</ul>
-<h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><ul>
-<li>时间复杂度:算法运行所需要的时间</li>
-</ul>
-<p>用大O表示法<br><code>list：pop()</code>删除末尾元素：O(1)<br>pop(0)删除第一个元素：O(n)<br>sort()排序：O(<code>nlogn</code>)<br>insert()插入元素 O(n)<br>append()末尾添加元素:O(1)<br>字典：<br>除了循环 复制 O(n)<br>删除、添加、修改、查询元素O(1)</p>
-<ul>
-<li>空间复杂度：算法运行所需要的空间</li>
-</ul>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> many<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> include<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> exclude<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> depth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>instance <span class="token operator">=</span> instance
+        self<span class="token punctuation">.</span>many <span class="token operator">=</span> many
+        self<span class="token punctuation">.</span>include <span class="token operator">=</span> include
+        self<span class="token punctuation">.</span>exclude <span class="token operator">=</span> exclude
+        self<span class="token punctuation">.</span>depth <span class="token operator">=</span> depth
+
+    @property
+    <span class="token keyword">def</span> <span class="token function">data</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>include <span class="token operator">and</span> self<span class="token punctuation">.</span>exclude<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">'include and exclude can\'t work together'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>many<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">,</span> list<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> self<span class="token punctuation">.</span>_serializerlist<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">,</span> self<span class="token punctuation">.</span>depth<span class="token punctuation">)</span>
+            pageinfo <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token string">'items'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
+                <span class="token string">'pages'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>pages<span class="token punctuation">,</span>
+                <span class="token string">'has_prev'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>has_prev<span class="token punctuation">,</span>
+                <span class="token string">'page'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>page<span class="token punctuation">,</span>
+                <span class="token string">'has_next'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>has_next<span class="token punctuation">,</span>
+                <span class="token string">'iter_pages'</span><span class="token punctuation">:</span> list<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>iter_pages<span class="token punctuation">(</span>left_edge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>
+                                                            left_current<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
+                                                            right_current<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+                                                            right_edge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'data'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_serializerlist<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>items<span class="token punctuation">,</span>
+                                                 self<span class="token punctuation">.</span>depth<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    <span class="token string">'pageinfo'</span><span class="token punctuation">:</span> pageinfo<span class="token punctuation">}</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>_serializer<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">,</span> self<span class="token punctuation">.</span>depth<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">_serializerlist</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instances<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> instance <span class="token keyword">in</span> instances<span class="token punctuation">:</span>
+            result <span class="token operator">=</span> self<span class="token punctuation">.</span>_serializer<span class="token punctuation">(</span>instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> result<span class="token punctuation">:</span>
+                results<span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> results
+
+    <span class="token keyword">def</span> <span class="token function">_serializer</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword">if</span> depth <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> result
+        depth <span class="token operator">-=</span> <span class="token number">1</span>
+        model_class <span class="token operator">=</span> self<span class="token punctuation">.</span>get_model_class<span class="token punctuation">(</span>instance<span class="token punctuation">)</span>
+        inp <span class="token operator">=</span> self<span class="token punctuation">.</span>get_inspect<span class="token punctuation">(</span>model_class<span class="token punctuation">)</span>
+        model_data <span class="token operator">=</span> self<span class="token punctuation">.</span>_serializer_model<span class="token punctuation">(</span>inp<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span>
+        relation_data <span class="token operator">=</span> self<span class="token punctuation">.</span>_serializer_relation<span class="token punctuation">(</span>inp<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span>
+        result<span class="token punctuation">.</span>update<span class="token punctuation">(</span>model_data<span class="token punctuation">)</span>
+        result<span class="token punctuation">.</span>update<span class="token punctuation">(</span>relation_data<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> result
+
+    <span class="token keyword">def</span> <span class="token function">_serializer_model</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inp<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        model_columns <span class="token operator">=</span> self<span class="token punctuation">.</span>get_model_columns<span class="token punctuation">(</span>inp<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> column <span class="token keyword">in</span> model_columns<span class="token punctuation">:</span>
+            result<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">=</span> getattr<span class="token punctuation">(</span>instance<span class="token punctuation">,</span> column<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> result
+
+    <span class="token keyword">def</span> <span class="token function">_serializer_relation</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inp<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        relation_columns <span class="token operator">=</span> self<span class="token punctuation">.</span>get_relation_columns<span class="token punctuation">(</span>inp<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> relation <span class="token keyword">in</span> relation_columns<span class="token punctuation">:</span>
+            column <span class="token operator">=</span> relation<span class="token punctuation">.</span>key
+            <span class="token keyword">if</span> relation<span class="token punctuation">.</span>direction <span class="token keyword">in</span> <span class="token punctuation">[</span>ONETOMANY<span class="token punctuation">,</span> MANYTOMANY<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                children <span class="token operator">=</span> getattr<span class="token punctuation">(</span>instance<span class="token punctuation">,</span> column<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> relation<span class="token punctuation">.</span>lazy <span class="token operator">==</span> <span class="token string">'dynamic'</span><span class="token punctuation">:</span>
+                    children <span class="token operator">=</span> children<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                result<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">=</span> Serializer<span class="token punctuation">(</span>
+                    children<span class="token punctuation">,</span>
+                    many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                    exclude<span class="token operator">=</span><span class="token punctuation">[</span>relation<span class="token punctuation">.</span>back_populates<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    depth<span class="token operator">=</span>depth<span class="token punctuation">)</span><span class="token punctuation">.</span>data
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                child <span class="token operator">=</span> getattr<span class="token punctuation">(</span>instance<span class="token punctuation">,</span> column<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> relation<span class="token punctuation">.</span>lazy <span class="token operator">==</span> <span class="token string">'dynamic'</span><span class="token punctuation">:</span>
+                    child <span class="token operator">=</span> child<span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                result<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">=</span> Serializer<span class="token punctuation">(</span>
+                    child<span class="token punctuation">,</span>
+                    many<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                    exclude<span class="token operator">=</span><span class="token punctuation">[</span>relation<span class="token punctuation">.</span>back_populates<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    depth<span class="token operator">=</span>depth<span class="token punctuation">)</span><span class="token punctuation">.</span>data
+        <span class="token keyword">return</span> result
+
+    <span class="token keyword">def</span> <span class="token function">get_model_class</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> getattr<span class="token punctuation">(</span>instance<span class="token punctuation">,</span> <span class="token string">'__class__'</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_inspect</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> model_class<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> inspect<span class="token punctuation">(</span>model_class<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_model_columns</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>include<span class="token punctuation">:</span>
+            model_columns <span class="token operator">=</span> <span class="token punctuation">[</span>
+                column<span class="token punctuation">.</span>name <span class="token keyword">for</span> column <span class="token keyword">in</span> inp<span class="token punctuation">.</span>columns
+                <span class="token keyword">if</span> column<span class="token punctuation">.</span>name <span class="token keyword">in</span> self<span class="token punctuation">.</span>include
+            <span class="token punctuation">]</span>
+        <span class="token keyword">elif</span> self<span class="token punctuation">.</span>exclude<span class="token punctuation">:</span>
+            model_columns <span class="token operator">=</span> <span class="token punctuation">[</span>
+                column<span class="token punctuation">.</span>name <span class="token keyword">for</span> column <span class="token keyword">in</span> inp<span class="token punctuation">.</span>columns
+                <span class="token keyword">if</span> column<span class="token punctuation">.</span>name <span class="token operator">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>exclude
+            <span class="token punctuation">]</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            model_columns <span class="token operator">=</span> <span class="token punctuation">[</span>column<span class="token punctuation">.</span>name <span class="token keyword">for</span> column <span class="token keyword">in</span> inp<span class="token punctuation">.</span>columns<span class="token punctuation">]</span>
+
+        <span class="token keyword">return</span> model_columns
+
+    <span class="token keyword">def</span> <span class="token function">get_relation_columns</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inp<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>include<span class="token punctuation">:</span>
+            relation_columns <span class="token operator">=</span> <span class="token punctuation">[</span>
+                relation <span class="token keyword">for</span> relation <span class="token keyword">in</span> inp<span class="token punctuation">.</span>relationships
+                <span class="token keyword">if</span> relation<span class="token punctuation">.</span>key <span class="token keyword">in</span> self<span class="token punctuation">.</span>include
+            <span class="token punctuation">]</span>
+        <span class="token keyword">elif</span> self<span class="token punctuation">.</span>exclude<span class="token punctuation">:</span>
+            relation_columns <span class="token operator">=</span> <span class="token punctuation">[</span>
+                relation <span class="token keyword">for</span> relation <span class="token keyword">in</span> inp<span class="token punctuation">.</span>relationships
+                <span class="token keyword">if</span> relation<span class="token punctuation">.</span>key <span class="token operator">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>exclude
+            <span class="token punctuation">]</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            relation_columns <span class="token operator">=</span> <span class="token punctuation">[</span>relation <span class="token keyword">for</span> relation <span class="token keyword">in</span> inp<span class="token punctuation">.</span>relationships<span class="token punctuation">]</span>
+        <span class="token keyword">return</span> relation_columns
+</code></pre>
+<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><p>使用上很简单(以flask-sqlalchemy为例),原生<strong>sqlalchemy</strong>类似</p>
+<h3 id="多个实例"><a href="#多个实例" class="headerlink" title="多个实例"></a>多个实例</h3><pre><code>posts = Post.query.all()
+serializer = Seralizer(posts,many=True)
+data = serializer.data</code></pre>
+<h3 id="单个实例"><a href="#单个实例" class="headerlink" title="单个实例"></a>单个实例</h3><pre><code>post = Post.query.first()
+serializer = Seralizer(post,many=False)
+data = serializer.data</code></pre>
+<h3 id="排除字段"><a href="#排除字段" class="headerlink" title="排除字段"></a>排除字段</h3><pre><code>serializer = Seralizer(post,exclude=['title'])</code></pre>
+<h3 id="仅包括字段"><a href="#仅包括字段" class="headerlink" title="仅包括字段"></a>仅包括字段</h3><pre><code>serializer = Seralizer(post,include=['title'])</code></pre>
+<h3 id="关系查询深度"><a href="#关系查询深度" class="headerlink" title="关系查询深度"></a>关系查询深度</h3><pre><code>serializer = Seralizer(post,depth=3)</code></pre>
 
             </div>
             <hr/>
@@ -711,7 +771,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/">http://godhearing.cn/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/</a>
+                    <a href="http://godhearing.cn/2021/05/19/sqlalchemy-xu-lie-hua/">http://godhearing.cn/2021/05/19/sqlalchemy-xu-lie-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -749,12 +809,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/FastAPI/">
+                                    <span class="chip bg-color">FastAPI</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/SQLAlchemy/">
+                                    <span class="chip bg-color">SQLAlchemy</span>
                                 </a>
                             
                         </div>
@@ -799,7 +859,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-08-05T21-36-00',
+        id: '2021-05-19T16-04-58',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -823,17 +883,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2019/08/16/liao-tian-ji-qi-ren/">
+                <a href="/2021/05/19/sqlalchemy-xu-lie-hua/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/98.jpg" class="responsive-img" alt="sqlalchemy序列化">
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="聊天机器人">
-                        
-                        <span class="card-title">聊天机器人</span>
+                        <span class="card-title">sqlalchemy序列化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -843,26 +903,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/FastAPI/" class="post-category">
+                                    FastAPI
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/FastAPI/">
+                        <span class="chip bg-color">FastAPI</span>
+                    </a>
+                    
+                    <a href="/tags/SQLAlchemy/">
+                        <span class="chip bg-color">SQLAlchemy</span>
                     </a>
                     
                 </div>
@@ -876,12 +941,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/">
+                <a href="/2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/59.jpg" class="responsive-img" alt="爬虫的相关知识">
+                        <img src="/medias/featureimages/97.jpg" class="responsive-img" alt="Docker-componse搭建ES单机集群">
                         
-                        <span class="card-title">爬虫的相关知识</span>
+                        <span class="card-title">Docker-componse搭建ES单机集群</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -892,14 +957,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/spider/" class="post-category">
-                                    spider
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
                                 </a>
                             
                             
@@ -909,12 +974,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
                     </a>
                     
-                    <a href="/tags/spider/">
-                        <span class="chip bg-color">spider</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
                 </div>
