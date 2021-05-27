@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-05-19T08:09:48.262Z</updated>
+  <updated>2021-05-27T04:04:47.264Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos7安装python3</title>
+    <link href="http://godhearing.cn/2021/05/27/centos7-an-zhuang-python3/"/>
+    <id>http://godhearing.cn/2021/05/27/centos7-an-zhuang-python3/</id>
+    <published>2021-05-27T03:40:56.309Z</published>
+    <updated>2021-05-27T04:04:47.264Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简略步骤&quot;&gt;&lt;a href=&quot;#简略步骤&quot; class=&quot;headerlink&quot; title=&quot;简略步骤&quot;&gt;&lt;/a&gt;简略步骤&lt;/h2&gt;&lt;p&gt;直接把所有步骤简略写下，简略的解释，如果要安装的话，直接复制命令即可。&lt;/p&gt;
+&lt;pre class=&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
+    
+    
+    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
+    
+    <category term="Linux" scheme="http://godhearing.cn/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>sqlalchemy序列化</title>
@@ -524,33 +552,6 @@
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
     <category term="算法" scheme="http://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Casbin</title>
-    <link href="http://godhearing.cn/2021/03/12/casbin/"/>
-    <id>http://godhearing.cn/2021/03/12/casbin/</id>
-    <published>2021-03-11T16:00:00.000Z</published>
-    <updated>2021-03-11T16:00:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Casbin" scheme="http://godhearing.cn/categories/Casbin/"/>
-    
-    
-    <category term="Casbin" scheme="http://godhearing.cn/tags/Casbin/"/>
-    
-    <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   

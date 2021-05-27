@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Centos7安装python3</title>
+      <link href="2021/05/27/centos7-an-zhuang-python3/"/>
+      <url>2021/05/27/centos7-an-zhuang-python3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简略步骤"><a href="#简略步骤" class="headerlink" title="简略步骤"></a>简略步骤</h2><p>直接把所有步骤简略写下，简略的解释，如果要安装的话，直接复制命令即可。</p><pre class=" language-python"><code class="language-python"><span class="token number">1</span>、安装依赖包yum install zlib<span class="token operator">-</span>devel bzip2<span class="token operator">-</span>devel openssl<span class="token operator">-</span>devel ncurses<span class="token operator">-</span>devel sqlite<span class="token operator">-</span>devel readline<span class="token operator">-</span>devel tk<span class="token operator">-</span>devel gcc make libffi<span class="token operator">-</span>devel <span class="token operator">-</span>y<span class="token number">2</span>、下载python3的安装包wget https<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>python<span class="token punctuation">.</span>org<span class="token operator">/</span>ftp<span class="token operator">/</span>python<span class="token operator">/</span><span class="token number">3.7</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token operator">/</span>Python<span class="token number">-3.7</span><span class="token punctuation">.</span><span class="token number">4.</span>tgz<span class="token number">3</span>、解压安装包tar <span class="token operator">-</span>zxvf Python<span class="token number">-3.7</span><span class="token punctuation">.</span><span class="token number">4.</span>tgzcd Python3<span class="token number">.7</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token number">4</span>、配置路径，编译安装<span class="token punctuation">.</span><span class="token operator">/</span>configure <span class="token operator">-</span><span class="token operator">-</span>prefix<span class="token operator">=</span><span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>Python<span class="token number">-3.7</span><span class="token punctuation">.</span><span class="token number">4</span>make <span class="token operator">&amp;</span><span class="token operator">&amp;</span> make install<span class="token number">5</span>、添加软连接ln <span class="token operator">-</span>s <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>Python<span class="token number">-3.7</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token operator">/</span>bin<span class="token operator">/</span>python3 <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>pythonln <span class="token operator">-</span>s <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>Python<span class="token number">-3.7</span><span class="token punctuation">.</span><span class="token number">4</span><span class="token operator">/</span>bin<span class="token operator">/</span>pip3 <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>pip<span class="token triple-quoted-string string">"""如果出现文件已存在，则将其删除，重新再执行"""</span>rm <span class="token operator">-</span>rf <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>pythonrm <span class="token operator">-</span>rf <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>pip<span class="token triple-quoted-string string">"""不出现不用执行"""</span><span class="token number">6</span>、修复yum，将这两个文件的第一行的python改为python2，注意，是python2vi <span class="token operator">/</span>usr<span class="token operator">/</span>libexec<span class="token operator">/</span>urlgrabber<span class="token operator">-</span>ext<span class="token operator">-</span>downvi <span class="token operator">/</span>usr<span class="token operator">/</span>bin<span class="token operator">/</span>yum</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sqlalchemy序列化</title>
       <link href="2021/05/19/sqlalchemy-xu-lie-hua/"/>
       <url>2021/05/19/sqlalchemy-xu-lie-hua/</url>
