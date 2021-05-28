@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-05-27T04:04:47.264Z</updated>
+  <updated>2021-05-28T10:07:50.402Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于最近的迷茫和感受</title>
+    <link href="http://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/"/>
+    <id>http://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/</id>
+    <published>2021-05-28T09:05:33.266Z</published>
+    <updated>2021-05-28T10:07:50.402Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;对个人的思考&quot;&gt;&lt;a href=&quot;#对个人的思考&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Book" scheme="http://godhearing.cn/categories/Book/"/>
+    
+    
+    <category term="Book" scheme="http://godhearing.cn/tags/Book/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Centos7安装python3</title>
     <link href="http://godhearing.cn/2021/05/27/centos7-an-zhuang-python3/"/>
     <id>http://godhearing.cn/2021/05/27/centos7-an-zhuang-python3/</id>
     <published>2021-05-27T03:40:56.309Z</published>
-    <updated>2021-05-27T04:04:47.264Z</updated>
+    <updated>2021-05-27T04:05:20.642Z</updated>
     
     
       
@@ -525,33 +550,6 @@
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
     <category term="pycharm" scheme="http://godhearing.cn/tags/pycharm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>协同过滤算法</title>
-    <link href="http://godhearing.cn/2021/03/16/xie-tong-guo-lu-suan-fa/"/>
-    <id>http://godhearing.cn/2021/03/16/xie-tong-guo-lu-suan-fa/</id>
-    <published>2021-03-16T08:16:41.948Z</published>
-    <updated>2021-03-16T12:31:20.943Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-    <category term="算法" scheme="http://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

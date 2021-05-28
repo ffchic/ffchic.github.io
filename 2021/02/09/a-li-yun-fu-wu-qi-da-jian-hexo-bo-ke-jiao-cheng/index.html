@@ -616,17 +616,17 @@
 <p>这里呢，Hexo怎么搭建，我就不说了，相信大家都有搭建hexo的能力。</p>
 <h2 id="服务端准备工作"><a href="#服务端准备工作" class="headerlink" title="服务端准备工作"></a>服务端准备工作</h2><h3 id="域名注册"><a href="#域名注册" class="headerlink" title="域名注册"></a>域名注册</h3><p>登陆 <code>https://wanwang.aliyun.com/</code> 挑选一个自己喜欢的域名，具体操作如下：</p>
 <p>1、进入网站主页后，点击“域名注册”:</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120656914.png" alt="" style="zoom:50%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120656914.png" alt style="zoom:50%;">
 
 <p>2、然后在万网进行域名搜索和购买。</p>
 <p>3、初始化自己的服务器</p>
-<p>4、备案，在阿里云的控制台界面，具体备案步骤呢，也就不多说了，往后有机会出一篇备案的攻略。<br><img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120903699.png" alt="" style="zoom:67%;"></p>
+<p>4、备案，在阿里云的控制台界面，具体备案步骤呢，也就不多说了，往后有机会出一篇备案的攻略。<br><img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120903699.png" alt style="zoom:67%;"></p>
 <p>5、阿里云的服务器默认不开放端口号，这样使得我们在网站部署完成之后仍然无法访问。因此我们需要新建安全组并添加 80 端口，再将安全组添加到 ECS 实例中。具体操作如下。在控制台的 ECS 实例中点击安全组，然后新建安全组。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122807387.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122807387.png" alt style="zoom:67%;">
 
 <p>在访问规则为 <strong>入方向</strong> 的标签下添加 80 端口。</p>
 <p>最后回到 ECS 服务器实例，将刚刚配置的安全组加入到实例中。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122901251.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122901251.png" alt style="zoom:67%;">
 
 <h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><p>我们使用 nginx 作为 web 服务器，这里可以将 nginx 理解为安装在服务器上的一个软件。</p>
 <p>还有可以直接使用yum等来安装，不是非得必要用我这个办法。</p>
@@ -665,10 +665,10 @@ ls
 vim nginx.conf</code></pre>
 <p>打开后按 <code>i</code> 键由命令模式切换到编辑模式，修改三处地方：</p>
 <p>首先将最顶端的用户改为 root；</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110112486.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110112486.png" alt style="zoom:67%;">
 
 <p>其次将 <code>server_name</code> 改为自己的域名，如果没有备案，可以先填写自己的公网 IP（在控制台 ECS 实例中查看），访问时暂时用公网 IP 进行访问。最后将 <code>root</code> 项中的值改为你自己博客的根目录</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110148969.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110148969.png" alt style="zoom:67%;">
 
 
 
@@ -747,7 +747,7 @@ sudo chmod -R 777 /home/hexo</code></pre>
 <h2 id="本地Hexo配置"><a href="#本地Hexo配置" class="headerlink" title="本地Hexo配置"></a>本地Hexo配置</h2><p>安装两个插件</p>
 <p>修改 <code>_config.yml</code> 文件</p>
 <p>把 <code>deploy</code> 参数改成如下方式，注意填写自己的公网 IP 哦。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209133357909.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209133357909.png" alt style="zoom:67%;">
 
 <p>除此之外，URL 项改为自己的域名，没有备案的化可以先填写公网 IP。</p>
 <p>然后我们就可以进行发布啦</p>
@@ -1192,7 +1192,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">116.2k</span>&nbsp;字
+                class="white-color">117.4k</span>&nbsp;字
             
             
             
@@ -1222,7 +1222,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
-    <a href="mailto:2274201339@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:haoye0822@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue组件, 天听">
+    <meta name="keywords" content="关于最近的迷茫和感受, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Vue组件 | 天听</title>
+    <title>关于最近的迷茫和感受 | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/100.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Vue组件</h1>
+                    <h1 class="description center-align post-title">关于最近的迷茫和感受</h1>
                 </div>
             </div>
         </div>
@@ -542,8 +542,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
+                            <a href="/tags/Book/">
+                                <span class="chip bg-color">Book</span>
                             </a>
                         
                     </div>
@@ -554,8 +554,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/Book/" class="post-category">
+                                Book
                             </a>
                         
                     </div>
@@ -567,21 +567,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-11-30
+                    2021-05-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2019-11-30
+                    2021-05-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    747
+                    1.1k
                 </div>
                 
 
@@ -603,136 +603,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-组件定义"><a href="#1-组件定义" class="headerlink" title="1.组件定义"></a>1.组件定义</h2><ol>
-<li><p>定义组件并引用 </p>
-</li>
-<li><p>父组件向子组件传值 </p>
-</li>
-<li><p>子组件向父组件传值 </p>
-</li>
-</ol>
-<p>组件间传值：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaonq/p/9697921.html">vuex</a></p>
-<hr>
-<h4 id="1-1-什么是组件"><a href="#1-1-什么是组件" class="headerlink" title="1.1  什么是组件"></a>1.1  什么是组件</h4><ul>
-<li><code>Html</code>中有组件，是一段可以被复用的结构代码</li>
-<li>Css中有组件，是一段可以被复用的样式</li>
-<li>Js中有组件，是一段可以被复用的功能</li>
-<li>Vue中的组件，指的就是一个模块，是一个独立的，完整的(包含<code>html，cssm，js</code>等)，可以直接拿来用</li>
-</ul>
-<h4 id="1-2-组件特性"><a href="#1-2-组件特性" class="headerlink" title="1.2  组件特性"></a>1.2  组件特性</h4><ul>
-<li><p>组件的实例化对象，跟<code>vue</code>实例化对象一样，因此，我们也可以将<code>vue</code>实例化对象看成组件</p>
-</li>
-<li><p>组件间是独立的，因此数据要独立存储，方法要独立定义， **彼此间不能共享 **。</p>
-</li>
-</ul>
-<hr>
-<h2 id="2-父组件向子组件传值"><a href="#2-父组件向子组件传值" class="headerlink" title="2.父组件向子组件传值"></a>2.父组件向子组件传值</h2><h5 id="2-1-components-Child-vue-定义子组件"><a href="#2-1-components-Child-vue-定义子组件" class="headerlink" title="2.1  components/Child.vue 定义子组件"></a>2.1  <code>components/Child.vue</code> <strong>定义子组件</strong></h5><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-    <span class="token operator">&lt;</span>div style<span class="token operator">=</span><span class="token string">"color: red"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>h1<span class="token operator">></span>子组件内容<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span> 
-        <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>data<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span> 
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> 
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span> 
-<span class="token operator">&lt;</span>script<span class="token operator">></span> 
-    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span> 
-        props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 接收父组件给子组件定义的属性 </span>
-    <span class="token punctuation">{</span> 
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<blockquote>
-<p>子组件要使用父组件的数据，只需要一步，在 props中接收父组件的属性</p>
-</blockquote>
-<h5 id="2-2-components-Father-vue-定义父组件"><a href="#2-2-components-Father-vue-定义父组件" class="headerlink" title="2.2   components/Father.vue 定义父组件"></a>2.2   <code>components/Father.vue</code> <strong>定义父组件</strong></h5><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span> 
-    <span class="token operator">&lt;</span>div<span class="token operator">></span> 
-        <span class="token operator">&lt;</span>h1<span class="token operator">></span>父组件内容<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span> 
-        父组件显示<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">{</span><span class="token punctuation">{</span> 
-        <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span><span class="token number">3</span><span class="token punctuation">.</span>第三步：把父组件的某一个属性传递给子组件<span class="token operator">--</span><span class="token operator">></span> 
-        <span class="token operator">&lt;</span>Child <span class="token punctuation">:</span>data<span class="token operator">=</span><span class="token string">'msg'</span> <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Child<span class="token operator">></span> 
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span> 
-<span class="token operator">&lt;</span>script<span class="token operator">></span> 
-    <span class="token comment" spellcheck="true">// @指定的是src路径 </span>
-    <span class="token keyword">import</span> Child <span class="token keyword">from</span> <span class="token string">'@/components/Child'</span> 
-    <span class="token comment" spellcheck="true">// 1.第一步：在父组件中导入子组件 </span>
-    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span> 
-        <span class="token comment" spellcheck="true">// 2.第二步：父组件中注册子组件 </span>
-        components<span class="token punctuation">:</span> <span class="token punctuation">{</span> 
-            Child 
-        <span class="token punctuation">{</span><span class="token punctuation">,</span>
-        <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-            <span class="token keyword">return</span> <span class="token punctuation">{</span> 
-                msg<span class="token punctuation">:</span> <span class="token string">'父组件的信息'</span> 
-            <span class="token punctuation">{</span> 
-        <span class="token punctuation">{</span><span class="token punctuation">,</span>
-        methods<span class="token punctuation">:</span> <span class="token punctuation">{</span> 
-
-        <span class="token punctuation">{</span> 
-    <span class="token punctuation">{</span> 
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<blockquote>
-<p><code>components</code>注册子组件</p>
-</blockquote>
-<h5 id="2-3-router-index-js-中注册路由"><a href="#2-3-router-index-js-中注册路由" class="headerlink" title="2.3  router/index.js 中注册路由"></a>2.3  <code>router/index.js</code> <strong>中注册路由</strong></h5><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> Father <span class="token keyword">from</span> <span class="token string">'@/components/Father'</span> 
-<span class="token comment" spellcheck="true">// @修饰符指的是 src目录 </span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Router</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
-    routes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> 
-        path<span class="token punctuation">:</span> <span class="token string">'/component'</span><span class="token punctuation">,</span> 
-        name<span class="token punctuation">:</span> <span class="token string">'Father'</span><span class="token punctuation">,</span>
-        component<span class="token punctuation">:</span> Father 
-    <span class="token punctuation">{</span><span class="token punctuation">,</span><span class="token punctuation">]</span>
-<span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>子组件中可以通过 定义 <code>props</code> 属性来接收父组件的数据</p>
-</blockquote>
-<h2 id="3-子组件向父组件传值"><a href="#3-子组件向父组件传值" class="headerlink" title="3.子组件向父组件传值"></a>3.<strong>子组件向父组件传值</strong></h2><h5 id="3-1-components-Child-vue-子组件通过触发方法-向父组件传值"><a href="#3-1-components-Child-vue-子组件通过触发方法-向父组件传值" class="headerlink" title="3.1  components/Child.vue 子组件通过触发方法, 向父组件传值"></a>3.1  <code>components/Child.vue</code> <strong>子组件通过触发方法, 向父组件传值</strong></h5><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-    <span class="token operator">&lt;</span>div<span class="token operator">></span>
-        <span class="token operator">&lt;</span>h1<span class="token operator">></span>子组件页面<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-        <span class="token operator">&lt;</span>span<span class="token operator">></span>子组件<span class="token punctuation">{</span><span class="token punctuation">{</span>data<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-        <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"f1"</span><span class="token operator">></span>调用父<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//用props接收父组件的属性</span>
-    props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 接收父组件给子组件定义的属性 </span>
-        <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-         <span class="token comment" spellcheck="true">//1.子组件调用父组件方法，并传值 </span>
-<span class="token comment" spellcheck="true">// $emit 触发当前实例上的事件，也可以简单的理解为触发父组件上的事件（向上冒泡）</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'changeMsg'</span><span class="token punctuation">,</span><span class="token string">'子的信息'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-    <span class="token punctuation">{</span>
-
-<span class="token punctuation">{</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<h5 id="3-2-components-Father-vue给子组件添加事件及事件处理方法"><a href="#3-2-components-Father-vue给子组件添加事件及事件处理方法" class="headerlink" title="3.2 components/Father.vue给子组件添加事件及事件处理方法"></a>3.2 <code>components/Father.vue</code><strong>给子组件添加事件及事件处理方法</strong></h5><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-    <span class="token operator">&lt;</span>div<span class="token operator">></span>
-        <span class="token operator">&lt;</span>h1<span class="token operator">></span>父组件页面<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-        <span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">{</span><span class="token punctuation">{</span>
-        <span class="token operator">&lt;</span>Child <span class="token punctuation">:</span>data<span class="token operator">=</span><span class="token string">'msg'</span> @changeMsg<span class="token operator">=</span><span class="token string">'f2'</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Child<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token keyword">import</span> Child <span class="token keyword">from</span> <span class="token string">'@/components/Child'</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    components<span class="token punctuation">:</span><span class="token punctuation">{</span>
-        Child
-    <span class="token punctuation">{</span><span class="token punctuation">,</span>
-    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span><span class="token punctuation">{</span>
-            msg<span class="token punctuation">:</span><span class="token string">'父的数据'</span>
-        <span class="token punctuation">{</span>
-    <span class="token punctuation">{</span><span class="token punctuation">,</span>
-    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 在父组件中定义一个f2方法，可以在子组件中触发并传值给父组件 </span>
-        <span class="token function">f2</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// data接收是子组件中传递的数据</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>msg <span class="token operator">=</span> data<span class="token comment" spellcheck="true">// 更新父组件的内容 </span>
-        <span class="token punctuation">{</span>
-    <span class="token punctuation">{</span>
-<span class="token punctuation">{</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+                <h2 id="对个人的思考"><a href="#对个人的思考" class="headerlink" title="对个人的思考"></a>对个人的思考</h2><p>感觉一直在学东西，从来没有停止过脚步，停止了，就会被干掉，但是呢，越学，越感到迷茫，学得都是应用层面的东西，就像是阮一峰老师分享的文章里面说的实施细节。</p>
+<p>软件开发中，技术变化如此之快，花费了大量的时间学习技术和工具，一旦这些技术被取代，你的知识将变得毫无价值。</p>
+<p>我最近总是在想这段话，软件开发算不算是真正的知识？</p>
+<p>如果它是一种真正的知识，那么理论上，我们学到的东西大部分应该不会过时，就好像微积分不会过时一样。可是实际上，我们都知道，软件开发技能有时效性，十年前学习的编程知识，十年后几乎肯定不能用于生产。那样的话，软件开发就不能算真正的知识，只是一种实施的细节。</p>
+<p>以上内容出自阮一峰老师很早之前的一篇分享，对我影响很大，就在我满腔热血的准备学习一门新语言，学习新的知识。这篇文章像是一盆水，狠狠的让我停下脚步，开始了思考，假如说，10年后，没有人用我学习的这门语言了，我会的这门语言毫无价值，那我应该如何？</p>
+<p>现在去银行存款，去税务局交税，去医院看病，如果你是第一次来，肯定搞不清楚具体流程，必须有人教你，要带哪些证件，要填哪些表，要去哪些窗口排队等等。</p>
+<p>当你掌握了流程，某一天，他改变了，你又该怎么办，又得有人教你流程。我目前的状况怕是和这个场景很相似，额，应该不只是我，所有都在搞应用层代码的码农都应该是这种情况，可是，我们赖以生存的，就是应用层的技术，你去搞底层，底层会给你发工资吗？我们这些人，未来出路在哪？多学一门语言，多学一个框架，多学一个思想，解决的只是广面的问题。想要在这个神仙云集的行业中出头，要解决的一定不只是广面，最重要的还是深度，不过，要付出的代价，怕是更多，当然了，也有说多劳多得的说法，话是没错，但是我认为，不全对。</p>
+<h2 id="小矫情一下"><a href="#小矫情一下" class="headerlink" title="小矫情一下"></a>小矫情一下</h2><p><a target="_blank" rel="noopener" href="https://v2ex.com/t/729626%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E8%AE%A9%E6%88%91%E6%83%B3%E8%A6%81%E8%B8%8F%E5%85%A5%E5%85%B6%E4%BB%96%E8%A1%8C%E4%B8%9A%E7%9A%84%E5%B8%96%E5%AD%90%EF%BC%8C%E5%9B%A0%E4%B8%BA%E6%B5%81%E9%87%8F%E7%9A%84%E5%8F%98%E7%8E%B0%EF%BC%8C%E4%B8%80%E4%B8%AA%E4%B8%8D%E8%B5%B7%E7%9C%BC%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%8C%E5%8D%B4%E8%83%BD%E5%A4%9F%E8%B5%9A%E7%9D%80%E6%88%91%E4%BB%AC%E8%B5%9A%E4%B8%8D%E5%88%B0%E7%9A%84%E9%92%B1%E3%80%82%E8%BF%98%E6%9C%89via%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%8C%E5%8D%95%E4%B8%80%E4%B8%AA%E5%8D%8E%E4%B8%BA%E5%BA%94%E7%94%A8%E5%B8%82%E5%9C%BA%EF%BC%8C%E5%B0%B1%E6%9C%891200%E4%B8%87%E7%9A%84%E4%B8%8B%E8%BD%BD%E9%87%8F%EF%BC%8C%E6%98%AF%E8%BF%99%E4%B8%AA%E5%B8%96%E5%AD%90%E4%B8%AD%E4%BE%8B%E5%AD%90%E7%9A%84%E4%B8%89%E5%9B%9B%E5%80%8D%EF%BC%8C%E5%9C%A8%E5%B9%95%E5%90%8E%E8%B5%9A%E7%9A%84%E9%92%B1%E4%B9%9F%E6%97%A0%E6%B3%95%E4%BC%B0%E8%AE%A1%EF%BC%8C%E5%9B%A0%E4%B8%BA%EF%BC%8C%E8%B4%AB%E7%A9%B7%E9%99%90%E5%88%B6%E4%BA%86%E6%88%91%E7%9A%84%E6%83%B3%E8%B1%A1%E5%8A%9B%E3%80%82%E7%A0%81%E5%86%9C%E5%8F%91%E5%AE%B6%E8%87%B4%E5%AF%8C%EF%BC%8C%E6%88%90%E5%8A%9F%E5%87%A0%E7%8E%87%E7%9B%B8%E5%AF%B9%E6%9D%A5%E8%AF%B4%E8%BF%98%E6%98%AF%E4%B8%8D%E5%B0%8F%E7%9A%84%EF%BC%8C%E5%8F%AA%E6%98%AF%E8%BF%98%E6%B2%A1%E6%9C%89%E5%8F%91%E7%8E%B0%E8%B7%AF%E3%80%82%E6%88%96%E8%80%85%E8%AF%B4%EF%BC%8C%E6%B2%A1%E6%B3%A8%E6%84%8F%E5%88%B0%E5%93%AA%E9%87%8C%E6%9C%89%E8%B7%AF%E3%80%82%E8%BF%99%E4%B8%96%E7%95%8C%E5%BE%88%E5%A4%A7%EF%BC%8C%E5%AF%B9%E4%BA%8E%E5%88%9D%E5%87%BA%E8%8C%85%E5%BA%90%E7%9A%84%E6%88%91%E6%9D%A5%E8%AF%B4%EF%BC%8C%E5%B0%B1%E5%A5%BD%E5%83%8F%E5%9C%A8%E9%A3%8E%E9%9B%A8%E4%B8%AD%E7%9A%84%E5%B0%8F%E8%88%B9%EF%BC%8C%E9%9A%8F%E6%97%B6%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%BF%BB%EF%BC%8C%E5%8F%AA%E8%83%BD%E7%9C%BC%E7%9D%81%E7%9D%81%E7%9D%80%E7%8B%82%E9%A3%8E%E6%9A%B4%E9%9B%A8%EF%BC%8C%E5%90%AC%E5%A4%A9%E7%94%B1%E5%91%BD%E3%80%82">https://v2ex.com/t/729626，这是一个让我想要踏入其他行业的帖子，因为流量的变现，一个不起眼的应用，却能够赚着我们赚不到的钱。还有via浏览器，单一个华为应用市场，就有1200万的下载量，是这个帖子中例子的三四倍，在幕后赚的钱也无法估计，因为，贫穷限制了我的想象力。码农发家致富，成功几率相对来说还是不小的，只是还没有发现路。或者说，没注意到哪里有路。这世界很大，对于初出茅庐的我来说，就好像在风雨中的小船，随时可能会翻，只能眼睁睁着狂风暴雨，听天由命。</a></p>
+<p>有人跟我说过，迷茫证明你在变强，可是…天天尼玛迷茫哪来的时间变强。不过有一点是对的，迷茫了，证明你已经在舒适区里呆不下去了，你要踏出这个舒适区了，或许你没有方向，或许你没有动力，但是只要找到了那个方向，便会不顾一切的朝着那个方向走去。</p>
+<p>不过人生在世，活的就要一个自在，总以为骄傲的抬着头，就能看见头顶的月亮，但是有人说了，抬头不累吗，拿面镜子将他映在脚下不行吗？然后我说了，咱躺着看不行吗？是躺着不舒服吗？</p>
+<p>鸡汤横行的世界，都中了鸡汤的毒，很难有能保持初心的人，不过我始终相信，志向越大，付出的东西就会越多，如果还在迷茫，就适当的向生活低下头吧，低下头还迷茫大不了再抬起来嘛。不过这好像是在向生活磕头了，行了，就到这里吧，写之前我还是挺迷茫的，写完之后，突然就不迷茫了，也许是因为快下班了吧。。。</p>
 
             </div>
             <hr/>
@@ -758,7 +639,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2019/11/30/vue-zu-jian/">http://godhearing.cn/2019/11/30/vue-zu-jian/</a>
+                    <a href="http://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/">http://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -796,8 +677,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
+                                <a href="/tags/Book/">
+                                    <span class="chip bg-color">Book</span>
                                 </a>
                             
                         </div>
@@ -842,7 +723,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-11-30T20-28-00',
+        id: '2021-05-28T17-05-33',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -866,16 +747,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/02/27/shou-xie-celery/">
+                <a href="/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="手写Celery">
+                        <img src="/medias/featureimages/100.png" class="responsive-img" alt="关于最近的迷茫和感受">
                         
-                        <span class="card-title">手写Celery</span>
+                        <span class="card-title">关于最近的迷茫和感受</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -885,30 +767,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Celery/" class="post-category">
-                                    Celery
+                            <a href="/categories/Book/" class="post-category">
+                                    Book
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/Celery/">
-                        <span class="chip bg-color">Celery</span>
+                    <a href="/tags/Book/">
+                        <span class="chip bg-color">Book</span>
                     </a>
                     
                 </div>
@@ -922,12 +801,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/19/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/">
+                <a href="/2021/05/27/centos7-an-zhuang-python3/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="vue优化之代码层面的优化">
+                        <img src="/medias/featureimages/99.jpeg" class="responsive-img" alt="Centos7安装python3">
                         
-                        <span class="card-title">vue优化之代码层面的优化</span>
+                        <span class="card-title">Centos7安装python3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -938,14 +817,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -955,8 +834,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
