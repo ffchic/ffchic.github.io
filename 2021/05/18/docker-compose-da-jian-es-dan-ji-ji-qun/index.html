@@ -578,14 +578,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-05-19
+                    2021-05-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    772
+                    770
                 </div>
                 
 
@@ -654,7 +654,7 @@ services:
       - esnet
   es3:
     image: elasticsearch:7.2.0
-    container_name: es3
+    container_name: es2
     privileged: true
     environment:
       - "ES_JAVA_OPTS=-Xms128m -Xmx128m"
@@ -675,10 +675,11 @@ services:
 # 使用桥接的网络连接方式
 networks:
   esnet:
-    driver: bridge</code></pre>
+    driver: bridge
+</code></pre>
 <p>然后<code>cd node/es1/</code>写<code>elasticsearch.yml</code>配置文件</p>
 <pre><code># 集群名称 EsCluster
-cluster.name: huaweiES
+cluster.name: yawp
 # 节点名称
 node.name: es1
 # 是否为主节点
@@ -690,8 +691,6 @@ http.port: 9200
 
 # 回环地址
 network.host: 0.0.0.0
-
-#network.publish_host: master-ip
 
 discovery.zen.ping.unicast.hosts: ["es1"]
 
@@ -705,10 +704,14 @@ http.cors.allow-origin: "*"
 # 有成为主节点资格的最小节点数
 discovery.zen.minimum_master_nodes: 1
 
-xpack.security.enabled: false</code></pre>
+xpack.security.enabled: false
+
+
+cluster.initial_master_nodes: ["es1"]
+</code></pre>
 <p>从节点的配置文件<code>elasticsearch.yml</code></p>
 <pre><code># 集群名称 EsCluster
-cluster.name: huaweiES
+cluster.name: yawp
 # 节点名称
 node.name: es2
 # 是否为主节点
@@ -720,7 +723,6 @@ http.port: 9200
 # 回环地址
 network.host: 0.0.0.0
 
-#network.publish_host: master-ip
 # 有资格成为主节点的资格列表
 discovery.zen.ping.unicast.hosts: ["es1"]
 
@@ -732,7 +734,11 @@ http.cors.allow-origin: "*"
 # 有成为主节点资格的最小节点数
 discovery.zen.minimum_master_nodes: 1
 
-xpack.security.enabled: false</code></pre>
+xpack.security.enabled: false
+
+
+cluster.initial_master_nodes: ["es1"]
+</code></pre>
 <p>然后回到<code>/opt/elasticsearch</code>启动集群 <code>docker-compose up -d</code></p>
 <p>启动成功后通过<code>docker-compose ps</code>查看集群情况，如果你的容器在运行，但是输入这个命令却找不到，请不用担心，停掉容器，重新启动一下就好了。</p>
 
@@ -1177,7 +1183,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">117.4k</span>&nbsp;字
+                class="white-color">117.8k</span>&nbsp;字
             
             
             
