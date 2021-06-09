@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-03T07:56:51.489Z</updated>
+  <updated>2021-06-09T09:42:32.045Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sqlalchemy-union</title>
+    <link href="http://godhearing.cn/2021/06/09/sqlalchemy-union/"/>
+    <id>http://godhearing.cn/2021/06/09/sqlalchemy-union/</id>
+    <published>2021-06-09T09:27:12.629Z</published>
+    <updated>2021-06-09T09:42:32.045Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/categories/FastAPI/"/>
+    
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
+    
+    <category term="SQLAlchemy" scheme="http://godhearing.cn/tags/SQLAlchemy/"/>
+    
+  </entry>
   
   <entry>
     <title>关于最近的迷茫和感受</title>
@@ -523,33 +550,6 @@
     <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
     
     <category term="SQLAlchemy" scheme="http://godhearing.cn/tags/SQLAlchemy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac下破解pycharm</title>
-    <link href="http://godhearing.cn/2021/03/18/mac-xia-po-jie-pycharm/"/>
-    <id>http://godhearing.cn/2021/03/18/mac-xia-po-jie-pycharm/</id>
-    <published>2021-03-18T03:48:26.242Z</published>
-    <updated>2021-03-18T04:11:20.075Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-    <category term="pycharm" scheme="http://godhearing.cn/tags/pycharm/"/>
     
   </entry>
   

@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -581,14 +581,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    8.9k
+                    9.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    36 Min
+                    38 Min
                 </div>
                 
 
@@ -2079,9 +2079,55 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 </blockquote>
 <blockquote>
 <p>在Go语言中反射的相关功能由内置的reflect包提供，任意接口值在反射中都可以理解为由<code>reflect.Type</code>和<code>reflect.Value</code>两部分组成，并且reflect包提供了<code>reflect.TypeOf</code>和<code>reflect.ValueOf</code>两个函数来获取任意对象的Value和Type。</p>
+<p>注意，无论是<code>TypeOf</code>还是<code>ValueOf</code>，都有一个kind方法，要注意。</p>
 </blockquote>
-<hr>
-<p><code>VScode</code>中，<code>ctrl+shift+p</code>搜索<code>snippet</code> 之后选择go，可以定义快捷键输出</p>
+<h4 id="type-name-和-type-kind"><a href="#type-name-和-type-kind" class="headerlink" title="type name 和 type kind"></a>type name 和 type kind</h4><p>在反射中类型具体划分为两种，一种是类型(Type)， 一种是种类(Kind)</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> Cat <span class="token keyword">struct</span><span class="token punctuation">{</span>
+  Name <span class="token builtin">string</span>
+<span class="token punctuation">}</span></code></pre>
+<p>一个结构体，此时，我们如果要打印他的类型的话，他是一个Cat类型，但是，同时他也属于struct，struct就属于他的种类(Kind)，Cat就是他的类型(Type)，</p>
+<h2 id="20-高并发"><a href="#20-高并发" class="headerlink" title="20.高并发"></a>20.高并发</h2><blockquote>
+<p>都知道，golang天生支持高并发，语言特性使得他是一个并发的杀器。</p>
+</blockquote>
+<h4 id="Goroutine"><a href="#Goroutine" class="headerlink" title="Goroutine"></a>Goroutine</h4><p>Go语言的并发通过<code>goroutine</code>实现。<code>goroutine</code>类似于线程，属于用户态的线程，我们可以根据需要创建成千上万个<code>goroutine</code>并发工作。<code>goroutine</code>是由Go语言的运行时（runtime）调度完成，而线程是由操作系统调度完成。</p>
+<p>Go语言还提供<code>channel</code>在多个<code>goroutine</code>间进行通信。<code>goroutine</code>和<code>channel</code>是 Go 语言秉承的 CSP（Communicating Sequential Process）并发模式的重要实现基础。</p>
+<p>在Go语言编程中你不需要去自己写进程、线程、协程，你的技能包里只有一个技能–<code>goroutine</code>，当你需要让某个任务并发执行的时候，你只需要把这个任务包装成一个函数，开启一个<code>goroutine</code>去执行这个函数就可以了，就是这么简单粗暴。</p>
+<p>Go语言中使用<code>goroutine</code>非常简单，只需要在调用函数的时候在前面加上<code>go</code>关键字，就可以为一个函数创建一个<code>goroutine</code>。</p>
+<p>一个<code>goroutine</code>必定对应一个函数，可以创建多个<code>goroutine</code>去执行相同的函数。</p>
+<p>举个例子：</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token string">"time"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">newTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+    i <span class="token operator">:=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token punctuation">{</span>
+        i<span class="token operator">++</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"newTask"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">go</span> <span class="token function">newTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    i <span class="token operator">:=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> <span class="token punctuation">{</span>
+        i<span class="token operator">++</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<p>在程序启动时，Go程序就会为<code>main()</code>函数创建一个默认的<code>goroutine</code>。</p>
+<p>当main()函数返回的时候该<code>goroutine</code>就结束了，所有在<code>main()</code>函数中启动的<code>goroutine</code>会一同结束，<code>main</code>函数所在的<code>goroutine</code>就像是权利的游戏中的夜王，其他的<code>goroutine</code>都是异鬼，夜王一死它转化的那些异鬼也就全部GG了。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -2516,7 +2562,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">117.9k</span>&nbsp;字
+                class="white-color">119.7k</span>&nbsp;字
             
             
             
