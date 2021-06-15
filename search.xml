@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>gin框架</title>
+      <link href="2021/06/15/gin/"/>
+      <url>2021/06/15/gin/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul><li>Gin是一个golang的微框架，封装比较优雅，API友好，源码注释比较明确，具有快速灵活，容错方便等特点</li><li>对于golang而言，web框架的依赖要远比Python，Java之类的要小。自身的<code>net/http</code>足够简单，性能也非常不错</li><li>借助框架开发，不仅可以省去很多常用的封装带来的时间，也有助于团队的编码风格和形成规范</li></ul><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>要安装Gin软件包，需要安装Go并首先设置Go工作区。</p><p>1.首先需要安装Go（需要1.10+版本），然后可以使用下面的Go命令安装Gin。</p><ul><li>go get -u github.com/gin-gonic/gin</li></ul><p>2.将其导入代码中：</p><ul><li>import “github.com/gin-gonic/gin”</li></ul><p>3.（可选）导入net/http。例如，如果使用常量，则需要这样做http.StatusOK。</p><ul><li>import “net/http”</li></ul><blockquote><p>需要注意的是，直接下载gin有可能会报错，因为毕竟这不是国内的地址，可以通过以下命令来更改源：<code>go env -w GOPROXY=https://goproxy.cn,direct</code></p></blockquote><p>下载完毕后，去go工程目录下的<code>/pkg/mod/github.com/gin-gonic/</code>查看是否有gin，如果名字带着版本什么的，改成gin就好了，否则你在引入的时候还有可能会找不到这个包。</p><h2 id="测试一下"><a href="#测试一下" class="headerlink" title="测试一下"></a>测试一下</h2><p>新建一个文件<code>main.go</code></p><pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> main<span class="token keyword">import</span> <span class="token punctuation">(</span>    <span class="token string">"net/http"</span>    <span class="token string">"github.com/gin-gonic/gin"</span><span class="token punctuation">)</span><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// 1.创建路由</span>    r <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">// 2.绑定路由规则，执行的函数</span>    <span class="token comment" spellcheck="true">// gin.Context，封装了request和response</span>    r<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">{</span>        c<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> <span class="token string">"hello Salmon!"</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">// 3.监听端口，默认在8080</span>    <span class="token comment" spellcheck="true">// Run("里面不指定端口号默认为8080")</span>    r<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token string">":8020"</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre><p>直接运行或者编译</p><pre class=" language-go"><code class="language-go"><span class="token punctuation">[</span>GIN<span class="token operator">-</span>debug<span class="token punctuation">]</span> <span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span> Creating an Engine instance with the Logger and Recovery middleware already attached<span class="token punctuation">.</span><span class="token punctuation">[</span>GIN<span class="token operator">-</span>debug<span class="token punctuation">]</span> <span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span> Running in <span class="token string">"debug"</span> mode<span class="token punctuation">.</span> Switch to <span class="token string">"release"</span> mode in production<span class="token punctuation">.</span> <span class="token operator">-</span> using env<span class="token punctuation">:</span>   export GIN_MODE<span class="token operator">=</span>release <span class="token operator">-</span> using code<span class="token punctuation">:</span>  gin<span class="token punctuation">.</span><span class="token function">SetMode</span><span class="token punctuation">(</span>gin<span class="token punctuation">.</span>ReleaseMode<span class="token punctuation">)</span><span class="token punctuation">[</span>GIN<span class="token operator">-</span>debug<span class="token punctuation">]</span> GET    <span class="token operator">/</span>                         <span class="token operator">--</span><span class="token operator">></span> main<span class="token punctuation">.</span>main<span class="token punctuation">.</span><span class="token function">func1</span> <span class="token punctuation">(</span><span class="token number">3</span> handlers<span class="token punctuation">)</span><span class="token punctuation">[</span>GIN<span class="token operator">-</span>debug<span class="token punctuation">]</span> Listening and serving HTTP on <span class="token punctuation">:</span><span class="token number">8020</span></code></pre><p>ok，启动完毕，然后我们来访问一下<code>http://127.0.0.1:8020/</code>，显示<code>hello Salmon!</code>，大功告成。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Golang </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sqlalchemy-union</title>
       <link href="2021/06/09/sqlalchemy-union/"/>
       <url>2021/06/09/sqlalchemy-union/</url>
