@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-17T08:07:28.956Z</updated>
+  <updated>2021-06-17T08:07:46.244Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://godhearing.cn/2021/06/17/wei-fu-wu-jia-gou-chu-shi/"/>
     <id>http://godhearing.cn/2021/06/17/wei-fu-wu-jia-gou-chu-shi/</id>
     <published>2021-06-17T07:14:36.634Z</published>
-    <updated>2021-06-17T08:07:28.956Z</updated>
+    <updated>2021-06-17T08:07:46.244Z</updated>
     
     
       
@@ -291,31 +291,6 @@
   </entry>
   
   <entry>
-    <title>致新手指南</title>
-    <link href="http://godhearing.cn/2021/04/19/zhi-xin-shou-zhi-nan/"/>
-    <id>http://godhearing.cn/2021/04/19/zhi-xin-shou-zhi-nan/</id>
-    <published>2021-04-19T09:50:53.842Z</published>
-    <updated>2021-05-08T10:00:10.502Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Book" scheme="http://godhearing.cn/categories/Book/"/>
-    
-    
-    <category term="Book" scheme="http://godhearing.cn/tags/Book/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CORS跨域问题</title>
     <link href="http://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/"/>
     <id>http://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/</id>
@@ -550,6 +525,31 @@
     
     
     <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac下安装go语言开发环境</title>
+    <link href="http://godhearing.cn/2021/03/24/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/"/>
+    <id>http://godhearing.cn/2021/03/24/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/</id>
+    <published>2021-03-24T02:33:24.709Z</published>
+    <updated>2021-03-24T04:20:11.923Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
     
   </entry>
   
