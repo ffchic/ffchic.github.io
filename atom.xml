@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-17T08:07:46.244Z</updated>
+  <updated>2021-06-22T08:45:16.993Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go编译遇到xxx/go.mod malformed record data 问题</title>
+    <link href="http://godhearing.cn/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/"/>
+    <id>http://godhearing.cn/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/</id>
+    <published>2021-06-22T08:39:08.227Z</published>
+    <updated>2021-06-22T08:45:16.993Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;最近在慢慢转语言，在go语言下，编译时或者mod下，会偶尔莫名出现 xxx/go.mod malformed</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
+    
+    <category term="bug" scheme="http://godhearing.cn/tags/bug/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务架构初识</title>
@@ -525,31 +553,6 @@
     
     
     <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mac下安装go语言开发环境</title>
-    <link href="http://godhearing.cn/2021/03/24/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/"/>
-    <id>http://godhearing.cn/2021/03/24/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/</id>
-    <published>2021-03-24T02:33:24.709Z</published>
-    <updated>2021-03-24T04:20:11.923Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
-    
-    
-    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
     
   </entry>
   
