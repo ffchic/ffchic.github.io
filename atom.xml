@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-22T08:45:16.993Z</updated>
+  <updated>2021-06-23T09:34:04.730Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GORM入门</title>
+    <link href="http://godhearing.cn/2021/06/23/gorm/"/>
+    <id>http://godhearing.cn/2021/06/23/gorm/</id>
+    <published>2021-06-23T04:03:51.149Z</published>
+    <updated>2021-06-23T09:34:04.730Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Go编译遇到xxx/go.mod malformed record data 问题</title>
     <link href="http://godhearing.cn/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/"/>
     <id>http://godhearing.cn/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/</id>
     <published>2021-06-22T08:39:08.227Z</published>
-    <updated>2021-06-22T08:45:16.993Z</updated>
+    <updated>2021-06-22T09:39:11.035Z</updated>
     
     
       
@@ -528,31 +553,6 @@
     
     
     <category term="Linux" scheme="http://godhearing.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker打包vue多处/static/css路径解决办法</title>
-    <link href="http://godhearing.cn/2021/03/25/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/"/>
-    <id>http://godhearing.cn/2021/03/25/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/</id>
-    <published>2021-03-25T10:44:01.132Z</published>
-    <updated>2021-03-25T10:48:20.566Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;解决办法&quot;&gt;&lt;a href=&quot;#解决办法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Docker" scheme="http://godhearing.cn/categories/Docker/"/>
-    
-    
-    <category term="Docker" scheme="http://godhearing.cn/tags/Docker/"/>
     
   </entry>
   

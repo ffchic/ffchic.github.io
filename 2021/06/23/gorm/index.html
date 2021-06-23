@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python发送阿里云短信, 天听">
+    <meta name="keywords" content="GORM入门, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python发送阿里云短信 | 天听</title>
+    <title>GORM入门 | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -420,12 +420,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/74.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/105.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python发送阿里云短信</h1>
+                    <h1 class="description center-align post-title">GORM入门</h1>
                 </div>
             </div>
         </div>
@@ -542,8 +542,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
                     </div>
@@ -554,8 +554,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -567,28 +567,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-26
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-26
+                    2021-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    454
+                    964
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -604,67 +604,123 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>在当今这个网络如此发达的时代，手机已经成为了必不可少的随身物品，而，普通的单因子登录已经不是百分百安全的了，很容易被暴力破解，所以，双因子、三因子这些认证方式，已经从“你有什么”，变成了“你是谁”，从而让账户变得更加的安全，所以，短信验证码已经成为了必不可少的东西，今天，带来阿里云+python来发送短信。</p>
+<p>GORM，是Go语言中的ORM(对象关系映射)，什么是ORM，是通过使用描述对象和数据库之间映射的元数据，将程序中的对象与关系数据库相互映射</p>
+<p>坦白来说，就是一个简略sql语句的工具，每个人写sql语句习惯不同，不一定每个人都能看得懂，但是，换成orm后，统一的格式，无论在业务交接上还是便捷度上，都有很大的提升。</p>
+<p>推荐去官网阅读文档，中文文档非常简便，我也不想搬过来了，就简简单单的使用一下。</p>
 </blockquote>
-<h2 id="1-注册阿里云"><a href="#1-注册阿里云" class="headerlink" title="1.注册阿里云"></a>1.注册阿里云</h2><blockquote>
-<p>注册步骤很简单，地址：<a target="_blank" rel="noopener" href="https://homenew.console.aliyun.com/">在这里</a>，需要注意的是，发送短信只有实名认证的用户才能够使用，<a target="_blank" rel="noopener" href="https://help.aliyun.com/knowledge_detail/37171.html?spm=a2c4g.11186623.2.20.2c273ea59ImPQC">参考这里</a></p>
-</blockquote>
-<h2 id="2-创建AccessKey和Access-Key-Secret"><a href="#2-创建AccessKey和Access-Key-Secret" class="headerlink" title="2.创建AccessKey和Access Key Secret"></a>2.创建AccessKey和Access Key Secret</h2><img src="/2021/02/26/python-fa-song-a-li-yun-duan-xin/image-20210226112308451.png" alt style="zoom:67%;">
+<p><a target="_blank" rel="noopener" href="https://gorm.io/">官网</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class=" language-go"><code class="language-go"><span class="token keyword">go</span> get <span class="token operator">-</span>u gorm<span class="token punctuation">.</span>io<span class="token operator">/</span>gorm</code></pre>
+<p>直接go get安装即可，GORM 官方支持的数据库类型有： MySQL, PostgreSQL, SQlite, SQL Server，本文章就以mysql为例。</p>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token string">"gorm.io/driver/mysql"</span>
+    <span class="token string">"gorm.io/gorm"</span>
+<span class="token punctuation">)</span>
 
-<h2 id="3-获取签名名称和模板code"><a href="#3-获取签名名称和模板code" class="headerlink" title="3.获取签名名称和模板code"></a>3.获取签名名称和模板code</h2><img src="/2021/02/26/python-fa-song-a-li-yun-duan-xin/image-20210226112434500.png" alt style="zoom:50%;">
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情</span>
+    dsn <span class="token operator">:=</span> <span class="token string">"账号:密码@tcp(IP:端口号)/数据库名字?charset=utf8mb4&amp;parseTime=True&amp;loc=Local"</span>
+    db<span class="token punctuation">,</span> err <span class="token operator">:=</span> gorm<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span>mysql<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span>dsn<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>gorm<span class="token punctuation">.</span>Config<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>db<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h2><p>就使用结构体即可，不过需要一点，实现一个TableName接口，否则他会在映射时表名多加一个s。比如有个表user，只有id和name两个字段</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> User <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    ID   <span class="token builtin">uint</span>
+    Name <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
 
-<h2 id="4-安装依赖"><a href="#4-安装依赖" class="headerlink" title="4.安装依赖"></a>4.安装依赖</h2><p>1.安装pythonsdk</p>
-<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 安装阿里云的相关依赖</span>
-<span class="token comment" spellcheck="true"># python2执行此命令</span>
-pip install aliyun<span class="token operator">-</span>python<span class="token operator">-</span>sdk<span class="token operator">-</span>core
-<span class="token comment" spellcheck="true"># python3执行此命令</span>
-pip install aliyun<span class="token operator">-</span>python<span class="token operator">-</span>sdk<span class="token operator">-</span>core<span class="token operator">-</span>v3</code></pre>
-<p>2.安装SDK</p>
-<p>下载地址在<a target="_blank" rel="noopener" href="http://ytx-sdk.oss-cn-shanghai.aliyuncs.com/dysms_python.zip?spm=a2c4g.11186623.2.9.10476220dsQLEd&amp;file=dysms_python.zip">这里</a>，解压之后，进入根目录执行命令： python setup.py install #如果为python3，请执行：python3 setup.py install</p>
-<p>3.安装api依赖</p>
-<p><code> pip install aliyun-python-sdk-kms</code></p>
-<p><code>pip install aliyun-python-sdk-dysmsapi</code></p>
-<h2 id="5-写一个工具函数"><a href="#5-写一个工具函数" class="headerlink" title="5.写一个工具函数"></a>5.写一个工具函数</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> aliyunsdkcore<span class="token punctuation">.</span>client <span class="token keyword">import</span> AcsClient
-<span class="token keyword">from</span> aliyunsdkcore<span class="token punctuation">.</span>request <span class="token keyword">import</span> CommonRequest
+<span class="token keyword">func</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span> <span class="token function">TableName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"user"</span>
+<span class="token punctuation">}</span></code></pre>
+<p>如果不写这个TableName的话，默认会映射成为<code>users</code>表。</p>
+<h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><p>Gorm是我见过最简单的orm了，只需要将数据指针地址传过去，就ok</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
+    <span class="token string">"fmt"</span>
+    <span class="token string">"gorm.io/driver/mysql"</span>
+    <span class="token string">"gorm.io/gorm"</span>
+<span class="token punctuation">)</span>
 
-<span class="token comment" spellcheck="true"># 用户AccessKey</span>
-ACCESS_KEY_ID <span class="token operator">=</span> <span class="token string">""</span>
-<span class="token comment" spellcheck="true"># Access Key Secret</span>
-ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token string">""</span>
+<span class="token keyword">type</span> User <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    ID   <span class="token builtin">uint</span>
+    Name <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
 
+<span class="token keyword">func</span> <span class="token punctuation">(</span>User<span class="token punctuation">)</span> <span class="token function">TableName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"user"</span>
+<span class="token punctuation">}</span>
 
-<span class="token keyword">class</span> <span class="token class-name">SMS</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>signName<span class="token punctuation">,</span>templateCode<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        self<span class="token punctuation">.</span>signName <span class="token operator">=</span> signName
-        self<span class="token punctuation">.</span>templateCode <span class="token operator">=</span> templateCode
-        self<span class="token punctuation">.</span>client <span class="token operator">=</span> client <span class="token operator">=</span> AcsClient<span class="token punctuation">(</span>ACCESS_KEY_ID<span class="token punctuation">,</span>ACCESS_KEY_SECRET<span class="token punctuation">,</span><span class="token string">'cn-hangzhou'</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    user <span class="token operator">:=</span> User<span class="token punctuation">{</span>ID<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> Name<span class="token punctuation">:</span> <span class="token string">"Salmon"</span><span class="token punctuation">}</span>
 
-    <span class="token keyword">def</span> <span class="token function">send</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> phone_numbers<span class="token punctuation">,</span> template_param<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        request <span class="token operator">=</span> CommonRequest<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>set_accept_format<span class="token punctuation">(</span><span class="token string">'json'</span><span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>set_domain<span class="token punctuation">(</span><span class="token string">'dysmsapi.aliyuncs.com'</span><span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>set_method<span class="token punctuation">(</span><span class="token string">'POST'</span><span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>set_protocol_type<span class="token punctuation">(</span><span class="token string">'https'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># https | http</span>
-        request<span class="token punctuation">.</span>set_version<span class="token punctuation">(</span><span class="token string">'2017-05-25'</span><span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>set_action_name<span class="token punctuation">(</span><span class="token string">'SendSms'</span><span class="token punctuation">)</span>
+    dsn <span class="token operator">:=</span> <span class="token string">"root:root@tcp(127.0.0.1:3306)/test01?charset=utf8mb4&amp;parseTime=True&amp;loc=Local"</span>
+    db<span class="token punctuation">,</span> err <span class="token operator">:=</span> gorm<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span>mysql<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span>dsn<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>gorm<span class="token punctuation">.</span>Config<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> err<span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
+        <span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    result <span class="token operator">:=</span> db<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>ID<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+user<span class="token punctuation">.</span>ID             <span class="token comment" spellcheck="true">// 返回插入数据的主键</span>
+result<span class="token punctuation">.</span>Error        <span class="token comment" spellcheck="true">// 返回 error</span>
+result<span class="token punctuation">.</span>RowsAffected <span class="token comment" spellcheck="true">// 返回插入记录的条数</span></code></pre>
+<h2 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h2><p>GORM 提供了 <code>First</code>、<code>Take</code>、<code>Last</code> 方法，以便从数据库中检索单个对象。当查询数据库时它添加了 <code>LIMIT 1</code> 条件，且没有找到记录时，它会返回 <code>ErrRecordNotFound</code> 错误。</p>
+<pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 获取第一条记录（主键升序）</span>
+db<span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// SELECT * FROM users ORDER BY id LIMIT 1;</span>
 
-        request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'RegionId'</span><span class="token punctuation">,</span> <span class="token string">"cn-hangzhou"</span><span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'PhoneNumbers'</span><span class="token punctuation">,</span> phone_numbers<span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'SignName'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>signName<span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'TemplateCode'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>templateCode<span class="token punctuation">)</span>
-        request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'TemplateParam'</span><span class="token punctuation">,</span> template_param<span class="token punctuation">)</span>
-        response <span class="token operator">=</span> self<span class="token punctuation">.</span>client<span class="token punctuation">.</span>do_action_with_exception<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> response</code></pre>
-<h2 id="6-调用此函数"><a href="#6-调用此函数" class="headerlink" title="6.调用此函数"></a>6.调用此函数</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> random <span class="token keyword">import</span> randint
+<span class="token comment" spellcheck="true">// 获取一条记录，没有指定排序字段</span>
+db<span class="token punctuation">.</span><span class="token function">Take</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// SELECT * FROM users LIMIT 1;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Aliyun_Sms</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 生成验证码</span>
-        params <span class="token operator">=</span> <span class="token string">"{'code':%d}"</span><span class="token operator">%</span><span class="token punctuation">(</span>randint<span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token number">100000</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        para <span class="token operator">=</span> request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'phone_numbers'</span><span class="token punctuation">)</span>
-        sms <span class="token operator">=</span> SMS<span class="token punctuation">(</span><span class="token string">"模板名称"</span><span class="token punctuation">,</span><span class="token string">"    模版CODE"</span><span class="token punctuation">)</span>
-        res <span class="token operator">=</span> sms<span class="token punctuation">.</span>send<span class="token punctuation">(</span>phone<span class="token punctuation">,</span>params<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
+<span class="token comment" spellcheck="true">// 获取最后一条记录（主键降序）</span>
+db<span class="token punctuation">.</span><span class="token function">Last</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// SELECT * FROM users ORDER BY id DESC LIMIT 1;</span>
+
+result <span class="token operator">:=</span> db<span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">)</span>
+result<span class="token punctuation">.</span>RowsAffected <span class="token comment" spellcheck="true">// 返回找到的记录数</span>
+result<span class="token punctuation">.</span>Error        <span class="token comment" spellcheck="true">// returns error</span>
+
+<span class="token comment" spellcheck="true">// 条件查询</span>
+db<span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 检查 ErrRecordNotFound 错误</span>
+errors<span class="token punctuation">.</span><span class="token function">Is</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>Error<span class="token punctuation">,</span> gorm<span class="token punctuation">.</span>ErrRecordNotFound<span class="token punctuation">)</span>
+</code></pre>
+<p>主键检索</p>
+<pre class=" language-go"><code class="language-go">db<span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// SELECT * FROM users WHERE id = 10;</span>
+
+db<span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>user<span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// SELECT * FROM users WHERE id = 10;</span>
+
+db<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// SELECT * FROM users WHERE id IN (1,2,3);</span></code></pre>
+<p>查询所有，使用<code>Find</code>方法，并且，接收值为数组。</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> users <span class="token punctuation">[</span><span class="token punctuation">]</span>User
+    <span class="token comment" spellcheck="true">//users := make([]User, 10)</span>
+    dsn <span class="token operator">:=</span> <span class="token string">"root:root@tcp(127.0.0.1:3306)/test01?charset=utf8mb4&amp;parseTime=True&amp;loc=Local"</span>
+    db<span class="token punctuation">,</span> err <span class="token operator">:=</span> gorm<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span>mysql<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span>dsn<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>gorm<span class="token punctuation">.</span>Config<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> err<span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
+        <span class="token function">panic</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    db<span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span></code></pre>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><p>更新单个列，当使用 <code>Update</code> 更新单个列时，你需要指定条件，否则会返回 <code>ErrMissingWhereClause</code> 错误，查看 <a target="_blank" rel="noopener" href="https://gorm.io/zh_CN/docs/update.html#block_global_updates">Block Global Updates</a> 获取详情。当使用了 <code>Model</code> 方法，且该对象主键有值，该值会被用于构建条件</p>
+<pre class=" language-go"><code class="language-go">db<span class="token punctuation">.</span><span class="token function">Model</span><span class="token punctuation">(</span>User<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token string">"role"</span><span class="token punctuation">,</span><span class="token string">"Salmon"</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// db.Model(&amp;users).Where("id=?", 19).Update("role","godhearing")</span></code></pre>
+<p>更新多列</p>
+<p><code>Updates</code> 方法支持 <code>struct</code> 和 <code>map[string]interface{}</code> 参数。当使用 <code>struct</code> 更新时，默认情况下，GORM 只会更新非零值的字段</p>
+<pre class=" language-go"><code class="language-go">db<span class="token punctuation">.</span><span class="token function">Model</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Updates</span><span class="token punctuation">(</span>User<span class="token punctuation">{</span>ID<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>Role<span class="token punctuation">:</span> <span class="token string">"godhearing"</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>只更新某些字段(Select)，忽略某些字段(Omit)</p>
+<pre class=" language-go"><code class="language-go">db<span class="token punctuation">.</span><span class="token function">Model</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token string">"role"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Updates</span><span class="token punctuation">(</span>User<span class="token punctuation">{</span>ID<span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span>Role<span class="token punctuation">:</span> <span class="token string">"龙"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+db<span class="token punctuation">.</span><span class="token function">Model</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Omit</span><span class="token punctuation">(</span><span class="token string">"role"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Updates</span><span class="token punctuation">(</span>User<span class="token punctuation">{</span>ID<span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span>Role<span class="token punctuation">:</span> <span class="token string">"龙"</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><p>根据主键删除</p>
+<pre class=" language-go"><code class="language-go">db<span class="token punctuation">.</span><span class="token function">Delete</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>User<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">)</span></code></pre>
+<p>条件删除</p>
+<pre class=" language-go"><code class="language-go">db<span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"role = ?"</span><span class="token punctuation">,</span> <span class="token string">"asdasd"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Delete</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -690,7 +746,7 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2021/02/26/python-fa-song-a-li-yun-duan-xin/">http://godhearing.cn/2021/02/26/python-fa-song-a-li-yun-duan-xin/</a>
+                    <a href="http://godhearing.cn/2021/06/23/gorm/">http://godhearing.cn/2021/06/23/gorm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -728,8 +784,8 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
                         </div>
@@ -774,7 +830,7 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-02-26T08-00-00',
+        id: '2021-06-23T12-03-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -798,16 +854,17 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/02/elasticsearch-xiang-jie/">
+                <a href="/2021/06/23/gorm/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/75.jpg" class="responsive-img" alt="Elasticsearch详解">
+                        <img src="/medias/featureimages/105.jpeg" class="responsive-img" alt="GORM入门">
                         
-                        <span class="card-title">Elasticsearch详解</span>
+                        <span class="card-title">GORM入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -817,34 +874,27 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
-                        <span class="chip bg-color">全文检索</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
                     </a>
                     
                 </div>
@@ -858,12 +908,12 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/25/linux-xia-an-zhuang-mysqlclient/">
+                <a href="/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/73.jpg" class="responsive-img" alt="Linux下安装mysqlclient">
+                        <img src="/medias/featureimages/104.jpeg" class="responsive-img" alt="Go编译遇到xxx/go.mod malformed record data 问题">
                         
-                        <span class="card-title">Linux下安装mysqlclient</span>
+                        <span class="card-title">Go编译遇到xxx/go.mod malformed record data 问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -874,14 +924,14 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/mysql/" class="post-category">
-                                    mysql
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
@@ -891,8 +941,12 @@ ACCESS_KEY_SECRET <span class="token operator">=</span> <span class="token strin
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/tags/bug/">
+                        <span class="chip bg-color">bug</span>
                     </a>
                     
                 </div>
