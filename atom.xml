@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>天听</title>
+  <title>天听的技术博客</title>
   
   <subtitle>天听</subtitle>
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-23T09:34:04.730Z</updated>
+  <updated>2021-06-23T09:34:18.362Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://godhearing.cn/2021/06/23/gorm/"/>
     <id>http://godhearing.cn/2021/06/23/gorm/</id>
     <published>2021-06-23T04:03:51.149Z</published>
-    <updated>2021-06-23T09:34:04.730Z</updated>
+    <updated>2021-06-23T09:34:18.362Z</updated>
     
     
       

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MobaXterm操作prometheus和grafana搭建监控预警, 天听">
+    <meta name="keywords" content="MobaXterm操作prometheus和grafana搭建监控预警, 天听的技术博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MobaXterm操作prometheus和grafana搭建监控预警 | 天听</title>
+    <title>MobaXterm操作prometheus和grafana搭建监控预警 | 天听的技术博客</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -31,7 +31,7 @@
 
 <meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="天听的技术博客" type="application/atom+xml">
 </head>
 
 
@@ -46,7 +46,7 @@
                     
                     <img src="/medias/avatar.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">天听</span>
+                    <span class="logo-span">天听的技术博客</span>
                 </a>
             </div>
             
@@ -197,7 +197,7 @@
         
         <img src="/medias/avatar.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">天听</div>
+        <div class="logo-name">天听的技术博客</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -620,17 +620,17 @@
 </ul>
 <h2 id="小问题"><a href="#小问题" class="headerlink" title="小问题"></a>小问题</h2><p><a target="_blank" rel="noopener" href="https://mobaxterm.mobatek.net/">官网地址</a>，安装过程不再阐述，解压会比较慢，后续就正常了</p>
 <p>然后打开，连接服务器</p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207170236919.png" alt style="zoom:80%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207170236919.png" alt="" style="zoom:80%;">
 
 <ul>
 <li>先点击session，连接设置可以按需选择，这里我用了SSH，输入你服务器的公网IP即可</li>
 </ul>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207170459123.png" alt style="zoom:67%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207170459123.png" alt="" style="zoom:67%;">
 
 <ul>
 <li>然后登录，就可以进入你的服务器内</li>
 </ul>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207170844756.png" alt style="zoom:67%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207170844756.png" alt="" style="zoom:67%;">
 
 <p>左边是主机文件，右边是操作台，也就是终端勾选左下角的 <code>Follow terminal folder</code>可以让两个的工作路径保持一致。</p>
 <blockquote>
@@ -703,10 +703,10 @@ scrape_configs:
 <pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">9090</span><span class="token punctuation">:</span><span class="token number">9090</span> <span class="token operator">-</span>v <span class="token operator">/</span>tmp<span class="token operator">/</span>prometheus<span class="token punctuation">.</span>yml<span class="token punctuation">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>prometheus<span class="token operator">/</span>prometheus<span class="token punctuation">.</span>yml prom<span class="token operator">/</span>prometheus<span class="token punctuation">:</span>latest</code></pre>
 <p>然后可以访问一下<code>http://公网ip:9090/targets</code></p>
 <p>然后，我们新创建一个机器人</p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207190120623.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207190120623.png" alt="" style="zoom:50%;">
 
 <p>需要注意的是，要将公网ip写上</p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207190245136.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207190245136.png" alt="" style="zoom:50%;">
 
 <p>然后再拉取一个告警模块以及顶顶机器人的插件</p>
 <p>如果普罗米修斯的告警模块检测到异常，就会通过钉钉机器人的webhook的地址发送消息</p>
@@ -763,15 +763,15 @@ rule_files:
 <p>启动钉钉插件</p>
 <pre><code>docker run -d -p 8060:8060 --name webhook timonwong/prometheus-webhook-dingtalk --ding.profile="webhook1=https://oapi.dingtalk.com/robot/send?access_token=钉钉token"</code></pre>
 <p>然后访问一下<code>http://公网ip:9090/rules</code></p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/MobaXterm操作prometheus和grafana搭建监控预警\image-20201207192642565.png" alt style="zoom:80%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/MobaXterm操作prometheus和grafana搭建监控预警\image-20201207192642565.png" alt="" style="zoom:80%;">
 
 <p>然后我们关闭<code>redis_exporter</code>，来模拟redis宕机</p>
 <pre><code>docker stop redis_exporter</code></pre>
 <p>普罗米修斯的监控立刻就发现了问题</p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207192944667.png" alt style="zoom:67%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207192944667.png" alt="" style="zoom:67%;">
 
 <p>然后可以看到，机器人会发送一个消息</p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207193106577.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207193106577.png" alt="" style="zoom:50%;">
 
 <p>ok，完毕</p>
 <h2 id="Grafana可视化界面"><a href="#Grafana可视化界面" class="headerlink" title="Grafana可视化界面"></a>Grafana可视化界面</h2><p>这是一个很酷炫的可视化界面，可以将我们的监控界面导入到里面，隔壁小孩崇拜的很</p>
@@ -783,14 +783,14 @@ rule_files:
 <li>登录<code>http://公网ip:3000</code></li>
 <li>默认账号和密码都是admin</li>
 </ul>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207194652625.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207194652625.png" alt="" style="zoom:50%;">
 
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207194725114.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207194725114.png" alt="" style="zoom:50%;">
 
 <p>写入公网IP和端口</p>
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207194844677.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207194844677.png" alt="" style="zoom:50%;">
 
-<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207195444512.png" alt style="zoom:50%;">
+<img src="/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/image-20201207195444512.png" alt="" style="zoom:50%;">
 
 <p>ok完美，莫得问题</p>
 
