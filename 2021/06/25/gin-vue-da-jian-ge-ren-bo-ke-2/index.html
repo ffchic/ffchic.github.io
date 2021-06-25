@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="扫描普通链接进入微信小程序, 天听">
+    <meta name="keywords" content="gin-vue搭建个人博客-2, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>扫描普通链接进入微信小程序 | 天听</title>
+    <title>gin-vue搭建个人博客-2 | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -357,12 +357,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/72.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/107.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">扫描普通链接进入微信小程序</h1>
+                    <h1 class="description center-align post-title">gin-vue搭建个人博客-2</h1>
                 </div>
             </div>
         </div>
@@ -479,8 +479,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                <span class="chip bg-color">微信小程序</span>
+                            <a href="/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
                     </div>
@@ -491,8 +491,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="post-category">
-                                微信小程序
+                            <a href="/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -504,28 +504,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-06-25
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-06-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    561
+                    805
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -540,55 +540,129 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>为了更加方便的将小程序推广，微信现在推出了扫描普通二维码进入某个微信小程序的指定页面，而小程序是没有链接性的地址的，所以，我们还是要先阅读一下<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/introduction/qrcode.html#%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D">文档</a></p>
-</blockquote>
-<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><h4 id="step-1：开启扫描二维码打开小程序"><a href="#step-1：开启扫描二维码打开小程序" class="headerlink" title="step 1：开启扫描二维码打开小程序"></a>step 1：开启扫描二维码打开小程序</h4><p>登录小程序后台，进入“开发-开发设置-扫普通链接二维码打开小程序”，开启功能后即可配置二维码规则。</p>
-<h4 id="step2：配置二维码"><a href="#step2：配置二维码" class="headerlink" title="step2：配置二维码"></a>step2：配置二维码</h4><p>二维码规则：</p>
-<blockquote>
-<ul>
-<li>二维码规则的域名须通过ICP备案的验证。</li>
-<li>支持http、https、ftp开头的链接（如：<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http://wx.qq.com">http://wx.qq.com</a>、<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://wx.qq.com/mp/">https://wx.qq.com/mp/</a>、<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://wx.qq.com/mp?id=123">https://wx.qq.com/mp?id=123</a>）</li>
-<li>一个小程序帐号可配置不多于10个二维码前缀规则。</li>
-</ul>
-</blockquote>
-<p>校验文件：</p>
-<p>下载随机校验文件，并将文件上传至服务器指定位置的目录下，方可通过所属权校验。</p>
-<p>这里要确定的是，能够访问到这个文件，我这里直接使用的nginx，在nginx下添加配置</p>
-<pre><code>location /tra/校验文件名.txt {
-            alias  /校验文件名.txt;
-        }</code></pre>
-<p>使用微信扫码，只要是你配置的前缀名，他就会去服务器找这个校验文件，如果校验成功，就会去小程序你指定的页面。</p>
-<p>小程序功能页面：</p>
-<blockquote>
-<p>小程序功能页面可打开指定页面，扫描二维码可打开对应页面。</p>
-</blockquote>
-<img src="/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/image-20210220133743592.png" alt style="zoom:67%;">
+                <h2 id="错误定义"><a href="#错误定义" class="headerlink" title="错误定义"></a>错误定义</h2><p>定义错误码和输出，在utils下，新建一个文件夹errmsg，注意，文件夹！在文件夹下再新建<code>errmsg.go</code>，为什么要这样做呢，因为在同一个文件夹下，只能允许存在一个package，我们在utils下，只能使用utils，所以，新建一个errmsg，我们就可以使用errmsg这个包名。</p>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> errmsg
 
-<h4 id="step3：扫描二维码打开小程序"><a href="#step3：扫描二维码打开小程序" class="headerlink" title="step3：扫描二维码打开小程序"></a>step3：扫描二维码打开小程序</h4><p>配置二维码时可配置测试链接，利用第三方二维码生成工具，使用测试链接生成二维码，利用微信“扫一扫”或微信内长按识别二维码跳转小程序。</p>
-<p>链接?后为参数部分，可在onLoad事件中提取<code>q</code>参数并自行<code>decodeURIComponent</code>一次，即可获取原二维码的完整内容。</p>
-<pre class=" language-javascript"><code class="language-javascript">onLoad<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">let</span> queryAll <span class="token operator">=</span> <span class="token function">decodeURIComponent</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">let</span> id <span class="token operator">=</span> <span class="token function">gup</span><span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> queryAll<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token comment" spellcheck="true">//console.log(queryAll);</span>
-      <span class="token comment" spellcheck="true">//console.log(id);</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// 定义一些常量，用来指定错误码。</span>
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+    SUCCSE <span class="token operator">=</span> <span class="token number">200</span>
+    ERROR  <span class="token operator">=</span> <span class="token number">500</span>
 
-<span class="token comment" spellcheck="true">/**
- * 获取URL中某个字符串字段
- * gup('id', 'https://www.lubanso.com/wx/home/?id=bHViYW5zb7W7DJI=&amp;jhkfdhkjfda')
- * //===> bHViYW5zb7W7DJI=
- */</span>
-<span class="token keyword">function</span> <span class="token function">gup</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>url<span class="token punctuation">)</span> url <span class="token operator">=</span> location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-  name <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/[\[]/</span><span class="token punctuation">,</span> <span class="token string">"\\\["</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/[\]]/</span><span class="token punctuation">,</span> <span class="token string">"\\\]"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> regexS <span class="token operator">=</span> <span class="token string">"[\\?&amp;]"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"=([^&amp;#]*)"</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> regex <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span>regexS<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> results <span class="token operator">=</span> regex<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> results <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token punctuation">:</span> results<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// code=1XXX，用户模块错误</span>
+    ERROR_USERNAME_USED <span class="token operator">=</span> <span class="token number">1001</span>
+    ERROR_PASSWORD_WRONG <span class="token operator">=</span> <span class="token number">1002</span>
+    ERROR_USER_NOT_EXIST <span class="token operator">=</span> <span class="token number">1003</span>
+    ERROR_TOKEN_EXIST <span class="token operator">=</span> <span class="token number">1004</span>
+    ERROR_TOKEN_RUNTIME <span class="token operator">=</span> <span class="token number">1005</span>
+    ERROR_TOKEN_WRONG <span class="token operator">=</span> <span class="token number">1006</span>
+    ERROR_TOKEN_TYPE_WRONG <span class="token operator">=</span> <span class="token number">1007</span>
+
+    <span class="token comment" spellcheck="true">// code=2XXX，文章模块错误</span>
+
+    <span class="token comment" spellcheck="true">// code=3XXX，分类模块错误</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 定义一个map，用来接收状态码来输入错误信息</span>
+<span class="token keyword">var</span> CodeMsg <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span>
+    SUCCSE<span class="token punctuation">:</span>                 <span class="token string">"OK"</span><span class="token punctuation">,</span>
+    ERROR<span class="token punctuation">:</span>                  <span class="token string">"FAIL"</span><span class="token punctuation">,</span>
+    ERROR_USERNAME_USED<span class="token punctuation">:</span>    <span class="token string">"用户名已存在！"</span><span class="token punctuation">,</span>
+    ERROR_PASSWORD_WRONG<span class="token punctuation">:</span>   <span class="token string">"密码错误"</span><span class="token punctuation">,</span>
+    ERROR_USER_NOT_EXIST<span class="token punctuation">:</span>   <span class="token string">"用户不存在"</span><span class="token punctuation">,</span>
+    ERROR_TOKEN_EXIST<span class="token punctuation">:</span>      <span class="token string">"TOKEN不存在,请重新登陆"</span><span class="token punctuation">,</span>
+    ERROR_TOKEN_RUNTIME<span class="token punctuation">:</span>    <span class="token string">"TOKEN已过期,请重新登陆"</span><span class="token punctuation">,</span>
+    ERROR_TOKEN_WRONG<span class="token punctuation">:</span>      <span class="token string">"TOKEN不正确,请重新登陆"</span><span class="token punctuation">,</span>
+    ERROR_TOKEN_TYPE_WRONG<span class="token punctuation">:</span> <span class="token string">"TOKEN格式错误,请重新登陆"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 定义一个方法，来接收状态吗输出错误信息</span>
+<span class="token keyword">func</span> <span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token builtin">string</span>  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> CodeMsg<span class="token punctuation">[</span>code<span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
+<h2 id="用户create-get"><a href="#用户create-get" class="headerlink" title="用户create/get"></a>用户create/get</h2><blockquote>
+<p>写业务逻辑接口，每个人都有每个人的习惯，这里我按照我的习惯写一下，这部分如果熟悉gorm的使用或者有其他想法的道友就可以跳过啦。</p>
+<p>不过注意，此时的用户添加注册不是最终形态，因为最起码的密码还没有加密，所以后期还需要慢慢的来补。暂时先如此。</p>
+</blockquote>
+<ol>
+<li>首先在<code>model/User.go</code>下，新添加几个操作数据库函数，这里只针对于数据库的GORM操作，并不关API的事。</li>
+</ol>
+<pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 存在性判断</span>
+<span class="token keyword">func</span> <span class="token function">CheckUser</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">(</span>code <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> users User
+    <span class="token comment" spellcheck="true">// 查询用户是否存在</span>
+    db<span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"username=?"</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> users<span class="token punctuation">.</span>ID <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 如果存在则引出错误</span>
+        <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 不存在则输入正确</span>
+    <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>SUCCSE
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 添加用户</span>
+<span class="token keyword">func</span> <span class="token function">CreateUser</span><span class="token punctuation">(</span>data <span class="token operator">*</span>User<span class="token punctuation">)</span><span class="token builtin">int</span>  <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 添加时接收一下错误</span>
+    err <span class="token operator">:=</span> db<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
+    <span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>ERROR
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>SUCCSE
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 用户列表</span>
+<span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>PageSize <span class="token builtin">int</span><span class="token punctuation">,</span> PageNum <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span>User  <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> users <span class="token punctuation">[</span><span class="token punctuation">]</span>User
+    <span class="token comment" spellcheck="true">// 分页</span>
+    err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Limit</span><span class="token punctuation">(</span>PageSize<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Offset</span><span class="token punctuation">(</span><span class="token punctuation">(</span>PageNum <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> PageSize<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;&amp;</span> err <span class="token operator">!=</span> gorm<span class="token punctuation">.</span>ErrRecordNotFound <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">nil</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 返回用户的列表</span>
+    <span class="token keyword">return</span> users
+<span class="token punctuation">}</span></code></pre>
+<ol start="2">
+<li>在<code>api/v1/user.go</code>下，添加API代码：</li>
+</ol>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> code <span class="token builtin">int</span>
+
+<span class="token comment" spellcheck="true">// 添加用户</span>
+<span class="token keyword">func</span> <span class="token function">AddUser</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 接收用户数据，放在data里</span>
+    <span class="token keyword">var</span> data model<span class="token punctuation">.</span>User
+    <span class="token boolean">_</span> <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">ShouldBindJSON</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 查看是否存在，不存在则添加</span>
+    code <span class="token operator">=</span> model<span class="token punctuation">.</span><span class="token function">CheckUser</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>Username<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token punctuation">{</span>
+        model<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// 如果存在，则返回错误码</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED <span class="token punctuation">{</span>
+        code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED
+    <span class="token punctuation">}</span>
+
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
+        <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
+        <span class="token string">"msg"</span><span class="token punctuation">:</span>errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">"data"</span><span class="token punctuation">:</span>data<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 查询多个用户</span>
+<span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 字符串转int，如果不传，默认值按照需求设置</span>
+    PageSize<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">Atoi</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">DefaultQuery</span><span class="token punctuation">(</span><span class="token string">"pagesize"</span><span class="token punctuation">,</span><span class="token string">"3"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    PageNum<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">Atoi</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">DefaultQuery</span><span class="token punctuation">(</span><span class="token string">"pagenum"</span><span class="token punctuation">,</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    data <span class="token operator">:=</span> model<span class="token punctuation">.</span><span class="token function">GetUsers</span><span class="token punctuation">(</span>PageSize<span class="token punctuation">,</span>PageNum<span class="token punctuation">)</span>
+    code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>SUCCSE
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
+        <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
+        <span class="token string">"msg"</span><span class="token punctuation">:</span>errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string">"data"</span><span class="token punctuation">:</span>data<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>有个小问题，如果用户存在，且状态码返回了，但是返回的同时有他输入的数据，还有User这个结构体的数据结构，很不安全，掌握了接口之后，有心之人很可能会通过篡改数据等方法威胁到数据库安全。暂时先这样，还得研究一下。</p>
 
             </div>
             <hr/>
@@ -614,7 +688,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/">http://godhearing.cn/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/</a>
+                    <a href="http://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-2/">http://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -652,8 +726,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
-                                    <span class="chip bg-color">微信小程序</span>
+                                <a href="/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
                         </div>
@@ -695,7 +769,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-02-20T00-00-00',
+        id: '2021-06-25T14-05-47',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -719,16 +793,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/02/25/linux-xia-an-zhuang-mysqlclient/">
+                <a href="/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-2/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/73.jpg" class="responsive-img" alt="Linux下安装mysqlclient">
+                        <img src="/medias/featureimages/107.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-2">
                         
-                        <span class="card-title">Linux下安装mysqlclient</span>
+                        <span class="card-title">gin-vue搭建个人博客-2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,26 +813,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/mysql/" class="post-category">
-                                    mysql
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mysql/">
-                        <span class="chip bg-color">mysql</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
                     </a>
                     
                 </div>
@@ -771,12 +847,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/19/vue-zhong-shi-yong-js-settimeout/">
+                <a href="/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-1/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/71.jpg" class="responsive-img" alt="Vue中使用setTimeout遇到的问题">
+                        <img src="/medias/featureimages/106.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-1">
                         
-                        <span class="card-title">Vue中使用setTimeout遇到的问题</span>
+                        <span class="card-title">gin-vue搭建个人博客-1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -787,14 +863,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
@@ -804,8 +880,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
                     </a>
                     
                 </div>
