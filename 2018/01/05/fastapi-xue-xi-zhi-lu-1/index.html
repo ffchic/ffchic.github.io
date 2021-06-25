@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -554,7 +554,7 @@ pip install uvicorn</code></pre>
     app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
     @app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
 <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"message": "Hello World"&amp;#125;</span></code></pre>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello World"</span><span class="token punctuation">}</span></code></pre>
 <ul>
 <li><p><code>from fastapi import FastAPI</code>这是一个python类，提供了<code>API</code>的所有功能</p>
 </li>
@@ -669,7 +669,7 @@ pip install uvicorn</code></pre>
 <span class="token keyword">from</span> fastapi <span class="token keyword">import</span> path
 
 <span class="token comment" spellcheck="true">#和Query使用方法类似，在参数定义之后添加</span>
-@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/&amp;#123;item_id&amp;#125;"</span><span class="token punctuation">)</span>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
 <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> int <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">#注意，由于是路径参数，所以不能为空，所以，应该用...声明</span></code></pre>
@@ -704,24 +704,24 @@ pip install uvicorn</code></pre>
 @app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/items/ss"</span><span class="token punctuation">)</span>
 <span class="token keyword">async</span>  <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span>a<span class="token punctuation">:</span>Item<span class="token operator">=</span>Body<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>embed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    <span class="token keyword">return</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'item':a&amp;#123;</span></code></pre>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'item'</span><span class="token punctuation">:</span>a<span class="token punctuation">{</span></code></pre>
 <pre class=" language-python"><code class="language-python">嵌套请求体参数embed<span class="token operator">=</span><span class="token boolean">True</span>
 参数A<span class="token operator">=</span>body<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>embed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
 则可以将参数A当做一个字典的键嵌套进请求体中，例：
     A <span class="token operator">=</span> body<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>embed<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-        A<span class="token punctuation">:</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    <span class="token punctuation">{</span>
+        A<span class="token punctuation">:</span><span class="token punctuation">{</span>
             q<span class="token punctuation">:</span><span class="token number">1</span>
             w<span class="token punctuation">:</span><span class="token number">2</span>
             e<span class="token punctuation">:</span><span class="token number">3</span>
-        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+        <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
     不加embed效果<span class="token punctuation">:</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    <span class="token punctuation">{</span>
         q<span class="token punctuation">:</span><span class="token number">1</span>
         w<span class="token punctuation">:</span><span class="token number">2</span>
         e<span class="token punctuation">:</span><span class="token number">3</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span></code></pre>
+    <span class="token punctuation">{</span></code></pre>
 <hr>
 <h2 id="响应模型"><a href="#响应模型" class="headerlink" title="响应模型"></a>响应模型</h2><blockquote>
 <p>response_model=<strong>**参数，此参数写在</strong>路径<strong>中，而不是</strong>函数**</p>
@@ -1120,7 +1120,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.6k</span>&nbsp;字
+                class="white-color">122.5k</span>&nbsp;字
             
             
             

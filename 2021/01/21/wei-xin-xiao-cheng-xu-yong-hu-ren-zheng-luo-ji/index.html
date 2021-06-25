@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -522,14 +522,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    2.3k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    10 Min
+                    9 Min
                 </div>
                 
 
@@ -837,32 +837,32 @@
 <p>登录:</p>
 <p>当小程序第一次执行的时候就调用wx.login</p>
 <p>小程序端:apps.js</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">App</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- onLaunch<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ onLaunch<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">var</span> _this<span class="token operator">=</span><span class="token keyword">this</span>
  <span class="token comment" spellcheck="true">// 登录</span>
- wx<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  success<span class="token punctuation">:</span> res <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ wx<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  success<span class="token punctuation">:</span> res <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 发送 res.code 到后台换取 openId, sessionKey, unionId</span>
-  wx<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  wx<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
    url<span class="token punctuation">:</span> _this<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>Url<span class="token operator">+</span><span class="token string">'/login/'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 后端路径</span>
-   data<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"code"</span><span class="token punctuation">:</span>res<span class="token punctuation">.</span>code<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// code</span>
-   header<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"content-type"</span><span class="token punctuation">:</span><span class="token string">"application/json"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+   data<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span>res<span class="token punctuation">.</span>code<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// code</span>
+   header<span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token string">"content-type"</span><span class="token punctuation">:</span><span class="token string">"application/json"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
    method<span class="token punctuation">:</span><span class="token string">"POST"</span><span class="token punctuation">,</span>
-   success<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   success<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
    <span class="token comment" spellcheck="true">// 小程序端存储login_key</span>
    wx<span class="token punctuation">.</span><span class="token function">setStorageSync</span><span class="token punctuation">(</span><span class="token string">"login_key"</span><span class="token punctuation">,</span>res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">.</span>login_key<span class="token punctuation">)</span>
-   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
- globalData<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ globalData<span class="token punctuation">:</span> <span class="token punctuation">{</span>
  Url<span class="token punctuation">:</span><span class="token string">"http://127.0.0.1:8000"</span><span class="token punctuation">,</span>
  userInfo<span class="token punctuation">:</span> <span class="token keyword">null</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>后端 django</p>
 <pre><code>wx
  ├── settings.py  # 小程序id,code2Session等配置
@@ -871,36 +871,36 @@
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/signature.html#%E5%8A%A0%E5%AF%86%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95">微信官方解密算法代码</a></p>
 <p>项目/settings.py</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 配置数据库</span>
-DATABASES <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
- <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+DATABASES <span class="token operator">=</span> <span class="token punctuation">{</span>
+ <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token string">'ENGINE'</span><span class="token punctuation">:</span> <span class="token string">'django.db.backends.mysql'</span><span class="token punctuation">,</span>
   <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'wx'</span><span class="token punctuation">,</span>
   <span class="token string">'USER'</span><span class="token punctuation">:</span><span class="token string">'root'</span><span class="token punctuation">,</span>
   <span class="token string">'PASSWORD'</span><span class="token punctuation">:</span><span class="token string">'root'</span><span class="token punctuation">,</span>
   <span class="token string">'HOST'</span><span class="token punctuation">:</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>
   <span class="token string">'PORT'</span><span class="token punctuation">:</span> <span class="token number">3306</span><span class="token punctuation">,</span>
-  <span class="token string">'OPTIONS'</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'charset': 'utf8mb4'&amp;#125;, # 微信用户名可能有标签,所以用utf8mb4</span>
- <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+  <span class="token string">'OPTIONS'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'charset'</span><span class="token punctuation">:</span> <span class="token string">'utf8mb4'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 微信用户名可能有标签,所以用utf8mb4</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true"># 配置 django-redis</span>
-CACHES <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
- <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+CACHES <span class="token operator">=</span> <span class="token punctuation">{</span>
+ <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token string">'BACKEND'</span><span class="token punctuation">:</span> <span class="token string">'django_redis.cache.RedisCache'</span><span class="token punctuation">,</span>
   <span class="token string">'LOCATION'</span><span class="token punctuation">:</span> <span class="token string">'redis://127.0.0.1:6379'</span><span class="token punctuation">,</span>
-  <span class="token string">"OPTIONS"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+  <span class="token string">"OPTIONS"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
    <span class="token string">"CLIENT_CLASS"</span><span class="token punctuation">:</span> <span class="token string">"django_redis.client.DefaultClient"</span><span class="token punctuation">,</span>
     <span class="token string">"PASSWORD"</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
-  <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;,</span>
- <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;,</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 <p>wx/settings.py</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 小程序开发者id</span>
 AppId<span class="token operator">=</span><span class="token string">"..."</span>
 <span class="token comment" spellcheck="true"># 小程序的AppSecret</span>
 AppSecret<span class="token operator">=</span><span class="token string">"..."</span>
 
-code2Session<span class="token operator">=</span><span class="token string">"https://api.weixin.qq.com/sns/jscode2session?appid=&amp;#123;&amp;#125;&amp;secret=&amp;#123;&amp;#125;&amp;js_code=&amp;#123;&amp;#125;&amp;grant_type=authorization_code"</span>
+code2Session<span class="token operator">=</span><span class="token string">"https://api.weixin.qq.com/sns/jscode2session?appid={}&amp;secret={}&amp;js_code={}&amp;grant_type=authorization_code"</span>
 pay_mchid <span class="token operator">=</span><span class="token string">'...'</span>
 pay_apikey <span class="token operator">=</span> <span class="token string">'...'</span></code></pre>
 <p>wx/wx_login.py</p>
@@ -944,42 +944,42 @@ pay_apikey <span class="token operator">=</span> <span class="token string">'...
     <span class="token comment" spellcheck="true"># 用户不存在则创建用户</span>
     <span class="token keyword">if</span> <span class="token operator">not</span> has_user<span class="token punctuation">:</span>
      models<span class="token punctuation">.</span>Wxuser<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span>openid<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token string">'openid'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span>
      <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
      <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"ok"</span><span class="token punctuation">,</span>
-     <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"login_key": key&amp;#125; # 返回给小程序端</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;)</span>
+     <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"login_key"</span><span class="token punctuation">:</span> key<span class="token punctuation">}</span> <span class="token comment" spellcheck="true"># 返回给小程序端</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
    <span class="token keyword">else</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 401, "msg": "code无效"&amp;#125;)</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"code无效"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token keyword">else</span><span class="token punctuation">:</span>
-   <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 401, "msg": "缺少参数"&amp;#125;)</span></code></pre>
+   <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">401</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"缺少参数"</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p><strong>用户信息授权</strong></p>
 <p>小程序端test.wxml</p>
-<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--用户信息授权--&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">open-type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserInfo<span class="token punctuation">"</span></span> <span class="token attr-name">bindgetuserinfo</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>授权登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--用户信息授权--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">open-type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserInfo<span class="token punctuation">"</span></span> <span class="token attr-name">bindgetuserinfo</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>授权登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
 <p>test.js</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">Page</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-info<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">Page</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+info<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token comment" spellcheck="true">// console.log(res)</span>
- wx<span class="token punctuation">.</span><span class="token function">checkSession</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ wx<span class="token punctuation">.</span><span class="token function">checkSession</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">success</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">//session_key 未过期，并且在本生命周期一直有效</span>
-  wx<span class="token punctuation">.</span><span class="token function">getUserInfo</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-   success<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  wx<span class="token punctuation">.</span><span class="token function">getUserInfo</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   success<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token comment" spellcheck="true">// console.log(res)</span>
-   wx<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   wx<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     url<span class="token punctuation">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>Url <span class="token operator">+</span> <span class="token string">"/getinfo/"</span><span class="token punctuation">,</span>
-    data<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token string">"encryptedData"</span><span class="token punctuation">:</span> res<span class="token punctuation">.</span>encryptedData<span class="token punctuation">,</span> <span class="token string">"iv"</span><span class="token punctuation">:</span> res<span class="token punctuation">.</span>iv<span class="token punctuation">,</span> <span class="token string">"login_key"</span><span class="token punctuation">:</span> wx<span class="token punctuation">.</span><span class="token function">getStorageSync</span><span class="token punctuation">(</span><span class="token string">"login_key"</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"encryptedData"</span><span class="token punctuation">:</span> res<span class="token punctuation">.</span>encryptedData<span class="token punctuation">,</span> <span class="token string">"iv"</span><span class="token punctuation">:</span> res<span class="token punctuation">.</span>iv<span class="token punctuation">,</span> <span class="token string">"login_key"</span><span class="token punctuation">:</span> wx<span class="token punctuation">.</span><span class="token function">getStorageSync</span><span class="token punctuation">(</span><span class="token string">"login_key"</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     method<span class="token punctuation">:</span> <span class="token string">"POST"</span><span class="token punctuation">,</span>
-    header<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> <span class="token string">"content-type"</span><span class="token punctuation">:</span> <span class="token string">"application/json"</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-    success<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    header<span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token string">"content-type"</span><span class="token punctuation">:</span> <span class="token string">"application/json"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    success<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>后端 django</p>
 <p>wx/WXBizDataCrypt.py</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64
@@ -1037,22 +1037,22 @@ info<span class="token punctuation">:</span> <span class="token keyword">functio
    openid<span class="token punctuation">,</span>seesion_key<span class="token operator">=</span>cache<span class="token punctuation">.</span>get<span class="token punctuation">(</span>param<span class="token punctuation">[</span><span class="token string">'login_key'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span>
    <span class="token comment" spellcheck="true"># 利用微信官方提供算法拿到用户的开放数据</span>
    data<span class="token operator">=</span>WXBizDataCrypt<span class="token punctuation">.</span>WXBizDataCrypt<span class="token punctuation">.</span>getInfo<span class="token punctuation">(</span>param<span class="token punctuation">[</span><span class="token string">'encryptedData'</span><span class="token punctuation">]</span> <span class="token punctuation">,</span>param<span class="token punctuation">[</span><span class="token string">'iv'</span><span class="token punctuation">]</span> <span class="token punctuation">,</span>seesion_key<span class="token punctuation">)</span>
-   save_data<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+   save_data<span class="token operator">=</span><span class="token punctuation">{</span>
     <span class="token string">"name"</span><span class="token punctuation">:</span>data<span class="token punctuation">[</span><span class="token string">'nickName'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token string">"avatar"</span><span class="token punctuation">:</span>data<span class="token punctuation">[</span><span class="token string">'avatarUrl'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token string">"language"</span><span class="token punctuation">:</span>data<span class="token punctuation">[</span><span class="token string">'language'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token string">"province"</span><span class="token punctuation">:</span>data<span class="token punctuation">[</span><span class="token string">'province'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token string">"city"</span><span class="token punctuation">:</span>data<span class="token punctuation">[</span><span class="token string">'city'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token string">"country"</span><span class="token punctuation">:</span>data<span class="token punctuation">[</span><span class="token string">'country'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-   <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+   <span class="token punctuation">}</span>
    <span class="token comment" spellcheck="true"># 将拿到的用户信息更新到用户表中</span>
    models<span class="token punctuation">.</span>Wxuser<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>openid<span class="token operator">=</span>openid<span class="token punctuation">)</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token operator">**</span>save_data<span class="token punctuation">)</span>
    <span class="token comment" spellcheck="true"># 反序列化用户对象,并返回到小程序端</span>
    data<span class="token operator">=</span>models<span class="token punctuation">.</span>Wxuser<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>openid<span class="token operator">=</span>openid<span class="token punctuation">)</span><span class="token punctuation">.</span>first<span class="token punctuation">(</span><span class="token punctuation">)</span>
    data<span class="token operator">=</span>serializer<span class="token punctuation">.</span>User_ser<span class="token punctuation">(</span>instance<span class="token operator">=</span>data<span class="token punctuation">,</span>many<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span>data
-   <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code":200,"msg":"缺少参数","data":data&amp;#125;)</span>
+   <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token string">"msg"</span><span class="token punctuation">:</span><span class="token string">"缺少参数"</span><span class="token punctuation">,</span><span class="token string">"data"</span><span class="token punctuation">:</span>data<span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token keyword">else</span><span class="token punctuation">:</span>
-   <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code":200,"msg":"缺少参数"&amp;#125;)</span></code></pre>
+   <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token string">"msg"</span><span class="token punctuation">:</span><span class="token string">"缺少参数"</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>到此，微信小程序实现后端授权登录就结束了</p>
 
             </div>
@@ -1431,7 +1431,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.6k</span>&nbsp;字
+                class="white-color">122.5k</span>&nbsp;字
             
             
             
