@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-23T09:34:18.362Z</updated>
+  <updated>2021-06-25T03:41:57.194Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gin-vue搭建个人博客-1</title>
+    <link href="http://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-1/"/>
+    <id>http://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-1/</id>
+    <published>2021-06-25T03:07:00.932Z</published>
+    <updated>2021-06-25T03:41:57.194Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;一直想自己搭建属于自己的个人博客，以此来记录一下过程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
   
   <entry>
     <title>GORM入门</title>
@@ -528,31 +556,6 @@
     
     
     <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu下pip安装问题</title>
-    <link href="http://godhearing.cn/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/"/>
-    <id>http://godhearing.cn/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/</id>
-    <published>2021-03-30T05:53:11.213Z</published>
-    <updated>2021-03-30T06:00:57.247Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;Command</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="http://godhearing.cn/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="http://godhearing.cn/tags/Linux/"/>
     
   </entry>
   
