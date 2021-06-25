@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    774
+                    810
                 </div>
                 
 
@@ -568,22 +568,22 @@ html <span class="token operator">=</span> requests<span class="token punctuatio
     source <span class="token operator">=</span> <span class="token string">'你的source'</span>
     SUB <span class="token operator">=</span> <span class="token string">'你的SUB'</span>
     url_send <span class="token operator">=</span> <span class="token string">'https://api.weibo.com/webim/2/direct_messages/new.json'</span>
-    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">'text'</span><span class="token punctuation">:</span> 你要说的话<span class="token punctuation">,</span>
         <span class="token string">'uid'</span><span class="token punctuation">:</span> uid<span class="token punctuation">,</span>
         <span class="token string">'source'</span><span class="token punctuation">:</span> source
-    <span class="token punctuation">}</span>
-    headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+    headers <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">'cookie'</span><span class="token punctuation">:</span> <span class="token string">'SUB='</span><span class="token operator">+</span>SUB<span class="token punctuation">,</span>
         <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/x-www-form-urlencoded'</span><span class="token punctuation">,</span>
         <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'</span><span class="token punctuation">,</span>
         <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://api.weibo.com/chat/'</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
     response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url_send<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
     sendMsg <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
     time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
     <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-        url_get <span class="token operator">=</span> <span class="token string">'https://api.weibo.com/webim/2/direct_messages/conversation.json?uid={}&amp;source={}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>uid<span class="token punctuation">,</span> source<span class="token punctuation">)</span>
+        url_get <span class="token operator">=</span> <span class="token string">'https://api.weibo.com/webim/2/direct_messages/conversation.json?uid=&amp;#123;&amp;#125;&amp;source=&amp;#123;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>uid<span class="token punctuation">,</span> source<span class="token punctuation">)</span>
         response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url_get<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
         getMsg <span class="token operator">=</span> response<span class="token punctuation">[</span><span class="token string">'direct_messages'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
         <span class="token keyword">if</span> sendMsg <span class="token operator">==</span> getMsg<span class="token punctuation">:</span>
@@ -593,29 +593,29 @@ html <span class="token operator">=</span> requests<span class="token punctuatio
 <p>也是调包侠的日常，没啥难度</p>
 <h2 id="腾讯闲聊"><a href="#腾讯闲聊" class="headerlink" title="腾讯闲聊"></a>腾讯闲聊</h2><p> 这个也和小冰类似</p>
 <p>先创建应用</p>
-<img src="/2019/08/16/liao-tian-ji-qi-ren/image-20201116201602855.png" alt style="zoom:50%;">
+<img src="/2019/08/16/liao-tian-ji-qi-ren/image-20201116201602855.png" alt="" style="zoom:50%;">
 
 <p>拿到ID和KEY</p>
-<img src="/2019/08/16/liao-tian-ji-qi-ren/image-20201116201641496.png" alt style="zoom:50%;">
+<img src="/2019/08/16/liao-tian-ji-qi-ren/image-20201116201641496.png" alt="" style="zoom:50%;">
 
 <p>欧克，准备工作完成，上代码</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">tencent</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">:</span>
     APPID <span class="token operator">=</span> <span class="token string">'123'</span>
     APPKEY <span class="token operator">=</span> <span class="token string">'123'</span>
     url <span class="token operator">=</span> <span class="token string">'https://api.ai.qq.com/fcgi-bin/nlp/nlp_textchat'</span>
-    params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    params <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">'app_id'</span><span class="token punctuation">:</span> APPID<span class="token punctuation">,</span>
         <span class="token string">'time_stamp'</span><span class="token punctuation">:</span> str<span class="token punctuation">(</span>int<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">'nonce_str'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters <span class="token operator">+</span> string<span class="token punctuation">.</span>digits<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">'session'</span><span class="token punctuation">:</span> <span class="token string">'10000'</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">'question'</span><span class="token punctuation">:</span> msg<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
     sign_before <span class="token operator">=</span> <span class="token string">''</span>
     <span class="token keyword">for</span> key <span class="token keyword">in</span> sorted<span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token comment" spellcheck="true"># 键值拼接过程value部分需要URL编码，URL编码算法用大写字母，例如%E8。quote默认大写。</span>
-        sign_before <span class="token operator">+=</span> <span class="token string">'{}={}&amp;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>key<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>params<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> safe<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        sign_before <span class="token operator">+=</span> <span class="token string">'&amp;#123;&amp;#125;=&amp;#123;&amp;#125;&amp;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>key<span class="token punctuation">,</span> urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>params<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> safe<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># 将应用密钥以app_key为键名，拼接到字符串sign_before末尾</span>
-    sign_before <span class="token operator">+=</span> <span class="token string">'app_key={}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>APPKEY<span class="token punctuation">)</span>
+    sign_before <span class="token operator">+=</span> <span class="token string">'app_key=&amp;#123;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>APPKEY<span class="token punctuation">)</span>
 
     <span class="token comment" spellcheck="true"># 对字符串sign_before进行MD5运算，得到接口请求签名</span>
     sign <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span>sign_before<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -624,9 +624,9 @@ html <span class="token operator">=</span> requests<span class="token punctuatio
     html <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>params<span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> html<span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'answer'</span><span class="token punctuation">]</span>
 msg<span class="token operator">=</span> <span class="token string">'我好看吗'</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"原话>>"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"原话&gt;&gt;"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span>
 res <span class="token operator">=</span> tencent<span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"腾讯>>"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"腾讯&gt;&gt;"</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -1010,7 +1010,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.5k</span>&nbsp;字
+                class="white-color">124.6k</span>&nbsp;字
             
             
             

@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -522,7 +522,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    620
+                    625
                 </div>
                 
 
@@ -561,16 +561,16 @@
         self<span class="token punctuation">.</span>key <span class="token operator">=</span> kename
         self<span class="token punctuation">.</span>queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     <span class="token comment" spellcheck="true"># 添加数据</span>
-    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>x<span class="token punctuation">:</span>str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">push</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>x<span class="token punctuation">:</span>str<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> None<span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>rpush<span class="token punctuation">(</span>self<span class="token punctuation">.</span>key<span class="token punctuation">,</span>x<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 删除数据</span>
-    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">pop</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> int<span class="token punctuation">:</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>queue<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 获取数据</span>
-    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> str<span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">peek</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> str<span class="token punctuation">:</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>lpop<span class="token punctuation">(</span>self<span class="token punctuation">.</span>key<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true"># 判断是否执行完毕</span>
-    <span class="token keyword">def</span> <span class="token function">empty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>bool<span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">empty</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span>bool<span class="token punctuation">:</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>__db<span class="token punctuation">.</span>llen<span class="token punctuation">(</span>self<span class="token punctuation">.</span>key<span class="token punctuation">)</span></code></pre>
 </li>
 <li><p>实例化</p>
@@ -605,7 +605,7 @@
         threading<span class="token punctuation">.</span>Thread<span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>self<span class="token punctuation">)</span>
         self<span class="token punctuation">.</span>queue <span class="token operator">=</span> queue_task
 
-    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> None<span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> None<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>queue<span class="token punctuation">)</span>
 
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
@@ -1004,7 +1004,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.5k</span>&nbsp;字
+                class="white-color">124.6k</span>&nbsp;字
             
             
             

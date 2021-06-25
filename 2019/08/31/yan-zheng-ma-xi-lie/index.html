@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -522,7 +522,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    987
+                    1k
                 </div>
                 
 
@@ -605,12 +605,12 @@ params <span class="token operator">=</span> <span class="token punctuation">[</
             redis_phone <span class="token operator">=</span> redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>phone<span class="token punctuation">)</span>
             <span class="token comment" spellcheck="true"># 防止频繁发送，如果redis中有，就不必再发</span>
             <span class="token keyword">if</span> redis_phone<span class="token punctuation">:</span>
-                <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1003</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'频繁发送'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+                <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 1003, 'msg': '频繁发送'&amp;#123;)</span>
             <span class="token comment" spellcheck="true"># 存入redis,邮箱为键，uuid为值</span>
             redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'phone'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取redis客户端</span>
             redis_client<span class="token punctuation">.</span>setex<span class="token punctuation">(</span>phone<span class="token punctuation">,</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">,</span> uuid<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送成功'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1004</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送失败'</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code':1000,'msg':'发送成功'&amp;#123;)</span>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code':1004,'msg':'发送失败'&amp;#123;)</span></code></pre>
 <p>至于验证，只需要从redis中取出验证码来比对即可</p>
 <hr>
 <h2 id="邮箱验证码"><a href="#邮箱验证码" class="headerlink" title="邮箱验证码"></a>邮箱验证码</h2><p>发送邮箱验证码，我们使用的是QQ邮箱，打开QQ邮箱，打开设置，在里面找到</p>
@@ -655,9 +655,9 @@ my_pass <span class="token operator">=</span> <span class="token string">"授权
         <span class="token comment" spellcheck="true"># 验证邮箱有效性</span>
         email <span class="token operator">=</span> request<span class="token punctuation">.</span>POST<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">,</span>None<span class="token punctuation">)</span>
         <span class="token keyword">try</span><span class="token punctuation">:</span>
-            re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>r<span class="token string">'[a-zA-Z0-9]{0,19{@(qq|163|126)\.(com|cn|net)$'</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
+            re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>r<span class="token string">'[a-zA-Z0-9]&amp;#123;0,19&amp;#123;@(qq|163|126)\.(com|cn|net)$'</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
         <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1002</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'电子邮箱不正确'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 1002, 'msg': '电子邮箱不正确'&amp;#123;)</span>
 
         <span class="token comment" spellcheck="true"># 查询redis中是否有这个数据，如果有，则不需要再次发送</span>
         <span class="token comment" spellcheck="true"># 验证邮箱验证码</span>
@@ -665,20 +665,20 @@ my_pass <span class="token operator">=</span> <span class="token string">"授权
         <span class="token comment" spellcheck="true"># 获取redis中的库</span>
         redis_email <span class="token operator">=</span> redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>email<span class="token punctuation">)</span>
         <span class="token keyword">if</span> redis_email<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1003</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'频繁发送'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code':1003,'msg':'频繁发送'&amp;#123;)</span>
 
         uuid <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">9999</span><span class="token punctuation">)</span>
 
         <span class="token keyword">try</span><span class="token punctuation">:</span>
             <span class="token comment" spellcheck="true"># 调用发送邮件的函数</span>
-            mail<span class="token punctuation">(</span><span class="token string">'龙潭技术博客验证'</span><span class="token punctuation">,</span> <span class="token string">'您的验证码是{{，有限期为2分钟'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
+            mail<span class="token punctuation">(</span><span class="token string">'龙潭技术博客验证'</span><span class="token punctuation">,</span> <span class="token string">'您的验证码是&amp;#123;&amp;#123;，有限期为2分钟'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>uuid<span class="token punctuation">)</span><span class="token punctuation">,</span> email<span class="token punctuation">)</span>
             <span class="token comment" spellcheck="true"># 存入redis,邮箱为键，uuid为值</span>
             redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'email'</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 获取redis客户端</span>
             redis_client<span class="token punctuation">.</span>setex<span class="token punctuation">(</span>email<span class="token punctuation">,</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> uuid<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送成功'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code':1000,'msg':'发送成功'&amp;#123;)</span>
         <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token string">'发送失败'</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code':1001,'msg':'发送失败'&amp;#123;)</span></code></pre>
 
             </div>
             <hr/>
@@ -1069,7 +1069,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.5k</span>&nbsp;字
+                class="white-color">124.6k</span>&nbsp;字
             
             
             

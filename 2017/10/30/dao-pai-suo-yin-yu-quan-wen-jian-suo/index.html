@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -526,14 +526,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -579,29 +579,29 @@ INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuat
 
 <span class="token triple-quoted-string string">'''2.模板路径 '''</span>
 TEMPLATES <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">'DIRS'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'templates'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
 <span class="token punctuation">]</span>
 
 
 <span class="token triple-quoted-string string">'''3.全文检索配置'''</span>
 HAYSTACK_SEARCH_RESULTS_PER_PAGE <span class="token operator">=</span> <span class="token number">15</span> <span class="token comment" spellcheck="true"># 搜索出多条数据时需要分页</span>
-HAYSTACK_CONNECTIONS <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+HAYSTACK_CONNECTIONS <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">'ENGINE'</span><span class="token punctuation">:</span> <span class="token string">'course.whoosh_cn_backend.MyWhooshEngine'</span><span class="token punctuation">,</span>
         <span class="token string">'PATH'</span><span class="token punctuation">:</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span> <span class="token string">'whoosh_index'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 指定倒排索引存放位置</span>
-    <span class="token punctuation">{</span>
-<span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
 
 <span class="token comment" spellcheck="true"># # ES引擎 </span>
-<span class="token comment" spellcheck="true"># HAYSTACK_CONNECTIONS = { </span>
-<span class="token comment" spellcheck="true"># 'default': {</span>
+<span class="token comment" spellcheck="true"># HAYSTACK_CONNECTIONS = &amp;#123; </span>
+<span class="token comment" spellcheck="true"># 'default': &amp;#123;</span>
         <span class="token comment" spellcheck="true"># 'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine', </span>
         <span class="token comment" spellcheck="true"># 'URL': 'http://10.211.55.15:9200/',  # Elasticsearch服务器ip地址，端口号固 定为9200 </span>
         <span class="token comment" spellcheck="true"># 'INDEX_NAME': 'syl', # Elasticsearch建立的反向索引库的名称 </span>
-        <span class="token comment" spellcheck="true"># {, </span>
-<span class="token comment" spellcheck="true"># { </span>
+        <span class="token comment" spellcheck="true"># &amp;#123;, </span>
+<span class="token comment" spellcheck="true"># &amp;#123; </span>
 <span class="token comment" spellcheck="true"># 添加此项，当数据库改变时，会自动更新索引，非常方便 </span>
 HAYSTACK_SIGNAL_PROCESSOR <span class="token operator">=</span> <span class="token string">'haystack.signals.RealtimeSignalProcessor'</span></code></pre>
 <ul>
@@ -633,9 +633,9 @@ HAYSTACK_SIGNAL_PROCESSOR <span class="token operator">=</span> <span class="tok
 </ul>
 <p><code>templates/search/indexes/course/course_text.txt </code></p>
 <p><code>创建文件路径命名必须这个规范：templates/search/indexes/应用名称/模型类名称 text.txt</code></p>
-<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token punctuation">{</span>object<span class="token punctuation">.</span>id<span class="token punctuation">{</span><span class="token punctuation">{</span> 
-<span class="token punctuation">{</span><span class="token punctuation">{</span>object<span class="token punctuation">.</span>title<span class="token punctuation">{</span><span class="token punctuation">{</span> 
-<span class="token punctuation">{</span><span class="token punctuation">{</span>object<span class="token punctuation">.</span>desc<span class="token punctuation">{</span><span class="token punctuation">{</span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#123;object.id&amp;#123;&amp;#123; </span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#123;object.title&amp;#123;&amp;#123; </span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#123;object.desc&amp;#123;&amp;#123;</span></code></pre>
 <ul>
 <li><strong>修改为<code>jieba</code>分词中的中文分析器</strong></li>
 </ul>
@@ -681,17 +681,17 @@ RESULTS_PER_PAGE <span class="token operator">=</span> getattr<span class="token
         <span class="token keyword">else</span><span class="token punctuation">:</span>
             results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">'No file found！'</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 404, "msg": 'No file found！', "data": []&amp;#123;)</span>
 
     <span class="token comment" spellcheck="true"># 对结果集进行分页</span>
     paginator <span class="token operator">=</span> Paginator<span class="token punctuation">(</span>results<span class="token punctuation">,</span> page_size<span class="token punctuation">)</span>
     <span class="token keyword">try</span><span class="token punctuation">:</span>
         page <span class="token operator">=</span> paginator<span class="token punctuation">.</span>page<span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 从分好的页中拿第几页</span>
     <span class="token keyword">except</span> InvalidPage<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 如果分页出错</span>
-        <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">'No file found！'</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 404, "msg": 'No file found！', "data": []&amp;#123;)</span>
     jsondata <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     <span class="token keyword">for</span> result <span class="token keyword">in</span> page<span class="token punctuation">.</span>object_list<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 分页后的课程查询结果</span>
-        data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
             <span class="token string">'id'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
             <span class="token string">'title'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
             <span class="token string">'desc'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>desc<span class="token punctuation">,</span>
@@ -701,14 +701,14 @@ RESULTS_PER_PAGE <span class="token operator">=</span> getattr<span class="token
             <span class="token string">'learner'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>learner<span class="token punctuation">,</span>
             <span class="token string">'status'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
             <span class="token string">'course_type'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>course_type<span class="token punctuation">.</span>id
-        <span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         jsondata<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 
-    result <span class="token operator">=</span> <span class="token punctuation">{</span>
+    result <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
         <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">'Search successfully！'</span><span class="token punctuation">,</span>
-        <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"count"</span><span class="token punctuation">:</span> page<span class="token punctuation">.</span>paginator<span class="token punctuation">.</span>count<span class="token punctuation">,</span> <span class="token string">"results"</span><span class="token punctuation">:</span> jsondata<span class="token punctuation">{</span>
-    <span class="token punctuation">{</span>
+        <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"count": page.paginator.count, "results": jsondata&amp;#123;</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
     <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span>result<span class="token punctuation">)</span></code></pre>
 <ul>
 <li><strong><code>syl/urls.py</code>添加路由</strong></li>
@@ -1106,7 +1106,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.5k</span>&nbsp;字
+                class="white-color">124.6k</span>&nbsp;字
             
             
             

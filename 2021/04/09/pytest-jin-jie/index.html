@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -522,7 +522,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    365
+                    366
                 </div>
                 
 
@@ -584,7 +584,7 @@ pytest <span class="token operator">-</span>m <span class="token string">"smoke 
 <h4 id="有条件跳过"><a href="#有条件跳过" class="headerlink" title="有条件跳过"></a>有条件跳过</h4><p>依旧是使用mark进行标记，只要满足了某个判断，就可以跳过</p>
 <pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">1</span>
 
-@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>skipif<span class="token punctuation">(</span>a <span class="token operator">></span> <span class="token number">10</span><span class="token punctuation">,</span> reason<span class="token operator">=</span><span class="token string">'因为大于10，所以跳过'</span><span class="token punctuation">)</span></code></pre>
+@pytest<span class="token punctuation">.</span>mark<span class="token punctuation">.</span>skipif<span class="token punctuation">(</span>a <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">,</span> reason<span class="token operator">=</span><span class="token string">'因为大于10，所以跳过'</span><span class="token punctuation">)</span></code></pre>
 <h2 id="生成html报告"><a href="#生成html报告" class="headerlink" title="生成html报告"></a>生成html报告</h2><p>前提是，安装了pytest-html</p>
 <p>在pytest.ini文件下，addopts之后添加<code>--html 路径</code></p>
 <pre class=" language-python"><code class="language-python"><span class="token punctuation">[</span>pytest<span class="token punctuation">]</span>
@@ -972,7 +972,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">122.5k</span>&nbsp;字
+                class="white-color">124.6k</span>&nbsp;字
             
             
             
