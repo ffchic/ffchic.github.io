@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nginx跨域配置, 天听">
+    <meta name="keywords" content="gin-vue搭建个人博客-3, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>nginx跨域配置 | 天听</title>
+    <title>gin-vue搭建个人博客-3 | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -357,12 +357,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/77.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/108.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">nginx跨域配置</h1>
+                    <h1 class="description center-align post-title">gin-vue搭建个人博客-3</h1>
                 </div>
             </div>
         </div>
@@ -479,8 +479,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Nginx/">
-                                <span class="chip bg-color">Nginx</span>
+                            <a href="/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
                             </a>
                         
                     </div>
@@ -491,8 +491,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Nginx/" class="post-category">
-                                Nginx
+                            <a href="/categories/Golang/" class="post-category">
+                                Golang
                             </a>
                         
                     </div>
@@ -504,28 +504,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-05
+                    2021-06-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-03-05
+                    2021-06-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    790
+                    291
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    1 Min
                 </div>
                 
 
@@ -540,53 +540,53 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>当出现403跨域错误的时候 <code>No 'Access-Control-Allow-Origin' header is present on the requested resource</code>，需要给Nginx服务器配置响应的header参数</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>只需要在Nginx的配置文件中配置以下参数：</p>
-<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>  
-    <span class="token keyword">add_header</span> Access<span class="token operator">-</span>Control<span class="token operator">-</span><span class="token keyword">Allow</span><span class="token operator">-</span>Origin <span class="token operator">*</span><span class="token punctuation">;</span>
-    <span class="token keyword">add_header</span> Access<span class="token operator">-</span>Control<span class="token operator">-</span><span class="token keyword">Allow</span><span class="token operator">-</span>Methods <span class="token string">'GET, POST, OPTIONS'</span><span class="token punctuation">;</span>
-    <span class="token keyword">add_header</span> Access<span class="token operator">-</span>Control<span class="token operator">-</span><span class="token keyword">Allow</span><span class="token operator">-</span>Headers <span class="token string">'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization'</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> <span class="token string">'OPTIONS'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token number">204</span><span class="token punctuation">;</span>
+                <h2 id="密码加密"><a href="#密码加密" class="headerlink" title="密码加密"></a>密码加密</h2><blockquote>
+<p>密码加密用到了一个go内置的包<code>crypto</code>，不需要安装，官网地址在<a target="_blank" rel="noopener" href="https://pkg.go.dev/golang.org/x/crypto/scrypt">这里</a>，代码也很简单，通过使用GORM的钩子函数，可以直接进行哈希，同样的，在<code>models/User.go</code>下：</p>
+</blockquote>
+<pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 密码加密</span>
+<span class="token keyword">func</span> <span class="token function">ScryptPw</span><span class="token punctuation">(</span>password <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> cost <span class="token operator">=</span> <span class="token number">10</span>
+    HashPw<span class="token punctuation">,</span> err <span class="token operator">:=</span> bcrypt<span class="token punctuation">.</span><span class="token function">GenerateFromPassword</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token punctuation">,</span> cost<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span>HashPw<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// BeforeCreate 密码加密&amp;权限控制</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>u <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">BeforeCreate</span><span class="token punctuation">(</span><span class="token boolean">_</span> <span class="token operator">*</span>gorm<span class="token punctuation">.</span>DB<span class="token punctuation">)</span> <span class="token punctuation">(</span>err <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    u<span class="token punctuation">.</span>Password <span class="token operator">=</span> <span class="token function">ScryptPw</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span>Password<span class="token punctuation">)</span>
+    u<span class="token punctuation">.</span>Role <span class="token operator">=</span> <span class="token number">2</span>
+    <span class="token keyword">return</span> <span class="token boolean">nil</span>
 <span class="token punctuation">}</span></code></pre>
-<blockquote>
-<p>上面配置代码即可解决问题了，不想深入研究的，看到这里就可以啦=-=</p>
+<h2 id="分类CURD"><a href="#分类CURD" class="headerlink" title="分类CURD"></a>分类CURD</h2><blockquote>
+<p>直接复用代码即可，没啥难度，就不放轮子了。</p>
 </blockquote>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><ol>
-<li><strong>Access-Control-Allow-Origin</strong></li>
-</ol>
-<pre><code>服务器默认是不被允许跨域的。给Nginx服务器配置`Access-Control-Allow-Origin *`后，表示服务器可以接受所有的请求源（Origin）,即接受所有跨域的请求。</code></pre>
-<ol start="2">
-<li><strong>Access-Control-Allow-Headers</strong> 是为了防止出现以下错误：</li>
-</ol>
-<pre><code>Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.</code></pre>
-<p>这个错误表示当前请求Content-Type的值不被支持。其实是我们发起了”application/json”的类型请求导致的。这里涉及到一个概念：<code>预检请求（preflight request）</code>,请看下面”预检请求”的介绍。</p>
-<ol start="3">
-<li><strong>Access-Control-Allow-Methods</strong> 是为了防止出现以下错误：</li>
-</ol>
-<pre><code>Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.</code></pre>
-<ol start="4">
-<li>给<code>OPTIONS</code> 添加 <code>204</code>的返回，是为了处理在发送POST请求时Nginx依然拒绝访问的错误</li>
-</ol>
-<p>发送”预检请求”时，需要用到方法 <code>OPTIONS</code> ,所以服务器需要允许该方法。</p>
-<h2 id="预检请求（preflight-request）"><a href="#预检请求（preflight-request）" class="headerlink" title="预检请求（preflight request）"></a>预检请求（preflight request）</h2><p>其实上面的配置涉及到了一个W3C标准：<code>CROS</code>,全称是跨域资源共享 (Cross-origin resource sharing)，它的提出就是为了解决跨域请求的。</p>
-<blockquote>
-<p>跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求， <code>对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求）</code>，浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证（包括 Cookies 和 HTTP 认证相关数据）。</p>
+<h2 id="文章CURD"><a href="#文章CURD" class="headerlink" title="文章CURD"></a>文章CURD</h2><blockquote>
+<p>同样的，复用代码，只是在查询时，需要用到外键的关联查询。</p>
 </blockquote>
-<p>其实<code>Content-Type字段的类型为application/json</code>的请求就是上面所说的<code>搭配某些 MIME 类型的 POST 请求</code>,CORS规定，Content-Type不属于以下MIME类型的，都属于预检请求：</p>
-<pre><code>application/x-www-form-urlencoded
-multipart/form-data
-text/plain</code></pre>
-<p>所以 application/json的请求 会在正式通信之前，增加一次”预检”请求，这次”预检”请求会带上头部信息 <code>Access-Control-Request-Headers: Content-Type</code>：</p>
-<pre><code>OPTIONS /api/test HTTP/1.1
-Origin: http://foo.example
-Access-Control-Request-Method: POST
-Access-Control-Request-Headers: Content-Type
-... 省略了一些</code></pre>
-<p>服务器回应时，返回的头部信息如果不包含<code>Access-Control-Allow-Headers: Content-Type</code>则表示不接受非默认的的Content-Type。即出现以下错误：</p>
-<pre><code>Request header field Content-Type is not allowed by Access-Control-Allow-Headers in preflight response.</code></pre>
+<pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 分类下所有文章</span>
+<span class="token keyword">func</span> <span class="token function">GetCateArt</span><span class="token punctuation">(</span>cid <span class="token builtin">int</span><span class="token punctuation">,</span> Size <span class="token builtin">int</span><span class="token punctuation">,</span> Page <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>Article<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> cateArtList <span class="token punctuation">[</span><span class="token punctuation">]</span>Article
+    err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Preload</span><span class="token punctuation">(</span><span class="token string">"Category"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Limit</span><span class="token punctuation">(</span>Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Offset</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Page <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"cid=?"</span><span class="token punctuation">,</span> cid<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cateArtList<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span>errmsg<span class="token punctuation">.</span>ERROR_CATE_NOT_EXIST
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> cateArtList<span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>SUCCSE
+
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 单个文章</span>
+<span class="token keyword">func</span> <span class="token function">ArticleInfo</span><span class="token punctuation">(</span>id <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>Article<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> art Article
+    err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Preload</span><span class="token punctuation">(</span><span class="token string">"Category"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>art<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> art<span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>ERROR_ART_NOT_EXIST
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> art<span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>SUCCSE
+<span class="token punctuation">}</span></code></pre>
+<p>大部分都是重复的代码，改一下结构体即可，这个应该没啥难度，就不放一大堆无效代码了。</p>
+<p>未完待续….</p>
 
             </div>
             <hr/>
@@ -612,7 +612,7 @@ Access-Control-Request-Headers: Content-Type
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/">http://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/</a>
+                    <a href="http://godhearing.cn/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/">http://godhearing.cn/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -650,8 +650,8 @@ Access-Control-Request-Headers: Content-Type
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Nginx/">
-                                    <span class="chip bg-color">Nginx</span>
+                                <a href="/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
                                 </a>
                             
                         </div>
@@ -693,7 +693,7 @@ Access-Control-Request-Headers: Content-Type
         repo: '',
         owner: '',
         admin: null,
-        id: '2021-03-05T00-00-00',
+        id: '2021-06-28T11-54-33',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -717,16 +717,17 @@ Access-Control-Request-Headers: Content-Type
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/03/09/docker-xiang-jie-ju-xiang/">
+                <a href="/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/78.jpg" class="responsive-img" alt="Docker详解(巨详)">
+                        <img src="/medias/featureimages/108.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-3">
                         
-                        <span class="card-title">Docker详解(巨详)</span>
+                        <span class="card-title">gin-vue搭建个人博客-3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -736,26 +737,27 @@ Access-Control-Request-Headers: Content-Type
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
                     </a>
                     
                 </div>
@@ -769,12 +771,12 @@ Access-Control-Request-Headers: Content-Type
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/">
+                <a href="/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-2/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/76.jpg" class="responsive-img" alt="FastAPI学习之路-4  依赖注入">
+                        <img src="/medias/featureimages/107.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-2">
                         
-                        <span class="card-title">FastAPI学习之路-4  依赖注入</span>
+                        <span class="card-title">gin-vue搭建个人博客-2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -785,14 +787,14 @@ Access-Control-Request-Headers: Content-Type
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/FastAPI/" class="post-category">
-                                    FastAPI
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
@@ -802,8 +804,8 @@ Access-Control-Request-Headers: Content-Type
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/FastAPI/">
-                        <span class="chip bg-color">FastAPI</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
                     </a>
                     
                 </div>
