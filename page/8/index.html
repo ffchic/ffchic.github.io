@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -406,6 +406,114 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/">
+                        <div class="card-image">
+                            
+                            <img src="/medias/featureimages/35.jpg" class="responsive-img" alt="分布一致性算法(雪花算法)">
+                            
+                            <span class="card-title">分布一致性算法(雪花算法)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                什么是分布一致性
+这是一个相当灵魂拷问的问题了，在我们应对千万级甚至亿级的资源访问时，一定会用到的一个词，就是分布式
+因为一台服务器的承载力是有限的，而数据库更是有限的，数据表是更更更有限的，我们只能通过横向扩容的方式来进行数据存储量和查询
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/python/">
+                            <span class="chip bg-color">python</span>
+                        </a>
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/06/18/modelviewset/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ModelViewSet">
+                            
+                            <span class="card-title">ModelViewSet</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+ModelViewSet是封装度最高的DRF的视图类。包含了怎删改查中的所有接口操作。
+
+
+它继承自GenericViewSet、ListModelMixin、RetrieveModelMixin、CreateModelMixin、Up
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/python/">
+                            <span class="chip bg-color">python</span>
+                        </a>
+                        
+                        <a href="/tags/Django/">
+                            <span class="chip bg-color">Django</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -938,102 +1046,6 @@ git config --global user.email "7618733+god_hearing@user.noreply.gitee.com"
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2017/11/24/di-gui/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="递归">
-                            
-                            <span class="card-title">递归</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是递归
-递归，简单来说，就是自己调用自己，指在函数的定义中调用函数自身的方法
-调用分为直接调用和间接调用，直接调用是指在函数体中调用自身，间接调用是调用别的函数，而这些别的函数又调用函数本身。它主要是把大问题变成小问题，使得代码更加简洁
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2017/11/20/sheng-cheng-qi-he-die-dai-qi/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/41.jpg" class="responsive-img" alt="生成器和迭代器">
-                            
-                            <span class="card-title">生成器和迭代器</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                迭代器
-迭代，是访问集合内元素的一种方式。要理解迭代器，首先要理解可迭代对象，所谓可迭代对象，通俗的 说就是可以被for循环遍历的对象就是可迭代对象
-任何内置了iter方法的，都是可迭代的对象，例如，list、set、dict、tuple等
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1079,7 +1091,7 @@ git config --global user.email "7618733+god_hearing@user.noreply.gitee.com"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">123.6k</span>&nbsp;字
+                class="white-color">126k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-06-30T10:00:35.578Z</updated>
+  <updated>2021-07-05T08:09:40.950Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>seaweedfs详解+部署生产</title>
+    <link href="http://godhearing.cn/2021/07/01/seaweedfs-xiang-jie-bu-shu-sheng-chan-huan-jing/"/>
+    <id>http://godhearing.cn/2021/07/01/seaweedfs-xiang-jie-bu-shu-sheng-chan-huan-jing/</id>
+    <published>2021-07-01T08:06:35.915Z</published>
+    <updated>2021-07-05T08:09:40.950Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;seaweedfs架构&quot;&gt;&lt;a href=&quot;#seaweedfs架构&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="文件" scheme="http://godhearing.cn/categories/%E6%96%87%E4%BB%B6/"/>
+    
+    
+    <category term="文件" scheme="http://godhearing.cn/tags/%E6%96%87%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gin-vue搭建个人博客-4</title>
+    <link href="http://godhearing.cn/2021/07/01/gin-vue-da-jian-ge-ren-bo-ke-4/"/>
+    <id>http://godhearing.cn/2021/07/01/gin-vue-da-jian-ge-ren-bo-ke-4/</id>
+    <published>2021-07-01T03:08:05.433Z</published>
+    <updated>2021-07-05T08:11:15.047Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;登陆接口&quot;&gt;&lt;a href=&quot;#登陆接口&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
     <title>gin-vue搭建个人博客-3</title>
     <link href="http://godhearing.cn/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/"/>
     <id>http://godhearing.cn/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/</id>
     <published>2021-06-28T03:54:33.170Z</published>
-    <updated>2021-06-30T10:00:35.578Z</updated>
+    <updated>2021-06-30T10:00:53.289Z</updated>
     
     
       
@@ -501,60 +551,6 @@
     
     
     <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytest进阶</title>
-    <link href="http://godhearing.cn/2021/04/09/pytest-jin-jie/"/>
-    <id>http://godhearing.cn/2021/04/09/pytest-jin-jie/</id>
-    <published>2021-04-09T02:42:59.444Z</published>
-    <updated>2021-04-09T04:08:03.008Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;分组执行&quot;&gt;&lt;a href=&quot;#分组执行&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-    <category term="测试" scheme="http://godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytest基础使用</title>
-    <link href="http://godhearing.cn/2021/04/08/pytest/"/>
-    <id>http://godhearing.cn/2021/04/08/pytest/</id>
-    <published>2021-04-08T09:29:25.716Z</published>
-    <updated>2021-04-08T09:29:25.716Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;pytest单元测试框架&quot;&gt;&lt;a href=&quot;#pytest单元测试框架&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="python" scheme="http://godhearing.cn/categories/python/"/>
-    
-    
-    <category term="python" scheme="http://godhearing.cn/tags/python/"/>
-    
-    <category term="测试" scheme="http://godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
