@@ -555,12 +555,12 @@
 <li><p>然后，注册Dockerhub，类似gitee和github的仓库：[地址][<a target="_blank" rel="noopener" href="https://hub.docker.com/]">https://hub.docker.com/]</a></p>
 </li>
 </ul>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215728237.png" alt="" style="zoom:67%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215728237.png" alt style="zoom:67%;">
 
 <ul>
 <li>创建仓库</li>
 </ul>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215832694.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215832694.png" alt style="zoom:50%;">
 
 <ul>
 <li>然后呢，我们需要对本地的镜像名重命名</li>
@@ -575,7 +575,7 @@ docker tag mydjango godhearing<span class="token operator">/</span>mydjango</cod
 <ul>
 <li>使用dockerhub的账号密码登录</li>
 </ul>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220231612.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220231612.png" alt style="zoom:50%;">
 
 <blockquote>
 <p>这里我是登录过了，输入账号密码后出来这个就是登录成功了</p>
@@ -605,18 +605,18 @@ sudo systemctl start docker</code></pre>
 <p>如果出来版本号就说明没有问题</p>
 </blockquote>
 <p>然后从dockerhub把镜像拉下来</p>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220900919.png" alt="" style="zoom:67%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220900919.png" alt style="zoom:67%;">
 </li>
 <li><p>采用后台守护进程模式起服务</p>
 <pre class=" language-python"><code class="language-python">sudo docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">8000</span><span class="token punctuation">:</span><span class="token number">8000</span> <span class="token operator">-</span><span class="token operator">-</span>name 自定义镜像名 镜像名
 例如：
 sudo docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">8000</span><span class="token punctuation">:</span><span class="token number">8000</span> <span class="token operator">-</span><span class="token operator">-</span>name testdjango godhearing<span class="token operator">/</span>mydjango</code></pre>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221251956.png" alt="" style="zoom:67%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221251956.png" alt style="zoom:67%;">
 
 <p>可以使用<code>docker ps</code>来查看是否运行成功</p>
 </li>
 <li><p>然后访问一下</p>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221517697.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221517697.png" alt style="zoom:50%;">
 
 <p>ok，没有问题，额。。。也不能叫没有问题，因为我的mysql是本地的，没有更改，不过也还可以啦，总之，项目呢，是部署的没有问题了。不要在意这些细节</p>
 </li>
@@ -625,7 +625,7 @@ sudo docker run <span class="token operator">-</span>d <span class="token operat
 </li>
 <li><p>然后启动</p>
 <pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">80</span><span class="token punctuation">:</span><span class="token number">80</span> nginx</code></pre>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221944665.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221944665.png" alt style="zoom:50%;">
 </li>
 <li><p>现在，我们将运行Nginx容器里的配置文件copy到宿主机里面(拉到本地)</p>
 <pre class=" language-python"><code class="language-python">docker cp 容器id<span class="token punctuation">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>conf<span class="token punctuation">.</span>d<span class="token operator">/</span>default<span class="token punctuation">.</span>conf <span class="token operator">/</span>root<span class="token operator">/</span>default<span class="token punctuation">.</span>conf</code></pre>
@@ -1050,7 +1050,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">126.2k</span>&nbsp;字
+                class="white-color">127.2k</span>&nbsp;字
             
             
             

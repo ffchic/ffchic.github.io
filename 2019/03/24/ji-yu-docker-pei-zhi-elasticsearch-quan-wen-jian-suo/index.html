@@ -579,7 +579,7 @@ docker rm $(docker ps -a -q)</code></pre>
 <p>再次启动，只不过不同的是，这次我们需要通过-v命令把我们刚刚修改的文件配置挂载到容器内部去。</p>
 <pre><code>docker run --name es -v E:\elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -d elasticsearch:7.2.0</code></pre>
 <p>这里需要注意一点，就是在Win10宿主机里需要单独设置一下共享文件夹，这里我设置的共享文件夹叫做es，如果是Centos或者Mac os就直接写真实物理路径即可。</p>
-<img src="/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/image-20201201223246321.png" alt="" style="zoom:80%;">
+<img src="/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/image-20201201223246321.png" alt style="zoom:80%;">
 
 <p>随后，重启Docker，输入命令进入默认容器：docker-machine ssh default</p>
 <p>在容器根目录能够看到刚刚设置的共享文件夹，就说明设置成功了。</p>
@@ -1009,7 +1009,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">126.2k</span>&nbsp;字
+                class="white-color">127.2k</span>&nbsp;字
             
             
             

@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-07-05T08:11:32.107Z</updated>
+  <updated>2021-07-07T06:00:49.882Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>gin-vue搭建个人博客-4</title>
+    <link href="http://godhearing.cn/2021/07/07/gin-vue-da-jian-ge-ren-bo-ke-5/"/>
+    <id>http://godhearing.cn/2021/07/07/gin-vue-da-jian-ge-ren-bo-ke-5/</id>
+    <published>2021-07-07T03:06:34.525Z</published>
+    <updated>2021-07-07T06:00:49.882Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;日志的处理&quot;&gt;&lt;a href=&quot;#日志的处理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="http://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
   
   <entry>
     <title>seaweedfs详解+部署生产</title>
@@ -46,7 +71,7 @@
     <link href="http://godhearing.cn/2021/07/01/gin-vue-da-jian-ge-ren-bo-ke-4/"/>
     <id>http://godhearing.cn/2021/07/01/gin-vue-da-jian-ge-ren-bo-ke-4/</id>
     <published>2021-07-01T03:08:05.433Z</published>
-    <updated>2021-07-05T08:15:47.308Z</updated>
+    <updated>2021-07-05T08:20:34.473Z</updated>
     
     
       
@@ -521,36 +546,6 @@
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
     <category term="定时任务" scheme="http://godhearing.cn/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>brew安装nginx</title>
-    <link href="http://godhearing.cn/2021/04/09/brew-an-zhuang-nginx/"/>
-    <id>http://godhearing.cn/2021/04/09/brew-an-zhuang-nginx/</id>
-    <published>2021-04-09T04:34:32.626Z</published>
-    <updated>2021-04-09T04:42:06.871Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;1.安装&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew install nginx&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;或&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo brew install nginx&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;2.启动&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew</summary>
-        
-      
-    
-    
-    
-    <category term="Nginx" scheme="http://godhearing.cn/categories/Nginx/"/>
-    
-    
-    <category term="Nginx" scheme="http://godhearing.cn/tags/Nginx/"/>
     
   </entry>
   
