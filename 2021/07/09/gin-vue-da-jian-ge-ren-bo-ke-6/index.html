@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="天听">
+    <meta name="keywords" content="gin-vue搭建个人博客-6, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>天听</title>
+    <title>gin-vue搭建个人博客-6 | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -357,12 +357,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/112.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">gin-vue搭建个人博客-6</h1>
                 </div>
             </div>
         </div>
@@ -477,12 +477,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Golang/">
+                                <span class="chip bg-color">Golang</span>
+                            </a>
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Golang/" class="post-category">
+                                Golang
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -505,14 +522,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    703
+                    956
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -554,101 +571,101 @@ cnpm install axios</code></pre>
 <p>写页面就没有这么多花里胡哨了，按照自己的想法来即可。</p>
 <p>把该引入的引入，该注册的注册，剩下的就是慢慢码了。</p>
 <p><code>login.vue</code></p>
-<pre class=" language-vue"><code class="language-vue"><template>
-    <div class="container">
-        <div class="loginBox">
-            <a-form-model ref="loginFormRef" :rules="rules" :model="formdata" class="loginForm">
-                <a-form-model-item prop="username">
-                    <a-input placeholder="账号" v-model="formdata.username">
-                        <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
-                    </a-input>
-                </a-form-model-item>
-                <a-form-model-item prop="password">
-                    <a-input placeholder="密码" type="password" v-model="formdata.password">
-                        <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
-                    </a-input>
-                </a-form-model-item>
-                <a-form-model-item class="loginButton">
-                    <a-button type="primary" style="margin:10px" @click="login">登陆</a-button>
-                    <a-button type="info" style="margin:10px" @click="resetform">取消</a-button>
-                </a-form-model-item>
-            </a-form-model>
-        </div>
-    </div>
-</template>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginBox"</span><span class="token operator">></span>
+            <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model ref<span class="token operator">=</span><span class="token string">"loginFormRef"</span> <span class="token punctuation">:</span>rules<span class="token operator">=</span><span class="token string">"rules"</span> <span class="token punctuation">:</span>model<span class="token operator">=</span><span class="token string">"formdata"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginForm"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item prop<span class="token operator">=</span><span class="token string">"username"</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>input placeholder<span class="token operator">=</span><span class="token string">"账号"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formdata.username"</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon slot<span class="token operator">=</span><span class="token string">"prefix"</span> type<span class="token operator">=</span><span class="token string">"user"</span> style<span class="token operator">=</span><span class="token string">"color:rgba(0,0,0,.25)"</span> <span class="token operator">/</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>input<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item prop<span class="token operator">=</span><span class="token string">"password"</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>input placeholder<span class="token operator">=</span><span class="token string">"密码"</span> type<span class="token operator">=</span><span class="token string">"password"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formdata.password"</span><span class="token operator">></span>
+                        <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon slot<span class="token operator">=</span><span class="token string">"prefix"</span> type<span class="token operator">=</span><span class="token string">"lock"</span> style<span class="token operator">=</span><span class="token string">"color:rgba(0,0,0,.25)"</span> <span class="token operator">/</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>input<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginButton"</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"primary"</span> style<span class="token operator">=</span><span class="token string">"margin:10px"</span> @click<span class="token operator">=</span><span class="token string">"login"</span><span class="token operator">></span>登陆<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"info"</span> style<span class="token operator">=</span><span class="token string">"margin:10px"</span> @click<span class="token operator">=</span><span class="token string">"resetform"</span><span class="token operator">></span>取消<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-<script>
-export default {
-  data () {
-        return {
-      formdata: {
-          username: '',
-          password: ''
-      },
-        rules: {
-          username: [
-              { required: true, message: '请输入管理员账号', trigger: 'blur' },
-              { min: 4, max: 12, message: '用户名长度为4-12个字符', trigger: 'blur' },
-          ],
-                    password: [
-              { required: true, message: '请输入密码', trigger: 'blur' },
-              { min: 6, max: 20, message: '密码长度为6-20个字符', trigger: 'blur' },
-          ],
-      }
-    }
-  },
-    methods:{
-         resetform:function(){
-            this.$refs.loginFormRef.resetFields()
-         },
-         login:function(){
-             this.$refs.loginFormRef.validate(async valid=>{
-                 if(!valid) return this.$message.error("非法输入")
-                 const { data:res } = await this.$http.post('api/v1/login/', this.formdata)
-                 if(res.status != 200) return this.$message.error(res.message)
-                 window.sessionStorage.setItem("token", res.token)
-                 this.$router.push('admin')
-             })
-         }
-    }
-}
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      formdata<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          username<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+          password<span class="token punctuation">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          username<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'请输入管理员账号'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span> min<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'用户名长度为4-12个字符'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                    password<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+              <span class="token punctuation">{</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'请输入密码'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span> min<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'密码长度为6-20个字符'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+         resetform<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginFormRef<span class="token punctuation">.</span><span class="token function">resetFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token punctuation">}</span><span class="token punctuation">,</span>
+         login<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+             <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginFormRef<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">async</span> valid<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+                 <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>valid<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"非法输入"</span><span class="token punctuation">)</span>
+                 <span class="token keyword">const</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span>res <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$http<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'api/v1/login/'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formdata<span class="token punctuation">)</span>
+                 <span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>status <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+                 window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span>token<span class="token punctuation">)</span>
+                 <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'admin'</span><span class="token punctuation">)</span>
+             <span class="token punctuation">}</span><span class="token punctuation">)</span>
+         <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</script>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 
-<style scoped>
-    .container{
-        height: 100%;
-        background-color: aliceblue;
-    }
-    .loginBox{
-        width: 450px;
-        height: 300px;
-        background-color: white;
-        /* 绝对定位 */
-                position: absolute;
-        top: 50%;
-        left: 70%;
-                /* 旋转 */
-        transform: translate(-50%, -50%);
-                /* 圆角 */
-        border-radius: 9px;
-    }
-    .loginForm{
-        width: 100%;
-        position: absolute;
-                /* 距离底部边缘 */
-        bottom: 10%;
-        /* 设置内边距 */
-                padding: 0 20px;
-        box-sizing: border-box;
-    }
-    .loginButton{
-        display: flex;
-                /* 中央对齐 */
-        justify-content: flex-end;
-    }
+<span class="token operator">&lt;</span>style scoped<span class="token operator">></span>
+    <span class="token punctuation">.</span>container<span class="token punctuation">{</span>
+        height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+        background<span class="token operator">-</span>color<span class="token punctuation">:</span> aliceblue<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span>loginBox<span class="token punctuation">{</span>
+        width<span class="token punctuation">:</span> 450px<span class="token punctuation">;</span>
+        height<span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+        background<span class="token operator">-</span>color<span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* 绝对定位 */</span>
+                position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        top<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+        left<span class="token punctuation">:</span> <span class="token number">70</span><span class="token operator">%</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">/* 旋转 */</span>
+        transform<span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">/* 圆角 */</span>
+        border<span class="token operator">-</span>radius<span class="token punctuation">:</span> 9px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span>loginForm<span class="token punctuation">{</span>
+        width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+        position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">/* 距离底部边缘 */</span>
+        bottom<span class="token punctuation">:</span> <span class="token number">10</span><span class="token operator">%</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* 设置内边距 */</span>
+                padding<span class="token punctuation">:</span> <span class="token number">0</span> 20px<span class="token punctuation">;</span>
+        box<span class="token operator">-</span>sizing<span class="token punctuation">:</span> border<span class="token operator">-</span>box<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span>loginButton<span class="token punctuation">{</span>
+        display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">/* 中央对齐 */</span>
+        justify<span class="token operator">-</span>content<span class="token punctuation">:</span> flex<span class="token operator">-</span>end<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-</style>>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span><span class="token operator">></span>
 </code></pre>
 <h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>我们使用token来做验证，也要根据token来进行路由的守卫与拦截。</p>
 <pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span> <span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
@@ -663,66 +680,66 @@ export default {
 <p> 解释一下这个路由守卫，由于后台管理页面我就只打算做两个页面，然后通过子页面的方式来进行各种操作，所以我们只拦截admin，如果没有token的话，访问admin直接拦截到login。</p>
 <p>在compose下新建三个vue文件<code>Footer.vue</code>和<code>Nav.vue</code>和<code>Header.vue</code>来作为子组件。</p>
 <p>在views下新建admin.vue父组件</p>
-<pre class=" language-vue"><code class="language-vue"><template>
-        <a-layout class="container">
-      <a-layout-sider>
-                <div class="log">
-                    <span>Salmon blog</span>
-                </div>
-                <Nav></Nav>
-            </a-layout-sider>
-      <a-layout>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
+        <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>sider<span class="token operator">></span>
+                <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"log"</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>span<span class="token operator">></span>Salmon blog<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+                <span class="token operator">&lt;</span>Nav<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Nav<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>sider<span class="token operator">></span>
+      <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">></span>
 
-                <a-layout-header class="headerBtn">
-                    <a-button type="danger" @click="loginout">登出</a-button>
-                </a-layout-header>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>header <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"headerBtn"</span><span class="token operator">></span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"danger"</span> @click<span class="token operator">=</span><span class="token string">"loginout"</span><span class="token operator">></span>登出<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>header<span class="token operator">></span>
 
-                <a-layout-content>
-                    <router-view></router-view>
-                </a-layout-content>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>content<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>content<span class="token operator">></span>
 
-        <a-layout-footer>
-                    <Footer></Footer>
-                </a-layout-footer>
-      </a-layout>
-    </a-layout>
-</template>
+        <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>footer<span class="token operator">></span>
+                    <span class="token operator">&lt;</span>Footer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Footer<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>footer<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-<script>
-import Footer from '../components/admin/Footer.vue'
-import Nav from '../components/admin/Nav.vue'
-export default {
-    components:{Footer, Nav},
-    methods:{
-        loginout(){
-            window.sessionStorage.clear('token')
-            this.$router.push('/login')
-        }
-    }
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> Footer <span class="token keyword">from</span> <span class="token string">'../components/admin/Footer.vue'</span>
+<span class="token keyword">import</span> Nav <span class="token keyword">from</span> <span class="token string">'../components/admin/Nav.vue'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    components<span class="token punctuation">:</span><span class="token punctuation">{</span>Footer<span class="token punctuation">,</span> Nav<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        <span class="token function">loginout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-}
-</script>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 
-<style>
-  .container {
-        height: 100%;
-    }
-    .headerBtn{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    .log{
-        height: 32px;
-        margin: 16px;
-        background-color: aliceblue;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 17px;
-    }
+<span class="token operator">&lt;</span>style<span class="token operator">></span>
+  <span class="token punctuation">.</span>container <span class="token punctuation">{</span>
+        height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span>headerBtn<span class="token punctuation">{</span>
+        display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+        justify<span class="token operator">-</span>content<span class="token punctuation">:</span> flex<span class="token operator">-</span>end<span class="token punctuation">;</span>
+        align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span>log<span class="token punctuation">{</span>
+        height<span class="token punctuation">:</span> 32px<span class="token punctuation">;</span>
+        margin<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+        background<span class="token operator">-</span>color<span class="token punctuation">:</span> aliceblue<span class="token punctuation">;</span>
+        display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+        justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        font<span class="token operator">-</span>size<span class="token punctuation">:</span> 17px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-</style></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span></code></pre>
 
             </div>
             <hr/>
@@ -738,7 +755,7 @@ export default {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">天 听</a>
+                    <a href="/about" rel="external nofollow noreferrer">天听</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -761,7 +778,7 @@ export default {
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">天 听</a>
+                    <a href="/about" target="_blank">天听</a>
                     !
                 </span>
             </div>
@@ -785,7 +802,15 @@ export default {
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/Golang/">
+                                    <span class="chip bg-color">Golang</span>
+                                </a>
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -857,10 +882,9 @@ export default {
                 <a href="/2021/07/09/gin-vue-da-jian-ge-ren-bo-ke-6/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/112.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-6">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">gin-vue搭建个人博客-6</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -875,13 +899,29 @@ export default {
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            天 听
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1079,7 +1119,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.9k</span>&nbsp;字
+                class="white-color">128.2k</span>&nbsp;字
             
             
             
