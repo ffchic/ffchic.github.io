@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -526,7 +526,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    834
+                    830
                 </div>
                 
 
@@ -584,11 +584,11 @@
 <p>下面的命令可以查看当前节点的所有 Index。</p>
 <pre><code>$ curl -X GET 'http://localhost:9200/_cat/indices?v'</code></pre>
 <h3 id="Document-文档"><a href="#Document-文档" class="headerlink" title="Document(文档)"></a>Document(文档)</h3><p>Index 里面单条的记录称为 Document（文档）。许多条 Document 构成了一个 Index。<br>Document 使用 JSON 格式表示，例如这样：</p>
-<pre class=" language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"user"</span><span class="token operator">:</span> <span class="token string">"天听"</span><span class="token punctuation">,</span>
   <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"攻城狮"</span><span class="token punctuation">,</span>
   <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"CV大法传承人"</span>
-&amp;#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
 <p>同一个 Index 里面的 Document，不要求有相同的结构，但是最好保持相同，这样有利于提高搜索效率。</p>
 </blockquote>
@@ -977,7 +977,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129.8k</span>&nbsp;字
+                class="white-color">127.9k</span>&nbsp;字
             
             
             

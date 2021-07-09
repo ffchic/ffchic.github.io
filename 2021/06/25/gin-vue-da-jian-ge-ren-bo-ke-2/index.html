@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    862
+                    805
                 </div>
                 
 
@@ -563,7 +563,7 @@
 <span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">// 定义一个map，用来接收状态码来输入错误信息</span>
-<span class="token keyword">var</span> CodeMsg <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> CodeMsg <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span>
     SUCCSE<span class="token punctuation">:</span>                 <span class="token string">"OK"</span><span class="token punctuation">,</span>
     ERROR<span class="token punctuation">:</span>                  <span class="token string">"FAIL"</span><span class="token punctuation">,</span>
     ERROR_USERNAME_USED<span class="token punctuation">:</span>    <span class="token string">"用户名已存在！"</span><span class="token punctuation">,</span>
@@ -573,12 +573,12 @@
     ERROR_TOKEN_RUNTIME<span class="token punctuation">:</span>    <span class="token string">"TOKEN已过期,请重新登陆"</span><span class="token punctuation">,</span>
     ERROR_TOKEN_WRONG<span class="token punctuation">:</span>      <span class="token string">"TOKEN不正确,请重新登陆"</span><span class="token punctuation">,</span>
     ERROR_TOKEN_TYPE_WRONG<span class="token punctuation">:</span> <span class="token string">"TOKEN格式错误,请重新登陆"</span><span class="token punctuation">,</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 定义一个方法，来接收状态吗输出错误信息</span>
-<span class="token keyword">func</span> <span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token builtin">string</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token builtin">string</span>  <span class="token punctuation">{</span>
     <span class="token keyword">return</span> CodeMsg<span class="token punctuation">[</span>code<span class="token punctuation">]</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="用户create-get"><a href="#用户create-get" class="headerlink" title="用户create/get"></a>用户create/get</h2><blockquote>
 <p>写业务逻辑接口，每个人都有每个人的习惯，这里我按照我的习惯写一下，这部分如果熟悉gorm的使用或者有其他想法的道友就可以跳过啦。</p>
 <p>不过注意，此时的用户添加注册不是最终形态，因为最起码的密码还没有加密，所以后期还需要慢慢的来补。暂时先如此。</p>
@@ -587,81 +587,81 @@
 <li>首先在<code>model/User.go</code>下，新添加几个操作数据库函数，这里只针对于数据库的GORM操作，并不关API的事。</li>
 </ol>
 <pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 存在性判断</span>
-<span class="token keyword">func</span> <span class="token function">CheckUser</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">(</span>code <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">CheckUser</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">(</span>code <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> users User
     <span class="token comment" spellcheck="true">// 查询用户是否存在</span>
     db<span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"username=?"</span><span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> users<span class="token punctuation">.</span>ID <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> users<span class="token punctuation">.</span>ID <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 如果存在则引出错误</span>
         <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 不存在则输入正确</span>
     <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>SUCCSE
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 添加用户</span>
-<span class="token keyword">func</span> <span class="token function">CreateUser</span><span class="token punctuation">(</span>data <span class="token operator">*</span>User<span class="token punctuation">)</span><span class="token builtin">int</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">CreateUser</span><span class="token punctuation">(</span>data <span class="token operator">*</span>User<span class="token punctuation">)</span><span class="token builtin">int</span>  <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 添加时接收一下错误</span>
     err <span class="token operator">:=</span> db<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
-    <span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>ERROR
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> errmsg<span class="token punctuation">.</span>SUCCSE
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 用户列表</span>
-<span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>PageSize <span class="token builtin">int</span><span class="token punctuation">,</span> PageNum <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span>User  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>PageSize <span class="token builtin">int</span><span class="token punctuation">,</span> PageNum <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">]</span>User  <span class="token punctuation">{</span>
     <span class="token keyword">var</span> users <span class="token punctuation">[</span><span class="token punctuation">]</span>User
     <span class="token comment" spellcheck="true">// 分页</span>
     err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Limit</span><span class="token punctuation">(</span>PageSize<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Offset</span><span class="token punctuation">(</span><span class="token punctuation">(</span>PageNum <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> PageSize<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;&amp;</span> err <span class="token operator">!=</span> gorm<span class="token punctuation">.</span>ErrRecordNotFound <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;&amp;</span> err <span class="token operator">!=</span> gorm<span class="token punctuation">.</span>ErrRecordNotFound <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token boolean">nil</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 返回用户的列表</span>
     <span class="token keyword">return</span> users
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <ol start="2">
 <li>在<code>api/v1/user.go</code>下，添加API代码：</li>
 </ol>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">var</span> code <span class="token builtin">int</span>
 
 <span class="token comment" spellcheck="true">// 添加用户</span>
-<span class="token keyword">func</span> <span class="token function">AddUser</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">AddUser</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 接收用户数据，放在data里</span>
     <span class="token keyword">var</span> data model<span class="token punctuation">.</span>User
     <span class="token boolean">_</span> <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">ShouldBindJSON</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
   <span class="token comment" spellcheck="true">// 查看是否存在，不存在则添加</span>
     code <span class="token operator">=</span> model<span class="token punctuation">.</span><span class="token function">CheckUser</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>Username<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token punctuation">{</span>
         model<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
   <span class="token comment" spellcheck="true">// 如果存在，则返回错误码</span>
-    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED <span class="token punctuation">{</span>
         code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
         <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
         <span class="token string">"msg"</span><span class="token punctuation">:</span>errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">"data"</span><span class="token punctuation">:</span>data<span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 查询多个用户</span>
-<span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 字符串转int，如果不传，默认值按照需求设置</span>
     PageSize<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">Atoi</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">DefaultQuery</span><span class="token punctuation">(</span><span class="token string">"pagesize"</span><span class="token punctuation">,</span><span class="token string">"3"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     PageNum<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">Atoi</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token function">DefaultQuery</span><span class="token punctuation">(</span><span class="token string">"pagenum"</span><span class="token punctuation">,</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
     data <span class="token operator">:=</span> model<span class="token punctuation">.</span><span class="token function">GetUsers</span><span class="token punctuation">(</span>PageSize<span class="token punctuation">,</span>PageNum<span class="token punctuation">)</span>
     code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>SUCCSE
-    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
         <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
         <span class="token string">"msg"</span><span class="token punctuation">:</span>errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">"data"</span><span class="token punctuation">:</span>data<span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>有个小问题，如果用户存在，且状态码返回了，但是返回的同时有他输入的数据，还有User这个结构体的数据结构，很不安全，掌握了接口之后，有心之人很可能会通过篡改数据等方法威胁到数据库安全。暂时先这样，还得研究一下。</p>
 
             </div>
@@ -1032,7 +1032,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129.8k</span>&nbsp;字
+                class="white-color">127.9k</span>&nbsp;字
             
             
             

@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -522,7 +522,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    833
+                    805
                 </div>
                 
 
@@ -556,19 +556,19 @@
 <p><a target="_blank" rel="noopener" href="https://developer.paypal.com/developer/accounts/">开发者平台</a></p>
 <hr>
 <p>注册成功后，会默认创建两个账号，一个是个人的，一个商户的，如果不想用默认的，可以自己创建</p>
-<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129103836488.png" alt="" style="zoom:67%;">
+<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129103836488.png" alt style="zoom:67%;">
 
 <p> 进入应用管理，可以看到，它也给创建了默认的应用</p>
-<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129104223976.png" alt="" style="zoom:50%;">
+<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129104223976.png" alt style="zoom:50%;">
 
 <p>然后获取Client ID和Secret</p>
-<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129104436414.png" alt="" style="zoom:50%;">
+<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129104436414.png" alt style="zoom:50%;">
 
 <p>然后回来修改一下个人账户的余额和密码</p>
-<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105355410.png" alt="" style="zoom:50%;">
+<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105355410.png" alt style="zoom:50%;">
 
-<p><img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105446465.png" alt="" style="zoom:50%;"><img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105524864.png" alt=""></p>
-<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105524864.png" alt="" style="zoom:50%">
+<p><img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105446465.png" alt style="zoom:50%;"><img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105524864.png" alt></p>
+<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129105524864.png" alt style="zoom:50%">
 
 <hr>
 <h2 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h2><pre class=" language-python"><code class="language-python">pip install paypalrestsdk</code></pre>
@@ -584,24 +584,24 @@ Secret <span class="token operator">=</span> <span class="token string">'你的S
 
 <span class="token keyword">def</span> <span class="token function">payment</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    paypalrestsdk<span class="token punctuation">.</span>configure<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    paypalrestsdk<span class="token punctuation">.</span>configure<span class="token punctuation">(</span><span class="token punctuation">{</span>
       <span class="token string">"mode"</span><span class="token punctuation">:</span> <span class="token string">"sandbox"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># sandbox代表沙盒</span>
       <span class="token string">"client_id"</span><span class="token punctuation">:</span> Client_id<span class="token punctuation">,</span>
       <span class="token string">"client_secret"</span><span class="token punctuation">:</span> Secret<span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-    payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+    payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">(</span><span class="token punctuation">{</span>
         <span class="token string">"intent"</span><span class="token punctuation">:</span> <span class="token string">"sale"</span><span class="token punctuation">,</span>
-        <span class="token string">"payer"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-            <span class="token string">"payment_method"</span><span class="token punctuation">:</span> <span class="token string">"paypal"</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;,</span>
-        <span class="token string">"redirect_urls"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+        <span class="token string">"payer"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            <span class="token string">"payment_method"</span><span class="token punctuation">:</span> <span class="token string">"paypal"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">"redirect_urls"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
             <span class="token string">"return_url"</span><span class="token punctuation">:</span> <span class="token string">"http://192.168.1.157:8000/palpay/pay/"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 支付成功跳转页面</span>
-            <span class="token string">"cancel_url"</span><span class="token punctuation">:</span> <span class="token string">"http://192.168.1.157:3000/paypal/cancel/"</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;, # 取消支付页面</span>
-        <span class="token string">"transactions"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-            <span class="token string">"amount"</span><span class="token punctuation">:</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+            <span class="token string">"cancel_url"</span><span class="token punctuation">:</span> <span class="token string">"http://192.168.1.157:3000/paypal/cancel/"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 取消支付页面</span>
+        <span class="token string">"transactions"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token string">"amount"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
                 <span class="token string">"total"</span><span class="token punctuation">:</span> <span class="token string">"5.00"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 付款金额</span>
-                <span class="token string">"currency"</span><span class="token punctuation">:</span> <span class="token string">"USD"</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;, # 货币类型</span>
-            <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"这是一个订单测试"</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;]&amp;#125;)</span>
+                <span class="token string">"currency"</span><span class="token punctuation">:</span> <span class="token string">"USD"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 货币类型</span>
+            <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"这是一个订单测试"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 
     <span class="token keyword">if</span> payment<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Payment created successfully"</span><span class="token punctuation">)</span>
@@ -628,14 +628,14 @@ Secret <span class="token operator">=</span> <span class="token string">'你的S
     payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">.</span>find<span class="token punctuation">(</span>paymentid<span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">)</span>
 
-    <span class="token keyword">if</span> payment<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"payer_id": payerid&amp;#125;):</span>
+    <span class="token keyword">if</span> payment<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"payer_id"</span><span class="token punctuation">:</span> payerid<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Payment execute successfully"</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"支付成功"</span><span class="token punctuation">)</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">.</span>error<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># Error Hash</span>
         <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"支付失败"</span><span class="token punctuation">)</span></code></pre>
 <p>然后点击支付即可看到，少了五块钱</p>
-<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129114412124.png" alt="" style="zoom:50%;">
+<img src="/2019/04/17/paypal-kua-jing-zhi-fu/image-20201129114412124.png" alt style="zoom:50%;">
 
 <p>然后有些时候需要对交易进行一些核对，也可以通过接口查看交易明细，也就是上面的<code>payment</code></p>
 
@@ -1023,7 +1023,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129.8k</span>&nbsp;字
+                class="white-color">127.9k</span>&nbsp;字
             
             
             

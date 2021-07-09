@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python的垃圾回收机制, 天听">
+    <meta name="keywords" content="天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python的垃圾回收机制 | 天听</title>
+    <title>天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -357,12 +357,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python的垃圾回收机制</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -477,25 +477,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/python/" class="post-category">
-                                python
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -504,28 +491,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-02-02
+                    2021-07-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2018-02-02
+                    2021-07-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    646
+                    703
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    3 Min
                 </div>
                 
 
@@ -540,32 +527,202 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="浅谈一下python的内存管理机制"><a href="#浅谈一下python的内存管理机制" class="headerlink" title="浅谈一下python的内存管理机制"></a>浅谈一下python的内存管理机制</h2><blockquote>
-<p>python采用的是<strong>引用计数</strong>机制为主，<strong>标记-清除</strong>和<strong>分代回收</strong>两种机制为辅的策略</p>
+                <h2 id="初始化前端项目"><a href="#初始化前端项目" class="headerlink" title="初始化前端项目"></a>初始化前端项目</h2><blockquote>
+<p>前端项目分为后台管理和前端页面，先搞后台，毕竟没有后台写前台页面也不好受，安装node和vue就不用说了。直接初始化项目，在目录web下。</p>
+<p>使用的UI是<a target="_blank" rel="noopener" href="https://antdv.com/docs/vue/getting-started-cn/">ant-design</a></p>
 </blockquote>
-<p>在python中，每一个对象的核心就是一个结构体，它的内部有一个引用计数器，程序运行过程中会实时的更新ob_refcnt的值，来反映引用当前对象的名称数量，当某个对象的引用计数为0，那么它的内存就会被立即释放掉</p>
-<h2 id="对象存储"><a href="#对象存储" class="headerlink" title="对象存储"></a>对象存储</h2><blockquote>
-<p>在Python中万物皆对象</p>
-<p>不存在基本数据类型，<code>0, 1.2, True, False, "abc"</code>等，这些全都是对象</p>
-<p>所有对象, 都会在内存中开辟一块空间进行存储</p>
-</blockquote>
-<h2 id="分代回收"><a href="#分代回收" class="headerlink" title="分代回收"></a>分代回收</h2><blockquote>
-<p>分代回收是一种以空间换时间的操作方式，Python将内存根据对象的存活时间划分为不同的集合，每个集合称为一个代，Python将内存分为三代，分别为年轻代(0代)，中年代(1代)，老年代(2代)，他们对应的是三个链表，它们的垃圾收集频率与对象的存活时间的增大而减小</p>
-<p>新创建的对象都会分配在<strong>年轻代</strong>，年轻代链表的总数达到上限时，Python垃圾收集机制就会被触发，把那些可以被回收的对象回收掉，而那些不会回收的对象就会被移到中年代去，以此类推，老年代中的对象是存活时间最久的对象，甚至是存活于整个系统的生命周期内。</p>
-<p>同时，分代回收是建立在标记清除技术基础之上。作为Python的辅助垃圾收集技术处理那些容器对象</p>
-</blockquote>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p>有三种情况会触发垃圾回收：</p>
-<ol>
-<li>调用<code>gc.collect()</code>,需要先导入<code>gc</code>模块。</li>
-<li>当<code>gc</code>模块的计数器达到阀值的时候。</li>
-<li>程序退出的时候。</li>
-</ol>
-<h4 id="gc模块"><a href="#gc模块" class="headerlink" title="gc模块"></a><code>gc</code>模块</h4><p><code>gc</code>模块提供一个接口给开发者设置垃圾回收的选项。上面说到，采用引用计数的方法管理内存的一个缺陷是循环引用，而<code>gc</code>模块的一个主要功能就是解决循环引用的问题。</p>
-<h2 id="多次赋值"><a href="#多次赋值" class="headerlink" title="多次赋值"></a>多次赋值</h2><blockquote>
-<p>对于整数和短小的字符，Python会进行缓存，不会创建多个相同对象</p>
-<p>此时，被多次赋值，只会有多份引用</p>
-</blockquote>
-<h2 id="id和hex"><a href="#id和hex" class="headerlink" title="id和hex"></a>id和hex</h2><p>在python的内置函数中，可以通过id获取内存地址(10进制)，通过hex()可以查看16进制地址</p>
+<pre><code>vue create admin
+
+cnpm install --save ant-design-vue
+
+cnpm install axios</code></pre>
+<p>然后引入，在babel.config.js中：</p>
+<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  presets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'@vue/cli-plugin-babel/preset'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">[</span>
+              <span class="token string">"import"</span><span class="token punctuation">,</span>
+              <span class="token punctuation">{</span> libraryName<span class="token punctuation">:</span> <span class="token string">"ant-design-vue"</span><span class="token punctuation">,</span> libraryDirectory<span class="token punctuation">:</span> <span class="token string">"es"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token string">'css'</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+          <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p>可能引入会报错，如果报错<code>Error: Cannot find module 'babel-plugin-import'</code>，就执行<code>npm install antd babel-plugin-import --save</code>。</p>
+<p>然后，最重要的一点！！！！大佬可以跳过，如果前端技术不是特别的强，一定要如此，在<code>package.json</code>文件中，把特喵的所有eslint有关的东西干掉！全都干掉！干掉他！！</p>
+<p>或者找到<code>.eslintrc.js</code>的文件中,直接删除里边全部内容就可以了,但不要删除这个文件,否则会报错<code>Error: No ESLint configuration found.</code></p>
+<p>写页面就没有这么多花里胡哨了，按照自己的想法来即可。</p>
+<p>把该引入的引入，该注册的注册，剩下的就是慢慢码了。</p>
+<p><code>login.vue</code></p>
+<pre class=" language-vue"><code class="language-vue"><template>
+    <div class="container">
+        <div class="loginBox">
+            <a-form-model ref="loginFormRef" :rules="rules" :model="formdata" class="loginForm">
+                <a-form-model-item prop="username">
+                    <a-input placeholder="账号" v-model="formdata.username">
+                        <a-icon slot="prefix" type="user" style="color:rgba(0,0,0,.25)" />
+                    </a-input>
+                </a-form-model-item>
+                <a-form-model-item prop="password">
+                    <a-input placeholder="密码" type="password" v-model="formdata.password">
+                        <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
+                    </a-input>
+                </a-form-model-item>
+                <a-form-model-item class="loginButton">
+                    <a-button type="primary" style="margin:10px" @click="login">登陆</a-button>
+                    <a-button type="info" style="margin:10px" @click="resetform">取消</a-button>
+                </a-form-model-item>
+            </a-form-model>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+  data () {
+        return {
+      formdata: {
+          username: '',
+          password: ''
+      },
+        rules: {
+          username: [
+              { required: true, message: '请输入管理员账号', trigger: 'blur' },
+              { min: 4, max: 12, message: '用户名长度为4-12个字符', trigger: 'blur' },
+          ],
+                    password: [
+              { required: true, message: '请输入密码', trigger: 'blur' },
+              { min: 6, max: 20, message: '密码长度为6-20个字符', trigger: 'blur' },
+          ],
+      }
+    }
+  },
+    methods:{
+         resetform:function(){
+            this.$refs.loginFormRef.resetFields()
+         },
+         login:function(){
+             this.$refs.loginFormRef.validate(async valid=>{
+                 if(!valid) return this.$message.error("非法输入")
+                 const { data:res } = await this.$http.post('api/v1/login/', this.formdata)
+                 if(res.status != 200) return this.$message.error(res.message)
+                 window.sessionStorage.setItem("token", res.token)
+                 this.$router.push('admin')
+             })
+         }
+    }
+}
+
+</script>
+
+<style scoped>
+    .container{
+        height: 100%;
+        background-color: aliceblue;
+    }
+    .loginBox{
+        width: 450px;
+        height: 300px;
+        background-color: white;
+        /* 绝对定位 */
+                position: absolute;
+        top: 50%;
+        left: 70%;
+                /* 旋转 */
+        transform: translate(-50%, -50%);
+                /* 圆角 */
+        border-radius: 9px;
+    }
+    .loginForm{
+        width: 100%;
+        position: absolute;
+                /* 距离底部边缘 */
+        bottom: 10%;
+        /* 设置内边距 */
+                padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .loginButton{
+        display: flex;
+                /* 中央对齐 */
+        justify-content: flex-end;
+    }
+
+</style>>
+</code></pre>
+<h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>我们使用token来做验证，也要根据token来进行路由的守卫与拦截。</p>
+<pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span> <span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> token <span class="token operator">=</span> window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">'login'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>token <span class="token operator">&amp;&amp;</span> to<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p> 解释一下这个路由守卫，由于后台管理页面我就只打算做两个页面，然后通过子页面的方式来进行各种操作，所以我们只拦截admin，如果没有token的话，访问admin直接拦截到login。</p>
+<p>在compose下新建三个vue文件<code>Footer.vue</code>和<code>Nav.vue</code>和<code>Header.vue</code>来作为子组件。</p>
+<p>在views下新建admin.vue父组件</p>
+<pre class=" language-vue"><code class="language-vue"><template>
+        <a-layout class="container">
+      <a-layout-sider>
+                <div class="log">
+                    <span>Salmon blog</span>
+                </div>
+                <Nav></Nav>
+            </a-layout-sider>
+      <a-layout>
+
+                <a-layout-header class="headerBtn">
+                    <a-button type="danger" @click="loginout">登出</a-button>
+                </a-layout-header>
+
+                <a-layout-content>
+                    <router-view></router-view>
+                </a-layout-content>
+
+        <a-layout-footer>
+                    <Footer></Footer>
+                </a-layout-footer>
+      </a-layout>
+    </a-layout>
+</template>
+
+<script>
+import Footer from '../components/admin/Footer.vue'
+import Nav from '../components/admin/Nav.vue'
+export default {
+    components:{Footer, Nav},
+    methods:{
+        loginout(){
+            window.sessionStorage.clear('token')
+            this.$router.push('/login')
+        }
+    }
+
+}
+</script>
+
+<style>
+  .container {
+        height: 100%;
+    }
+    .headerBtn{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .log{
+        height: 32px;
+        margin: 16px;
+        background-color: aliceblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+    }
+
+</style></code></pre>
 
             </div>
             <hr/>
@@ -581,7 +738,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">天听</a>
+                    <a href="/about" rel="external nofollow noreferrer">天 听</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -591,7 +748,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://godhearing.cn/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/">http://godhearing.cn/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/</a>
+                    <a href="http://godhearing.cn/2021/07/09/gin-vue-da-jian-ge-ren-bo-ke-6/">http://godhearing.cn/2021/07/09/gin-vue-da-jian-ge-ren-bo-ke-6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -604,7 +761,7 @@
                     All articles in this blog are used except for special statements
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     reprint polocy. If reproduced, please indicate source
-                    <a href="/about" target="_blank">天听</a>
+                    <a href="/about" target="_blank">天 听</a>
                     !
                 </span>
             </div>
@@ -628,11 +785,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -672,7 +825,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-02-02T20-34-00',
+        id: '2021-07-09T15-33-54',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -696,72 +849,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
-                <a href="/2018/02/13/celery/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Celery">
-                        
-                        <span class="card-title">Celery</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-02-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Celery/" class="post-category">
-                                    Celery
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
-                    </a>
-                    
-                    <a href="/tags/Celery/">
-                        <span class="chip bg-color">Celery</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
             </div>
             <div class="card">
-                <a href="/2018/01/24/hexo-jie-jue-yin-yong-ben-di-tu-pian-wu-fa-xian-shi/">
+                <a href="/2021/07/09/gin-vue-da-jian-ge-ren-bo-ke-6/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="Hexo解决引用本地图片无法显示">
                         
-                        <span class="card-title">Hexo解决引用本地图片无法显示</span>
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -772,14 +871,51 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-01-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            天 听
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/07/gin-vue-da-jian-ge-ren-bo-ke-5/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/111.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-5">
+                        
+                        <span class="card-title">gin-vue搭建个人博客-5</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/Golang/" class="post-category">
+                                    Golang
                                 </a>
                             
                             
@@ -789,8 +925,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Golang/">
+                        <span class="chip bg-color">Golang</span>
                     </a>
                     
                 </div>

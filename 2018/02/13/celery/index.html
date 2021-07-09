@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -610,7 +610,7 @@ app <span class="token operator">=</span> Celery<span class="token punctuation">
 celery <span class="token operator">-</span>A main worker <span class="token operator">-</span>l INFO
 <span class="token comment" spellcheck="true">#1.2 celery管理</span>
 celery multi start celery_test <span class="token operator">-</span>A celery_test <span class="token operator">-</span>l debug <span class="token operator">-</span><span class="token operator">-</span>autoscale<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">5</span>        <span class="token comment" spellcheck="true"># celery并发数：最多50个，最少5个</span>
-ps auxww<span class="token operator">|</span>grep <span class="token string">"celery worker"</span><span class="token operator">|</span>grep <span class="token operator">-</span>v grep<span class="token operator">|</span>awk <span class="token string">'&amp;#123;print $2&amp;#123;'</span><span class="token operator">|</span>xargs kill <span class="token operator">-</span><span class="token number">9</span>       # 关闭所有celery进程</code></pre>
+ps auxww<span class="token operator">|</span>grep <span class="token string">"celery worker"</span><span class="token operator">|</span>grep <span class="token operator">-</span>v grep<span class="token operator">|</span>awk <span class="token string">'{print $2{'</span><span class="token operator">|</span>xargs kill <span class="token operator">-</span><span class="token number">9</span>       <span class="token comment" spellcheck="true"># 关闭所有celery进程</span></code></pre>
 <h2 id="1-使用celery异步发送短信"><a href="#1-使用celery异步发送短信" class="headerlink" title="1.使用celery异步发送短信"></a>1.使用celery异步发送短信</h2><h3 id="1-1-在celery-task-mian-py中添加发送短信函数"><a href="#1-1-在celery-task-mian-py中添加发送短信函数" class="headerlink" title="1.1 在celery_task/mian.py中添加发送短信函数"></a>1.1 在<code>celery_task/mian.py</code>中添加发送短信函数</h3><pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># celery项目中的所有导包地址, 都是以CELERY_BASE_DIR为基准设定.</span>
 <span class="token comment" spellcheck="true"># 执行celery命令时, 也需要进入CELERY_BASE_DIR目录执行.</span>
 CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -644,15 +644,15 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
 
         <span class="token comment" spellcheck="true"># 2. 检查参数</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> all<span class="token punctuation">(</span><span class="token punctuation">[</span>phone<span class="token punctuation">,</span> image_code<span class="token punctuation">,</span> image_code_uuid<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 999, "msg": "参数不全"&amp;#123;)</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>r<span class="token string">'^1[3456789]\d&amp;#123;9&amp;#123;$'</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 999, "msg": "手机号码不正确"&amp;#123;)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"参数不全"</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> re<span class="token punctuation">.</span>match<span class="token punctuation">(</span>r<span class="token string">'^1[3456789]\d{9{$'</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"手机号码不正确"</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
         <span class="token comment" spellcheck="true"># 3. 检查是否发送</span>
         redis_client <span class="token operator">=</span> get_redis_connection<span class="token punctuation">(</span><span class="token string">'img_code'</span><span class="token punctuation">)</span>
         phone_exists <span class="token operator">=</span> redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>phone<span class="token punctuation">)</span>
         <span class="token keyword">if</span> phone_exists<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 999, "msg": "频繁发送, 请稍后再试"&amp;#123;)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"频繁发送, 请稍后再试"</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
         <span class="token comment" spellcheck="true"># 验证图形验证码</span>
         redis_image_code <span class="token operator">=</span> redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>image_code_uuid<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># bytes</span>
@@ -662,7 +662,7 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
 
         <span class="token comment" spellcheck="true"># 比较用户提供的图片内容是否和redis中保存的一致</span>
         <span class="token keyword">if</span> image_code<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> redis_image_code<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 999, 'msg': '图片验证码不正确'&amp;#123;)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'图片验证码不正确'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
         <span class="token comment" spellcheck="true"># 4. 发送</span>
         code <span class="token operator">=</span> <span class="token string">'%06d'</span> <span class="token operator">%</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">999999</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 随机6位验证码</span>
@@ -681,7 +681,7 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
         pl<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
         <span class="token comment" spellcheck="true"># 6. 返回结果</span>
-        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"code": 0, "msg": "短信发送成功"&amp;#123;)</span></code></pre>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"短信发送成功"</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
 <h3 id="1-3-添加路由"><a href="#1-3-添加路由" class="headerlink" title="1.3 添加路由"></a>1.3 添加路由</h3><pre class=" language-python"><code class="language-python">urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
     path<span class="token punctuation">(</span><span class="token string">'sms_codes/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>SmsCodeView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span></code></pre>
@@ -692,11 +692,11 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
 <ul>
 <li>请求携带参数</li>
 </ul>
-<pre class=" language-python"><code class="language-python"><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span>
     <span class="token string">"phone"</span><span class="token punctuation">:</span> <span class="token number">18538752511</span><span class="token punctuation">,</span>
     <span class="token string">"image_code"</span><span class="token punctuation">:</span><span class="token string">"aed3"</span><span class="token punctuation">,</span>                                         <span class="token comment" spellcheck="true"># 前端生成的 图形验证码</span>
     <span class="token string">"image_code_uuid"</span><span class="token punctuation">:</span><span class="token string">"de8edce2-fc9f-11ea-9325-005056c00008"</span>     <span class="token comment" spellcheck="true"># 前端生成的uuid</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span></code></pre>
+<span class="token punctuation">{</span></code></pre>
 <h2 id="django添加检查用户名和手机号数量接口"><a href="#django添加检查用户名和手机号数量接口" class="headerlink" title="django添加检查用户名和手机号数量接口"></a>django添加检查用户名和手机号数量接口</h2><h3 id="1-1-在user-urls-py中添加"><a href="#1-1-在user-urls-py中添加" class="headerlink" title="1.1 在user/urls.py中添加"></a>1.1 在<code>user/urls.py</code>中添加</h3><pre class=" language-python"><code class="language-python">urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
     path<span class="token punctuation">(</span><span class="token string">'count/'</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>RegCountView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 查询用户名手机号使用量的视图,  /user/count/</span>
 <span class="token punctuation">]</span></code></pre>
@@ -712,13 +712,13 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
         datatype <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'type'</span><span class="token punctuation">)</span>
         data <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">)</span>
         <span class="token keyword">if</span> <span class="token operator">not</span> all<span class="token punctuation">(</span><span class="token punctuation">[</span>data<span class="token punctuation">,</span> datatype<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 999, 'msg': '参数不完整'&amp;#123;)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'参数不完整'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
         <span class="token keyword">if</span> datatype <span class="token operator">==</span> <span class="token string">'username'</span><span class="token punctuation">:</span>
             count <span class="token operator">=</span> User<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>username<span class="token operator">=</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">if</span> datatype <span class="token operator">==</span> <span class="token string">'phone'</span><span class="token punctuation">:</span>
             count <span class="token operator">=</span> User<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter<span class="token punctuation">(</span>phone<span class="token operator">=</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 0, 'msg': '查询成功', 'data': &amp;#123;'type': datatype, 'count': count&amp;#123;&amp;#123;)</span></code></pre>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'查询成功'</span><span class="token punctuation">,</span> <span class="token string">'data'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">'type'</span><span class="token punctuation">:</span> datatype<span class="token punctuation">,</span> <span class="token string">'count'</span><span class="token punctuation">:</span> count<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
 <h2 id="测试接口"><a href="#测试接口" class="headerlink" title="测试接口"></a>测试接口</h2><ul>
 <li>测试接口URL</li>
 </ul>
@@ -739,7 +739,7 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
         3. 手机号
         4. 验证码
         :param request:
-        :return:  &amp;#123;'code':0,'msg':'注册成功'&amp;#123;
+        :return:  {'code':0,'msg':'注册成功'{
         code: "260361"
         password: "123123"
         phone: "13303479527"
@@ -753,7 +753,7 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
         <span class="token keyword">if</span> all<span class="token punctuation">(</span><span class="token punctuation">[</span>username<span class="token punctuation">,</span> passwrod<span class="token punctuation">,</span> phone<span class="token punctuation">,</span> code<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
             <span class="token keyword">pass</span>
         <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 999, 'msg': '参数不全'&amp;#123;)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'参数不全'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
         <span class="token comment" spellcheck="true"># rand_name = self.randomUsername()</span>
         <span class="token comment" spellcheck="true"># 验证手机验证码</span>
@@ -763,13 +763,13 @@ CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punct
             code_redis <span class="token operator">=</span> code_redis<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
         <span class="token keyword">if</span> <span class="token operator">not</span> code <span class="token operator">==</span> code_redis<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 999, 'msg': '手机验证码错误'&amp;#123;)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'手机验证码错误'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
 
         user <span class="token operator">=</span> User<span class="token punctuation">(</span>username<span class="token operator">=</span>username<span class="token punctuation">,</span> phone<span class="token operator">=</span>phone<span class="token punctuation">)</span>
         user<span class="token punctuation">.</span>set_password<span class="token punctuation">(</span>passwrod<span class="token punctuation">)</span>
         user<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 0, 'msg': '注册成功'&amp;#123;)</span></code></pre>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'注册成功'</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -1156,7 +1156,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129.8k</span>&nbsp;字
+                class="white-color">127.9k</span>&nbsp;字
             
             
             

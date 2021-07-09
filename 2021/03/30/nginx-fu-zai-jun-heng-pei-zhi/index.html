@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    712
+                    696
                 </div>
                 
 
@@ -546,31 +546,31 @@
 </blockquote>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在<code>/etc/nginx</code>下，(这是默认目录，如果你的nginx不在这里，那去对应的地方即可)</p>
 <p>打开nginx.conf，在http模块下任意位置写上如下配置，这个服务器集群名可以随意起</p>
-<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> 服务器集群名<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> 服务器集群名<span class="token punctuation">{</span>
             <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
             <span class="token keyword">server</span> <span class="token number">39.98</span><span class="token punctuation">.</span><span class="token number">35.129</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
+        <span class="token punctuation">}</span></code></pre>
 <p>然后我们去<code>server</code>配置，然后注释掉我们本来的地址<code>proxy_pass</code>，改为变量绑定，要注意的是，nginx是一个很神奇的东西，所以，多一个斜杠少一个斜杠都会定成败，一定要注意。</p>
-<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>api<span class="token operator">/</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
             <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Real<span class="token operator">-</span>IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true"># proxy_pass http://127.0.0.1:8000/;</span>
             <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>服务器集群名<span class="token operator">/</span><span class="token punctuation">;</span>
             <span class="token keyword">proxy_set_header</span>   Host    <span class="token variable">$host</span><span class="token punctuation">;</span>
             <span class="token keyword">proxy_set_header</span>   X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
-        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
+        <span class="token punctuation">}</span></code></pre>
 <p>nginx负载均衡的默认策略是轮询，也就是轮着来，如果你的服务器配置是差不多的情况下，是不用改的。还有一种常见的策略，就是权重，在配置服务器集群的那里，来给每个节点配置不同的权重，他们就会接到对应的几率来获得访问，像这样：</p>
-<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> 服务器集群名 <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> 服务器集群名 <span class="token punctuation">{</span>
     <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8000</span> weight<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
     <span class="token keyword">server</span> <span class="token number">39.98</span><span class="token punctuation">.</span><span class="token number">35.129</span><span class="token punctuation">:</span><span class="token number">8000</span> weight<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>ip_hash（ IP绑定）<br>上述方式存在一个问题就是说，在负载均衡系统中，假如用户在某台服务器上登录了，那么该用户第二次请求的时候，因为我们是负载均衡系统，每次请求都会重新定位到服务器集群中的某一个，那么已经登录某一个服务器的用户再重新定位到另一个服务器，其登录信息将会丢失，这样显然是不妥的。</p>
 <p>我们可以采用ip_hash指令解决这个问题，如果客户已经访问了某个服务器，当用户再次访问时，会将该请求通过哈希算法，自动定位到该服务器。</p>
 <p>每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</p>
-<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> backserver <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+<pre class=" language-nginx"><code class="language-nginx"><span class="token keyword">upstream</span> backserver <span class="token punctuation">{</span>
     <span class="token keyword">ip_hash</span><span class="token punctuation">;</span>
     <span class="token keyword">server</span> <span class="token number">127.0</span><span class="token punctuation">.</span><span class="token number">0.1</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
     <span class="token keyword">server</span> <span class="token number">39.98</span><span class="token punctuation">.</span><span class="token number">35.129</span><span class="token punctuation">:</span><span class="token number">8000</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -944,7 +944,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">129.8k</span>&nbsp;字
+                class="white-color">127.9k</span>&nbsp;字
             
             
             
