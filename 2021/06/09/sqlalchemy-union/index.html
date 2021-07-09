@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -522,14 +522,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -588,7 +588,7 @@ engine <span class="token operator">=</span> create_engine<span class="token pun
     DBSession <span class="token operator">=</span> sessionmaker<span class="token punctuation">(</span>bind<span class="token operator">=</span>engine<span class="token punctuation">)</span>
     session <span class="token operator">=</span> DBSession<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        temp <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        temp <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
         temp<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span> <span class="token operator">=</span> x
         temp<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'user_'</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
         temp<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> x
@@ -596,7 +596,7 @@ engine <span class="token operator">=</span> create_engine<span class="token pun
         session<span class="token punctuation">.</span>add<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
 
     <span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        temp <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        temp <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
         temp<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span> <span class="token operator">=</span> x
         temp<span class="token punctuation">[</span><span class="token string">'tec_name'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'tec_'</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
         temp<span class="token punctuation">[</span><span class="token string">'tec_age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">2</span> 
@@ -614,7 +614,7 @@ engine <span class="token operator">=</span> create_engine<span class="token pun
     insert_data<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <p>User表字段：</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> desc user;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; desc user;
 +-------+----------+------+-----+---------+-------+
 | Field | Type     | Null | Key | Default | Extra |
 +-------+----------+------+-----+---------+-------+
@@ -624,7 +624,7 @@ engine <span class="token operator">=</span> create_engine<span class="token pun
 +-------+----------+------+-----+---------+-------+
 3 rows in set (0.00 sec)</code></pre>
 <p>User表数据： </p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select * from user;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from user;
 +----+--------+------+
 | id | name   | age  |
 +----+--------+------+
@@ -642,7 +642,7 @@ engine <span class="token operator">=</span> create_engine<span class="token pun
 10 rows in set (0.00 sec)
 </code></pre>
 <p>Teacher表字段：</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> desc teacher;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; desc teacher;
 +----------+----------+------+-----+---------+-------+
 | Field    | Type     | Null | Key | Default | Extra |
 +----------+----------+------+-----+---------+-------+
@@ -652,9 +652,9 @@ engine <span class="token operator">=</span> create_engine<span class="token pun
 +----------+----------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-mysql>  </code></pre>
+mysql&gt;  </code></pre>
 <p>teacher表数据：</p>
-<pre class=" language-mysql"><code class="language-mysql">mysql> select * from teacher;
+<pre class=" language-mysql"><code class="language-mysql">mysql&gt; select * from teacher;
 +----+----------+---------+
 | id | tec_name | tec_age |
 +----+----------+---------+
@@ -684,12 +684,12 @@ mysql>  </code></pre>
     session<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     <span class="token keyword">for</span> x <span class="token keyword">in</span> table_data<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------>'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------&gt;'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
 
     table_data <span class="token operator">=</span> session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>Teacher<span class="token punctuation">)</span><span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span>
     session<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">for</span> x <span class="token keyword">in</span> table_data<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>tec_name<span class="token punctuation">,</span><span class="token string">'------>'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>tec_age<span class="token punctuation">)</span></code></pre>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>tec_name<span class="token punctuation">,</span><span class="token string">'------&gt;'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>tec_age<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>union原理，首先将第一张表的数据全部查询出来，然后将第二张表的数据全部查询出来，最后将两个数据使用union联合成一张新表，这张新表可以再次被筛选过滤，分页等。</p>
 </blockquote>
@@ -701,12 +701,12 @@ mysql>  </code></pre>
     session<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     <span class="token comment" spellcheck="true"># for x in table_data:</span>
-    <span class="token comment" spellcheck="true">#     print(x.name,'------>',x.age)</span>
+    <span class="token comment" spellcheck="true">#     print(x.name,'------&gt;',x.age)</span>
 
     <span class="token comment" spellcheck="true"># table_data = session.query(Teacher).all()</span>
     <span class="token comment" spellcheck="true"># session.close()</span>
     <span class="token comment" spellcheck="true"># for x in table_data:</span>
-    <span class="token comment" spellcheck="true">#     print(x.tec_name,'------>',x.tec_age)</span>
+    <span class="token comment" spellcheck="true">#     print(x.tec_name,'------&gt;',x.tec_age)</span>
 
 
 
@@ -716,7 +716,7 @@ mysql>  </code></pre>
 
     result <span class="token operator">=</span> user_data<span class="token punctuation">.</span>union_all<span class="token punctuation">(</span>tec_data<span class="token punctuation">)</span>
     <span class="token keyword">for</span> x <span class="token keyword">in</span> result<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------>'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span></code></pre>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------&gt;'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span></code></pre>
 <p>在上面的查询中需要有一个注意点就是<strong>label</strong>，可以看到tec_data的查询语句中使用了label这个属性，该属性的作用是将Teacher这张表查询出来的tec_name 字段名称变成name，已达到和User表字段的统一，只有两张表的字段名称一致，类型一致的情况下才能联合查询。</p>
 <p>另外还使用了一个<strong>union_all</strong> 字段，该字段的意思是如果两张表存在相同的记录也要全部展示出来，想要让相同的记录合并起来使用union即可。</p>
 <hr>
@@ -732,12 +732,12 @@ mysql>  </code></pre>
     session<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     <span class="token comment" spellcheck="true"># for x in table_data:</span>
-    <span class="token comment" spellcheck="true">#     print(x.name,'------>',x.age)</span>
+    <span class="token comment" spellcheck="true">#     print(x.name,'------&gt;',x.age)</span>
 
     <span class="token comment" spellcheck="true"># table_data = session.query(Teacher).all()</span>
     <span class="token comment" spellcheck="true"># session.close()</span>
     <span class="token comment" spellcheck="true"># for x in table_data:</span>
-    <span class="token comment" spellcheck="true">#     print(x.tec_name,'------>',x.tec_age)</span>
+    <span class="token comment" spellcheck="true">#     print(x.tec_name,'------&gt;',x.tec_age)</span>
 
 
 
@@ -747,13 +747,13 @@ mysql>  </code></pre>
 
     <span class="token comment" spellcheck="true"># result = user_data.union_all(tec_data)</span>
     <span class="token comment" spellcheck="true"># for x in result:</span>
-    <span class="token comment" spellcheck="true">#         print(x.name,'------>',x.age)</span>
+    <span class="token comment" spellcheck="true">#         print(x.name,'------&gt;',x.age)</span>
 
 
-    result <span class="token operator">=</span> user_data<span class="token punctuation">.</span>union_all<span class="token punctuation">(</span>tec_data<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>age <span class="token operator">></span> <span class="token number">5</span><span class="token punctuation">)</span>
+    result <span class="token operator">=</span> user_data<span class="token punctuation">.</span>union_all<span class="token punctuation">(</span>tec_data<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>age <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span>
 
     <span class="token keyword">for</span> x <span class="token keyword">in</span> result<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------>'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------&gt;'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
 </code></pre>
 <p>使用 Teacher 表字段 </p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -764,20 +764,20 @@ mysql>  </code></pre>
     session<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     <span class="token comment" spellcheck="true"># for x in table_data:</span>
-    <span class="token comment" spellcheck="true">#     print(x.name,'------>',x.age)</span>
+    <span class="token comment" spellcheck="true">#     print(x.name,'------&gt;',x.age)</span>
 
     <span class="token comment" spellcheck="true"># table_data = session.query(Teacher).all()</span>
     <span class="token comment" spellcheck="true"># session.close()</span>
     <span class="token comment" spellcheck="true"># for x in table_data:</span>
-    <span class="token comment" spellcheck="true">#     print(x.tec_name,'------>',x.tec_age)</span>
+    <span class="token comment" spellcheck="true">#     print(x.tec_name,'------&gt;',x.tec_age)</span>
 
     user_data <span class="token operator">=</span> session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">.</span>name<span class="token punctuation">,</span>User<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
     tec_data <span class="token operator">=</span> session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>Teacher<span class="token punctuation">.</span>tec_name<span class="token punctuation">.</span>label<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Teacher<span class="token punctuation">.</span>tec_age<span class="token punctuation">.</span>label<span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    result <span class="token operator">=</span> user_data<span class="token punctuation">.</span>union_all<span class="token punctuation">(</span>tec_data<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>Teacher<span class="token punctuation">.</span>tec_age<span class="token operator">></span><span class="token number">5</span><span class="token punctuation">)</span>
+    result <span class="token operator">=</span> user_data<span class="token punctuation">.</span>union_all<span class="token punctuation">(</span>tec_data<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>Teacher<span class="token punctuation">.</span>tec_age<span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">)</span>
 
     <span class="token keyword">for</span> x <span class="token keyword">in</span> result<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------>'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token string">'------&gt;'</span><span class="token punctuation">,</span>x<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
 
 </code></pre>
 <p>关于union联合查询有一个说法很形象：join查询就像是横向扩展，将多张表的数据横向组合在一起，而union像是纵向扩展，将多张表数据纵向排列起来。</p>
@@ -1154,7 +1154,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.9k</span>&nbsp;字
+                class="white-color">129.8k</span>&nbsp;字
             
             
             

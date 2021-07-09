@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    302
+                    309
                 </div>
                 
 
@@ -558,11 +558,11 @@
 <p>一般来说，这时候就已经可以实现搜索功能了，但是我遇到的错误比较奇怪，之后，经过一系列的试验，终于找到了解决办法</p>
 <p>遇到难点的朋友们，可以尝试一下</p>
 <p>找到你博客主题的<code>search.ejs</code>模板文件，注意是<code>ejs</code>,修改下面代码</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">></span>
-<span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">searchFunc</span><span class="token punctuation">(</span><span class="token string">"&lt;%= config.root %>"</span> <span class="token operator">+</span> <span class="token string">"search.xml"</span><span class="token punctuation">,</span> <span class="token string">'searchInput'</span><span class="token punctuation">,</span> <span class="token string">'searchResult'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">&gt;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">searchFunc</span><span class="token punctuation">(</span><span class="token string">"&lt;%= config.root %&gt;"</span> <span class="token operator">+</span> <span class="token string">"search.xml"</span><span class="token punctuation">,</span> <span class="token string">'searchInput'</span><span class="token punctuation">,</span> <span class="token string">'searchResult'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre>
 <p>也是改为json格式的文件</p>
 <blockquote>
 <p>现在的网上，基本上遇到一个问题，几乎回答全是千篇一律，毫无营养可言，只要一条路走不通，就走不通了，非常的让人抓狂，但是，还有不少真正的大神在认真的在为小白解答，遇到这种情况，希望不要浮躁，慢慢的寻找解决办法</p>
@@ -940,7 +940,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.9k</span>&nbsp;字
+                class="white-color">129.8k</span>&nbsp;字
             
             
             

@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    657
+                    665
                 </div>
                 
 
@@ -560,11 +560,11 @@
 <p>需要三个参数，type，offset，count，我们要获取的是图文，所以，type使用news，offset和count就是从哪一个开始返回和返回的个数，不过需要注意的是，返回的个数最大值是20</p>
 <pre class=" language-python"><code class="language-python">token <span class="token operator">=</span> access_token<span class="token punctuation">(</span><span class="token punctuation">)</span>
     url <span class="token operator">=</span> <span class="token string">'https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=%s'</span><span class="token operator">%</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span>
-    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
     <span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">'news'</span><span class="token punctuation">,</span>
     <span class="token string">"offset"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>
     <span class="token string">"count"</span><span class="token punctuation">:</span><span class="token number">1</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
     data <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
     res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
     r <span class="token operator">=</span> res<span class="token punctuation">.</span>text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'ISO-8859-1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
@@ -582,11 +582,11 @@
 
     token <span class="token operator">=</span> access_token<span class="token punctuation">(</span><span class="token punctuation">)</span>
     url <span class="token operator">=</span> <span class="token string">'https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=%s'</span><span class="token operator">%</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span>
-    data <span class="token operator">=</span> <span class="token punctuation">{</span>
+    data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
     <span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">'news'</span><span class="token punctuation">,</span>
     <span class="token string">"offset"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>
     <span class="token string">"count"</span><span class="token punctuation">:</span><span class="token number">1</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
     data <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
     res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
     r <span class="token operator">=</span> res<span class="token punctuation">.</span>text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'ISO-8859-1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
@@ -977,7 +977,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.9k</span>&nbsp;字
+                class="white-color">129.8k</span>&nbsp;字
             
             
             

@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -533,7 +533,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -556,35 +556,35 @@
 </blockquote>
 </li>
 <li><p>先来说一说前端连接的问题，其实也就是一个简单的<code>websocket</code>连接，不过是增加了一个断开重连</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">websocketlink</span><span class="token punctuation">(</span>uid<span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'WebSocket'</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span><span class="token punctuation">{</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">websocketlink</span><span class="token punctuation">(</span>uid<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'WebSocket'</span> <span class="token keyword">in</span> window<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">//  生成websocket链接</span>
       console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'支持'</span><span class="token punctuation">)</span>
       <span class="token keyword">var</span> ws <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span><span class="token string">'ws://192.168.1.157:8000/chat_room_websocket/?uid='</span><span class="token operator">+</span>uid<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">// var ws = new WebSocket('ws://192.168.1.157:8000/chat_room_websocket/');</span>
 
       <span class="token comment" spellcheck="true">// 连接成功</span>
-      ws<span class="token punctuation">.</span>onopen <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      ws<span class="token punctuation">.</span>onopen <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         ws<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>uid<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 
       <span class="token comment" spellcheck="true">// 收到数据</span>
-      ws<span class="token punctuation">.</span>onmessage<span class="token operator">=</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+      ws<span class="token punctuation">.</span>onmessage<span class="token operator">=</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 将获取信息打印</span>
         <span class="token keyword">var</span> received_msg <span class="token operator">=</span> evt<span class="token punctuation">.</span>data
         <span class="token keyword">this</span><span class="token punctuation">.</span>msglist<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>received_msg<span class="token punctuation">)</span><span class="token punctuation">)</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>evt<span class="token punctuation">)</span>
 
       <span class="token comment" spellcheck="true">// 连接关闭</span>
-      ws<span class="token punctuation">.</span>onclose<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+      ws<span class="token punctuation">.</span>onclose<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'链接已关闭'</span><span class="token punctuation">)</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">websocketlink</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-      <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token comment" spellcheck="true">// 连接报错</span>
-      ws<span class="token punctuation">.</span>error<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+      ws<span class="token punctuation">.</span>error<span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">websocketlink</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-      <span class="token punctuation">{</span></code></pre>
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span></code></pre>
 <blockquote>
 <p>这里，我把连接封装起来，在报错或者关闭时，重新连接</p>
 </blockquote>
@@ -592,7 +592,7 @@
 <li><p>页面操作上，点击按钮，发送消息，这都是简单的请求<code>API</code>接口的操作，这里就不多详述了</p>
 </li>
 <li><p>后端连接，也是一个简单的<code>dwebsocket</code>连接</p>
-<pre class=" language-python"><code class="language-python">clients <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>
+<pre class=" language-python"><code class="language-python">clients <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#123;</span>
 
 <span class="token comment" spellcheck="true"># 链接websocket接口</span>
 @accept_websocket
@@ -625,7 +625,7 @@ s <span class="token operator">=</span> str<span class="token punctuation">(</sp
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 遍历所有的连接用户</span>
 <span class="token keyword">for</span> client <span class="token keyword">in</span> clients<span class="token punctuation">:</span>
     <span class="token comment" spellcheck="true"># 构造返回数据，需要编一下码</span>
-    message <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'username'</span><span class="token punctuation">:</span>username<span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span>msg<span class="token punctuation">{</span><span class="token punctuation">,</span>ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    message <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'username':username,'msg':msg&amp;#123;,ensure_ascii=False)</span>
     <span class="token comment" spellcheck="true"># 发送消息</span>
     clients<span class="token punctuation">[</span>client<span class="token punctuation">]</span><span class="token punctuation">.</span>send<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 </li>
@@ -652,7 +652,7 @@ s <span class="token operator">=</span> str<span class="token punctuation">(</sp
             redis_client<span class="token punctuation">.</span>get<span class="token punctuation">(</span>uid<span class="token punctuation">)</span>
         <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'code'</span><span class="token punctuation">:</span> <span class="token number">1001</span><span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span> <span class="token string">'发送频繁'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'code': 1001, 'msg': '发送频繁'&amp;#123;)</span>
         redis_client<span class="token punctuation">.</span>hincrby<span class="token punctuation">(</span>uid<span class="token punctuation">,</span><span class="token string">'num'</span><span class="token punctuation">)</span>
         redis_client<span class="token punctuation">.</span>expire<span class="token punctuation">(</span>uid<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
 
@@ -667,7 +667,7 @@ s <span class="token operator">=</span> str<span class="token punctuation">(</sp
         <span class="token comment" spellcheck="true"># 如果传的是消息，发送消息顺便存储到本地</span>
         <span class="token keyword">if</span> msg<span class="token punctuation">:</span>
             <span class="token keyword">for</span> client <span class="token keyword">in</span> clients<span class="token punctuation">:</span>
-                message <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'username'</span><span class="token punctuation">:</span>username<span class="token punctuation">,</span><span class="token string">'msg'</span><span class="token punctuation">:</span>msg<span class="token punctuation">{</span><span class="token punctuation">,</span>ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+                message <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'username':username,'msg':msg&amp;#123;,ensure_ascii=False)</span>
                 clients<span class="token punctuation">[</span>client<span class="token punctuation">]</span><span class="token punctuation">.</span>send<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
                 s <span class="token operator">=</span> str<span class="token punctuation">(</span>timestamp1<span class="token punctuation">)</span><span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> msg <span class="token operator">+</span> <span class="token string">'\n'</span>
                 <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'chat_record/%s.txt'</span> <span class="token operator">%</span> uid<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
@@ -677,7 +677,7 @@ s <span class="token operator">=</span> str<span class="token punctuation">(</sp
             <span class="token keyword">with</span> open<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>CHAT_RECORD_ROOT<span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">,</span> image<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
                 <span class="token keyword">for</span> chunk <span class="token keyword">in</span> image<span class="token punctuation">.</span>chunks<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
                     f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>chunk<span class="token punctuation">)</span>
-                message <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'username'</span><span class="token punctuation">:</span> username<span class="token punctuation">,</span> <span class="token string">'msg'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token string">'http://192.168.1.157:8000/static/chat_record/'</span><span class="token operator">+</span>image<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">,</span> ensure_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+                message <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'username': username, 'msg':('http://192.168.1.157:8000/static/chat_record/'+image.name)&amp;#123;, ensure_ascii=False)</span>
                 <span class="token keyword">for</span> client <span class="token keyword">in</span> clients<span class="token punctuation">:</span>
 
                     clients<span class="token punctuation">[</span>client<span class="token punctuation">]</span><span class="token punctuation">.</span>send<span class="token punctuation">(</span>message<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -685,39 +685,39 @@ s <span class="token operator">=</span> str<span class="token punctuation">(</sp
             s <span class="token operator">=</span> str<span class="token punctuation">(</span>timestamp1<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span><span class="token string">'http://192.168.1.157:8000/static/chat_record/'</span><span class="token operator">+</span>str<span class="token punctuation">(</span>image<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'\n'</span>
             <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">'chat_record/%s.txt'</span> <span class="token operator">%</span> uid<span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
                 f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'message'</span><span class="token punctuation">:</span> <span class="token string">'ok'</span><span class="token punctuation">{</span><span class="token punctuation">)</span></code></pre>
+        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'message': 'ok'&amp;#123;)</span></code></pre>
 </li>
 <li><p>发送与渲染</p>
 <blockquote>
 <p>判断：indexOf() —&gt;判断是否有某个元素，格式为 <strong>字符串&amp;&amp;字符串.indexOf(‘子串’)</strong></p>
 <p>如果不存在，则返回一个**-1**</p>
 </blockquote>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>a<span class="token operator">-</span>modal v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">'show'</span> @ok<span class="token operator">=</span><span class="token string">"myok"</span><span class="token operator">></span>
-          <span class="token operator">&lt;</span>span v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"i in msglist"</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"i.username"</span><span class="token operator">></span>
-          <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">'i.msg &amp;&amp; i.msg.indexOf(".jpg")!=-1'</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>i<span class="token punctuation">.</span>username<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>a<span class="token operator">-</span>avatar <span class="token punctuation">:</span>size<span class="token operator">=</span><span class="token string">"44"</span> <span class="token punctuation">:</span>src<span class="token operator">=</span>i<span class="token punctuation">.</span>msg style<span class="token operator">=</span><span class="token string">'margin-left: 20px'</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>avatar<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
-          <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">else</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>i<span class="token punctuation">.</span>username<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">{</span>i<span class="token punctuation">.</span>msg<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>a<span class="token operator">-</span>modal v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">'show'</span> @ok<span class="token operator">=</span><span class="token string">"myok"</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>span v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"i in msglist"</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"i.username"</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">'i.msg &amp;&amp; i.msg.indexOf(".jpg")!=-1'</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>i<span class="token punctuation">.</span>username<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>a<span class="token operator">-</span>avatar <span class="token punctuation">:</span>size<span class="token operator">=</span><span class="token string">"44"</span> <span class="token punctuation">:</span>src<span class="token operator">=</span>i<span class="token punctuation">.</span>msg style<span class="token operator">=</span><span class="token string">'margin-left: 20px'</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>avatar<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p v<span class="token operator">-</span><span class="token keyword">else</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>i<span class="token punctuation">.</span>username<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>i<span class="token punctuation">.</span>msg<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
 
-          <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-          <span class="token operator">&lt;</span>span<span class="token operator">></span>
-          <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"发送消息"</span> v<span class="token operator">-</span>bind<span class="token operator">=</span><span class="token string">"formlayout"</span> <span class="token operator">></span>
-              <span class="token operator">&lt;</span>a<span class="token operator">-</span>input v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"msg"</span> <span class="token operator">/</span><span class="token operator">></span>
-          <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item label<span class="token operator">=</span><span class="token string">"发送消息"</span> v<span class="token operator">-</span>bind<span class="token operator">=</span><span class="token string">"formlayout"</span> <span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>a<span class="token operator">-</span>input v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"msg"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">&gt;</span>
 
-          <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item v<span class="token operator">-</span>bind<span class="token operator">=</span><span class="token string">"buttonlayout"</span><span class="token operator">></span>
-              <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">'primary'</span> @click<span class="token operator">=</span><span class="token string">"send_msg"</span><span class="token operator">></span>发送消息<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
+          <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item v<span class="token operator">-</span>bind<span class="token operator">=</span><span class="token string">"buttonlayout"</span><span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">'primary'</span> @click<span class="token operator">=</span><span class="token string">"send_msg"</span><span class="token operator">&gt;</span>发送消息<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">&gt;</span>
               <span class="token operator">&lt;</span>a<span class="token operator">-</span>upload
               name<span class="token operator">=</span><span class="token string">"file"</span>
               <span class="token punctuation">:</span>multiple<span class="token operator">=</span><span class="token string">"true"</span>
               <span class="token punctuation">:</span>action<span class="token operator">=</span>uid
               <span class="token punctuation">:</span>headers<span class="token operator">=</span><span class="token string">"headers"</span>
               @change<span class="token operator">=</span><span class="token string">"handleChange"</span>
-              <span class="token operator">></span>
-                <span class="token operator">&lt;</span>a<span class="token operator">-</span>button<span class="token operator">></span> <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon type<span class="token operator">=</span><span class="token string">"upload"</span> <span class="token operator">/</span><span class="token operator">></span> 发送文件 <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>upload<span class="token operator">></span>
+              <span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>button<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon type<span class="token operator">=</span><span class="token string">"upload"</span> <span class="token operator">/</span><span class="token operator">&gt;</span> 发送文件 <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>upload<span class="token operator">&gt;</span>
 
-          <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">></span>
-          <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>modal<span class="token operator">></span></code></pre>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>item<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>modal<span class="token operator">&gt;</span></code></pre>
 <p>一个简单的聊天室就做好啦</p>
 </li>
 </ul>
@@ -1110,7 +1110,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.9k</span>&nbsp;字
+                class="white-color">129.8k</span>&nbsp;字
             
             
             

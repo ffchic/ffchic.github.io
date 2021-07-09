@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -650,7 +650,7 @@ session<span class="token punctuation">.</span>close<span class="token punctuati
 <h4 id="更新数据（Update）"><a href="#更新数据（Update）" class="headerlink" title="更新数据（Update）"></a>更新数据（Update）</h4><blockquote>
 <p>首先呢，我们需要找出需要修改的数据，然后直接进行update修改</p>
 </blockquote>
-<pre class=" language-python"><code class="language-python">session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>id<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'username'</span><span class="token punctuation">:</span><span class="token string">'haoye'</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+<pre class=" language-python"><code class="language-python">session<span class="token punctuation">.</span>query<span class="token punctuation">(</span>User<span class="token punctuation">)</span><span class="token punctuation">.</span>filter<span class="token punctuation">(</span>User<span class="token punctuation">.</span>id<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'username':'haoye'&amp;#123;)</span>
 session<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <hr>
 <h4 id="删除数据（delete）"><a href="#删除数据（delete）" class="headerlink" title="删除数据（delete）"></a>删除数据（delete）</h4><blockquote>
@@ -1034,7 +1034,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.9k</span>&nbsp;字
+                class="white-color">129.8k</span>&nbsp;字
             
             
             
