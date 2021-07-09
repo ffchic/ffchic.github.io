@@ -577,11 +577,11 @@
 <pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> snowflake<span class="token punctuation">.</span>client
 <span class="token keyword">print</span><span class="token punctuation">(</span>snowflake<span class="token punctuation">.</span>client<span class="token punctuation">.</span>get_guid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token comment" spellcheck="true"># 多次输出一下，就会发现，有递增的连续性</span></code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221520785.png" alt="" style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221520785.png" alt style="zoom:50%;">
 
 <p>将其转换成二进制码</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>bin<span class="token punctuation">(</span><span class="token number">4431128039883018241</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221746952.png" alt="" style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130221746952.png" alt style="zoom:50%;">
 
 <p>然后我们通过二进制码反推</p>
 <ul>
@@ -591,7 +591,7 @@
 <p>从右方数，12位的递增序列，再数5位就是机器标识，这个机器标识就是某个节点的存储标识00001</p>
 <p>但是啊，目前他是二进制，我们再将其转换为10进制</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'00001'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130222356449.png" alt="" style="zoom:50%;">
+<img src="/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/image-20201130222356449.png" alt style="zoom:50%;">
             </div>
             <hr/>
 
