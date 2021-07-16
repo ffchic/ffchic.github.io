@@ -479,12 +479,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
                             <a href="/tags/Golang/">
                                 <span class="chip bg-color">Golang</span>
+                            </a>
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
                             </a>
                         
                     </div>
@@ -515,21 +515,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-07-13
+                    2021-07-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    704
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -771,7 +771,67 @@
 <span class="token punctuation">}</span>
 
 <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span></code></pre>
-<p>按钮功能暂时没有上，稍后会补充。</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><blockquote>
+<p>这里和之前的查看全部用户功能大部分是重复的，重构一下后端函数<code>model/User.go</code></p>
+</blockquote>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">GetUsers</span><span class="token punctuation">(</span>username <span class="token builtin">string</span><span class="token punctuation">,</span> Size <span class="token builtin">int</span><span class="token punctuation">,</span> Page <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>User<span class="token punctuation">,</span><span class="token builtin">int64</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> users <span class="token punctuation">[</span><span class="token punctuation">]</span>User
+    <span class="token keyword">var</span> total <span class="token builtin">int64</span>
+    <span class="token keyword">if</span> username <span class="token operator">!=</span> <span class="token string">""</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> username <span class="token operator">!=</span> <span class="token string">""</span> <span class="token punctuation">{</span>
+            db<span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token string">"id,username,role"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span>
+                <span class="token string">"username LIKE ?"</span><span class="token punctuation">,</span> username<span class="token operator">+</span><span class="token string">"%"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Limit</span><span class="token punctuation">(</span>Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Offset</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Page <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span>
+            db<span class="token punctuation">.</span><span class="token function">Model</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span>
+                <span class="token string">"username LIKE ?"</span><span class="token punctuation">,</span> username<span class="token operator">+</span><span class="token string">"%"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Count</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>total<span class="token punctuation">)</span>
+            <span class="token keyword">return</span> users<span class="token punctuation">,</span> total
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 分页</span>
+    err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Select</span><span class="token punctuation">(</span><span class="token string">"id,username,role"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Offset</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Page <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Limit</span><span class="token punctuation">(</span>Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
+    db<span class="token punctuation">.</span><span class="token function">Model</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>users<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Count</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>total<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> users<span class="token punctuation">,</span><span class="token number">0</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 返回用户的列表</span>
+    <span class="token keyword">return</span> users<span class="token punctuation">,</span>total
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在接收的时候，接收一个username，绑定事件即可。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>a<span class="token operator">-</span>col <span class="token punctuation">:</span>span<span class="token operator">=</span><span class="token string">"6"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>a<span class="token operator">-</span>input<span class="token operator">-</span>search 
+        v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"queryParam.username"</span>
+        allowClear placeholder<span class="token operator">=</span><span class="token string">"请输入用户名"</span> 
+        enter<span class="token operator">-</span>button 
+        @search<span class="token operator">=</span><span class="token string">"getUserList"</span> <span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>col<span class="token operator">></span></code></pre>
+<h2 id="删除功能"><a href="#删除功能" class="headerlink" title="删除功能"></a>删除功能</h2><p>在删除按钮处添加弹窗和绑定事件</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template slot<span class="token operator">=</span><span class="token string">"action"</span> slot<span class="token operator">-</span>scope<span class="token operator">=</span><span class="token string">"data"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"actionSlot"</span><span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"primary"</span> style<span class="token operator">=</span><span class="token string">"margin-right:15px"</span><span class="token operator">></span>编辑<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>popconfirm title<span class="token operator">=</span><span class="token string">"确认删除？删除后无法恢复"</span> ok<span class="token operator">-</span>text<span class="token operator">=</span><span class="token string">"确认"</span> cancel<span class="token operator">-</span>text<span class="token operator">=</span><span class="token string">"取消"</span> @confirm<span class="token operator">=</span><span class="token string">"delUser(data.ID)"</span><span class="token operator">></span>
+                  <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"danger"</span><span class="token operator">></span>删除<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>popconfirm<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">async</span> <span class="token function">delUser</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token keyword">const</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span> res <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$http<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`api/admin/user/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/`</span></span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>msg<span class="token punctuation">)</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>queryParam<span class="token punctuation">.</span>pagenum <span class="token operator">=</span> <span class="token number">1</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getUserList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<p>然后测试一下，ok，果然不行，忘了加权限的验证了。在main.js中，添加一个请求拦截器</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 请求拦截器</span>
+axios<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>config <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  config<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>Authorization <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+  <span class="token keyword">return</span> config
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>这样的话，每次都会携带上这个token，用来验证。</p>
 
             </div>
             <hr/>
@@ -835,12 +895,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
-                                </a>
-                            
                                 <a href="/tags/Golang/">
                                     <span class="chip bg-color">Golang</span>
+                                </a>
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
                                 </a>
                             
                         </div>
@@ -906,17 +966,16 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/07/12/gin-vue-da-jian-ge-ren-bo-ke-7/">
+                <a href="/2021/07/16/gin-vue-da-jian-ge-ren-bo-ke-8/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/113.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-7">
+                        <img src="/medias/featureimages/114.jpeg" class="responsive-img" alt="gin-vue搭建个人博客-8">
                         
-                        <span class="card-title">gin-vue搭建个人博客-7</span>
+                        <span class="card-title">gin-vue搭建个人博客-8</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -926,9 +985,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -941,16 +1000,15 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
-                    
                     <a href="/tags/Golang/">
                         <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
@@ -997,12 +1055,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
-                    
                     <a href="/tags/Golang/">
                         <span class="chip bg-color">Golang</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
@@ -1155,7 +1213,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">128.9k</span>&nbsp;字
+                class="white-color">132.2k</span>&nbsp;字
             
             
             
