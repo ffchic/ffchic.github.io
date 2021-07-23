@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -554,7 +554,7 @@
 <p>我们不以复杂的理论和代码来论证这个依赖注入，我们声明一个函数，用来当作依赖项来进行讲解。</p>
 </blockquote>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">common_parameters</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span> skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">,</span> <span class="token string">"skip"</span><span class="token punctuation">:</span> skip<span class="token punctuation">,</span> <span class="token string">"limit"</span><span class="token punctuation">:</span> limit<span class="token punctuation">}</span></code></pre>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"q": q, "skip": skip, "limit": limit&amp;#125;</span></code></pre>
 <p>这里，我们声明了一个函数，有三个参数，<code>q</code>、<code>skip</code>、<code>limit</code>，我没有对他进行任何处理，只是原封不动的返回了，如果在真实的开发场景中，我们如果把所有的业务处理全部放在一个函数中，那就成了祖传代码，除了你自己，几乎别人没人看得懂。(PS：你自己也不一定看得懂了~~(●’◡’●))</p>
 <p>好了，回到我们这个场景，假如，我们要多次传入这三个参数，我们按照正常来说，也可以这么写：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">test1</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">,</span> skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
@@ -596,7 +596,7 @@
 <span class="token comment" spellcheck="true"># 最后传到的</span>
 @app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
 <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_query</span><span class="token punctuation">(</span>query_or_default<span class="token punctuation">:</span> str <span class="token operator">=</span> Depends<span class="token punctuation">(</span>query_or_cookie_extractor<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"q_or_cookie"</span><span class="token punctuation">:</span> query_or_default<span class="token punctuation">}</span></code></pre>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"q_or_cookie": query_or_default&amp;#125;</span></code></pre>
 <h2 id="路径中操作依赖项"><a href="#路径中操作依赖项" class="headerlink" title="路径中操作依赖项"></a>路径中操作依赖项</h2><blockquote>
 <p>在路径中，无论是fastapi项目的实例还是APIrouter的实例，所导的路径装饰器中，都可以进行依赖的注入。在路由中，使用<code>dependencies</code>来进行依赖的注入。他可以是一个<code>Depends</code>，也可以是一个列表，来进行多个依赖项的注入</p>
 </blockquote>
@@ -613,7 +613,7 @@
 <span class="token comment" spellcheck="true"># 在路由装饰器中，列表形式注入多个依赖项</span>
 @app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">,</span> dependencies<span class="token operator">=</span><span class="token punctuation">[</span>Depends<span class="token punctuation">(</span>verify_token<span class="token punctuation">)</span><span class="token punctuation">,</span> Depends<span class="token punctuation">(</span>verify_key<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"item": "Foo"&amp;#125;, &amp;#123;"item": "Bar"&amp;#125;]</span></code></pre>
 <h2 id="全局依赖"><a href="#全局依赖" class="headerlink" title="全局依赖"></a>全局依赖</h2><blockquote>
 <p>在全局中，无论是<code>APIRouter</code>还是<code>FastAPI</code>,他们所实例的变量都可以通过<code>dependencies</code>来进行依赖的注入，这样，所有使用了他们的路由装饰器，都会进行其依赖的操作。</p>
 </blockquote>
@@ -1010,7 +1010,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             

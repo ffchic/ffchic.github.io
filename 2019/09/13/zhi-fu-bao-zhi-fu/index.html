@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -526,14 +526,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -622,20 +622,20 @@ APP_PRIVATE <span class="token operator">=</span> os<span class="token punctuati
             self<span class="token punctuation">.</span>__gateway <span class="token operator">=</span> <span class="token string">"https://openapi.alipay.com/gateway.do"</span>
 
     <span class="token keyword">def</span> <span class="token function">direct_pay</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> subject<span class="token punctuation">,</span> out_trade_no<span class="token punctuation">,</span> total_amount<span class="token punctuation">,</span> return_url<span class="token operator">=</span>None<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        biz_content <span class="token operator">=</span> <span class="token punctuation">{</span>
+        biz_content <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
             <span class="token string">"subject"</span><span class="token punctuation">:</span> subject<span class="token punctuation">,</span>
             <span class="token string">"out_trade_no"</span><span class="token punctuation">:</span> out_trade_no<span class="token punctuation">,</span>
             <span class="token string">"total_amount"</span><span class="token punctuation">:</span> total_amount<span class="token punctuation">,</span>
             <span class="token string">"product_code"</span><span class="token punctuation">:</span> <span class="token string">"FAST_INSTANT_TRADE_PAY"</span><span class="token punctuation">,</span>
             <span class="token comment" spellcheck="true"># "qr_pay_mode":4</span>
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
 
         biz_content<span class="token punctuation">.</span>update<span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span>
         data <span class="token operator">=</span> self<span class="token punctuation">.</span>build_body<span class="token punctuation">(</span><span class="token string">"alipay.trade.page.pay"</span><span class="token punctuation">,</span> biz_content<span class="token punctuation">,</span> self<span class="token punctuation">.</span>return_url<span class="token punctuation">)</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>sign_data<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 
     <span class="token keyword">def</span> <span class="token function">build_body</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> method<span class="token punctuation">,</span> biz_content<span class="token punctuation">,</span> return_url<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        data <span class="token operator">=</span> <span class="token punctuation">{</span>
+        data <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
             <span class="token string">"app_id"</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>appid<span class="token punctuation">,</span>
             <span class="token string">"method"</span><span class="token punctuation">:</span> method<span class="token punctuation">,</span>
             <span class="token string">"charset"</span><span class="token punctuation">:</span> <span class="token string">"utf-8"</span><span class="token punctuation">,</span>
@@ -643,7 +643,7 @@ APP_PRIVATE <span class="token operator">=</span> os<span class="token punctuati
             <span class="token string">"timestamp"</span><span class="token punctuation">:</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"1.0"</span><span class="token punctuation">,</span>
             <span class="token string">"biz_content"</span><span class="token punctuation">:</span> biz_content
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
 
         <span class="token keyword">if</span> return_url <span class="token keyword">is</span> <span class="token operator">not</span> None<span class="token punctuation">:</span>
             data<span class="token punctuation">[</span><span class="token string">"notify_url"</span><span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>app_notify_url
@@ -655,10 +655,10 @@ APP_PRIVATE <span class="token operator">=</span> os<span class="token punctuati
         data<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">"sign"</span><span class="token punctuation">,</span> None<span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># 排序后的字符串</span>
         unsigned_items <span class="token operator">=</span> self<span class="token punctuation">.</span>ordered_data<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-        unsigned_string <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"{0}={1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> unsigned_items<span class="token punctuation">)</span>
+        unsigned_string <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"&amp;#123;0&amp;#125;=&amp;#123;1&amp;#125;"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> unsigned_items<span class="token punctuation">)</span>
         sign <span class="token operator">=</span> self<span class="token punctuation">.</span>sign<span class="token punctuation">(</span>unsigned_string<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># ordered_items = self.ordered_data(data)</span>
-        quoted_string <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"{0}={1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> quote_plus<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> unsigned_items<span class="token punctuation">)</span>
+        quoted_string <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"&amp;#123;0&amp;#125;=&amp;#123;1&amp;#125;"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> quote_plus<span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> unsigned_items<span class="token punctuation">)</span>
 
         <span class="token comment" spellcheck="true"># 获得最终的订单信息字符串</span>
         signed_string <span class="token operator">=</span> quoted_string <span class="token operator">+</span> <span class="token string">"&amp;sign="</span> <span class="token operator">+</span> quote_plus<span class="token punctuation">(</span>sign<span class="token punctuation">)</span>
@@ -700,14 +700,14 @@ APP_PRIVATE <span class="token operator">=</span> os<span class="token punctuati
             sign_type <span class="token operator">=</span> data<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">"sign_type"</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true"># 排序后的字符串</span>
         unsigned_items <span class="token operator">=</span> self<span class="token punctuation">.</span>ordered_data<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-        message <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>u<span class="token string">"{}={}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> unsigned_items<span class="token punctuation">)</span>
+        message <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>u<span class="token string">"&amp;#123;&amp;#125;=&amp;#123;&amp;#125;"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> unsigned_items<span class="token punctuation">)</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>_verify<span class="token punctuation">(</span>message<span class="token punctuation">,</span> signature<span class="token punctuation">)</span>
 
     <span class="token comment" spellcheck="true">#请求退款接口</span>
     <span class="token keyword">def</span> <span class="token function">api_alipay_trade_refund</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>refund_amount<span class="token punctuation">,</span>out_trade_no<span class="token operator">=</span>None<span class="token punctuation">,</span>trade_no<span class="token operator">=</span>None<span class="token punctuation">,</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
         <span class="token comment" spellcheck="true">#构造参数体</span>
-        biz_content <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"refund_amount"</span><span class="token punctuation">:</span>refund_amount<span class="token punctuation">}</span>
+        biz_content <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123; "refund_amount":refund_amount&amp;#125;</span>
 
         <span class="token comment" spellcheck="true">#传递可选参数</span>
         biz_content<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
@@ -783,7 +783,7 @@ alipay_public_key_string <span class="token operator">=</span> os<span class="to
         total_amount<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># 交易金额(单位: 元 保留俩位小数)</span>
     <span class="token punctuation">)</span>
 
-    pay_url <span class="token operator">=</span> <span class="token string">"https://openapi.alipaydev.com/gateway.do?{0}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>query_params<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 支付宝网关地址（沙箱应用）</span>
+    pay_url <span class="token operator">=</span> <span class="token string">"https://openapi.alipaydev.com/gateway.do?&amp;#123;0&amp;#125;"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>query_params<span class="token punctuation">)</span>  # 支付宝网关地址（沙箱应用）
     <span class="token keyword">print</span><span class="token punctuation">(</span>pay_url<span class="token punctuation">)</span>
     <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>pay_url<span class="token punctuation">)</span>
 
@@ -1200,7 +1200,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             

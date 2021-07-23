@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -518,14 +518,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -562,7 +562,7 @@ go get github.com/rifflock/lfshook</code></pre>
     <span class="token string">"time"</span>
 <span class="token punctuation">)</span>
 
-<span class="token keyword">func</span> <span class="token function">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span> gin<span class="token punctuation">.</span>HandlerFunc <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token function">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span> gin<span class="token punctuation">.</span>HandlerFunc <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 定义文件路径</span>
     filePath <span class="token operator">:=</span> <span class="token string">"log/blog.log"</span>
     <span class="token comment" spellcheck="true">// 软连接路径(可以根据运维来进行调整)</span>
@@ -571,9 +571,9 @@ go get github.com/rifflock/lfshook</code></pre>
     logger <span class="token operator">:=</span> logrus<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// 定位到log文件夹(路径，os新建文件，赋值权限)</span>
     src<span class="token punctuation">,</span>err <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">OpenFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">,</span> os<span class="token punctuation">.</span>O_RDWR<span class="token operator">|</span>os<span class="token punctuation">.</span>O_CREATE<span class="token punctuation">,</span> <span class="token number">0755</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err<span class="token operator">!=</span><span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 输出到日志文件中</span>
     logger<span class="token punctuation">.</span>Out <span class="token operator">=</span> src
 
@@ -585,22 +585,22 @@ go get github.com/rifflock/lfshook</code></pre>
         <span class="token comment" spellcheck="true">// retalog.WithLinkName(linkName),</span>
     <span class="token punctuation">)</span>
   <span class="token comment" spellcheck="true">// 日志级别</span>
-    writeMap <span class="token operator">:=</span> lfshook<span class="token punctuation">.</span>WriterMap<span class="token punctuation">{</span>
+    writeMap <span class="token operator">:=</span> lfshook<span class="token punctuation">.</span>WriterMap<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         logrus<span class="token punctuation">.</span>InfoLevel<span class="token punctuation">:</span>  logWriter<span class="token punctuation">,</span>
         logrus<span class="token punctuation">.</span>FatalLevel<span class="token punctuation">:</span> logWriter<span class="token punctuation">,</span>
         logrus<span class="token punctuation">.</span>DebugLevel<span class="token punctuation">:</span> logWriter<span class="token punctuation">,</span>
         logrus<span class="token punctuation">.</span>WarnLevel<span class="token punctuation">:</span>  logWriter<span class="token punctuation">,</span>
         logrus<span class="token punctuation">.</span>ErrorLevel<span class="token punctuation">:</span> logWriter<span class="token punctuation">,</span>
         logrus<span class="token punctuation">.</span>PanicLevel<span class="token punctuation">:</span> logWriter<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 时间格式化分割</span>
-    Hook <span class="token operator">:=</span> lfshook<span class="token punctuation">.</span><span class="token function">NewHook</span><span class="token punctuation">(</span>writeMap<span class="token punctuation">,</span> <span class="token operator">&amp;</span>logrus<span class="token punctuation">.</span>TextFormatter<span class="token punctuation">{</span>
+    Hook <span class="token operator">:=</span> lfshook<span class="token punctuation">.</span><span class="token function">NewHook</span><span class="token punctuation">(</span>writeMap<span class="token punctuation">,</span> <span class="token operator">&amp;</span>logrus<span class="token punctuation">.</span>TextFormatter<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         TimestampFormat<span class="token punctuation">:</span> <span class="token string">"2006-01-02 15:04:05"</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
     logger<span class="token punctuation">.</span><span class="token function">AddHook</span><span class="token punctuation">(</span>Hook<span class="token punctuation">)</span>
 
 
-    <span class="token keyword">return</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 输出开始时间</span>
         startTime <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         c<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -609,9 +609,9 @@ go get github.com/rifflock/lfshook</code></pre>
         spendTime <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%d ms"</span><span class="token punctuation">,</span> <span class="token function">int</span><span class="token punctuation">(</span>math<span class="token punctuation">.</span><span class="token function">Ceil</span><span class="token punctuation">(</span><span class="token function">float64</span><span class="token punctuation">(</span>stopTime<span class="token punctuation">.</span><span class="token function">Nanoseconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000000.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 主机名</span>
         hostName<span class="token punctuation">,</span> err <span class="token operator">:=</span> os<span class="token punctuation">.</span><span class="token function">Hostname</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             hostName <span class="token operator">=</span> <span class="token string">"unKnown"</span>
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 状态码</span>
         statusCode <span class="token operator">:=</span> c<span class="token punctuation">.</span>Writer<span class="token punctuation">.</span><span class="token function">Status</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 客户端ip</span>
@@ -620,14 +620,14 @@ go get github.com/rifflock/lfshook</code></pre>
         userAgent <span class="token operator">:=</span> c<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">UserAgent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 请求大小</span>
         dataSize <span class="token operator">:=</span> c<span class="token punctuation">.</span>Writer<span class="token punctuation">.</span><span class="token function">Size</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> dataSize <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> dataSize <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             dataSize <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// 请求方法和路径</span>
         method <span class="token operator">:=</span> c<span class="token punctuation">.</span>Request<span class="token punctuation">.</span>Method
         path <span class="token operator">:=</span> c<span class="token punctuation">.</span>Request<span class="token punctuation">.</span>RequestURI
         <span class="token comment" spellcheck="true">// 组合数据</span>
-        entry <span class="token operator">:=</span> logger<span class="token punctuation">.</span><span class="token function">WithFields</span><span class="token punctuation">(</span>logrus<span class="token punctuation">.</span>Fields<span class="token punctuation">{</span>
+        entry <span class="token operator">:=</span> logger<span class="token punctuation">.</span><span class="token function">WithFields</span><span class="token punctuation">(</span>logrus<span class="token punctuation">.</span>Fields<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token string">"HostName"</span><span class="token punctuation">:</span>hostName<span class="token punctuation">,</span>
             <span class="token string">"Status"</span><span class="token punctuation">:</span>statusCode<span class="token punctuation">,</span>
             <span class="token string">"SpendTime"</span><span class="token punctuation">:</span>spendTime<span class="token punctuation">,</span>
@@ -636,23 +636,23 @@ go get github.com/rifflock/lfshook</code></pre>
             <span class="token string">"Path"</span><span class="token punctuation">:</span>path<span class="token punctuation">,</span>
             <span class="token string">"DataSize"</span><span class="token punctuation">:</span>dataSize<span class="token punctuation">,</span>
             <span class="token string">"Agent"</span><span class="token punctuation">:</span> userAgent<span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
         <span class="token comment" spellcheck="true">// 分级别</span>
-        <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>Errors<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>Errors<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             entry<span class="token punctuation">.</span><span class="token function">Error</span><span class="token punctuation">(</span>c<span class="token punctuation">.</span>Errors<span class="token punctuation">.</span><span class="token function">ByType</span><span class="token punctuation">(</span>gin<span class="token punctuation">.</span>ErrorTypePrivate<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> statusCode <span class="token operator">>=</span> <span class="token number">500</span><span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> statusCode <span class="token operator">&gt;=</span> <span class="token number">500</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             entry<span class="token punctuation">.</span><span class="token function">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span> statusCode <span class="token operator">>=</span> <span class="token number">400</span><span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span> <span class="token keyword">if</span> statusCode <span class="token operator">&gt;=</span> <span class="token number">400</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             entry<span class="token punctuation">.</span><span class="token function">Warn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             entry<span class="token punctuation">.</span><span class="token function">Info</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>然后将<code>router.go</code>下实例的r改为New方法</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">InitRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">InitRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     gin<span class="token punctuation">.</span><span class="token function">SetMode</span><span class="token punctuation">(</span>utils<span class="token punctuation">.</span>AppMode<span class="token punctuation">)</span>
     r <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     r<span class="token punctuation">.</span><span class="token function">Use</span><span class="token punctuation">(</span>middleware<span class="token punctuation">.</span><span class="token function">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -660,7 +660,7 @@ go get github.com/rifflock/lfshook</code></pre>
 
     Auth <span class="token operator">:=</span> r<span class="token punctuation">.</span><span class="token function">Group</span><span class="token punctuation">(</span><span class="token string">"api/admin"</span><span class="token punctuation">)</span>
     Auth<span class="token punctuation">.</span><span class="token function">Use</span><span class="token punctuation">(</span>middleware<span class="token punctuation">.</span><span class="token function">JwtToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token comment" spellcheck="true">// User模块的路由接口</span>
         Auth<span class="token punctuation">.</span><span class="token function">PUT</span><span class="token punctuation">(</span><span class="token string">"user/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>EditUser<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">DELETE</span><span class="token punctuation">(</span><span class="token string">"user/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>DeleteUser<span class="token punctuation">)</span>
@@ -673,10 +673,10 @@ go get github.com/rifflock/lfshook</code></pre>
         Auth<span class="token punctuation">.</span><span class="token function">PUT</span><span class="token punctuation">(</span><span class="token string">"article/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>EditArticle<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">DELETE</span><span class="token punctuation">(</span><span class="token string">"article/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>DeleteArticle<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"upload/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>UploadFile<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
     router <span class="token operator">:=</span> r<span class="token punctuation">.</span><span class="token function">Group</span><span class="token punctuation">(</span><span class="token string">"api/v1"</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"user/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetUsers<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"user/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>AddUser<span class="token punctuation">)</span>
 
@@ -688,22 +688,22 @@ go get github.com/rifflock/lfshook</code></pre>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"article/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetArticles<span class="token punctuation">)</span>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"article/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetArticleInfo<span class="token punctuation">)</span>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"catelist/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetCateArt<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
     <span class="token boolean">_</span> <span class="token operator">=</span> r<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span>utils<span class="token punctuation">.</span>HttpPort<span class="token punctuation">)</span>
 
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h2 id="跨域配置与数据限制"><a href="#跨域配置与数据限制" class="headerlink" title="跨域配置与数据限制"></a>跨域配置与数据限制</h2><h4 id="数据限制"><a href="#数据限制" class="headerlink" title="数据限制"></a>数据限制</h4><pre class=" language-go"><code class="language-go"><span class="token keyword">go</span> get github<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token keyword">go</span><span class="token operator">-</span>playground<span class="token operator">/</span>locales<span class="token operator">/</span>zh_Hans_CN@v0<span class="token number">.13</span><span class="token punctuation">.</span><span class="token number">0</span>
 
 <span class="token keyword">go</span> get github<span class="token punctuation">.</span>com<span class="token operator">/</span>gin<span class="token operator">-</span>contrib<span class="token operator">/</span>cors</code></pre>
 <p>数据限制，改造<code>model/User.go</code>,添加validate。</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> User <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> User <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     gorm<span class="token punctuation">.</span>Model
     Username <span class="token builtin">string</span> <span class="token string">`gorm:"type:varchar(20);not null " json:"username" validate:"required,min=4,max=12" label:"用户名"`</span>
     Password <span class="token builtin">string</span> <span class="token string">`gorm:"type:varchar(500);not null" json:"password" validate:"required,min=6,max=120" label:"密码"`</span>
     Avatar <span class="token builtin">string</span> <span class="token string">`gorm:"type:varchar(40);not null" json:"avatar" label:"头像"`</span>
     Role     <span class="token builtin">int</span>    <span class="token string">`gorm:"type:int;DEFAULT:2" json:"role" validate:"required,gte=2" label:"角色"`</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>在utils下，新建validator文件夹和文件</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> validator
 
@@ -717,60 +717,60 @@ go get github.com/rifflock/lfshook</code></pre>
     <span class="token string">"reflect"</span>
 <span class="token punctuation">)</span>
 
-<span class="token keyword">func</span> <span class="token function">Validate</span><span class="token punctuation">(</span>data <span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token function">Validate</span><span class="token punctuation">(</span>data <span class="token keyword">interface</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     validate <span class="token operator">:=</span> validator<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     uni <span class="token operator">:=</span> unTrans<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span>zh_Hans_CN<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     trans<span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> uni<span class="token punctuation">.</span><span class="token function">GetTranslator</span><span class="token punctuation">(</span><span class="token string">"zh_Hans_CN"</span><span class="token punctuation">)</span>
 
     err <span class="token operator">:=</span> zhTrans<span class="token punctuation">.</span><span class="token function">RegisterDefaultTranslations</span><span class="token punctuation">(</span>validate<span class="token punctuation">,</span> trans<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"err:"</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    validate<span class="token punctuation">.</span><span class="token function">RegisterTagNameFunc</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>field reflect<span class="token punctuation">.</span>StructField<span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    validate<span class="token punctuation">.</span><span class="token function">RegisterTagNameFunc</span><span class="token punctuation">(</span><span class="token keyword">func</span><span class="token punctuation">(</span>field reflect<span class="token punctuation">.</span>StructField<span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         label <span class="token operator">:=</span> field<span class="token punctuation">.</span>Tag<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token string">"label"</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> label
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
 
     err <span class="token operator">=</span> validate<span class="token punctuation">.</span><span class="token function">Struct</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> v <span class="token operator">:=</span> <span class="token keyword">range</span> err<span class="token punctuation">.</span><span class="token punctuation">(</span>validator<span class="token punctuation">.</span>ValidationErrors<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> v <span class="token operator">:=</span> <span class="token keyword">range</span> err<span class="token punctuation">.</span><span class="token punctuation">(</span>validator<span class="token punctuation">.</span>ValidationErrors<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> v<span class="token punctuation">.</span><span class="token function">Translate</span><span class="token punctuation">(</span>trans<span class="token punctuation">)</span><span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>ERROR
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>SUCCSE
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p>工具写好后，在<code>api/user.go</code>使用验证，保证添加的数据是正确的。</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">AddUser</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">AddUser</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> data model<span class="token punctuation">.</span>User
     <span class="token keyword">var</span> msg <span class="token builtin">string</span>
     <span class="token boolean">_</span> <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">ShouldBindJSON</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
     msg<span class="token punctuation">,</span> code <span class="token operator">=</span> validator<span class="token punctuation">.</span><span class="token function">Validate</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> code <span class="token operator">!=</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> code <span class="token operator">!=</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>
-            http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
+            http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
                 <span class="token string">"status"</span><span class="token punctuation">:</span>  code<span class="token punctuation">,</span>
                 <span class="token string">"message"</span><span class="token punctuation">:</span> msg<span class="token punctuation">,</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
         <span class="token punctuation">)</span>
         c<span class="token punctuation">.</span><span class="token function">Abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
     code <span class="token operator">=</span> model<span class="token punctuation">.</span><span class="token function">CheckUser</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>Username<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         model<span class="token punctuation">.</span><span class="token function">CreateUser</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>data<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_USERNAME_USED
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
         <span class="token string">"msg"</span><span class="token punctuation">:</span>errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">"data"</span><span class="token punctuation">:</span>data<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <h4 id="跨域配置"><a href="#跨域配置" class="headerlink" title="跨域配置"></a>跨域配置</h4><p>在middleware下，新建cors.go文件，编写跨域中间件</p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> middleware
 
@@ -780,18 +780,18 @@ go get github.com/rifflock/lfshook</code></pre>
     <span class="token string">"time"</span>
 <span class="token punctuation">)</span>
 
-<span class="token keyword">func</span> <span class="token function">Cors</span><span class="token punctuation">(</span><span class="token punctuation">)</span> gin<span class="token punctuation">.</span>HandlerFunc <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token function">Cors</span><span class="token punctuation">(</span><span class="token punctuation">)</span> gin<span class="token punctuation">.</span>HandlerFunc <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> cors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span>
-        cors<span class="token punctuation">.</span>Config<span class="token punctuation">{</span>
+        cors<span class="token punctuation">.</span>Config<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             AllowAllOrigins<span class="token punctuation">:</span>  <span class="token boolean">true</span><span class="token punctuation">,</span>
-            AllowMethods<span class="token punctuation">:</span>     <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">,</span> <span class="token string">"PUT"</span><span class="token punctuation">,</span> <span class="token string">"DELETE"</span><span class="token punctuation">,</span> <span class="token string">"OPTIONS"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            AllowHeaders<span class="token punctuation">:</span>     <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span><span class="token string">"*"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-            ExposeHeaders<span class="token punctuation">:</span>    <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span><span class="token string">"Content-Length"</span><span class="token punctuation">,</span> <span class="token string">"text/plain"</span><span class="token punctuation">,</span> <span class="token string">"Authorization"</span><span class="token punctuation">,</span> <span class="token string">"Content-Type"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            AllowMethods<span class="token punctuation">:</span>     <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">,</span> <span class="token string">"PUT"</span><span class="token punctuation">,</span> <span class="token string">"DELETE"</span><span class="token punctuation">,</span> <span class="token string">"OPTIONS"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            AllowHeaders<span class="token punctuation">:</span>     <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"*"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            ExposeHeaders<span class="token punctuation">:</span>    <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Content-Length"</span><span class="token punctuation">,</span> <span class="token string">"text/plain"</span><span class="token punctuation">,</span> <span class="token string">"Authorization"</span><span class="token punctuation">,</span> <span class="token string">"Content-Type"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
             AllowCredentials<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
             MaxAge<span class="token punctuation">:</span>           <span class="token number">12</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Hour<span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>和之前的中间件一样在router中配置即可。</p>
 <p>大体功能基本实现，在后期可能会加一些新的，不断的完善，不过目前这种程度就已经能够做一个博客了，后期项目先到此为止，然后前端的话，使用vue来做，未完待续…</p>
 
@@ -1167,7 +1167,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             

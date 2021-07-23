@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -518,14 +518,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    8 Min
                 </div>
                 
 
@@ -665,43 +665,43 @@ services:
 <pre><code>SeaweedAddress = http://127.0.0.1:9333</code></pre>
 <p>新建文件夹<code>goseaweed</code>，新建<code>interface.go</code>和<code>seaweed.go</code>。</p>
 <p><code>seaweed.go</code></p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> seaweedFS <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">type</span> seaweedFS <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     serverURL <span class="token builtin">string</span>
     timeout   time<span class="token punctuation">.</span>Duration
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token keyword">type</span> Res <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+<span class="token keyword">type</span> Res <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     Fid <span class="token builtin">string</span> <span class="token string">`json:"fid"`</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 
-<span class="token keyword">func</span> <span class="token function">NewSeaweedFs</span><span class="token punctuation">(</span>serverURL <span class="token builtin">string</span><span class="token punctuation">,</span> timeout time<span class="token punctuation">.</span>Duration<span class="token punctuation">)</span> Seaweed <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> timeout <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token function">NewSeaweedFs</span><span class="token punctuation">(</span>serverURL <span class="token builtin">string</span><span class="token punctuation">,</span> timeout time<span class="token punctuation">.</span>Duration<span class="token punctuation">)</span> Seaweed <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> timeout <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         timeout <span class="token operator">=</span> time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">10</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token operator">&amp;</span>seaweedFS<span class="token punctuation">{</span>serverURL<span class="token punctuation">:</span> serverURL<span class="token punctuation">,</span> timeout<span class="token punctuation">:</span> timeout<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>seaweedFS<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>serverURL<span class="token punctuation">:</span> serverURL<span class="token punctuation">,</span> timeout<span class="token punctuation">:</span> timeout<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>seaweedFS<span class="token punctuation">)</span> <span class="token function">UploadFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">,</span> content <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>seaweedFS<span class="token punctuation">)</span> <span class="token function">UploadFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">,</span> content <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 拼接url</span>
     url <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%s/%s"</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>serverURL<span class="token punctuation">,</span> objectName<span class="token punctuation">)</span>
     method <span class="token operator">:=</span> <span class="token string">"POST"</span>
-    payload <span class="token operator">:=</span> <span class="token operator">&amp;</span>bytes<span class="token punctuation">.</span>Buffer<span class="token punctuation">{</span><span class="token punctuation">}</span>
+    payload <span class="token operator">:=</span> <span class="token operator">&amp;</span>bytes<span class="token punctuation">.</span>Buffer<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     writer <span class="token operator">:=</span> multipart<span class="token punctuation">.</span><span class="token function">NewWriter</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span>
     err <span class="token operator">:=</span> writer<span class="token punctuation">.</span><span class="token function">WriteField</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">,</span> bytes<span class="token punctuation">.</span><span class="token function">NewBuffer</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     err <span class="token operator">=</span> writer<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    client <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Client<span class="token punctuation">{</span>Timeout<span class="token punctuation">:</span> s<span class="token punctuation">.</span>timeout<span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    client <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Client<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>Timeout<span class="token punctuation">:</span> s<span class="token punctuation">.</span>timeout<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     req<span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">NewRequest</span><span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
     req<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">,</span> writer<span class="token punctuation">.</span><span class="token function">FormDataContentType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// 返回值</span>
@@ -711,75 +711,75 @@ services:
     result <span class="token operator">:=</span> <span class="token function">string</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span>
     <span class="token keyword">var</span> fid Res
     <span class="token boolean">_</span> <span class="token operator">=</span> json<span class="token punctuation">.</span><span class="token function">Unmarshal</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>fid<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> res<span class="token punctuation">.</span>StatusCode <span class="token operator">!=</span> http<span class="token punctuation">.</span>StatusCreated <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> res<span class="token punctuation">.</span>StatusCode <span class="token operator">!=</span> http<span class="token punctuation">.</span>StatusCreated <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">defer</span> res<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         body<span class="token punctuation">,</span> err <span class="token operator">:=</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadAll</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>Body<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>fmt<span class="token punctuation">.</span><span class="token function">Errorf</span><span class="token punctuation">(</span><span class="token string">"create failed, response:%s"</span><span class="token punctuation">,</span> <span class="token function">string</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> fid<span class="token punctuation">.</span>Fid<span class="token punctuation">,</span><span class="token boolean">nil</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>seaweedFS<span class="token punctuation">)</span> <span class="token function">GetFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>seaweedFS<span class="token punctuation">)</span> <span class="token function">GetFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     body<span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span>fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%s/%s"</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>serverURL<span class="token punctuation">,</span> objectName<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span> errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">defer</span> body<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">return</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadAll</span><span class="token punctuation">(</span>body<span class="token punctuation">.</span>Body<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>seaweedFS<span class="token punctuation">)</span> <span class="token function">RemoveFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>seaweedFS<span class="token punctuation">)</span> <span class="token function">RemoveFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     url <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"%s/%s"</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span>serverURL<span class="token punctuation">,</span> objectName<span class="token punctuation">)</span>
     method <span class="token operator">:=</span> <span class="token string">"DELETE"</span>
 
-    client <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Client<span class="token punctuation">{</span>Timeout<span class="token punctuation">:</span> s<span class="token punctuation">.</span>timeout<span class="token punctuation">}</span>
+    client <span class="token operator">:=</span> <span class="token operator">&amp;</span>http<span class="token punctuation">.</span>Client<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>Timeout<span class="token punctuation">:</span> s<span class="token punctuation">.</span>timeout<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     req<span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">NewRequest</span><span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
     res<span class="token punctuation">,</span> err <span class="token operator">:=</span> client<span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> res<span class="token punctuation">.</span>StatusCode <span class="token operator">!=</span> http<span class="token punctuation">.</span>StatusNoContent <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> res<span class="token punctuation">.</span>StatusCode <span class="token operator">!=</span> http<span class="token punctuation">.</span>StatusNoContent <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token keyword">defer</span> res<span class="token punctuation">.</span>Body<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         body<span class="token punctuation">,</span> err <span class="token operator">:=</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadAll</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>Body<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">WithStack</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> fmt<span class="token punctuation">.</span><span class="token function">Errorf</span><span class="token punctuation">(</span><span class="token string">"delete failed, response:%s"</span><span class="token punctuation">,</span> <span class="token function">string</span><span class="token punctuation">(</span>body<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token boolean">nil</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p><code>interface.go</code></p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> goseaweed
 
-<span class="token keyword">type</span> Seaweed <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+<span class="token keyword">type</span> Seaweed <span class="token keyword">interface</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token function">UploadFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">,</span> content <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
     <span class="token function">GetFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span>
     <span class="token function">RemoveFile</span><span class="token punctuation">(</span>objectName <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">error</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>可以用本地读文件的方式</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">TestSeaweed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">TestSeaweed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     log<span class="token punctuation">.</span><span class="token function">SetFlags</span><span class="token punctuation">(</span>log<span class="token punctuation">.</span>Llongfile <span class="token operator">|</span> log<span class="token punctuation">.</span>LstdFlags<span class="token punctuation">)</span>
 
     fs <span class="token operator">:=</span> <span class="token function">NewSeaweedFs</span><span class="token punctuation">(</span>utils<span class="token punctuation">.</span>SeaweedAddress<span class="token punctuation">,</span> time<span class="token punctuation">.</span>Second<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span>
     file<span class="token punctuation">,</span> err <span class="token operator">:=</span> ioutil<span class="token punctuation">.</span><span class="token function">ReadFile</span><span class="token punctuation">(</span><span class="token string">"/Users/salmon/demo/themes/hexo-theme-matery-develop/source/medias/logo.png"</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         log<span class="token punctuation">.</span><span class="token function">Fatalln</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> fid<span class="token punctuation">,</span>err <span class="token operator">:=</span> fs<span class="token punctuation">.</span><span class="token function">UploadFile</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> fid<span class="token punctuation">,</span>err <span class="token operator">:=</span> fs<span class="token punctuation">.</span><span class="token function">UploadFile</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         log<span class="token punctuation">.</span><span class="token function">Fatalln</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>fid<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>测试一下，ok，没有问题。文件服务器，没有必要非得用网络云盘等存储，自己搭建也是一个很好的方案，不仅可以磨练心态，更可以增进自己的技术。</p>
 
             </div>
@@ -1150,7 +1150,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             

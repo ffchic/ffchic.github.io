@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -522,14 +522,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    960
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -554,90 +554,90 @@ cnpm install --save ant-design-vue
 
 cnpm install axios</code></pre>
 <p>然后引入，在babel.config.js中：</p>
-<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+<pre class=" language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   presets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     <span class="token string">'@vue/cli-plugin-babel/preset'</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
     plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
             <span class="token punctuation">[</span>
               <span class="token string">"import"</span><span class="token punctuation">,</span>
-              <span class="token punctuation">{</span> libraryName<span class="token punctuation">:</span> <span class="token string">"ant-design-vue"</span><span class="token punctuation">,</span> libraryDirectory<span class="token punctuation">:</span> <span class="token string">"es"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token string">'css'</span> <span class="token punctuation">}</span>
+              <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> libraryName<span class="token punctuation">:</span> <span class="token string">"ant-design-vue"</span><span class="token punctuation">,</span> libraryDirectory<span class="token punctuation">:</span> <span class="token string">"es"</span><span class="token punctuation">,</span> style<span class="token punctuation">:</span> <span class="token string">'css'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
             <span class="token punctuation">]</span>
           <span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <p>可能引入会报错，如果报错<code>Error: Cannot find module 'babel-plugin-import'</code>，就执行<code>npm install antd babel-plugin-import --save</code>。</p>
 <p>然后，最重要的一点！！！！大佬可以跳过，如果前端技术不是特别的强，一定要如此，在<code>package.json</code>文件中，把特喵的所有eslint有关的东西干掉！全都干掉！干掉他！！</p>
 <p>或者找到<code>.eslintrc.js</code>的文件中,直接删除里边全部内容就可以了,但不要删除这个文件,否则会报错<code>Error: No ESLint configuration found.</code></p>
 <p>写页面就没有这么多花里胡哨了，按照自己的想法来即可。</p>
 <p>把该引入的引入，该注册的注册，剩下的就是慢慢码了。</p>
 <p><code>login.vue</code></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginBox"</span><span class="token operator">></span>
-            <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model ref<span class="token operator">=</span><span class="token string">"loginFormRef"</span> <span class="token punctuation">:</span>rules<span class="token operator">=</span><span class="token string">"rules"</span> <span class="token punctuation">:</span>model<span class="token operator">=</span><span class="token string">"formdata"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginForm"</span><span class="token operator">></span>
-                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item prop<span class="token operator">=</span><span class="token string">"username"</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>input placeholder<span class="token operator">=</span><span class="token string">"账号"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formdata.username"</span><span class="token operator">></span>
-                        <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon slot<span class="token operator">=</span><span class="token string">"prefix"</span> type<span class="token operator">=</span><span class="token string">"user"</span> style<span class="token operator">=</span><span class="token string">"color:rgba(0,0,0,.25)"</span> <span class="token operator">/</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>input<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">></span>
-                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item prop<span class="token operator">=</span><span class="token string">"password"</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>input placeholder<span class="token operator">=</span><span class="token string">"密码"</span> type<span class="token operator">=</span><span class="token string">"password"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formdata.password"</span><span class="token operator">></span>
-                        <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon slot<span class="token operator">=</span><span class="token string">"prefix"</span> type<span class="token operator">=</span><span class="token string">"lock"</span> style<span class="token operator">=</span><span class="token string">"color:rgba(0,0,0,.25)"</span> <span class="token operator">/</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>input<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">></span>
-                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginButton"</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"primary"</span> style<span class="token operator">=</span><span class="token string">"margin:10px"</span> @click<span class="token operator">=</span><span class="token string">"login"</span><span class="token operator">></span>登陆<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
-                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"info"</span> style<span class="token operator">=</span><span class="token string">"margin:10px"</span> @click<span class="token operator">=</span><span class="token string">"resetform"</span><span class="token operator">></span>取消<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">></span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginBox"</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model ref<span class="token operator">=</span><span class="token string">"loginFormRef"</span> <span class="token punctuation">:</span>rules<span class="token operator">=</span><span class="token string">"rules"</span> <span class="token punctuation">:</span>model<span class="token operator">=</span><span class="token string">"formdata"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginForm"</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item prop<span class="token operator">=</span><span class="token string">"username"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>input placeholder<span class="token operator">=</span><span class="token string">"账号"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formdata.username"</span><span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon slot<span class="token operator">=</span><span class="token string">"prefix"</span> type<span class="token operator">=</span><span class="token string">"user"</span> style<span class="token operator">=</span><span class="token string">"color:rgba(0,0,0,.25)"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>input<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item prop<span class="token operator">=</span><span class="token string">"password"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>input placeholder<span class="token operator">=</span><span class="token string">"密码"</span> type<span class="token operator">=</span><span class="token string">"password"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formdata.password"</span><span class="token operator">&gt;</span>
+                        <span class="token operator">&lt;</span>a<span class="token operator">-</span>icon slot<span class="token operator">=</span><span class="token string">"prefix"</span> type<span class="token operator">=</span><span class="token string">"lock"</span> style<span class="token operator">=</span><span class="token string">"color:rgba(0,0,0,.25)"</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>input<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"loginButton"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"primary"</span> style<span class="token operator">=</span><span class="token string">"margin:10px"</span> @click<span class="token operator">=</span><span class="token string">"login"</span><span class="token operator">&gt;</span>登陆<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"info"</span> style<span class="token operator">=</span><span class="token string">"margin:10px"</span> @click<span class="token operator">=</span><span class="token string">"resetform"</span><span class="token operator">&gt;</span>取消<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">-</span>item<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      formdata<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      formdata<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           username<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
           password<span class="token punctuation">:</span> <span class="token string">''</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+        rules<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
           username<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-              <span class="token punctuation">{</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'请输入管理员账号'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-              <span class="token punctuation">{</span> min<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'用户名长度为4-12个字符'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'请输入管理员账号'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+              <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> min<span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'用户名长度为4-12个字符'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token punctuation">]</span><span class="token punctuation">,</span>
                     password<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-              <span class="token punctuation">{</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'请输入密码'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-              <span class="token punctuation">{</span> min<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'密码长度为6-20个字符'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> required<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'请输入密码'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+              <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> min<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> max<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token string">'密码长度为6-20个字符'</span><span class="token punctuation">,</span> trigger<span class="token punctuation">:</span> <span class="token string">'blur'</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
           <span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
-         resetform<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+         resetform<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginFormRef<span class="token punctuation">.</span><span class="token function">resetFields</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-         <span class="token punctuation">}</span><span class="token punctuation">,</span>
-         login<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-             <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginFormRef<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">async</span> valid<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+         login<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+             <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginFormRef<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">async</span> valid<span class="token operator">=</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
                  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>valid<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"非法输入"</span><span class="token punctuation">)</span>
-                 <span class="token keyword">const</span> <span class="token punctuation">{</span> data<span class="token punctuation">:</span>res <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$http<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'api/v1/login/'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formdata<span class="token punctuation">)</span>
+                 <span class="token keyword">const</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> data<span class="token punctuation">:</span>res <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$http<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'api/v1/login/'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formdata<span class="token punctuation">)</span>
                  <span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>status <span class="token operator">!=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
                  window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span>token<span class="token punctuation">)</span>
                  <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'admin'</span><span class="token punctuation">)</span>
-             <span class="token punctuation">}</span><span class="token punctuation">)</span>
-         <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+             <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+         <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>style scoped<span class="token operator">></span>
-    <span class="token punctuation">.</span>container<span class="token punctuation">{</span>
+<span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span>
+    <span class="token punctuation">.</span>container<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
         background<span class="token operator">-</span>color<span class="token punctuation">:</span> aliceblue<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span>loginBox<span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>loginBox<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         width<span class="token punctuation">:</span> 450px<span class="token punctuation">;</span>
         height<span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
         background<span class="token operator">-</span>color<span class="token punctuation">:</span> white<span class="token punctuation">;</span>
@@ -649,8 +649,8 @@ cnpm install axios</code></pre>
         transform<span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">/* 圆角 */</span>
         border<span class="token operator">-</span>radius<span class="token punctuation">:</span> 9px<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span>loginForm<span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>loginForm<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
         position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">/* 距离底部边缘 */</span>
@@ -658,78 +658,78 @@ cnpm install axios</code></pre>
         <span class="token comment" spellcheck="true">/* 设置内边距 */</span>
                 padding<span class="token punctuation">:</span> <span class="token number">0</span> 20px<span class="token punctuation">;</span>
         box<span class="token operator">-</span>sizing<span class="token punctuation">:</span> border<span class="token operator">-</span>box<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span>loginButton<span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>loginButton<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
                 <span class="token comment" spellcheck="true">/* 中央对齐 */</span>
         justify<span class="token operator">-</span>content<span class="token punctuation">:</span> flex<span class="token operator">-</span>end<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token operator">&gt;</span>
 </code></pre>
 <h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>我们使用token来做验证，也要根据token来进行路由的守卫与拦截。</p>
-<pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span> <span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+<pre class=" language-js"><code class="language-js">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> <span class="token keyword">from</span> <span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> token <span class="token operator">=</span> window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">'login'</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>token <span class="token operator">&amp;&amp;</span> to<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>token <span class="token operator">&amp;&amp;</span> to<span class="token punctuation">.</span>name <span class="token operator">==</span> <span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token function">next</span><span class="token punctuation">(</span><span class="token string">'login'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span></code></pre>
 <p> 解释一下这个路由守卫，由于后台管理页面我就只打算做两个页面，然后通过子页面的方式来进行各种操作，所以我们只拦截admin，如果没有token的话，访问admin直接拦截到login。</p>
 <p>在compose下新建三个vue文件<code>Footer.vue</code>和<code>Nav.vue</code>和<code>Header.vue</code>来作为子组件进行解藕。</p>
 <p>在views下新建admin.vue父组件</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-        <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>sider<span class="token operator">></span>
-                <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"log"</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span>span<span class="token operator">></span>Salmon blog<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-                <span class="token operator">&lt;</span>Nav<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Nav<span class="token operator">></span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>sider<span class="token operator">></span>
-      <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">></span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>sider<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"log"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>Salmon blog<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>Nav<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Nav<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>sider<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">&gt;</span>
 
-                <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>header <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"headerBtn"</span><span class="token operator">></span>
-                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"danger"</span> @click<span class="token operator">=</span><span class="token string">"loginout"</span><span class="token operator">></span>登出<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>header<span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>header <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"headerBtn"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>a<span class="token operator">-</span>button type<span class="token operator">=</span><span class="token string">"danger"</span> @click<span class="token operator">=</span><span class="token string">"loginout"</span><span class="token operator">&gt;</span>登出<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>button<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>header<span class="token operator">&gt;</span>
 
-                <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>content<span class="token operator">></span>
-                    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>content<span class="token operator">></span>
+                <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>content<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>view<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>content<span class="token operator">&gt;</span>
 
-        <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>footer<span class="token operator">></span>
-                    <span class="token operator">&lt;</span>Footer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Footer<span class="token operator">></span>
-                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>footer<span class="token operator">></span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+        <span class="token operator">&lt;</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>footer<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>Footer<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Footer<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">-</span>footer<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">-</span>layout<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
 <span class="token keyword">import</span> Footer <span class="token keyword">from</span> <span class="token string">'../components/admin/Footer.vue'</span>
 <span class="token keyword">import</span> Nav <span class="token keyword">from</span> <span class="token string">'../components/admin/Nav.vue'</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    components<span class="token punctuation">:</span><span class="token punctuation">{</span>Footer<span class="token punctuation">,</span> Nav<span class="token punctuation">}</span><span class="token punctuation">,</span>
-    methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
-        <span class="token function">loginout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    components<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>Footer<span class="token punctuation">,</span> Nav<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token function">loginout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             window<span class="token punctuation">.</span>sessionStorage<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
             <span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
 
-<span class="token operator">&lt;</span>style<span class="token operator">></span>
-  <span class="token punctuation">.</span>container <span class="token punctuation">{</span>
+<span class="token operator">&lt;</span>style<span class="token operator">&gt;</span>
+  <span class="token punctuation">.</span>container <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span>headerBtn<span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>headerBtn<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         display<span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
         justify<span class="token operator">-</span>content<span class="token punctuation">:</span> flex<span class="token operator">-</span>end<span class="token punctuation">;</span>
         align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token punctuation">.</span>log<span class="token punctuation">{</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>log<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         height<span class="token punctuation">:</span> 32px<span class="token punctuation">;</span>
         margin<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
         background<span class="token operator">-</span>color<span class="token punctuation">:</span> aliceblue<span class="token punctuation">;</span>
@@ -737,9 +737,9 @@ cnpm install axios</code></pre>
         justify<span class="token operator">-</span>content<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
         align<span class="token operator">-</span>items<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
         font<span class="token operator">-</span>size<span class="token punctuation">:</span> 17px<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span></code></pre>
 
             </div>
             <hr/>
@@ -1117,7 +1117,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             

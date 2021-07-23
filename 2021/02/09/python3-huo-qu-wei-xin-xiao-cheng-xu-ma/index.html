@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    359
+                    367
                 </div>
                 
 
@@ -549,19 +549,19 @@
 <pre class=" language-python"><code class="language-python">url <span class="token operator">=</span> <span class="token string">"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential"</span>
 res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>
     url<span class="token operator">=</span>url<span class="token punctuation">,</span>
-    params<span class="token operator">=</span><span class="token punctuation">{</span>
+    params<span class="token operator">=</span><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
         <span class="token string">'appid'</span><span class="token punctuation">:</span> 你的APPID<span class="token punctuation">,</span>
         <span class="token string">'secret'</span><span class="token punctuation">:</span> 你的SECRET<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
+    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
 <span class="token punctuation">)</span><span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'access_token'</span><span class="token punctuation">)</span></code></pre>
 <h2 id="获取小程序码"><a href="#获取小程序码" class="headerlink" title="获取小程序码"></a>获取小程序码</h2><p>首先就是要注意，它发送的是json，而不是data数据，所以我们在使用<code>requests</code>的时候，一定要先注意，发送json</p>
 <pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 获取小程序码</span>
 url2 <span class="token operator">=</span> <span class="token string">"https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=TOKEN"</span>
-req <span class="token operator">=</span> <span class="token punctuation">{</span>
+req <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
     <span class="token string">'scene'</span><span class="token punctuation">:</span> scene<span class="token punctuation">,</span>
     <span class="token string">'page'</span><span class="token punctuation">:</span> page<span class="token punctuation">,</span>
     <span class="token string">'width'</span><span class="token punctuation">:</span> width<span class="token punctuation">,</span>
-<span class="token punctuation">}</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
 res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url2<span class="token punctuation">,</span> json<span class="token operator">=</span>req<span class="token punctuation">)</span><span class="token punctuation">.</span>content
 buf <span class="token operator">=</span> io<span class="token punctuation">.</span>BytesIO<span class="token punctuation">(</span><span class="token punctuation">)</span>
 buf<span class="token punctuation">.</span>write<span class="token punctuation">(</span>res<span class="token punctuation">)</span>
@@ -941,7 +941,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             

@@ -29,10 +29,10 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</head>
 
 
 
@@ -602,9 +602,9 @@ sudo systemctl start docker</code></pre>
 sudo vim <span class="token operator">/</span>etc<span class="token operator">/</span>docker<span class="token operator">/</span>daemon<span class="token punctuation">.</span>json
 
 <span class="token number">2</span><span class="token punctuation">.</span>添加如下代码
-<span class="token punctuation">{</span>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
     <span class="token string">"registry-mirrors"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"https://d7grpode.mirror.aliyuncs.com"</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span></code></pre>
 <p>重启docker</p>
 <pre class=" language-python"><code class="language-python">sudo systemctl restart docker</code></pre>
 <p>随后拉取普罗米修斯的镜像</p>
@@ -1111,7 +1111,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.9k</span>&nbsp;字
+                class="white-color">138.1k</span>&nbsp;字
             
             
             
