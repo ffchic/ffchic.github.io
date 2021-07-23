@@ -30,9 +30,9 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -522,7 +522,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    593
+                    573
                 </div>
                 
 
@@ -567,7 +567,7 @@
         <span class="token keyword">if</span> self<span class="token punctuation">.</span>many<span class="token punctuation">:</span>
             <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">,</span> list<span class="token punctuation">)</span><span class="token punctuation">:</span>
                 <span class="token keyword">return</span> self<span class="token punctuation">.</span>_serializerlist<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">,</span> self<span class="token punctuation">.</span>depth<span class="token punctuation">)</span>
-            pageinfo <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+            pageinfo <span class="token operator">=</span> <span class="token punctuation">{</span>
                 <span class="token string">'items'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
                 <span class="token string">'pages'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>pages<span class="token punctuation">,</span>
                 <span class="token string">'has_prev'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>has_prev<span class="token punctuation">,</span>
@@ -577,10 +577,10 @@
                                                             left_current<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>
                                                             right_current<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
                                                             right_edge<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
-            <span class="token keyword">return</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'data': self._serializerlist(self.instance.items,</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'data'</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>_serializerlist<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">.</span>items<span class="token punctuation">,</span>
                                                  self<span class="token punctuation">.</span>depth<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                    <span class="token string">'pageinfo'</span><span class="token punctuation">:</span> pageinfo<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+                    <span class="token string">'pageinfo'</span><span class="token punctuation">:</span> pageinfo<span class="token punctuation">}</span>
         <span class="token keyword">return</span> self<span class="token punctuation">.</span>_serializer<span class="token punctuation">(</span>self<span class="token punctuation">.</span>instance<span class="token punctuation">,</span> self<span class="token punctuation">.</span>depth<span class="token punctuation">)</span>
 
     <span class="token keyword">def</span> <span class="token function">_serializerlist</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instances<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -592,7 +592,7 @@
         <span class="token keyword">return</span> results
 
     <span class="token keyword">def</span> <span class="token function">_serializer</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
+        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
         <span class="token keyword">if</span> depth <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
             <span class="token keyword">return</span> result
         depth <span class="token operator">-=</span> <span class="token number">1</span>
@@ -605,14 +605,14 @@
         <span class="token keyword">return</span> result
 
     <span class="token keyword">def</span> <span class="token function">_serializer_model</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inp<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
+        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
         model_columns <span class="token operator">=</span> self<span class="token punctuation">.</span>get_model_columns<span class="token punctuation">(</span>inp<span class="token punctuation">)</span>
         <span class="token keyword">for</span> column <span class="token keyword">in</span> model_columns<span class="token punctuation">:</span>
             result<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">=</span> getattr<span class="token punctuation">(</span>instance<span class="token punctuation">,</span> column<span class="token punctuation">)</span>
         <span class="token keyword">return</span> result
 
     <span class="token keyword">def</span> <span class="token function">_serializer_relation</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> inp<span class="token punctuation">,</span> instance<span class="token punctuation">,</span> depth<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        result <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
+        result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
         relation_columns <span class="token operator">=</span> self<span class="token punctuation">.</span>get_relation_columns<span class="token punctuation">(</span>inp<span class="token punctuation">)</span>
         <span class="token keyword">for</span> relation <span class="token keyword">in</span> relation_columns<span class="token punctuation">:</span>
             column <span class="token operator">=</span> relation<span class="token punctuation">.</span>key
@@ -1064,7 +1064,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.1k</span>&nbsp;字
+                class="white-color">133.9k</span>&nbsp;字
             
             
             

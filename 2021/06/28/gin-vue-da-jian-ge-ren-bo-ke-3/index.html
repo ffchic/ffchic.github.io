@@ -30,9 +30,9 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -518,7 +518,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    319
+                    291
                 </div>
                 
 
@@ -544,21 +544,21 @@
 <p>密码加密用到了一个go内置的包<code>crypto</code>，不需要安装，官网地址在<a target="_blank" rel="noopener" href="https://pkg.go.dev/golang.org/x/crypto/scrypt">这里</a>，代码也很简单，通过使用GORM的钩子函数，可以直接进行哈希，同样的，在<code>models/User.go</code>下：</p>
 </blockquote>
 <pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 密码加密</span>
-<span class="token keyword">func</span> <span class="token function">ScryptPw</span><span class="token punctuation">(</span>password <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">ScryptPw</span><span class="token punctuation">(</span>password <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> cost <span class="token operator">=</span> <span class="token number">10</span>
     HashPw<span class="token punctuation">,</span> err <span class="token operator">:=</span> bcrypt<span class="token punctuation">.</span><span class="token function">GenerateFromPassword</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token punctuation">,</span> cost<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
         log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token function">string</span><span class="token punctuation">(</span>HashPw<span class="token punctuation">)</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// BeforeCreate 密码加密&amp;权限控制</span>
-<span class="token keyword">func</span> <span class="token punctuation">(</span>u <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">BeforeCreate</span><span class="token punctuation">(</span><span class="token boolean">_</span> <span class="token operator">*</span>gorm<span class="token punctuation">.</span>DB<span class="token punctuation">)</span> <span class="token punctuation">(</span>err <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>u <span class="token operator">*</span>User<span class="token punctuation">)</span> <span class="token function">BeforeCreate</span><span class="token punctuation">(</span><span class="token boolean">_</span> <span class="token operator">*</span>gorm<span class="token punctuation">.</span>DB<span class="token punctuation">)</span> <span class="token punctuation">(</span>err <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     u<span class="token punctuation">.</span>Password <span class="token operator">=</span> <span class="token function">ScryptPw</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span>Password<span class="token punctuation">)</span>
     u<span class="token punctuation">.</span>Role <span class="token operator">=</span> <span class="token number">2</span>
     <span class="token keyword">return</span> <span class="token boolean">nil</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="分类CURD"><a href="#分类CURD" class="headerlink" title="分类CURD"></a>分类CURD</h2><blockquote>
 <p>直接复用代码即可，没啥难度，就不放轮子了。</p>
 </blockquote>
@@ -566,25 +566,25 @@
 <p>同样的，复用代码，只是在查询时，需要用到外键的关联查询。</p>
 </blockquote>
 <pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 分类下所有文章</span>
-<span class="token keyword">func</span> <span class="token function">GetCateArt</span><span class="token punctuation">(</span>cid <span class="token builtin">int</span><span class="token punctuation">,</span> Size <span class="token builtin">int</span><span class="token punctuation">,</span> Page <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>Article<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">GetCateArt</span><span class="token punctuation">(</span>cid <span class="token builtin">int</span><span class="token punctuation">,</span> Size <span class="token builtin">int</span><span class="token punctuation">,</span> Page <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>Article<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">var</span> cateArtList <span class="token punctuation">[</span><span class="token punctuation">]</span>Article
     err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Preload</span><span class="token punctuation">(</span><span class="token string">"Category"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Limit</span><span class="token punctuation">(</span>Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Offset</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Page <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> Size<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"cid=?"</span><span class="token punctuation">,</span> cid<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Find</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>cateArtList<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span>errmsg<span class="token punctuation">.</span>ERROR_CATE_NOT_EXIST
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> cateArtList<span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>SUCCSE
 
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 单个文章</span>
-<span class="token keyword">func</span> <span class="token function">ArticleInfo</span><span class="token punctuation">(</span>id <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>Article<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">ArticleInfo</span><span class="token punctuation">(</span>id <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>Article<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> art Article
     err <span class="token operator">=</span> db<span class="token punctuation">.</span><span class="token function">Preload</span><span class="token punctuation">(</span><span class="token string">"Category"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Where</span><span class="token punctuation">(</span><span class="token string">"id=?"</span><span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">First</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>art<span class="token punctuation">)</span><span class="token punctuation">.</span>Error
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
         <span class="token keyword">return</span> art<span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>ERROR_ART_NOT_EXIST
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> art<span class="token punctuation">,</span> errmsg<span class="token punctuation">.</span>SUCCSE
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>大部分都是重复的代码，改一下结构体即可，这个应该没啥难度，就不放一大堆无效代码了。</p>
 <p>未完待续….</p>
 
@@ -956,7 +956,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.1k</span>&nbsp;字
+                class="white-color">133.9k</span>&nbsp;字
             
             
             

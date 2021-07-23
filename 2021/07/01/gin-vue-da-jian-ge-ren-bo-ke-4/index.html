@@ -30,9 +30,9 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -518,14 +518,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    966
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    4 Min
                 </div>
                 
 
@@ -555,100 +555,100 @@ JwtKey <span class="token operator">=</span> <span class="token operator">+</spa
 
 <span class="token keyword">var</span> code <span class="token builtin">int</span>
 
-<span class="token keyword">type</span> MyClaims <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">type</span> MyClaims <span class="token keyword">struct</span> <span class="token punctuation">{</span>
     Username <span class="token builtin">string</span> <span class="token string">`json:"username"`</span>
     jwt<span class="token punctuation">.</span>StandardClaims
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">// 生成token</span>
-<span class="token keyword">func</span> <span class="token function">SetToken</span><span class="token punctuation">(</span>username <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">SetToken</span><span class="token punctuation">(</span>username <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 过期时间</span>
     expirTime <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Hour<span class="token punctuation">)</span>
-    SetClaims <span class="token operator">:=</span> MyClaims<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    SetClaims <span class="token operator">:=</span> MyClaims<span class="token punctuation">{</span>
         username<span class="token punctuation">,</span>
-        jwt<span class="token punctuation">.</span>StandardClaims<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        jwt<span class="token punctuation">.</span>StandardClaims<span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 过期时间</span>
             ExpiresAt<span class="token punctuation">:</span> expirTime<span class="token punctuation">.</span><span class="token function">Unix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
             <span class="token comment" spellcheck="true">// 签发人</span>
             Issuer<span class="token punctuation">:</span> <span class="token string">"Salmon"</span><span class="token punctuation">,</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 参数：签发方法，签发命令</span>
     reClaim <span class="token operator">:=</span> jwt<span class="token punctuation">.</span><span class="token function">NewWithClaims</span><span class="token punctuation">(</span>jwt<span class="token punctuation">.</span>SigningMethodHS256<span class="token punctuation">,</span> SetClaims<span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// 加签</span>
     token<span class="token punctuation">,</span>err <span class="token operator">:=</span> reClaim<span class="token punctuation">.</span><span class="token function">SignedString</span><span class="token punctuation">(</span>JwtKey<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span><span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">,</span>errmsg<span class="token punctuation">.</span>ERROR
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     <span class="token keyword">return</span> token<span class="token punctuation">,</span>errmsg<span class="token punctuation">.</span>SUCCSE
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>然后就是解密函数</p>
 <pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 验证token</span>
-<span class="token keyword">func</span> <span class="token function">CheckToken</span><span class="token punctuation">(</span>token <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>MyClaims<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    settoken<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> jwt<span class="token punctuation">.</span><span class="token function">ParseWithClaims</span><span class="token punctuation">(</span>token<span class="token punctuation">,</span> <span class="token operator">&amp;</span>MyClaims<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>token <span class="token operator">*</span>jwt<span class="token punctuation">.</span>Token<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">interface</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">CheckToken</span><span class="token punctuation">(</span>token <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">*</span>MyClaims<span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    settoken<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> jwt<span class="token punctuation">.</span><span class="token function">ParseWithClaims</span><span class="token punctuation">(</span>token<span class="token punctuation">,</span> <span class="token operator">&amp;</span>MyClaims<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>token <span class="token operator">*</span>jwt<span class="token punctuation">.</span>Token<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token keyword">interface</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> JwtKey<span class="token punctuation">,</span><span class="token boolean">nil</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> key<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> settoken<span class="token punctuation">.</span>Claims<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>MyClaims<span class="token punctuation">)</span><span class="token punctuation">;</span> settoken<span class="token punctuation">.</span>Valid<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> key<span class="token punctuation">,</span><span class="token boolean">_</span> <span class="token operator">:=</span> settoken<span class="token punctuation">.</span>Claims<span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token operator">*</span>MyClaims<span class="token punctuation">)</span><span class="token punctuation">;</span> settoken<span class="token punctuation">.</span>Valid<span class="token punctuation">{</span>
         <span class="token keyword">return</span> key<span class="token punctuation">,</span>errmsg<span class="token punctuation">.</span>SUCCSE
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token boolean">nil</span><span class="token punctuation">,</span>errmsg<span class="token punctuation">.</span>ERROR
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <p>最后把他写成一个中间件。</p>
 <pre class=" language-go"><code class="language-go"><span class="token comment" spellcheck="true">// jwt中间件</span>
-<span class="token keyword">func</span> <span class="token function">JwtToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span> gin<span class="token punctuation">.</span>HandlerFunc<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">JwtToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span> gin<span class="token punctuation">.</span>HandlerFunc<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">func</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 固定格式</span>
         tokenHeader <span class="token operator">:=</span> c<span class="token punctuation">.</span>Request<span class="token punctuation">.</span>Header<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token string">"Authorizathion"</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// 如果没有带token，则返回一个错误。</span>
-        <span class="token keyword">if</span> tokenHeader <span class="token operator">==</span> <span class="token string">""</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> tokenHeader <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">{</span>
             code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_TOKEN_EXIST
             <span class="token comment" spellcheck="true">//c.Abort()</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 分割参数</span>
         checkToken <span class="token operator">:=</span> strings<span class="token punctuation">.</span><span class="token function">SplitN</span><span class="token punctuation">(</span>tokenHeader<span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>checkToken<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> checkToken<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">"Bearer"</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>checkToken<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> checkToken<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token string">"Bearer"</span> <span class="token punctuation">{</span>
             code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_TOKEN_TYPE_WRONG
             c<span class="token punctuation">.</span><span class="token function">Abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 解析token方法</span>
         key<span class="token punctuation">,</span>Tcode <span class="token operator">:=</span> <span class="token function">CheckToken</span><span class="token punctuation">(</span>checkToken<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> Tcode <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> Tcode <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>ERROR <span class="token punctuation">{</span>
             code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_TOKEN_WRONG
             c<span class="token punctuation">.</span><span class="token function">Abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token comment" spellcheck="true">// 如果过期，则返回错误</span>
-        <span class="token keyword">if</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Unix</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> key<span class="token punctuation">.</span>ExpiresAt<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Unix</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> key<span class="token punctuation">.</span>ExpiresAt<span class="token punctuation">{</span>
             code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR_TOKEN_RUNTIME
             c<span class="token punctuation">.</span><span class="token function">Abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-        c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
             <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
             <span class="token string">"msg"</span><span class="token punctuation">:</span>errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
         c<span class="token punctuation">.</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">,</span> key<span class="token punctuation">.</span>Username<span class="token punctuation">)</span>
         c<span class="token punctuation">.</span><span class="token function">Next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>API接口：</p>
-<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Login</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Login</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span>  <span class="token punctuation">{</span>
     <span class="token keyword">var</span> formData model<span class="token punctuation">.</span>User
     <span class="token boolean">_</span> <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">ShouldBindJSON</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>formData<span class="token punctuation">)</span>
     <span class="token keyword">var</span> token <span class="token builtin">string</span>
     <span class="token keyword">var</span> code <span class="token builtin">int</span>
     <span class="token comment" spellcheck="true">// 验证用户名密码</span>
     formData<span class="token punctuation">,</span> code <span class="token operator">=</span> model<span class="token punctuation">.</span><span class="token function">CheckLogin</span><span class="token punctuation">(</span>formData<span class="token punctuation">.</span>Username<span class="token punctuation">,</span> formData<span class="token punctuation">.</span>Password<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> code <span class="token operator">==</span> errmsg<span class="token punctuation">.</span>SUCCSE<span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 成功则签发token</span>
         token<span class="token punctuation">,</span> code <span class="token operator">=</span> middleware<span class="token punctuation">.</span><span class="token function">SetToken</span><span class="token punctuation">(</span>formData<span class="token punctuation">.</span>Username<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span> gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
         <span class="token string">"status"</span><span class="token punctuation">:</span>  code<span class="token punctuation">,</span>
         <span class="token string">"message"</span><span class="token punctuation">:</span> errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">"token"</span><span class="token punctuation">:</span> token<span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
 <p>最后把路由组给搞一下，注册一下中间件<code>routes/router.go</code></p>
 <pre class=" language-go"><code class="language-go"><span class="token keyword">package</span> routes
 
@@ -659,13 +659,13 @@ JwtKey <span class="token operator">=</span> <span class="token operator">+</spa
     <span class="token string">"github.com/gin-gonic/gin"</span>
 <span class="token punctuation">)</span>
 
-<span class="token keyword">func</span> <span class="token function">InitRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">InitRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
     gin<span class="token punctuation">.</span><span class="token function">SetMode</span><span class="token punctuation">(</span>utils<span class="token punctuation">.</span>AppMode<span class="token punctuation">)</span>
     r <span class="token operator">:=</span> gin<span class="token punctuation">.</span><span class="token function">Default</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
     Auth <span class="token operator">:=</span> r<span class="token punctuation">.</span><span class="token function">Group</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span>
     Auth<span class="token punctuation">.</span><span class="token function">Use</span><span class="token punctuation">(</span>middleware<span class="token punctuation">.</span><span class="token function">JwtToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// User模块的路由接口</span>
         Auth<span class="token punctuation">.</span><span class="token function">PUT</span><span class="token punctuation">(</span><span class="token string">"user/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>EditUser<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">DELETE</span><span class="token punctuation">(</span><span class="token string">"user/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>DeleteUser<span class="token punctuation">)</span>
@@ -677,10 +677,10 @@ JwtKey <span class="token operator">=</span> <span class="token operator">+</spa
         Auth<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"article/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>AddArticle<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">PUT</span><span class="token punctuation">(</span><span class="token string">"article/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>EditArticle<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">DELETE</span><span class="token punctuation">(</span><span class="token string">"article/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>DeleteArticle<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     router <span class="token operator">:=</span> r<span class="token punctuation">.</span><span class="token function">Group</span><span class="token punctuation">(</span><span class="token string">"api/v1"</span><span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"user/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetUsers<span class="token punctuation">)</span>
         Auth<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"user/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>AddUser<span class="token punctuation">)</span>
         router<span class="token punctuation">.</span><span class="token function">POST</span><span class="token punctuation">(</span><span class="token string">"login/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>Login<span class="token punctuation">)</span>
@@ -689,12 +689,12 @@ JwtKey <span class="token operator">=</span> <span class="token operator">+</spa
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"article/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetArticles<span class="token punctuation">)</span>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"article/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetArticleInfo<span class="token punctuation">)</span>
         router<span class="token punctuation">.</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"catelist/:id/"</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span>GetCateArt<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 
     <span class="token boolean">_</span> <span class="token operator">=</span> r<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span>utils<span class="token punctuation">.</span>HttpPort<span class="token punctuation">)</span>
 
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span></code></pre>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><blockquote>
 <p>关于文件上传，我选择使用seaweedfs，这是一个很牛掰的文件存储系统，并且他也是使用go写的，所以，都是一家人，<a target="_blank" rel="noopener" href="https://github.com/chrislusf/seaweedfs">地址</a>，最后再使用docker一部署，go的一揽子服务。奈斯。</p>
 </blockquote>
@@ -714,27 +714,27 @@ JwtKey <span class="token operator">=</span> <span class="token operator">+</spa
 <span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">// 上传文件</span>
-<span class="token keyword">func</span> <span class="token function">UploadFile</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">UploadFile</span><span class="token punctuation">(</span>c <span class="token operator">*</span>gin<span class="token punctuation">.</span>Context<span class="token punctuation">)</span><span class="token punctuation">{</span>
     file<span class="token punctuation">,</span> <span class="token boolean">_</span><span class="token punctuation">,</span> <span class="token boolean">_</span> <span class="token operator">:=</span> c<span class="token punctuation">.</span>Request<span class="token punctuation">.</span><span class="token function">FormFile</span><span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// 初始化</span>
     fs <span class="token operator">:=</span> goseaweed<span class="token punctuation">.</span><span class="token function">NewSeaweedFs</span><span class="token punctuation">(</span>utils<span class="token punctuation">.</span>SeaweedAddress<span class="token punctuation">,</span> time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span>
     code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>SUCCSE
     <span class="token comment" spellcheck="true">// 转换数据类型为bytes</span>
     buf <span class="token operator">:=</span> bytes<span class="token punctuation">.</span><span class="token function">NewBuffer</span><span class="token punctuation">(</span><span class="token boolean">nil</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> io<span class="token punctuation">.</span><span class="token function">Copy</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
         code <span class="token operator">=</span> errmsg<span class="token punctuation">.</span>ERROR
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
     fid<span class="token punctuation">,</span>err <span class="token operator">:=</span> fs<span class="token punctuation">.</span><span class="token function">UploadFile</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">,</span>buf<span class="token punctuation">.</span><span class="token function">Bytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token comment" spellcheck="true">// 上传文件</span>
-    <span class="token keyword">if</span>  err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span>  err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
         log<span class="token punctuation">.</span><span class="token function">Fatalln</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    c<span class="token punctuation">.</span><span class="token function">JSON</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>StatusOK<span class="token punctuation">,</span>gin<span class="token punctuation">.</span>H<span class="token punctuation">{</span>
         <span class="token string">"code"</span><span class="token punctuation">:</span>code<span class="token punctuation">,</span>
         <span class="token string">"msg"</span><span class="token punctuation">:</span> errmsg<span class="token punctuation">.</span><span class="token function">GetErrorMsg</span><span class="token punctuation">(</span>code<span class="token punctuation">)</span><span class="token punctuation">,</span>
         <span class="token string">"data"</span><span class="token punctuation">:</span> fid<span class="token punctuation">,</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
 <p>后端接口方面还有诸多问题，不过我以实现功能为目的，先暂时这样，之后再慢慢补充。</p>
 <p>未完待续….</p>
 
@@ -1106,7 +1106,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.1k</span>&nbsp;字
+                class="white-color">133.9k</span>&nbsp;字
             
             
             

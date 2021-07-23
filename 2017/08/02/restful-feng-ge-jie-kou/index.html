@@ -30,9 +30,9 @@
     <script src="/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -601,9 +601,9 @@ DELETE <span class="token operator">/</span>categorys<span class="token operator
 <span class="token number">500</span> INTERNAL SERVER ERROR <span class="token operator">-</span> <span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">]</span>：服务器发生错误，用户将无法判断发出的请求是否成功。</code></pre>
 <hr>
 <h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><p>如果状态码是<code>4xx</code>，就应该向用户返回出错信息，一般来说，返回的信息中将error作为键名，出错信息作为键值即可</p>
-<pre class=" language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
     <span class="token property">"error"</span><span class="token operator">:</span><span class="token string">"Invalid API key"</span>
-&amp;#<span class="token number">123</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">{</span></code></pre>
 <hr>
 <h4 id="返回结果"><a href="#返回结果" class="headerlink" title="返回结果"></a>返回结果</h4><p>针对不同操作，服务器向用户返回的结果应该符合以下规范</p>
 <pre class=" language-python"><code class="language-python">GET <span class="token operator">/</span>collection：返回资源对象的列表（数组）
@@ -614,12 +614,12 @@ PATCH <span class="token operator">/</span>collection<span class="token operator
 DELETE <span class="token operator">/</span>collection<span class="token operator">/</span>resource：返回一个空文档</code></pre>
 <hr>
 <h4 id="面向文档"><a href="#面向文档" class="headerlink" title="面向文档"></a>面向文档</h4><p>RESTful API最好做到面向文档，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么，比如，当用户向api.example.com的根目录发出请求，会得到这样一个文档。</p>
-<pre class=" language-python"><code class="language-python"><span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;"link": &amp;#123;</span>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token string">"link"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
   <span class="token string">"rel"</span><span class="token punctuation">:</span>   <span class="token string">"collection https://www.example.com/goods"</span><span class="token punctuation">,</span>
   <span class="token string">"href"</span><span class="token punctuation">:</span>  <span class="token string">"https://api.example.com/goods"</span><span class="token punctuation">,</span>
   <span class="token string">"title"</span><span class="token punctuation">:</span> <span class="token string">"List of goods"</span><span class="token punctuation">,</span>
   <span class="token string">"type"</span><span class="token punctuation">:</span>  <span class="token string">"application/vnd.yourformat+json"</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#123;</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span>
 
 上面代码表示，文档中有一个link属性，用户读取这个属性就知道下一步该调用什么API了。rel表示这个API与当前网址的关系（collection关系，并给出该collection的网址），href表示API的路径，title表示API的标题，type表示返回类型。</code></pre>
 <hr>
@@ -1007,7 +1007,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.1k</span>&nbsp;字
+                class="white-color">133.9k</span>&nbsp;字
             
             
             
