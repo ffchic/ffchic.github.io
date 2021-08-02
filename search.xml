@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>gin-vue搭建个人博客-10</title>
+      <link href="2021/07/23/gin-vue-da-jian-ge-ren-bo-ke-10/"/>
+      <url>2021/07/23/gin-vue-da-jian-ge-ren-bo-ke-10/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>后台页面写完，剩下的就是前端了，不过通过一个<a href="https://github.com/Groundhog-Chen/vue-material-admin">项目</a>发现了一个前端很好用的ui(ps:后悔用ant design了)，官方地址<a href="https://vuetifyjs.com/zh-Hans/getting-started/installation/#vue-cli-5b8988c5">在这</a>，<del>鬼知道我能写成什么样子</del></p></blockquote><p>创建好项目之后，直接使用<code>vue add vuetify</code>添加即可。</p><p>然后打开主页，看到主页已经成了这样，就是成功了。</p><img src="/2021/07/23/gin-vue-da-jian-ge-ren-bo-ke-10/image-20210723181229364.png" alt="" style="zoom:50%;"><p>由于这个ui框架学起来有一定难度，在文档上即使有示例也不能像ant design这种开封即用，关于这个，还是需要一定的学习成本。不说了，先自闭一会儿。</p><p>到此，推荐大家自己摸索，作为前端黑洞，我已经尽我所能了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Golang </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>gin-vue搭建个人博客-9</title>
       <link href="2021/07/19/gin-vue-da-jian-ge-ren-bo-ke-9/"/>
       <url>2021/07/19/gin-vue-da-jian-ge-ren-bo-ke-9/</url>
