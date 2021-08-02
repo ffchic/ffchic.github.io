@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -553,17 +553,17 @@
 <p>这里呢，Hexo怎么搭建，我就不说了，相信大家都有搭建hexo的能力。</p>
 <h2 id="服务端准备工作"><a href="#服务端准备工作" class="headerlink" title="服务端准备工作"></a>服务端准备工作</h2><h3 id="域名注册"><a href="#域名注册" class="headerlink" title="域名注册"></a>域名注册</h3><p>登陆 <code>https://wanwang.aliyun.com/</code> 挑选一个自己喜欢的域名，具体操作如下：</p>
 <p>1、进入网站主页后，点击“域名注册”:</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120656914.png" alt="" style="zoom:50%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120656914.png" alt style="zoom:50%;">
 
 <p>2、然后在万网进行域名搜索和购买。</p>
 <p>3、初始化自己的服务器</p>
-<p>4、备案，在阿里云的控制台界面，具体备案步骤呢，也就不多说了，往后有机会出一篇备案的攻略。<br><img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120903699.png" alt="" style="zoom:67%;"></p>
+<p>4、备案，在阿里云的控制台界面，具体备案步骤呢，也就不多说了，往后有机会出一篇备案的攻略。<br><img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209120903699.png" alt style="zoom:67%;"></p>
 <p>5、阿里云的服务器默认不开放端口号，这样使得我们在网站部署完成之后仍然无法访问。因此我们需要新建安全组并添加 80 端口，再将安全组添加到 ECS 实例中。具体操作如下。在控制台的 ECS 实例中点击安全组，然后新建安全组。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122807387.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122807387.png" alt style="zoom:67%;">
 
 <p>在访问规则为 <strong>入方向</strong> 的标签下添加 80 端口。</p>
 <p>最后回到 ECS 服务器实例，将刚刚配置的安全组加入到实例中。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122901251.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209122901251.png" alt style="zoom:67%;">
 
 <h2 id="安装-nginx"><a href="#安装-nginx" class="headerlink" title="安装 nginx"></a>安装 nginx</h2><p>我们使用 nginx 作为 web 服务器，这里可以将 nginx 理解为安装在服务器上的一个软件。</p>
 <p>还有可以直接使用yum等来安装，不是非得必要用我这个办法。</p>
@@ -602,10 +602,10 @@ ls
 vim nginx.conf</code></pre>
 <p>打开后按 <code>i</code> 键由命令模式切换到编辑模式，修改三处地方：</p>
 <p>首先将最顶端的用户改为 root；</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110112486.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110112486.png" alt style="zoom:67%;">
 
 <p>其次将 <code>server_name</code> 改为自己的域名，如果没有备案，可以先填写自己的公网 IP（在控制台 ECS 实例中查看），访问时暂时用公网 IP 进行访问。最后将 <code>root</code> 项中的值改为你自己博客的根目录</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110148969.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210210110148969.png" alt style="zoom:67%;">
 
 
 
@@ -684,7 +684,7 @@ sudo chmod -R 777 /home/hexo</code></pre>
 <h2 id="本地Hexo配置"><a href="#本地Hexo配置" class="headerlink" title="本地Hexo配置"></a>本地Hexo配置</h2><p>安装两个插件</p>
 <p>修改 <code>_config.yml</code> 文件</p>
 <p>把 <code>deploy</code> 参数改成如下方式，注意填写自己的公网 IP 哦。</p>
-<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209133357909.png" alt="" style="zoom:67%;">
+<img src="/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/image-20210209133357909.png" alt style="zoom:67%;">
 
 <p>除此之外，URL 项改为自己的域名，没有备案的化可以先填写公网 IP。</p>
 <p>然后我们就可以进行发布啦</p>
@@ -837,12 +837,12 @@ hexo cl && hexo g && hexo d</code></pre>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/02/09/a-li-yun-yu-ming-jie-xi/">
+                <a href="/2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/69.jpg" class="responsive-img" alt="阿里云域名解析">
+                        <img src="/medias/featureimages/68.jpg" class="responsive-img" alt="python3获取微信小程序码">
                         
-                        <span class="card-title">阿里云域名解析</span>
+                        <span class="card-title">python3获取微信小程序码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -853,355 +853,4 @@ hexo cl && hexo g && hexo d</code></pre>
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/67.jpg" class="responsive-img" alt="python PIL中文变方框的解决办法">
-                        
-                        <span class="card-title">python PIL中文变方框的解决办法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-06
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
-</main>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="/about" target="_blank">天 听</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">134.1k</span>&nbsp;字
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/God-hearing2020" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:haoye0822@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2274201339" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2274201339" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    <!-- Baidu Analytics -->
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
-
-</body>
-
-</html>
+                            <i class="far fa-clock fa-fw icon-date"></i>2

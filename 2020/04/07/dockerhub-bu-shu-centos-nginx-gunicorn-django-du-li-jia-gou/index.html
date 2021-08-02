@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -555,12 +555,12 @@
 <li><p>然后，注册Dockerhub，类似gitee和github的仓库：[地址][<a target="_blank" rel="noopener" href="https://hub.docker.com/]">https://hub.docker.com/]</a></p>
 </li>
 </ul>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215728237.png" alt="" style="zoom:67%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215728237.png" alt style="zoom:67%;">
 
 <ul>
 <li>创建仓库</li>
 </ul>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215832694.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204215832694.png" alt style="zoom:50%;">
 
 <ul>
 <li>然后呢，我们需要对本地的镜像名重命名</li>
@@ -575,7 +575,7 @@ docker tag mydjango godhearing<span class="token operator">/</span>mydjango</cod
 <ul>
 <li>使用dockerhub的账号密码登录</li>
 </ul>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220231612.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220231612.png" alt style="zoom:50%;">
 
 <blockquote>
 <p>这里我是登录过了，输入账号密码后出来这个就是登录成功了</p>
@@ -605,18 +605,18 @@ sudo systemctl start docker</code></pre>
 <p>如果出来版本号就说明没有问题</p>
 </blockquote>
 <p>然后从dockerhub把镜像拉下来</p>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220900919.png" alt="" style="zoom:67%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204220900919.png" alt style="zoom:67%;">
 </li>
 <li><p>采用后台守护进程模式起服务</p>
 <pre class=" language-python"><code class="language-python">sudo docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">8000</span><span class="token punctuation">:</span><span class="token number">8000</span> <span class="token operator">-</span><span class="token operator">-</span>name 自定义镜像名 镜像名
 例如：
 sudo docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">8000</span><span class="token punctuation">:</span><span class="token number">8000</span> <span class="token operator">-</span><span class="token operator">-</span>name testdjango godhearing<span class="token operator">/</span>mydjango</code></pre>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221251956.png" alt="" style="zoom:67%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221251956.png" alt style="zoom:67%;">
 
 <p>可以使用<code>docker ps</code>来查看是否运行成功</p>
 </li>
 <li><p>然后访问一下</p>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221517697.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221517697.png" alt style="zoom:50%;">
 
 <p>ok，没有问题，额。。。也不能叫没有问题，因为我的mysql是本地的，没有更改，不过也还可以啦，总之，项目呢，是部署的没有问题了。不要在意这些细节</p>
 </li>
@@ -625,7 +625,7 @@ sudo docker run <span class="token operator">-</span>d <span class="token operat
 </li>
 <li><p>然后启动</p>
 <pre class=" language-python"><code class="language-python">docker run <span class="token operator">-</span>d <span class="token operator">-</span>p <span class="token number">80</span><span class="token punctuation">:</span><span class="token number">80</span> nginx</code></pre>
-<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221944665.png" alt="" style="zoom:50%;">
+<img src="/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/image-20201204221944665.png" alt style="zoom:50%;">
 </li>
 <li><p>现在，我们将运行Nginx容器里的配置文件copy到宿主机里面(拉到本地)</p>
 <pre class=" language-python"><code class="language-python">docker cp 容器id<span class="token punctuation">:</span><span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>conf<span class="token punctuation">.</span>d<span class="token operator">/</span>default<span class="token punctuation">.</span>conf <span class="token operator">/</span>root<span class="token operator">/</span>default<span class="token punctuation">.</span>conf</code></pre>
@@ -927,259 +927,4 @@ docker rm $(docker ps -a -q)</code></pre>
 
 <!-- 代码块收缩 -->
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
-</main>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="/about" target="_blank">天 听</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">134.1k</span>&nbsp;字
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/God-hearing2020" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:haoye0822@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2274201339" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2274201339" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    <!-- Baidu Analytics -->
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
-
-</body>
-
-</html>
+<script type="text/javascript" src="/libs/
