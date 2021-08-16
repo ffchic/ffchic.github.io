@@ -6,7 +6,7 @@
   <link href="http://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="http://godhearing.cn/"/>
-  <updated>2021-08-16T10:47:22.214Z</updated>
+  <updated>2021-08-16T10:47:39.897Z</updated>
   <id>http://godhearing.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://godhearing.cn/2021/08/16/sqlalchemy-yi-bu-cao-zuo/"/>
     <id>http://godhearing.cn/2021/08/16/sqlalchemy-yi-bu-cao-zuo/</id>
     <published>2021-08-16T08:44:35.676Z</published>
-    <updated>2021-08-16T10:47:22.214Z</updated>
+    <updated>2021-08-16T10:47:39.897Z</updated>
     
     
       
@@ -40,33 +40,6 @@
     <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
     
     <category term="SQLAlchemy" scheme="http://godhearing.cn/tags/SQLAlchemy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无脑攻略-centos下安装mysql</title>
-    <link href="http://godhearing.cn/2021/08/02/wu-nao-gong-lue-centos-xia-an-zhuang-mysql/"/>
-    <id>http://godhearing.cn/2021/08/02/wu-nao-gong-lue-centos-xia-an-zhuang-mysql/</id>
-    <published>2021-08-02T09:56:31.451Z</published>
-    <updated>2021-08-02T09:59:52.231Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;第一步：下载和更新最新的MySQL的rpm包&quot;&gt;&lt;a href=&quot;#第一步：下载和更新最新的MySQL的rpm包&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Linux" scheme="http://godhearing.cn/categories/Linux/"/>
-    
-    
-    <category term="Linux" scheme="http://godhearing.cn/tags/Linux/"/>
-    
-    <category term="mysql" scheme="http://godhearing.cn/tags/mysql/"/>
     
   </entry>
   
@@ -542,6 +515,33 @@
     <category term="python" scheme="http://godhearing.cn/tags/python/"/>
     
     <category term="Linux" scheme="http://godhearing.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqlalchemy序列化</title>
+    <link href="http://godhearing.cn/2021/05/19/sqlalchemy-xu-lie-hua/"/>
+    <id>http://godhearing.cn/2021/05/19/sqlalchemy-xu-lie-hua/</id>
+    <published>2021-05-19T08:04:58.646Z</published>
+    <updated>2021-05-19T08:09:48.262Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/categories/FastAPI/"/>
+    
+    
+    <category term="FastAPI" scheme="http://godhearing.cn/tags/FastAPI/"/>
+    
+    <category term="SQLAlchemy" scheme="http://godhearing.cn/tags/SQLAlchemy/"/>
     
   </entry>
   
