@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="天听" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -553,7 +553,7 @@
 <li>不支持COOKIE</li>
 <li>不支持django内置的user登录, 因为它使用的是微信的用户系统</li>
 </ul>
-<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210115133429492.png" alt="" style="zoom:70%;">
+<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210115133429492.png" alt style="zoom:70%;">
 
 <blockquote>
 <p>只获取<code>openid</code>，只调用<code>wx.login</code>获取code交给后台即可，如果还要获取用户详细信息还要接着调用<code>wx.getUserInfo</code>获取<code>encryptedData</code>，<code>iv</code>提交后台解密用户信息</p>
@@ -609,7 +609,7 @@
     res <span class="token operator">=</span> pc<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>encryptedData<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></code></pre>
 <p>res就是解密出来的内容，就是用户的信息</p>
-<img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210116220241505.png" alt="" style="zoom:67%;">
+<img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210116220241505.png" alt style="zoom:67%;">
 
 <p>至此，前台将openid存下，而后台，获取了用户信息，该入库还是该做怎样的操作，就可以自定义了，我是将其入库了，完整代码如下：</p>
 <pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Applets_RegisterView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1015,7 +1015,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.8k</span>&nbsp;字
+                class="white-color">136.5k</span>&nbsp;字
             
             
             
