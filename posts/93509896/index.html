@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分布一致性算法(雪花算法), 天听">
+    <meta name="keywords" content="二维码与python, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分布一致性算法(雪花算法) | 天听</title>
+    <title>二维码与python | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -357,12 +357,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/35.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/48.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">分布一致性算法(雪花算法)</h1>
+                    <h1 class="description center-align post-title">二维码与python</h1>
                 </div>
             </div>
         </div>
@@ -483,10 +483,6 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -495,8 +491,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/Docker/" class="post-category">
+                                Docker
                             </a>
                         
                     </div>
@@ -508,21 +504,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-06-24
+                    2020-12-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2018-06-24
+                    2020-12-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    557
+                    496
                 </div>
                 
 
@@ -544,54 +540,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是分布一致性"><a href="#什么是分布一致性" class="headerlink" title="什么是分布一致性"></a>什么是分布一致性</h2><blockquote>
-<p>这是一个相当灵魂拷问的问题了，在我们应对千万级甚至亿级的资源访问时，一定会用到的一个词，就是分布式</p>
-<p>因为一台服务器的承载力是有限的，而数据库更是有限的，数据表是更更更有限的，我们只能通过横向扩容的方式来进行数据存储量和查询速度的优化</p>
-<p>可这样会造成一个问题，分库分表后，分布式系统中，唯一主键ID的生成问题，当我们使用mysql自增长主键时，他只在本表中是唯一的， 在分布式系统中，两张表都有一张ID为1的数据，那么显然就无法使用这个自增长了</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>在二维码泛滥无比的今天，我们作为开发者，怎样生成二维码可谓是基础了，今天带来一篇python生成二维码的攻略</p>
 </blockquote>
-<p>如果我们说使用uuid，也可以凑活用，但是，第一他是无序的，第二，他占用空间巨大，耗费空间。</p>
-<p>uuid只能适用于类似生成token令牌的场景</p>
-<hr>
-<h2 id="SnowFlake"><a href="#SnowFlake" class="headerlink" title="SnowFlake"></a>SnowFlake</h2><blockquote>
-<p>SnowFlake(雪花算法)，是Twitter提出来的一个算法，其目的是生成一个64bit的整数</p>
-</blockquote>
-<p>1位标识符，始终是0</p>
-<p>41位的时间戳</p>
-<p>10位的机器标识码</p>
-<ul>
-<li>前5位代表数据中心，后面5位是某个数据中心的机器ID</li>
-</ul>
-<p>12位的递增序列</p>
-<ul>
-<li>用来对同一个毫秒之内产生不同的ID，12位可以最多记录4095个，也就是在同一个机器同一毫秒最多记录4095个，多余的需要进行等待下毫秒。</li>
-</ul>
-<h2 id="python实操"><a href="#python实操" class="headerlink" title="python实操"></a>python实操</h2><blockquote>
-<p>首先安装<code>pip install pysnowflake</code></p>
-</blockquote>
-<p>然后终端启动snowflake服务</p>
-<pre class=" language-python"><code class="language-python">snowflake_start_server <span class="token operator">-</span><span class="token operator">-</span>worker<span class="token operator">=</span><span class="token number">1</span></code></pre>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h2 id="qrcode"><a href="#qrcode" class="headerlink" title="qrcode"></a><strong>qrcode</strong></h2><p>首先安装这个库</p>
+<pre class=" language-js"><code class="language-js">pip install qrcode</code></pre>
+<p>这个库的GitHub地址也给大家，方便大家更进一步了解</p>
+<pre class=" language-js"><code class="language-js">https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>lincolnloop<span class="token operator">/</span>python<span class="token operator">-</span>qrcode</code></pre>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a><strong>简单使用</strong></h3><p>用这个库来生成二维码，简直不要太简单了，只需一行代码！</p>
+<pre class=" language-js"><code class="language-js">img <span class="token operator">=</span> qrcode<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token string">"你好"</span><span class="token punctuation">)</span></code></pre>
+<p>当然我们还需要导入库以及保存为图片格式：</p>
+<pre class=" language-j"><code class="language-j">import qrcode
+<span class="token verb keyword">#</span> 生成二维码
+img <span class="token verb keyword">=</span> qrcod<span class="token verb keyword">e.</span>make<span class="token punctuation">(</span>data<span class="token verb keyword">=</span><span class="token conjunction variable">"</span>昊烨向你问好<span class="token conjunction variable">"</span><span class="token punctuation">)</span>
+<span class="token verb keyword">#</span> 将二维码保存为图片
+with open<span class="token punctuation">(</span><span class="token string">'test.png'</span><span class="token verb keyword">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> as f<span class="token conjunction variable">:</span>
+    img<span class="token conjunction variable">.</span>save<span class="token punctuation">(</span>f<span class="token punctuation">)</span></code></pre>
+<p>运行一下代码，就可以看到生成了一张<code>test.png</code>的图片：</p>
+<img src="/posts/93509896/image-20201224171159835.png" alt="" style="zoom:50%;">
+
 <blockquote>
-<p>这里的worker就是当前节点的标识</p>
+<p>当然你不仅仅能放文本在里面，你还能让它跳转链接，你只需要把data里的数据改为url即可。</p>
 </blockquote>
-<p> 上代码:</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> snowflake<span class="token punctuation">.</span>client
-<span class="token keyword">print</span><span class="token punctuation">(</span>snowflake<span class="token punctuation">.</span>client<span class="token punctuation">.</span>get_guid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 多次输出一下，就会发现，有递增的连续性</span></code></pre>
-<img src="/posts/38687/image-20201130221520785.png" alt="" style="zoom:50%;">
+<img src="/posts/93509896/image-20201224171310611.png" alt="" style="zoom:50%;">
 
-<p>将其转换成二进制码</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>bin<span class="token punctuation">(</span><span class="token number">4431128039883018241</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<img src="/posts/38687/image-20201130221746952.png" alt="" style="zoom:50%;">
+<h3 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a><strong>高级使用</strong></h3><p>除了简单生成二维码外，我们还能够自定义一些属性。</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> qrcode
+qr <span class="token operator">=</span> qrcode<span class="token punctuation">.</span><span class="token function">QRCode</span><span class="token punctuation">(</span>
+    version<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>
+    error_correction<span class="token operator">=</span>qrcode<span class="token punctuation">.</span>constants<span class="token punctuation">.</span>ERROR_CORRECT_L<span class="token punctuation">,</span>
+    box_size<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span>
+    border<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+qr<span class="token punctuation">.</span><span class="token function">add_data</span><span class="token punctuation">(</span><span class="token string">'Some data'</span><span class="token punctuation">)</span>
+qr<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span>fit<span class="token operator">=</span>True<span class="token punctuation">)</span>
 
-<p>然后我们通过二进制码反推</p>
-<ul>
-<li>第一位是标识符</li>
-<li>往后41位是时间戳</li>
-</ul>
-<p>从右方数，12位的递增序列，再数5位就是机器标识，这个机器标识就是某个节点的存储标识00001</p>
-<p>但是啊，目前他是二进制，我们再将其转换为10进制</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>int<span class="token punctuation">(</span><span class="token string">'00001'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<img src="/posts/38687/image-20201130222356449.png" alt="" style="zoom:50%;">
+img <span class="token operator">=</span> qr<span class="token punctuation">.</span><span class="token function">make_image</span><span class="token punctuation">(</span>fill_color<span class="token operator">=</span><span class="token string">"black"</span><span class="token punctuation">,</span> back_color<span class="token operator">=</span><span class="token string">"white"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">with</span> <span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'test1.png'</span><span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    img<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span>f<span class="token punctuation">)</span></code></pre>
+<p>可以看到，属性都在QRCode对象中设置，下面我来简单介绍一下上面的参数。</p>
+<ol>
+<li><code>version</code>：二维码大小，用1~40之间的整数来设置。最小的version=1，是一个21x21的矩阵。如果你想自动生成，将值设置为 None 并使用 fit=True 参数即可。</li>
+<li><code>error_correction</code>: 二维码的纠错范围，可以选择4个常量：</li>
+<li>ERROR_CORRECT_L 7%以下的错误会被纠正</li>
+<li>ERROR_CORRECT_M (default) 15%以下的错误会被纠正</li>
+<li>ERROR_CORRECT_Q 25 %以下的错误会被纠正</li>
+<li>ERROR_CORRECT_H. 30%以下的错误会被纠正</li>
+<li><code>box_size</code>：每一个点中的像素个数</li>
+<li><code>border</code>：二维码距图像外围边框距离，默认为4，而且相关规定最小为4</li>
+<li><code>fill_color</code>和<code>back_color</code>：可以更改QR的背景和绘画颜色。</li>
+</ol>
+
             </div>
             <hr/>
 
@@ -616,7 +617,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://godhearing.cn/posts/38687/">https://godhearing.cn/posts/38687/</a>
+                    <a href="https://godhearing.cn/posts/93509896/">https://godhearing.cn/posts/93509896/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -658,10 +659,6 @@
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
-                                </a>
-                            
                         </div>
                     
                 </div>
@@ -701,7 +698,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-06-24T22-28-00',
+        id: '2020-12-24T17-20-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -729,13 +726,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/posts/6013/">
+                <a href="/posts/28786/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/50.jpg" class="responsive-img" alt="pymysql的坑以及django多个数据库迁移">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="工厂模式">
-                        
-                        <span class="card-title">工厂模式</span>
+                        <span class="card-title">pymysql的坑以及django多个数据库迁移</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,14 +742,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2018-07-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/mysql/" class="post-category">
+                                    mysql
                                 </a>
                             
                             
@@ -763,16 +759,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                        <span class="chip bg-color">设计模式</span>
-                    </a>
-                    
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
                     </a>
                     
                 </div>
@@ -786,13 +778,12 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/23362/">
+                <a href="/posts/15028/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/47.jpg" class="responsive-img" alt="seaweedfs">
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ModelViewSet">
-                        
-                        <span class="card-title">ModelViewSet</span>
+                        <span class="card-title">seaweedfs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,14 +794,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E6%96%87%E4%BB%B6/" class="post-category">
+                                    文件
                                 </a>
                             
                             
@@ -820,12 +811,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/Django/">
-                        <span class="chip bg-color">Django</span>
+                    <a href="/tags/%E6%96%87%E4%BB%B6/">
+                        <span class="chip bg-color">文件</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="递归, 天听">
+    <meta name="keywords" content="倒排索引与全文检索, 天听">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>递归 | 天听</title>
+    <title>倒排索引与全文检索 | 天听</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/avatar.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -357,12 +357,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">递归</h1>
+                    <h1 class="description center-align post-title">倒排索引与全文检索</h1>
                 </div>
             </div>
         </div>
@@ -483,6 +483,14 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
+                            <a href="/tags/Django/">
+                                <span class="chip bg-color">Django</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
+                                <span class="chip bg-color">全文检索</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -504,28 +512,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2017-11-24
+                    2017-10-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2017-11-24
+                    2017-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    784
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -540,84 +548,178 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h2><blockquote>
-<p>递归，简单来说，就是自己调用自己，指在函数的定义中调用函数自身的方法</p>
-<p>调用分为<strong>直接调用</strong>和<strong>间接调用</strong>，直接调用是指在函数体中调用自身，间接调用是调用别的函数，而这些别的函数又调用函数本身。它主要是把大问题变成小问题，使得代码更加简洁。理解递归需要有一定的抽象能力。</p>
-<p>使用递归时，需要注意的是：</p>
+                <h1 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h1><hr>
+<blockquote>
+<p>一个未经处理的数据库中，一般是以文档ID作为索引，文档内容作为记录</p>
+<p>而倒排索引指的是，将单词或记录作为索引，将文档ID作为记录，这样便可以方便地通过索引来查找到其所在的文档</p>
+</blockquote>
+<p>例如：</p>
+<p><img src="/posts/b5646943/image-20201016112650646.png"></p>
 <ul>
-<li>递归就是在过程或函数里调用自身</li>
-<li>必须有一个明确的递归结束条件，称为递归出口</li>
+<li>简单来说，普通的查询检索是通过文档查找关键词，而倒排索引就是通过关键词找到文档</li>
 </ul>
-<p><strong>切勿忘记递归的出口，否则就是无限循环</strong></p>
-<p>著名的德罗斯特效应就是递归的一种视觉形式</p>
-</blockquote>
-<img src="/posts/38362/image-20201124201411737.png" alt=" " style="zoom:90%;">
-
-<p>递归的过程分为，递归前进段，递归边界条件，递归返回段</p>
-<p>递归的最大层次限制是998次，但是可以通过<code>sys</code>(System)模块下的<code>setrecursionlimit</code>方法来进行递归层次的扩大</p>
-<p>递归函数的优点是定义简单，逻辑清晰，但是，过深的调用会导致栈溢出</p>
-<h2 id="递归实现高斯求和"><a href="#递归实现高斯求和" class="headerlink" title="递归实现高斯求和"></a>递归实现高斯求和</h2><blockquote>
-<p>代码实现高斯求和，如果是按照正常方式实现，那么就是这样的</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sum_number</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    total <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        total <span class="token operator">+=</span> i
-
-    <span class="token keyword">return</span> total</code></pre>
-<blockquote>
-<p>非常的简单，但是这样做，流程是这样的，假设我们传参5</p>
-</blockquote>
-<img src="/posts/38362/image-20201124203210068.png" style="zoom:67%;">
-
-<p>同样是计算5，我们用递归实现：</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">sum_numbers</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token number">0</span>
-    <span class="token keyword">return</span> n<span class="token operator">+</span>sum_numbers<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>可以看到，我们并不是从1开始加到5，而是逆向的思维，从5开始，逐渐的递减，直到边界条件触发，也就是，如果为0，则停止递归</p>
-</blockquote>
-<img src="/posts/38362/image-20201124203529172.png" alt=" " style="zoom:67%;">
-
+<h4 id="流程："><a href="#流程：" class="headerlink" title="流程："></a>流程：</h4><p>将数据库中的<strong>结构化数据</strong>数据转换为<strong>非结构化</strong>数据</p>
+<p>然后将<strong>非结构化数据</strong>转化为分词结构</p>
 <hr>
-<blockquote>
-<p>但是，这样会造成一个后果，就是内存的耗费问题，因为递归需要同时保存成千上百个调用记录，很容易发生”栈溢出”错误（stack overflow）</p>
-</blockquote>
-<h2 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h2><blockquote>
-<p>对于尾递归来说，由于只存在一个调用记录，所以永远不会发生”栈溢出”错误。</p>
-<p>如果按照上方的递归，计算需要保存n个调用记录，复杂度为O(n)</p>
-</blockquote>
-<p>也就是：</p>
-<pre class=" language-python"><code class="language-python"><span class="token number">5</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
-<span class="token number">5</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token number">5</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token number">5</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> sum_numbers<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p>在内存中，需要存储5次，非常的耗费</p>
-<p>让我们用尾递归来实现一下，看一下有什么不同</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">tail_sum</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span>result<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h1 id="Django使用haystack"><a href="#Django使用haystack" class="headerlink" title="Django使用haystack"></a><code>Django</code>使用haystack</h1><ul>
+<li><p>haystack是<code>django</code>的开源搜索框架，该框架支持 <code>Solr,Elasticsearch,Whoosh, Xapian</code>搜索引擎，不用更改代码，直接切换引擎，减少代码量。</p>
+</li>
+<li><p>搜索引擎使用Whoosh，这是一个由纯Python实现的全文搜索引擎，没有二进制文件等，比较小</p>
+<p>巧，配置比较简单，当然性能自然略低。</p>
+</li>
+<li><p>中文分词<code>Jieba</code>，由于Whoosh自带的是英文分词，对中文的分词支持不是太好，故用jieba替换</p>
+<p>whoosh的分词组件。</p>
+</li>
+</ul>
+<h4 id="配置与使用："><a href="#配置与使用：" class="headerlink" title="配置与使用："></a>配置与使用：</h4><p><code>syl/settings.py</code> <strong>全文检索配置</strong> </p>
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">'''1.注册app '''</span> 
+INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span> 
+    <span class="token string">'haystack'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># haystack要放在应用的上面 </span>
+<span class="token punctuation">]</span>
 
-    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> result
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        tail_sum<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">,</span>result<span class="token operator">+</span>n<span class="token punctuation">)</span></code></pre>
-<blockquote>
-<p>我们给定义了一个最终数<code>result</code>，每次调用，不再存储到内存中，而是将结果存到<code>result</code>中，这样，只在运行结束的瞬间，存储一次，其他时间，只是存储了状态，如下：</p>
-</blockquote>
-<pre class=" language-python"><code class="language-python">tail_sum<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
-tail_sum<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
-tail_sum<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span>
-tail_sum<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">)</span>
-tail_sum<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span>
-tail_sum<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span></code></pre>
-<p>再实现一下斐波那契</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">feibonacci</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token triple-quoted-string string">'''2.模板路径 '''</span>
+TEMPLATES <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token string">'DIRS'</span><span class="token punctuation">:</span><span class="token punctuation">[</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span><span class="token string">'templates'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+<span class="token punctuation">]</span>
 
-    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token number">1</span>
+
+<span class="token triple-quoted-string string">'''3.全文检索配置'''</span>
+HAYSTACK_SEARCH_RESULTS_PER_PAGE <span class="token operator">=</span> <span class="token number">15</span> <span class="token comment" spellcheck="true"># 搜索出多条数据时需要分页</span>
+HAYSTACK_CONNECTIONS <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'ENGINE'</span><span class="token punctuation">:</span> <span class="token string">'course.whoosh_cn_backend.MyWhooshEngine'</span><span class="token punctuation">,</span>
+        <span class="token string">'PATH'</span><span class="token punctuation">:</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span> <span class="token string">'whoosh_index'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># 指定倒排索引存放位置</span>
+    <span class="token punctuation">{</span>
+<span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true"># # ES引擎 </span>
+<span class="token comment" spellcheck="true"># HAYSTACK_CONNECTIONS = { </span>
+<span class="token comment" spellcheck="true"># 'default': {</span>
+        <span class="token comment" spellcheck="true"># 'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine', </span>
+        <span class="token comment" spellcheck="true"># 'URL': 'http://10.211.55.15:9200/',  # Elasticsearch服务器ip地址，端口号固 定为9200 </span>
+        <span class="token comment" spellcheck="true"># 'INDEX_NAME': 'syl', # Elasticsearch建立的反向索引库的名称 </span>
+        <span class="token comment" spellcheck="true"># {, </span>
+<span class="token comment" spellcheck="true"># { </span>
+<span class="token comment" spellcheck="true"># 添加此项，当数据库改变时，会自动更新索引，非常方便 </span>
+HAYSTACK_SIGNAL_PROCESSOR <span class="token operator">=</span> <span class="token string">'haystack.signals.RealtimeSignalProcessor'</span></code></pre>
+<ul>
+<li><strong>子应用下创建索引文件<code>apps/course/search_indexes.py</code></strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># apps/course/search_indexes.py</span>
+<span class="token comment" spellcheck="true"># 文件名必须是 search_indexes.py</span>
+<span class="token keyword">from</span> haystack <span class="token keyword">import</span> indexes
+<span class="token keyword">from</span> <span class="token punctuation">.</span>models <span class="token keyword">import</span> Course
+
+<span class="token comment" spellcheck="true"># 修改此处，类名为模型类的名称+Index，比如模型类为GoodsInfo,则这里类名为GoodsInfoIndex(其 实可以随便写)</span>
+<span class="token keyword">class</span> <span class="token class-name">CourseIndex</span><span class="token punctuation">(</span>indexes<span class="token punctuation">.</span>SearchIndex<span class="token punctuation">,</span> indexes<span class="token punctuation">.</span>Indexable<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">""" Course索引类 """</span>
+    <span class="token comment" spellcheck="true"># text为索引字段 # document = True，这代表haystack和搜索引擎将使用此字段的内容作为索引进行检索</span>
+    <span class="token comment" spellcheck="true"># use_template=True 指定根据表中的那些字段建立索引文件的说明放在一个文件中</span>
+    text <span class="token operator">=</span> indexes<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>document<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> use_template<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 对那张表进行查询</span>
+    <span class="token keyword">def</span> <span class="token function">get_model</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 重载get_model方法，必须要有</span>
+        <span class="token triple-quoted-string string">"""返回建立索引的模型类"""</span>
+        <span class="token keyword">return</span> Course   <span class="token comment" spellcheck="true"># 返回这个model</span>
+    <span class="token comment" spellcheck="true"># 建立索引的数据</span>
+    <span class="token keyword">def</span> <span class="token function">index_queryset</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> using<span class="token operator">=</span>None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""返回要建立索引的数据查询集"""</span>
+        <span class="token comment" spellcheck="true"># 这个方法返回什么内容，最终就会对那些方法建立索引，这里是对所有字段建立索引</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>get_model<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>objects<span class="token punctuation">.</span>all<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<ul>
+<li><strong>指定索引模板文件</strong></li>
+</ul>
+<p><code>templates/search/indexes/course/course_text.txt </code></p>
+<p><code>创建文件路径命名必须这个规范：templates/search/indexes/应用名称/模型类名称 text.txt</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token punctuation">{</span><span class="token punctuation">{</span>object<span class="token punctuation">.</span>id<span class="token punctuation">{</span><span class="token punctuation">{</span> 
+<span class="token punctuation">{</span><span class="token punctuation">{</span>object<span class="token punctuation">.</span>title<span class="token punctuation">{</span><span class="token punctuation">{</span> 
+<span class="token punctuation">{</span><span class="token punctuation">{</span>object<span class="token punctuation">.</span>desc<span class="token punctuation">{</span><span class="token punctuation">{</span></code></pre>
+<ul>
+<li><strong>修改为<code>jieba</code>分词中的中文分析器</strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># apps/course/whoosh_cn_backend.py</span>
+
+<span class="token comment" spellcheck="true"># 更换 text 字段的 分析方式, 变为jieba分词中的中文分析器</span>
+<span class="token keyword">from</span> haystack<span class="token punctuation">.</span>backends<span class="token punctuation">.</span>whoosh_backend <span class="token keyword">import</span> WhooshEngine<span class="token punctuation">,</span> WhooshSearchBackend
+<span class="token keyword">from</span> whoosh<span class="token punctuation">.</span>fields <span class="token keyword">import</span> TEXT
+<span class="token keyword">from</span> jieba<span class="token punctuation">.</span>analyse <span class="token keyword">import</span> ChineseAnalyzer
+<span class="token keyword">class</span> <span class="token class-name">MyWhooshSearchBackend</span><span class="token punctuation">(</span>WhooshSearchBackend<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">build_schema</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> fields<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token punctuation">(</span>content_field_name<span class="token punctuation">,</span> schema<span class="token punctuation">)</span> <span class="token operator">=</span> super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>build_schema<span class="token punctuation">(</span>fields<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true"># 指定whoosh使用jieba进行分词</span>
+        schema<span class="token punctuation">.</span>_fields<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span> <span class="token operator">=</span> TEXT<span class="token punctuation">(</span>stored<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+                                      analyzer<span class="token operator">=</span>ChineseAnalyzer<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                                      field_boost<span class="token operator">=</span>fields<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>boost<span class="token punctuation">,</span>
+                                      sortable<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>content_field_name<span class="token punctuation">,</span> schema<span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyWhooshEngine</span><span class="token punctuation">(</span>WhooshEngine<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    backend <span class="token operator">=</span> MyWhooshSearchBackend</code></pre>
+<ul>
+<li><strong>课程全文检索接口视图函数</strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># course/views.py</span>
+<span class="token keyword">from</span> syl <span class="token keyword">import</span> settings 
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>core<span class="token punctuation">.</span>paginator <span class="token keyword">import</span> InvalidPage<span class="token punctuation">,</span> Paginator 
+<span class="token keyword">from</span> haystack<span class="token punctuation">.</span>forms <span class="token keyword">import</span> ModelSearchForm 
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> JsonResponse
+
+<span class="token comment" spellcheck="true"># 如果settings.py中配置就是用settings中配置的，否则就每页15条</span>
+RESULTS_PER_PAGE <span class="token operator">=</span> getattr<span class="token punctuation">(</span>settings<span class="token punctuation">,</span> <span class="token string">'HAYSTACK_SEARCH_RESULTS_PER_PAGE'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">course_index_search</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    query <span class="token operator">=</span> request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'q'</span><span class="token punctuation">,</span> None<span class="token punctuation">)</span>
+    page <span class="token operator">=</span> int<span class="token punctuation">(</span>request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'page'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 第几页</span>
+    page_size <span class="token operator">=</span> int<span class="token punctuation">(</span>request<span class="token punctuation">.</span>GET<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'page_size'</span><span class="token punctuation">,</span> RESULTS_PER_PAGE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true"># 每页多少条</span>
+    <span class="token keyword">if</span> query<span class="token punctuation">:</span>
+        form <span class="token operator">=</span> ModelSearchForm<span class="token punctuation">(</span>request<span class="token punctuation">.</span>GET<span class="token punctuation">,</span> load_all<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 将查询条件传递给查询对 象</span>
+        <span class="token keyword">if</span> form<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            results <span class="token operator">=</span> form<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 查询出来的最终数据</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            results <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
     <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> feibonacci<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">+</span> feibonacci<span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span></code></pre>
-<p>总结一下， 递归最核心的思想是：<strong>每一次递归，整体问题都要比原来减小，并且递归到一定层次时，要能直接给出结果！</strong></p>
+        <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">'No file found！'</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true"># 对结果集进行分页</span>
+    paginator <span class="token operator">=</span> Paginator<span class="token punctuation">(</span>results<span class="token punctuation">,</span> page_size<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        page <span class="token operator">=</span> paginator<span class="token punctuation">.</span>page<span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 从分好的页中拿第几页</span>
+    <span class="token keyword">except</span> InvalidPage<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 如果分页出错</span>
+        <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">404</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">'No file found！'</span><span class="token punctuation">,</span> <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token punctuation">)</span>
+    jsondata <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> result <span class="token keyword">in</span> page<span class="token punctuation">.</span>object_list<span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 分页后的课程查询结果</span>
+        data <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'id'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>id<span class="token punctuation">,</span>
+            <span class="token string">'title'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>title<span class="token punctuation">,</span>
+            <span class="token string">'desc'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>desc<span class="token punctuation">,</span>
+            <span class="token string">'img'</span><span class="token punctuation">:</span>
+                request<span class="token punctuation">.</span>scheme <span class="token operator">+</span> <span class="token string">'://'</span> <span class="token operator">+</span> request<span class="token punctuation">.</span>META<span class="token punctuation">[</span><span class="token string">'HTTP_HOST'</span><span class="token punctuation">]</span> <span class="token operator">+</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>img<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
+            <span class="token comment" spellcheck="true"># 'follower': result.object.follower,</span>
+            <span class="token string">'learner'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>learner<span class="token punctuation">,</span>
+            <span class="token string">'status'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+            <span class="token string">'course_type'</span><span class="token punctuation">:</span> result<span class="token punctuation">.</span>object<span class="token punctuation">.</span>course_type<span class="token punctuation">.</span>id
+        <span class="token punctuation">{</span>
+        jsondata<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+
+    result <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">'Search successfully！'</span><span class="token punctuation">,</span>
+        <span class="token string">"data"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"count"</span><span class="token punctuation">:</span> page<span class="token punctuation">.</span>paginator<span class="token punctuation">.</span>count<span class="token punctuation">,</span> <span class="token string">"results"</span><span class="token punctuation">:</span> jsondata<span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> JsonResponse<span class="token punctuation">(</span>result<span class="token punctuation">)</span></code></pre>
+<ul>
+<li><strong><code>syl/urls.py</code>添加路由</strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python">urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span> 
+    path<span class="token punctuation">(</span><span class="token string">'search/'</span><span class="token punctuation">,</span> course_index_search<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+<span class="token punctuation">]</span></code></pre>
+<ul>
+<li><strong>命令创建倒排索引</strong></li>
+</ul>
+<pre class=" language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py rebuild_index</code></pre>
 
             </div>
             <hr/>
@@ -643,7 +745,7 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://godhearing.cn/posts/38362/">https://godhearing.cn/posts/38362/</a>
+                    <a href="https://godhearing.cn/posts/b5646943/">https://godhearing.cn/posts/b5646943/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -685,6 +787,14 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                                     <span class="chip bg-color">python</span>
                                 </a>
                             
+                                <a href="/tags/Django/">
+                                    <span class="chip bg-color">Django</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/">
+                                    <span class="chip bg-color">全文检索</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -724,7 +834,7 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
         repo: '',
         owner: '',
         admin: null,
-        id: '2017-11-24T20-56-00',
+        id: '2017-10-30T21-40-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -752,13 +862,13 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/posts/25246/">
+                <a href="/posts/23336/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Git">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="DRF操作">
                         
-                        <span class="card-title">Git</span>
+                        <span class="card-title">DRF操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -769,14 +879,14 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2017-12-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-11-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
+                            <a href="/categories/Django/" class="post-category">
+                                    Django
                                 </a>
                             
                             
@@ -786,12 +896,12 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Git/">
-                        <span class="chip bg-color">Git</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
                     </a>
                     
                 </div>
@@ -805,12 +915,12 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/56805/">
+                <a href="/posts/24758/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/41.jpg" class="responsive-img" alt="生成器和迭代器">
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="浅谈进程和线程">
                         
-                        <span class="card-title">生成器和迭代器</span>
+                        <span class="card-title">浅谈进程和线程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -821,14 +931,14 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-11-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-09-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1/" class="post-category">
+                                    多任务
                                 </a>
                             
                             
@@ -840,6 +950,10 @@ tail_sum<span class="token punctuation">(</span><span class="token number">0</sp
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/">
+                        <span class="chip bg-color">多任务</span>
                     </a>
                     
                 </div>
