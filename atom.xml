@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-09-08T06:32:12.605Z</updated>
+  <updated>2021-09-22T10:23:01.366Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo博客添加音乐播放器</title>
+    <link href="https://godhearing.cn/posts/89a20069/"/>
+    <id>https://godhearing.cn/posts/89a20069/</id>
+    <published>2021-09-22T09:44:18.850Z</published>
+    <updated>2021-09-22T10:23:01.366Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Hexo" scheme="https://godhearing.cn/categories/Hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://godhearing.cn/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>微信支付回调</title>
@@ -1429,7 +1454,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt=&quot;&quot;</summary>
         
       
     
@@ -1454,7 +1479,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt=&quot;&quot;</summary>
         
       
     
