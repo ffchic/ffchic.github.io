@@ -287,7 +287,7 @@
     <link href="https://godhearing.cn/posts/c65d9901/"/>
     <id>https://godhearing.cn/posts/c65d9901/</id>
     <published>2021-07-01T03:08:05.433Z</published>
-    <updated>2021-09-17T07:34:52.477Z</updated>
+    <updated>2021-09-17T07:35:06.038Z</updated>
     
     
       
@@ -416,7 +416,7 @@
     <link href="https://godhearing.cn/posts/e9f705ae/"/>
     <id>https://godhearing.cn/posts/e9f705ae/</id>
     <published>2021-06-22T08:39:08.227Z</published>
-    <updated>2021-09-17T07:34:38.743Z</updated>
+    <updated>2021-09-17T07:35:06.041Z</updated>
     
     
       
@@ -556,7 +556,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;简略步骤&quot;&gt;&lt;a href=&quot;#简略步骤&quot; class=&quot;headerlink&quot; title=&quot;简略步骤&quot;&gt;&lt;/a&gt;简略步骤&lt;/h2&gt;&lt;p&gt;直接把所有步骤简略写下，简略的解释，如果要安装的话，直接复制命令即可。&lt;/p&gt;
-&lt;pre class=&quot;</summary>
+&lt;pre</summary>
         
       
     
@@ -725,7 +725,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;The value of the &#39;Access-Control-Allow-Origin&#39; header in the</summary>
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;The value of the</summary>
         
       
     
@@ -778,11 +778,10 @@
         
         
     <summary type="html">&lt;p&gt;1.安装&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew install nginx&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;brew install nginx&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;或&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo brew install nginx&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;2.启动&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;brew</summary>
+&lt;pre</summary>
         
       
     
@@ -913,7 +912,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;Command</summary>
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;pre class=&quot;language-python&quot; data-language=&quot;python&quot;&gt;&lt;code</summary>
         
       
     
@@ -1227,7 +1226,7 @@
         
         
     <summary type="html">&lt;p&gt;在 &lt;code&gt;Linux&lt;/code&gt; 下安装 &lt;code&gt;mysqlclient&lt;/code&gt;，如果是选择直接安装的话，一般会报如下错误&lt;/p&gt;
-&lt;pre class=&quot; language-python&quot;&gt;&lt;code</summary>
+&lt;pre class=&quot;language-python&quot; data-language=&quot;python&quot;&gt;&lt;code</summary>
         
       
     
@@ -1278,7 +1277,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;遇到的问题1&quot;&gt;&lt;a href=&quot;#遇到的问题1&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题1&quot;&gt;&lt;/a&gt;遇到的问题1&lt;/h2&gt;&lt;p&gt;我在执行setTiemout之后，效果并没有触发，然后发现语法错误&lt;/p&gt;
-&lt;pre class=&quot;</summary>
+&lt;pre</summary>
         
       
     
@@ -1430,7 +1429,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt=&quot;&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt</summary>
         
       
     
@@ -1455,7 +1454,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt=&quot;&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt</summary>
         
       
     
@@ -2745,7 +2744,7 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;Hexo提供了一个插件来实现搜索的功能，但是，不知道什么原因，按照以下步骤操作，我的搜索功能还是没能实现&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;pre class=&quot; language-javascript&quot;&gt;&lt;code</summary>
+&lt;pre class=&quot;language-javascript&quot;</summary>
         
       
     
@@ -2823,7 +2822,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;配置全局：&quot;&gt;&lt;a href=&quot;#配置全局：&quot; class=&quot;headerlink&quot; title=&quot;配置全局：&quot;&gt;&lt;/a&gt;配置全局：&lt;/h2&gt;&lt;pre class=&quot; language-python&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;配置全局：&quot;&gt;&lt;a href=&quot;#配置全局：&quot; class=&quot;headerlink&quot; title=&quot;配置全局：&quot;&gt;&lt;/a&gt;配置全局：&lt;/h2&gt;&lt;pre class=&quot;language-python&quot; data-language=&quot;python&quot;&gt;&lt;code</summary>
         
       
     
@@ -2958,7 +2957,7 @@
         
         
     <summary type="html">&lt;h3 id=&quot;1-DRF初始化&quot;&gt;&lt;a href=&quot;#1-DRF初始化&quot; class=&quot;headerlink&quot; title=&quot;1.DRF初始化&quot;&gt;&lt;/a&gt;1.DRF初始化&lt;/h3&gt;&lt;p&gt;DRF六中常用操作&lt;/p&gt;
-&lt;pre class=&quot;</summary>
+&lt;pre class=&quot;language-python&quot;</summary>
         
       
     
