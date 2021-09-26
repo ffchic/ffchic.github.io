@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-09-23T03:03:29.473Z</updated>
+  <updated>2021-09-26T06:08:36.611Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>推荐一款好用的python-web框架</title>
+    <link href="https://godhearing.cn/posts/4319cda8/"/>
+    <id>https://godhearing.cn/posts/4319cda8/</id>
+    <published>2021-09-26T05:12:41.808Z</published>
+    <updated>2021-09-26T06:08:36.611Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo博客添加音乐播放器</title>
@@ -312,7 +338,7 @@
     <link href="https://godhearing.cn/posts/c65d9901/"/>
     <id>https://godhearing.cn/posts/c65d9901/</id>
     <published>2021-07-01T03:08:05.433Z</published>
-    <updated>2021-09-17T07:35:06.038Z</updated>
+    <updated>2021-09-23T05:46:44.742Z</updated>
     
     
       
@@ -1341,9 +1367,9 @@
   </entry>
   
   <entry>
-    <title>阿里云服务器搭建hexo博客教程</title>
-    <link href="https://godhearing.cn/posts/8e750bfd/"/>
-    <id>https://godhearing.cn/posts/8e750bfd/</id>
+    <title>阿里云域名解析</title>
+    <link href="https://godhearing.cn/posts/fc296de6/"/>
+    <id>https://godhearing.cn/posts/fc296de6/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -1366,9 +1392,9 @@
   </entry>
   
   <entry>
-    <title>阿里云域名解析</title>
-    <link href="https://godhearing.cn/posts/fc296de6/"/>
-    <id>https://godhearing.cn/posts/fc296de6/</id>
+    <title>阿里云服务器搭建hexo博客教程</title>
+    <link href="https://godhearing.cn/posts/8e750bfd/"/>
+    <id>https://godhearing.cn/posts/8e750bfd/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -1454,7 +1480,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt=&quot;&quot;</summary>
         
       
     
@@ -1479,7 +1505,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt=&quot;&quot;</summary>
         
       
     
