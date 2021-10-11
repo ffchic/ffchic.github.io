@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-09-26T06:09:02.634Z</updated>
+  <updated>2021-10-11T04:09:06.554Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python | golang实现公众号扫码登陆</title>
+    <link href="https://godhearing.cn/posts/a38bad63/"/>
+    <id>https://godhearing.cn/posts/a38bad63/</id>
+    <published>2021-10-08T04:17:59.872Z</published>
+    <updated>2021-10-11T04:09:06.554Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    
+    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
   
   <entry>
     <title>推荐一款好用的python-web框架</title>
@@ -574,7 +603,7 @@
     <link href="https://godhearing.cn/posts/12653/"/>
     <id>https://godhearing.cn/posts/12653/</id>
     <published>2021-05-28T09:05:33.266Z</published>
-    <updated>2021-06-22T03:03:49.930Z</updated>
+    <updated>2021-09-30T06:47:51.748Z</updated>
     
     
       
@@ -1480,7 +1509,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt=&quot;&quot;</summary>
         
       
     
@@ -1505,7 +1534,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt=&quot;&quot;</summary>
         
       
     
