@@ -1279,6 +1279,7 @@ func main(){
 <blockquote>
 <p>注意：接口是一种类型,他规定了数据有哪些方法</p>
 </blockquote>
+<p>例如，结构体Dog可以walk和bark， 如果一个接口声明了walk和bark的方法签名，而Dog实现了walk和bark方法，那么Dog就实现了该接口。<br> 接口的主要工作是仅提供由方法名称，输入参数和返回类型组成的方法签名集合。 由类型（例如struct结构体）来声明方法并实现它们。</p>
 <pre class="language-go" data-language="go"><code class="language-go">//造接口，只要是有speak方法的变量，他就是speaker类型的接口
 type speaker interface {
 	speak()
