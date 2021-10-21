@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-10-11T04:09:22.203Z</updated>
+  <updated>2021-10-21T08:11:57.054Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GORM自定义结构</title>
+    <link href="https://godhearing.cn/posts/5994c9c6/"/>
+    <id>https://godhearing.cn/posts/5994c9c6/</id>
+    <published>2021-10-21T04:26:20.813Z</published>
+    <updated>2021-10-21T08:11:57.054Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
   
   <entry>
     <title>python | golang实现公众号扫码登陆</title>
@@ -1509,7 +1534,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;问题截图&quot;&gt;&lt;a href=&quot;#问题截图&quot; class=&quot;headerlink&quot; title=&quot;问题截图&quot;&gt;&lt;/a&gt;问题截图&lt;/h2&gt;&lt;img src=&quot;/posts/61035/image-20210127160346525.png&quot; alt=&quot;&quot;</summary>
         
       
     
@@ -1534,7 +1559,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt</summary>
+    <summary type="html">&lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;img src=&quot;/posts/51106/image-20210125175514698.png&quot; alt=&quot;&quot;</summary>
         
       
     
