@@ -42,20 +42,20 @@
 <h2 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h2><blockquote>
 <p>首先就是去万网购买域名，地址在<a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/?utm_content=se_1006856673">这里</a>，选择你喜欢的域名和后缀，之后就可以加入清单并且购买。</p>
 </blockquote>
-<img src="/posts/fc296de6/image-20210305134100654.png" alt="" style="zoom:50%;" loading="lazy">
+<img src="/posts/fc296de6/image-20210305134100654.png" alt style="zoom:50%;" loading="lazy">
 
 <p>然后，在国内的域名是需要去备案的</p>
 <h2 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h2><p>首先就是要有了自己的服务器实例，然后在控制台去申请备案服务号。</p>
-<img src="/posts/fc296de6/image-20210305134300655.png" alt="" style="zoom:50%;" loading="lazy">
+<img src="/posts/fc296de6/image-20210305134300655.png" alt style="zoom:50%;" loading="lazy">
 
 <p>申请步骤按照它的提示来即可，非常简单。</p>
 <p>有了备案服务号之后，就可以去申请备案服务号的地方点开ICP代备案系统，提供它所需要的信息，比如你网站的用途啊，还有你的网站负责人的信息，如果是你本人那就是填写你自己的信息啦！这里需要注意的是，你的网站名称，不要用什么什么技术博客之类的，可以改为使用你自己的名言或者一个其他名字就可以了，反正只有你自己看的见。</p>
 <p>提交完成后，等待他的流程结束，你的域名也就处于可用状态了。</p>
 <p>然后就可以解析到你的服务器上。</p>
 <h2 id="解析域名具体步骤"><a href="#解析域名具体步骤" class="headerlink" title="解析域名具体步骤"></a>解析域名具体步骤</h2><ol>
-<li>打开控制台，进入域名<img src="/posts/fc296de6/image-20210209114350762.png" alt="" style="zoom:50%;" loading="lazy"></li>
-<li>找到想要解析的域名<img src="/posts/fc296de6/image-20210209114439874.png" alt="" style="zoom:50%;" loading="lazy"></li>
-<li>添加记录。服务器公网ip<img src="/posts/fc296de6/image-20210209114545682.png" alt="" style="zoom:50%;" loading="lazy"></li>
+<li>打开控制台，进入域名<img src="/posts/fc296de6/image-20210209114350762.png" alt style="zoom:50%;" loading="lazy"></li>
+<li>找到想要解析的域名<img src="/posts/fc296de6/image-20210209114439874.png" alt style="zoom:50%;" loading="lazy"></li>
+<li>添加记录。服务器公网ip<img src="/posts/fc296de6/image-20210209114545682.png" alt style="zoom:50%;" loading="lazy"></li>
 <li>主机记录，就填写www就可以</li>
 <li>解析线路。选择系统默认即可。</li>
 <li>记录值。指的是服务器/虚拟主机的外网IP地址。查看外网IP地址，就直接去购买的服务器详情里面查看。</li>
@@ -97,10 +97,10 @@ systemctl start nginx</code></pre>
 <h2 id="https解析"><a href="#https解析" class="headerlink" title="https解析"></a>https解析</h2><blockquote>
 <p>在阿里云上，是会赠送免费的ssl证书的，首先需要打开控制台，搜索ssl并进入，然后选择云盾ssl证书</p>
 </blockquote>
-<img src="/posts/fc296de6/image-20210305135852323.png" alt="" style="zoom:50%;" loading="lazy">
+<img src="/posts/fc296de6/image-20210305135852323.png" alt style="zoom:50%;" loading="lazy">
 
 <p>为了解决免费证书近期存在的吊销、统计等问题，自2021年起，免费证书申请将切换到证书资源包下了，地址在<a target="_blank" rel="noopener" href="https://common-buy.aliyun.com/?spm=5176.15089375.J_5834642020.3.5e2865c38sL8jk&amp;commodityCode=cas_dv_public_cn&amp;request=%7B%22ord_time%22:%221:Year%22,%22order_num%22:1,%22product%22:%22cert_product%22,%22domain%22:%22all%22,%22productCode%22:%22symantec-dv-1-starter%22,%22service_num%22:2%7D">这里</a></p>
-<img src="/posts/fc296de6/image-20210305140842701.png" alt="" style="zoom:50%;" loading="lazy">
+<img src="/posts/fc296de6/image-20210305140842701.png" alt style="zoom:50%;" loading="lazy">
 
 <p>然后支付0元之后，他就在你的云盾ssl证书中了，直接申请即可，点击下载，选择nginx，你会下载一个压缩包，把其中的两个文件放在你的服务器上，你自己知道的位置即可。</p>
 <p>然后再在nginx配置中，重新配置一个server，使用443端口。并加上如下配置.</p>
@@ -135,7 +135,7 @@ systemctl start nginx</code></pre>
 }</code></pre>
 
 <p>然后，重启nginx即可。</p>
-</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://godhearing.cn/posts/fc296de6/" title="阿里云域名解析">https://godhearing.cn/posts/fc296de6/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/posts/30799/" rel="prev" title="python3获取微信小程序码"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">python3获取微信小程序码</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/posts/8e750bfd/" rel="next" title="阿里云服务器搭建hexo博客教程"><span class="post-nav-text">阿里云服务器搭建hexo博客教程</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://godhearing.cn/posts/fc296de6/" title="阿里云域名解析">https://godhearing.cn/posts/fc296de6/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/posts/8e750bfd/" rel="prev" title="阿里云服务器搭建hexo博客教程"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">阿里云服务器搭建hexo博客教程</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/posts/56413/" rel="next" title="python PIL中文变方框的解决办法"><span class="post-nav-text">python PIL中文变方框的解决办法</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
   setTimeout(blog_live_time, 1000);
   const start = new Date('2017-07-12T00:00:00');
   const now = new Date();

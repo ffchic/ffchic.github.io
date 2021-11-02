@@ -141,7 +141,7 @@ Group.metadata.tables[Group.__tablename__],[{"name":name}]
 <p>既然费尽心力改成了异步，那自然是要试试他的性能的。就一张单表查询，做了分页查询，数据量不是很大的情况下。</p>
 <p>测试使用的框架是fastapi，一个简单的查询，没有任何骚操作。我们继续使用鼎鼎有名的ApacheBench进行压测。</p>
 </blockquote>
-<img src="/posts/50945/image-20210816183238948.png" alt="" style="zoom:80%;" loading="lazy">
+<img src="/posts/50945/image-20210816183238948.png" alt style="zoom:80%;" loading="lazy">
 
 <p>带数据库操作的情况下，qps100，消耗了二十秒，并且还有失败的。</p>
 <blockquote>
@@ -149,12 +149,12 @@ Group.metadata.tables[Group.__tablename__],[{"name":name}]
 </blockquote>
 <p>好吧，虽然是单进程模式，但是这结果显然差劲。</p>
 <p>用上了异步，我们再测一下</p>
-<img src="/posts/50945/image-20210816183731230.png" alt="" style="zoom:80%;" loading="lazy">
+<img src="/posts/50945/image-20210816183731230.png" alt style="zoom:80%;" loading="lazy">
 
 <p>尽管不是那么的正规压测，但是显而易见，在200qps的压测下，表现几乎要追上go了。<del>自我催眠</del></p>
 <p>那，测一下go…，虽然python去找golang测速度有点找虐。</p>
 <p>使用的gin框架，调整成生产模式单进程开始。</p>
-<img src="/posts/50945/C838D920-F796-4E4E-9F56-1A80253362CE.png" alt="" style="zoom:80%;" loading="lazy">
+<img src="/posts/50945/C838D920-F796-4E4E-9F56-1A80253362CE.png" alt style="zoom:80%;" loading="lazy">
 
 <p>额，好吧，差距还是巨大的，不找虐了。</p>
 </div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://godhearing.cn/posts/50945/" title="sqlalchemy异步操作">https://godhearing.cn/posts/50945/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/posts/8812/" rel="prev" title="Gin部署"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Gin部署</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/posts/52513/" rel="next" title="gin-vue搭建个人博客-10"><span class="post-nav-text">gin-vue搭建个人博客-10</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
