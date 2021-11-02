@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["Salmon","不","是","鱼"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 今日有个爬虫的需求，就在我把各个组件都测试完毕，将他们自信的组装到一起，结果，除了意外，这个意外就是显示sql语句有错误，可是，在我反复的在终端试验，却没有任何的错误，于是我开始了漫长的资料查询。  原因分析 pymysql在储存长文本，有时会出现转义字符，可能导致两个连续的数据会被挤到一起  解决办法 我研究了很多的解决办法，选出两种最为方便的   在连接时，将编码格式改为utf8mb4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pymysql的坑以及django多个数据库迁移">
@@ -53,7 +53,7 @@
 <h2 id="django多数据库的迁移"><a href="#django多数据库的迁移" class="headerlink" title="django多数据库的迁移"></a>django多数据库的迁移</h2><blockquote>
 <p>首先，我们需要在settings中链接上多个数据库，并且指定app</p>
 </blockquote>
-<img src="/posts/28786/image-20201230181824302.png" alt style="zoom:50%;" loading="lazy">
+<img src="/posts/28786/image-20201230181824302.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>然后指定哪个模型使用哪个数据库</p>
 <pre class="language-python" data-language="python"><code class="language-python">DATABASE_APPS_MAPPING = {

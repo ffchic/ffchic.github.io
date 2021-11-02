@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["Salmon","不","是","鱼"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 这是一个非常没用，而且没用的功能。谁会在逛博客的时候点开音乐呢，但是吧，虽然没用，但是聊胜于无嘛。 PenguinPlayer 是一个基于网易云音乐的轻量级迷你播放器。它使用 TypeScript 和 Sass 编写，可以通过引用 player.js 在你的任何网页上挂载。 移动&#x2F;触控设备支持Internet Explorer 10+ 支持简洁，好看还好用使用简单使用它，你首先需要有一个网易">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo博客添加音乐播放器">
@@ -45,7 +45,7 @@
 <p>如果没有特别的需求，下载 player.js 就够了。</p>
 <h2 id="配置-PenguinPlayer"><a href="#配置-PenguinPlayer" class="headerlink" title="配置 PenguinPlayer"></a>配置 PenguinPlayer</h2><p>你有两种方案可供选择：</p>
 <p>直接修改 player.js<br>通过调用 PenguinPlayer 进行初始化（进阶）<br>直接在 player.js 中配置<br>现在，打开下载下来的 JavaScript 文档，并在 window 上下文中设置你的歌单 ID。举个例子：window.penguinplayer_id = “6630417901”</p>
-<img src="/posts/89a20069/image-20210922180823581.png" alt style="zoom:50%;" loading="lazy">
+<img src="/posts/89a20069/image-20210922180823581.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>调用 windows.PPlayer.initialize() 以对播放器进行初始化<br>你也可以通过使用 windows.PPlayer.initialize()语句在其他地方对 PenguinPlayer 进行初始化操作。</p>
 <h2 id="配置你的博客"><a href="#配置你的博客" class="headerlink" title="配置你的博客"></a>配置你的博客</h2><p>这里以我使用的博客 Hexo 为例，主题是 Yun。</p>
@@ -72,11 +72,11 @@ js:
 <h2 id="PenguinPlayer-的进阶操作"><a href="#PenguinPlayer-的进阶操作" class="headerlink" title="PenguinPlayer 的进阶操作"></a>PenguinPlayer 的进阶操作</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>事实上，PenguinPlayer 为你提供了更多的自定义参数。</p>
 <p>你可以使用 window.PPlayer.initialize(options: PenguinPlayerOptions) 语句在对其初始化时对其进行配置。</p>
 <p>所有可用的配置参数都在下表中展示：</p>
-<img src="/posts/89a20069/image-20210922181550210.png" alt style="zoom:70%;" loading="lazy">
+<img src="/posts/89a20069/image-20210922181550210.png" alt="" style="zoom:70%;" loading="lazy">
 
-<h3 id="不同的版本"><a href="#不同的版本" class="headerlink" title="不同的版本"></a>不同的版本</h3><img src="/posts/89a20069/image-20210922181631632.png" alt style="zoom:70%;" loading="lazy">
+<h3 id="不同的版本"><a href="#不同的版本" class="headerlink" title="不同的版本"></a>不同的版本</h3><img src="/posts/89a20069/image-20210922181631632.png" alt="" style="zoom:70%;" loading="lazy">
 
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><img src="/posts/89a20069/image-20210922181750793.png" alt style="zoom:95%;" loading="lazy">
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><img src="/posts/89a20069/image-20210922181750793.png" alt="" style="zoom:95%;" loading="lazy">
 
 <blockquote>
 <p>播放器的所有接口都暴露在window上下文的PPlayer对象中</p>

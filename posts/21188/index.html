@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["Salmon","不","是","鱼"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 自从mysql被oracle收购以后，PostgrelSQL逐渐成为开源关系型数据库的首选。并且就算mysql没有被收购，它所暴露出的问题也很难让人不追求新的数据库 比如，Emoji表情坑随后推出这个utfmb4 与时俱进之下，我们不采用普通的安装方式，而使用Docker来进行安装使用  Docker安装PostgrelSQL第一步，拉取镜像 docker pull postgres:11.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PostgrelSQL">
@@ -148,14 +148,14 @@ insert into 表名(字段名) values(对应数据)</code></pre>
 这句话的意思是，创建一个名为serial的序列，从1开始计数</code></pre>
 
 <p>查看结构</p>
-<img src="/posts/21188/image-20201203105005032.png" alt style="zoom:67%;" loading="lazy">
+<img src="/posts/21188/image-20201203105005032.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>随后，将需要设置的字段的默认值设为序列增长即可</p>
 <pre class="language-none"><code class="language-none">alter table 表名 alter column 要自增长的字段 set default nextval(序列名)
 例子：
 ALTER TABLE "public"."article" ALTER COLUMN "id" SET DEFAULT nextval('serial');</code></pre>
 
-<img src="/posts/21188/image-20201203105601012.png" alt style="zoom:50%;" loading="lazy">
+<img src="/posts/21188/image-20201203105601012.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>删除数据</p>
 <pre class="language-none"><code class="language-none">delete from 表名 where 条件
@@ -175,10 +175,10 @@ update user set name='张三' where name='李四'</code></pre>
 <p>我们来举个例子吧，假设我们有一张表，分别有部门，员工，工资三个字段</p>
 <p>假设我们要查询每个部门的平均工资以及所有员工的对比，在传统做法下，我们需要先通过group by分组，再用表连接统计一下上面的结果</p>
 <p>而使用窗口函数，可以简化很多</p>
-<img src="/posts/21188/image-20201203113052844.png" alt style="zoom:67%;" loading="lazy">
+<img src="/posts/21188/image-20201203113052844.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>而使用<code>order by</code>的话，会造成怎样的结果呢</p>
-<img src="/posts/21188/image-20201203113136091.png" alt style="zoom:67%;" loading="lazy">
+<img src="/posts/21188/image-20201203113136091.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>可以看到，第一个是人事部门的平均工资，第二个，是研发和人事的平均工资，第三个，就是所有部门的平均工资。使用的时候要特别注意。</p>
 <h2 id="python使用PostgrelSQL"><a href="#python使用PostgrelSQL" class="headerlink" title="python使用PostgrelSQL"></a>python使用PostgrelSQL</h2><p>和使用mysql一样，先装三方库</p>

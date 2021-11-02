@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["Salmon","不","是","鱼"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 微信公众号，已经是目前开发者不容错过的一个通道了，像是很多餐厅都通过微信扫码点餐，很多网站都是舍弃了原本的账号密码登陆，而改用微信公众号关注登陆。针对于这个场景，今天来使用python和golang来实现一下。  流程 大致流程是这样：  首先我们要获取二维码和场景值 通过配置公众号回调地址来将场景值和获取的open_id存到redis，同时获取新用户的信息 然后前端通过轮询或者websoc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python | golang实现公众号扫码登陆">
@@ -46,7 +46,7 @@
 </ul>
 </blockquote>
 <h2 id="1-配置公众号"><a href="#1-配置公众号" class="headerlink" title="1. 配置公众号"></a>1. 配置公众号</h2><p>没有服务号没有关系，微信推出了一个测试服务号接口的<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login">地址</a></p>
-<img src="/posts/a38bad63/image-20211008160700052.png" alt style="zoom:80%;" loading="lazy">
+<img src="/posts/a38bad63/image-20211008160700052.png" alt="" style="zoom:80%;" loading="lazy">
 
 <p>我们需要配置URL和Token，URL要填写你能够收到信息的服务器地址，Token你可以用某些包来生成，也可以用脸在键盘上滚几圈。</p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html">文档地址</a></p>

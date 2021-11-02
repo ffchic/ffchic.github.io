@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["Salmon","不","是","鱼"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 什么是搜索，这是一个相当简单的问题了，就是根据一个搜索词来检索出所有包含该词的数据。我们一般使用mysql数据搜索都是通过模糊搜索来查询，但是这样就会面临一个性能问题，假如数据量超多，这样的搜索无异于自杀。 基于文档式的全文检索引擎相信大家都不陌生，Elasticsearch诞生的本意是为了解决文本搜索太慢的问题，ES会默认将所有的输入内容当作字符串来理解，对于字段类型是keyword或者t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Docker配置Elasticsearch全文检索">
@@ -71,7 +71,7 @@ docker rm $(docker ps -a -q)</code></pre>
 <pre class="language-none"><code class="language-none">docker run --name es -v E:\elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -d elasticsearch:7.2.0</code></pre>
 
 <p>这里需要注意一点，就是在Win10宿主机里需要单独设置一下共享文件夹，这里我设置的共享文件夹叫做es，如果是Centos或者Mac os就直接写真实物理路径即可。</p>
-<img src="/posts/46689/image-20201201223246321.png" alt style="zoom:80%;" loading="lazy">
+<img src="/posts/46689/image-20201201223246321.png" alt="" style="zoom:80%;" loading="lazy">
 
 <p>随后，重启Docker，输入命令进入默认容器：docker-machine ssh default</p>
 <p>在容器根目录能够看到刚刚设置的共享文件夹，就说明设置成功了。</p>

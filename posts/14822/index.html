@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#4e72b8"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["Salmon","不","是","鱼"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"auto","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 在很久没有更新博客以及自己技术的前提下，感受到了来自编程界的毒打，接受新事物，本是开发者应该作为本能的一件事，但实际上，我并没有坚持多久，很拒绝的接受新事物，所以，今日起，重铸开发荣光，我辈义不容辞。 今天带来的是BigChainDB，这是一个可用的去中心数据库，听到这个词，是不是意识到另一样某个同样是去中心的东西，是的，区块链。 BigChainDB是一个区块链数据库，它具有每秒百万次写操">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bigchaindb安装">
@@ -50,7 +50,7 @@
 <pre class="language-none"><code class="language-none">docker run -it -d -p 9984:9984 镜像id</code></pre>
 
 <p>访问一下9984，可以看到你的版本号</p>
-<img src="/posts/14822/image-20201220154358244.png" alt style="zoom:67%;" loading="lazy">
+<img src="/posts/14822/image-20201220154358244.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>安装一些依赖</p>
 <pre class="language-none"><code class="language-none">sudo apt-get update
@@ -64,7 +64,7 @@ pip3 install pytest-runner</code></pre>
 
 
 <p>然后安装驱动，对应你的版本号</p>
-<img src="/posts/14822/image-20201220154540628.png" alt style="zoom:67%;" loading="lazy">
+<img src="/posts/14822/image-20201220154540628.png" alt="" style="zoom:67%;" loading="lazy">
 
 <pre class="language-none"><code class="language-none">pip install -U bigchaindb-driver==版本号</code></pre>
 
