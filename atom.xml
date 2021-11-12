@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-10-26T10:08:20.550Z</updated>
+  <updated>2021-11-12T08:27:11.733Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>幸存者偏差</title>
+    <link href="https://godhearing.cn/posts/e9a07e04/"/>
+    <id>https://godhearing.cn/posts/e9a07e04/</id>
+    <published>2021-11-12T08:09:55.491Z</published>
+    <updated>2021-11-12T08:27:11.733Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;论幸存者偏差&quot;&gt;&lt;a href=&quot;#论幸存者偏差&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    
+    
+    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    
+  </entry>
   
   <entry>
     <title>pm2部署nuxt项目</title>
