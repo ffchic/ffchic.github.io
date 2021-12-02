@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ff8c00"><meta name="author" content="天 听"><meta name="copyright" content="天 听"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>seaweedfs | Salmon</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link id="light-prism-css" rel="stylesheet" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#ff8c00"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"time","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["255, 222, 173","255, 250, 240","240, 255, 255\t"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言  Saeweedfs是一个由golang语言开发的分布式对象存储系统，很适合做图片服务器，性能很好，并且可兼容挂载提供路径访问的方式，使得文件储存在云端变得非常方便。  seaweedfs的特点：   可以成存储上亿的文件（根据你硬盘大小变化）  速度刚刚的  github地址 安装安装呢，需要从官网上下载对应系统的版本，地址，我以windows为例，可以看到，下载下来的是个压缩包，解压后就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="seaweedfs">
+<meta property="og:url" content="https://godhearing.cn/2020/12/22/seaweedfs/index.html">
+<meta property="og:site_name" content="Salmon">
+<meta property="og:description" content="前言  Saeweedfs是一个由golang语言开发的分布式对象存储系统，很适合做图片服务器，性能很好，并且可兼容挂载提供路径访问的方式，使得文件储存在云端变得非常方便。  seaweedfs的特点：   可以成存储上亿的文件（根据你硬盘大小变化）  速度刚刚的  github地址 安装安装呢，需要从官网上下载对应系统的版本，地址，我以windows为例，可以看到，下载下来的是个压缩包，解压后就">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222171848122.png">
+<meta property="og:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222172215662.png">
+<meta property="og:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222172408636.png">
+<meta property="og:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222173140239.png">
+<meta property="og:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222175621056.png">
+<meta property="og:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222180246784.png">
+<meta property="article:published_time" content="2020-12-22T10:54:00.000Z">
+<meta property="article:modified_time" content="2020-12-22T10:54:00.000Z">
+<meta property="article:author" content="天 听">
+<meta property="article:tag" content="文件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://godhearing.cn/2020/12/22/seaweedfs/image-20201222171848122.png"><script src="/js/ui/mode.js"></script>
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 65,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues","Reds","Oranges"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="天 听"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="天 听"></a><div class="site-author-name"><a href="/about/">天 听</a></div><a class="site-name" href="/about/site.html">Salmon</a><sub class="site-subtitle">天听的站点</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">119</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">24</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://www.baidu.com/" title="通向一个万事都能解决的地方"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/God-hearing2020" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=247102977" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/godhearing1" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://haoye0822@gmail.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="我最喜欢的明星" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python%E4%B8%AD%E4%BD%BF%E7%94%A8seaweedfs"><span class="toc-number">4.</span> <span class="toc-text">python中使用seaweedfs</span></a></li></ol></div></div></div><div class="tag-cloud"><div class="tag-cloud-tags"><a href="/tags/Book/" style="font-size: 21px; color: #80b45d">Book</a> <a href="/tags/Casbin/" style="font-size: 12px; color: #ffc20e">Casbin</a> <a href="/tags/Celery/" style="font-size: 16.5px; color: #bfbb36">Celery</a> <a href="/tags/Django/" style="font-size: 30px; color: #00a6ac">Django</a> <a href="/tags/Docker/" style="font-size: 25.5px; color: #40ad85">Docker</a></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://godhearing.cn/2020/12/22/seaweedfs/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="天 听"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Salmon"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">seaweedfs</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2020-12-22 18:54:00" itemprop="dateCreated datePublished" datetime="2020-12-22T18:54:00+08:00">2020-12-22</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/%E6%96%87%E4%BB%B6/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">文件</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/%E6%96%87%E4%BB%B6/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">文件</span></a></span></div><div class="post-author"><span class="author-name">天听</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#ff8c00;"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p> <code>Saeweedfs</code>是一个由<code>golang</code>语言开发的分布式对象存储系统，很适合做图片服务器，性能很好，并且可兼容挂载提供路径访问的方式，使得文件储存在云端变得非常方便。</p>
+</blockquote>
+<p><code>seaweedfs</code>的特点： </p>
+<ol>
+<li>可以成存储上亿的文件（根据你硬盘大小变化） </li>
+<li>速度刚刚的</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/chrislusf/seaweedfs">github地址</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装呢，需要从官网上下载对应系统的版本，<a target="_blank" rel="noopener" href="https://github.com/chrislusf/seaweedfs/releases">地址</a>，我以windows为例，可以看到，下载下来的是个压缩包，解压后就是一个exe安装包，但是我们直接点是没有用的，所以，我们通过命令来进行</p>
+<p>首先呢，我们查看一下所有的命令，得知，可以使用master命令来进行启动</p>
+<pre class="language-python" data-language="python"><code class="language-python">weed master -ip=127.0.0.1</code></pre>
+
+<img src="/2020/12/22/seaweedfs/image-20201222171848122.png" alt="" style="zoom:50%;" loading="lazy">
+
+<p>master节点设置好了之后，继续看文档，来设置volume节点</p>
+<blockquote>
+<p>如果没有data这个文件夹，就自己创建一个</p>
+<p><code>mserver</code>是master节点地址</p>
+</blockquote>
+<pre class="language-python" data-language="python"><code class="language-python">weed volume -dir="./data" -max=10 -mserver="127.0.0.1:9333" -port=9000 -index=leveldb</code></pre>
+
+<img src="/2020/12/22/seaweedfs/image-20201222172215662.png" alt="" style="zoom:50%;" loading="lazy">
+
+<p>然后访问一下<code>http://localhost:9333/</code>即可，好，一切ok，再查看一下状态</p>
+<pre class="language-python" data-language="python"><code class="language-python">"http://127.0.0.1:9333/cluster/status?pretty=y"</code></pre>
+
+<img src="/2020/12/22/seaweedfs/image-20201222172408636.png" alt="" style="zoom:50%;" loading="lazy">
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>继续看文档，如果要写入文件，则需要发送请求到<code>/dir/assign</code>来获取<code>fid</code>和volume服务器url</p>
+<img src="/2020/12/22/seaweedfs/image-20201222173140239.png" alt="" style="zoom:50%;" loading="lazy">
+
+<p>然后将fid拼接，发送文件，这里用postman测试一下</p>
+<img src="/2020/12/22/seaweedfs/image-20201222175621056.png" alt="" style="zoom:50%;" loading="lazy">
+
+<p>发送成功，这时候你可以将<code>fid</code>存下</p>
+<blockquote>
+<p><code>fid</code>：</p>
+<p>开头的数字3表示卷ID。逗号后是一个文件密钥01和一个文件<code>cookie 637037d6</code>。</p>
+<p>卷ID是32位无符号整数。文件密钥是一个无符号的64位整数。文件cookie是32位无符号整数，用于防止URL猜测。</p>
+<p>文件密钥和文件cookie均以十六进制编码。可以使用自己的格式存储&lt;卷ID，文件密钥，文件cookie&gt;元组，也可以将<code>fid</code>存储。</p>
+</blockquote>
+<p>然后，怎么访问呢，当然是通过刚刚保存的fid啦，不过要<strong>注意</strong>，一定要先查找卷服务器的url，<code>http://localhost:9333/dir/lookup?volumeId=卷ID</code>，然后通过返回的<code>publicUrl</code>这个域名来进行查找</p>
+<img src="/2020/12/22/seaweedfs/image-20201222180246784.png" alt="" style="zoom:50%;" loading="lazy">
+
+<p>要注意，这时，不只是可以用这个方式来访问，还可以使用</p>
+<pre class="language-none"><code class="language-none"># 卷id/密钥+文件cookie/文件名
+http://localhost:8080/3/01637037d6/my_preferred_name.jpg
+# 卷id/密钥+文件你cookie.后缀名
+http://localhost:8080/3/01637037d6.jpg
+还有其他方法，不一一列举啦
+http://localhost:8080/3,01637037d6.jpg
+http://localhost:8080/3/01637037d6
+http://localhost:8080/3,01637037d6</code></pre>
+
+<p>如果要获取图像的缩放版本，则可以添加一些参数：</p>
+<pre class="language-none"><code class="language-none">http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200
+http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200&amp;mode=fit
+http://localhost:8080/3/01637037d6.jpg?height=200&amp;width=200&amp;mode=fill</code></pre>
+
+<p>要更新，请发送另一个具有更新文件内容的POST请求，就是fid不变的情况下，再发一个新的文件，它就会自动给覆盖掉</p>
+<p>删除的话，直接发送delete请求到相同的地址，删除成功会给你返回一个size，文件不存在的话这个size的值为0</p>
+<p>何谓分布式，当然是可以分布啦，它本身提供了机架感知和数据中心感知复制，SeaweedFS在卷级别应用复制策略。因此，在获取文件ID时，可以指定复制策略。例如：</p>
+<pre class="language-none"><code class="language-none">curl http://localhost:9333/dir/assign?replication=001</code></pre>
+
+<p>复制参数选项包括：</p>
+<pre class="language-none"><code class="language-none">000:无复制
+001:在同一机架上复制一次
+010:在不同机架上复制一次，但数据中心相同
+100:在不同的数据中心复制一次
+200:在两个不同的数据中心复制两次
+110:在不同的机架上复制一次，在不同的数据中心复制一次</code></pre>
+
+<p>还可以在启动主服务器时设置默认复制策略。额..暂时没有搞，稍后补</p>
+<h2 id="python中使用seaweedfs"><a href="#python中使用seaweedfs" class="headerlink" title="python中使用seaweedfs"></a>python中使用seaweedfs</h2><blockquote>
+<p>我们如果要在python中使用这个seaweedfs，则需要先安装一个包<code>pip install pyseaweed</code></p>
+</blockquote>
+<p>使用的方法，非常的简单，在GitHub上，作者也给写的相当明白了</p>
+<pre class="language-python" data-language="python"><code class="language-python">from pyseaweed import WeedFS
+
+# File upload
+w = WeedFS("localhost", 9333) # weed-fs master address and port
+fid = w.upload_file("n.txt") # path to file
+
+# Get file url
+file_url = w.get_file_url(fid)
+
+# Delete file
+res = w.delete_file(fid)
+# res is boolean (True if file was deleted)</code></pre>
+
+<p>我们简单的封装一下</p>
+<pre class="language-python" data-language="python"><code class="language-python">from pyseaweed import WeedFS
+
+
+# 上传文件
+def upload_file(seaweed_address,file,name):
+    w = WeedFS(*seaweed_address)
+    fid = w.upload_file(stream=file,name=name)
+    if fid:
+        return fid
+    else:
+        return False
+
+
+#
+# 查看文件的域名
+def get_file_url(seaweed_address, fid):
+    w = WeedFS(*seaweed_address)
+    file_url = w.get_file_url(fid)
+    if file_url:
+        return file_url
+    else:
+        return '该资源不存在'
+
+
+def del_file(seaweed_address,fid):
+    w = WeedFS(*seaweed_address)
+    res = w.delete_file(fid)
+    return res  # True or False</code></pre>
+
+<blockquote>
+<p>这里为什么要指定stream和name呢，这是因为如果传一个参数，就必须是文件的路径，如果不传文件路径，就只能将他的数据流和名字传进来。</p>
+</blockquote>
+<p>我们使用视图来测试一下吧,<code>seaweed_address</code>是我自己配置的一个地址，这个可以写死，也可以写成元组，然后像我这样使用</p>
+<pre class="language-python" data-language="python"><code class="language-python">class avatar_upload(APIView):
+    def post(self,request):
+        avatar = request.FILES.get('avatar')
+        # 调用文件存储系统，将返回的fid存下
+        for chunk in avatar.chunks():
+            fid = upload.upload_file(USER_AVATAR,chunk,avatar.name)
+            print(fid)
+            return Response({})</code></pre>
+
+<p>ok，完美，不过需要注意的是，在本地是没法测的，我也在找这个问题，服务器上是没有问题</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://godhearing.cn/2020/12/22/seaweedfs/" title="seaweedfs">https://godhearing.cn/2020/12/22/seaweedfs/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2020/12/24/er-wei-ma-yu-python/" rel="prev" title="二维码与python"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">二维码与python</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2020/12/20/bigchaindb-an-zhuang/" rel="next" title="bigchaindb安装"><span class="post-nav-text">bigchaindb安装</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 天 听</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2017-07-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#ff8c00" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="开始面向搜索引擎编程" value=""></div><div id="local-search-result"></div></div></div></body></html>
