@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Salmon</title>
   
-  <subtitle>天听的站点</subtitle>
+  <subtitle>蓝桉的站点</subtitle>
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
@@ -10,7 +10,7 @@
   <id>https://godhearing.cn/</id>
   
   <author>
-    <name>天 听</name>
+    <name>蓝 桉</name>
     
   </author>
   
