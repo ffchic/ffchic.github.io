@@ -57,19 +57,19 @@ pip install uvicorn</code></pre>
 <p><code>ab -n 5000 -c 100 http://127.0.0.1:4950/hello</code></p>
 </blockquote>
 <p>首先是FastAPI：</p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926133041317.png" alt="" style="zoom:70%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926133041317.png" alt style="zoom:70%;" loading="lazy">
 
 <p>创建三个进程来进行测试。<code>uvicorn main:app --port=4950 --workers=3</code></p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926133219707.png" alt="" style="zoom:70%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926133219707.png" alt style="zoom:70%;" loading="lazy">
 
 <p>可以看到，作为python的异步web框架，FastAPI傲视wsgi群雄，处理五千个请求花费0.38秒。每秒可处理1w3个请求。</p>
 <hr>
 <p>然后测一下django3：</p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926134735462.png" alt="" style="zoom:50%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926134735462.png" alt style="zoom:50%;" loading="lazy">
 
 <p>由于django3已经支持asgi了，所以我们同样可以使用uvicorn来启动。</p>
 <p><code>uvicorn test_django.asgi:application --workers=3</code></p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926134904937.png" alt="" style="zoom:80%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926134904937.png" alt style="zoom:80%;" loading="lazy">
 
 <p>不知道是不是我的方式有误否，这个成绩着实差距很大，重来，我们使用gunicorn来配合uvicorn。写一个配置文件<code>gunicorn.conf.py</code></p>
 <pre class="language-python" data-language="python"><code class="language-python">workers = 3
@@ -80,15 +80,15 @@ daemon = False</code></pre>
 
 <p>然后通过gunicorn来启动</p>
 <p><code>gunicorn test_django.asgi:application -c ./gunicorn.conf.py</code></p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926135339210.png" alt="" style="zoom:80%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926135339210.png" alt style="zoom:80%;" loading="lazy">
 
 <p>好吧盖了帽了，看来作为重量级框架，Django其在速度方面还需要一些进化。</p>
 <hr>
 <p>接下来是主角：index.py</p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926133937545.png" alt="" style="zoom:70%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926133937545.png" alt style="zoom:70%;" loading="lazy">
 
 <p><code>uvicorn main:app --port=4910 --workers=3</code></p>
-<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926134037142.png" alt="" style="zoom:67%;" loading="lazy">
+<img src="/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/image-20210926134037142.png" alt style="zoom:67%;" loading="lazy">
 
 <p>ohhhh，0.31秒完成，每秒处理1w5的请求量，比fastapi还快那么一丝。不过在构建应用时会对数据库有操作，所以这一丝也说明不了什么问题。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
