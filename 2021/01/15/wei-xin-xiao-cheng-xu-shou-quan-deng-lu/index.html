@@ -43,7 +43,7 @@
 <li>不支持COOKIE</li>
 <li>不支持django内置的user登录, 因为它使用的是微信的用户系统</li>
 </ul>
-<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210115133429492.png" alt style="zoom:70%;" loading="lazy">
+<h2 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h2><img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210115133429492.png" alt="" style="zoom:70%;" loading="lazy">
 
 <blockquote>
 <p>只获取<code>openid</code>，只调用<code>wx.login</code>获取code交给后台即可，如果还要获取用户详细信息还要接着调用<code>wx.getUserInfo</code>获取<code>encryptedData</code>，<code>iv</code>提交后台解密用户信息</p>
@@ -102,7 +102,7 @@ class WXBizDataCrypt:
     print(res)</code></pre>
 
 <p>res就是解密出来的内容，就是用户的信息</p>
-<img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210116220241505.png" alt style="zoom:67%;" loading="lazy">
+<img src="/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/image-20210116220241505.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>至此，前台将openid存下，而后台，获取了用户信息，该入库还是该做怎样的操作，就可以自定义了，我是将其入库了，完整代码如下：</p>
 <pre class="language-python" data-language="python"><code class="language-python">class Applets_RegisterView(APIView):
