@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-12-16T10:02:22.559Z</updated>
+  <updated>2021-12-17T10:01:38.850Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Go接口解析</title>
+    <link href="https://godhearing.cn/2021/12/17/go-jie-kou-jie-xi/"/>
+    <id>https://godhearing.cn/2021/12/17/go-jie-kou-jie-xi/</id>
+    <published>2021-12-17T06:40:39.303Z</published>
+    <updated>2021-12-17T10:01:38.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是接口&quot;&gt;&lt;a href=&quot;#什么是接口&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac下新建Python虚拟环境</title>
     <link href="https://godhearing.cn/2021/12/16/mac-xia-xin-jian-python-xu-ni-huan-jing/"/>
     <id>https://godhearing.cn/2021/12/16/mac-xia-xin-jian-python-xu-ni-huan-jing/</id>
     <published>2021-12-16T09:51:45.825Z</published>
-    <updated>2021-12-16T10:02:22.559Z</updated>
+    <updated>2021-12-17T06:01:28.897Z</updated>
     
     
       
@@ -34,10 +59,10 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
     
   </entry>
   
@@ -1496,9 +1521,9 @@
   </entry>
   
   <entry>
-    <title>阿里云域名解析</title>
-    <link href="https://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
-    <id>https://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
+    <title>阿里云服务器搭建hexo博客教程</title>
+    <link href="https://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
+    <id>https://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -1521,9 +1546,9 @@
   </entry>
   
   <entry>
-    <title>阿里云服务器搭建hexo博客教程</title>
-    <link href="https://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
-    <id>https://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
+    <title>阿里云域名解析</title>
+    <link href="https://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
+    <id>https://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
