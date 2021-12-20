@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#ff8c00"><meta name="author" content="蓝 桉"><meta name="copyright" content="蓝 桉"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>XORM入门 | Salmon</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.22/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_ed8vp4atwoj.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#ff8c00"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["蓝","桉","の","blog"],"version":"1.4.0","mode":"time","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["255, 222, 173","255, 250, 240","240, 255, 255\t"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 说起Go语言web中常用的ORM(Object relational mapping)，首当其冲的就是GORM和XORM，在之前的文章中介绍过GORM，一直以来，我也是使用GORM，因为其hook机制(Before&#x2F;After Create&#x2F;Save&#x2F;Updaye&#x2F;Delete&#x2F;Find)给予了很大的便利，还有其内置的日志记录器，在对于Go转语言过来的新手来说是很友好的。 XORM，最吸引我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XORM入门">
+<meta property="og:url" content="https://godhearing.cn/2021/12/20/xorm-ru-men/index.html">
+<meta property="og:site_name" content="Salmon">
+<meta property="og:description" content="前言 说起Go语言web中常用的ORM(Object relational mapping)，首当其冲的就是GORM和XORM，在之前的文章中介绍过GORM，一直以来，我也是使用GORM，因为其hook机制(Before&#x2F;After Create&#x2F;Save&#x2F;Updaye&#x2F;Delete&#x2F;Find)给予了很大的便利，还有其内置的日志记录器，在对于Go转语言过来的新手来说是很友好的。 XORM，最吸引我">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-20T06:39:55.827Z">
+<meta property="article:modified_time" content="2021-12-20T08:59:09.036Z">
+<meta property="article:author" content="蓝 桉">
+<meta property="article:tag" content="Golang">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script>
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  const pattern = trianglify({
+    width: 800,
+    height: 600,
+    cellSize: 65,
+    palette: ["YlGnBu", "GnBu", "Purples", "Blues","Reds","Oranges"],
+  });
+  const canvasOpts = {
+    applyCssScaling: false
+  }
+  document.body.appendChild(pattern.toCanvas(trianglifyContainer, canvasOpts));
+});</script><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="蓝 桉"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="蓝 桉"></a><div class="site-author-name"><a href="/about/">蓝 桉</a></div><a class="site-name" href="/about/site.html">Salmon</a><sub class="site-subtitle">蓝桉的站点</sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">122</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">24</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://www.baidu.com/" title="通向一个万事都能解决的地方"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/God-hearing2020" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=247102977" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/godhearing1" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://haoye0822@gmail.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="我最喜欢的明星" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%BC%95%E6%93%8E"><span class="toc-number">2.</span> <span class="toc-text">创建引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">3.</span> <span class="toc-text">日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%B1%A0"><span class="toc-number">4.</span> <span class="toc-text">连接池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8D%E7%A7%B0%E6%98%A0%E5%B0%84%E8%A7%84%E5%88%99"><span class="toc-number">5.</span> <span class="toc-text">名称映射规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create"><span class="toc-number">7.</span> <span class="toc-text">Create</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Read"><span class="toc-number">8.</span> <span class="toc-text">Read</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">8.1.</span> <span class="toc-text">join</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#update"><span class="toc-number">9.</span> <span class="toc-text">update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#delete"><span class="toc-number">10.</span> <span class="toc-text">delete</span></a></li></ol></div></div></div><div class="tag-cloud"><div class="tag-cloud-tags"><a href="/tags/Book/" style="font-size: 21px; color: #80b45d">Book</a> <a href="/tags/Casbin/" style="font-size: 12px; color: #ffc20e">Casbin</a> <a href="/tags/Celery/" style="font-size: 16.5px; color: #bfbb36">Celery</a> <a href="/tags/Django/" style="font-size: 30px; color: #00a6ac">Django</a> <a href="/tags/Docker/" style="font-size: 25.5px; color: #40ad85">Docker</a></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://godhearing.cn/2021/12/20/xorm-ru-men/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="蓝 桉"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Salmon"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">XORM入门</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-12-20 14:39:55" itemprop="dateCreated datePublished" datetime="2021-12-20T14:39:55+08:00">2021-12-20</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/Golang/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">Golang</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/Golang/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">Golang</span></a></span></div><div class="post-author"><span class="author-name">天听</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#ff8c00;"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>说起Go语言web中常用的ORM(Object relational mapping)，首当其冲的就是<a target="_blank" rel="noopener" href="https://gorm.io/docs/">GORM</a>和<a target="_blank" rel="noopener" href="https://gobook.io/read/gitea.com/xorm/manual-zh-CN/">XORM</a>，在之前的文章中介绍过GORM，一直以来，我也是使用GORM，因为其hook机制(Before/After Create/Save/Updaye/Delete/Find)给予了很大的便利，还有其内置的日志记录器，在对于Go转语言过来的新手来说是很友好的。</p>
+<p>XORM，最吸引我的莫过于他自动化的读写分离。在一些高并发的场景下， 读写分离的重要性不言而喻。下面开始尝试一下。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://xorm.topgoer.com/chapter-01/">文档2</a></p>
+<h2 id="创建引擎"><a href="#创建引擎" class="headerlink" title="创建引擎"></a>创建引擎</h2><blockquote>
+<p>所有操作均需要事先创建并配置 ORM 引擎才可以进行。XORM支持两种 ORM 引擎，即 Engine 引擎和 Engine Group 引擎。一个 Engine 引擎用于对单个数据库进行操作，一个 Engine Group 引擎用于对读写分离的数据库或者负载均衡的数据库进行操作。Engine 引擎和 EngineGroup 引擎的API基本相同，所有适用于 Engine 的API基本上都适用于 EngineGroup，并且可以比较容易的从 Engine 引擎迁移到 EngineGroup引擎。</p>
+</blockquote>
+<p>单个ORM引擎，也称为Engine。一个APP可以同时存在多个Engine引擎，一个Engine一般只对应一个数据库。Engine通过调用<code>xorm.NewEngine</code>生成，如：</p>
+<pre class="language-go" data-language="go"><code class="language-go">package main
+
+import (
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/go-xorm/xorm"
+)
+
+
+var engine *xorm.Engine
+
+func main()  {
+	var err error
+	engine, err = xorm.NewEngine("mysql", "用户名:密码@/数据库?charset=utf8")
+	if err != nil {
+		panic(err)
+	}
+}</code></pre>
+
+<p>一般情况下如果只操作一个数据库，只需要创建一个<code>engine</code>即可。</p>
+<p>engine可以通过engine.Close来手动关闭，但是一般情况下可以不用关闭，在程序退出时会自动关闭。</p>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>日志是一个接口，通过设置日志，可以显示SQL，警告以及错误等，默认的显示级别为INFO。</p>
+<ul>
+<li><code>engine.ShowSQL(true)</code>，则会在控制台打印出生成的SQL语句；</li>
+<li><code>engine.Logger().SetLevel(core.LOG_DEBUG)</code>，则会在控制台打印调试及以上的信息；</li>
+</ul>
+<p>如果你希望将日志输出到文件中，可以这样做：</p>
+<pre class="language-go" data-language="go"><code class="language-go">f, err := os.Create("log/sql.log")
+	if err != nil {
+		println(err.Error())
+		return
+	}
+engine.SetLogger(xorm.NewSimpleLogger(f))</code></pre>
+
+<h2 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h2><pre class="language-go" data-language="go"><code class="language-go">// 设置连接池中的最大闲置连接数。
+engine.SetMaxIdleConns(10)
+
+// 设置数据库的最大连接数量。
+engine.SetMaxOpenConns(150)
+
+// 设置连接的最大可复用时间。
+engine.SetConnMaxLifetime(10 * time.Second)</code></pre>
+
+<h2 id="名称映射规则"><a href="#名称映射规则" class="headerlink" title="名称映射规则"></a>名称映射规则</h2><blockquote>
+<p>名称映射规则主要负责结构体名称到表名和结构体field到表字段的名称映射。由core.IMapper接口的实现者来管理，xorm内置了三种IMapper实现：<code>core.SnakeMapper</code> ， <code>core.SameMapper</code>和<code>core.GonicMapper</code>。</p>
+</blockquote>
+<ul>
+<li>SnakeMapper 支持struct为驼峰式命名，表结构为下划线命名之间的转换，这个是默认的Maper；</li>
+<li>SameMapper 支持结构体名称和对应的表名称以及结构体field名称与对应的表字段名称相同的命名；</li>
+<li>GonicMapper 和SnakeMapper很类似，但是对于特定词支持更好，比如ID会翻译成id而不是i_d。</li>
+</ul>
+<p>当前SnakeMapper为默认值，如果需要改变时，在engine创建完成后使用</p>
+<p>如果有表名和结构体名不一样的情况，可以通过这个<a target="_blank" rel="noopener" href="http://xorm.topgoer.com/chapter-02/3.tags.html">文档</a>来进行操作。</p>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><blockquote>
+<p>创建/迁移表，使用的是<code>CreateTables</code>方法：</p>
+</blockquote>
+<pre class="language-go" data-language="go"><code class="language-go">type Role struct {
+	Id int `xorm:"pk autoincr"`
+	Name string `xorm:"varchar(255) not null unique"`
+	Level string `xorm:"varchar(255) not null"`
+}
+
+engine.CreateTables(&amp;Role{})</code></pre>
+
+<p>不过需要的注意的是，和GORM的迁移不同的是，他只是创建表，一旦这个表是存在的状态，你后续在struct中添加新的字段也是无用的。</p>
+<p>不过XORM也提供了同步数据结构的方法。</p>
+<p>同步能够部分智能的根据结构体的变动检测表结构的变动，并自动同步。目前有两个实现：</p>
+<ul>
+<li>Sync</li>
+</ul>
+<p>Sync将进行如下的同步操作：</p>
+<pre class="language-none"><code class="language-none">* 自动检测和创建表，这个检测是根据表的名字
+* 自动检测和新增表中的字段，这个检测是根据字段名
+* 自动检测和创建索引和唯一索引，这个检测是根据索引的一个或多个字段名，而不根据索引名称</code></pre>
+
+<p>调用方法如下：</p>
+<pre class="language-Go" data-language="Go"><code class="language-Go">err := engine.Sync(new(User), new(Group))</code></pre>
+
+<ul>
+<li>Sync2</li>
+</ul>
+<p>Sync2对Sync进行了改进，目前推荐使用Sync2。Sync2函数将进行如下的同步操作：</p>
+<pre class="language-none"><code class="language-none">* 自动检测和创建表，这个检测是根据表的名字
+* 自动检测和新增表中的字段，这个检测是根据字段名，同时对表中多余的字段给出警告信息
+* 自动检测，创建和删除索引和唯一索引，这个检测是根据索引的一个或多个字段名，而不根据索引名称。因此这里需要注意，如果在一个有大量数据的表中引入新的索引，数据库可能需要一定的时间来建立索引。
+* 自动转换varchar字段类型到text字段类型，自动警告其它字段类型在模型和数据库之间不一致的情况。
+* 自动警告字段的默认值，是否为空信息在模型和数据库之间不匹配的情况
+
+以上这些警告信息需要将`engine.ShowWarn` 设置为 `true` 才会显示。</code></pre>
+
+<p>调用方法和Sync一样：</p>
+<pre class="language-Go" data-language="Go"><code class="language-Go">err := engine.Sync2(new(User), new(Group))</code></pre>
+
+<h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><pre class="language-go" data-language="go"><code class="language-go">role := Role{Name: "User"}
+aff,err := engine.Insert(&amp;role)</code></pre>
+
+<p>在插入单条数据成功后，如果该结构体有自增字段(设置为autoincr)，则自增字段会被自动赋值为数据库中的id。这里需要注意的是，如果插入的结构体中，自增字段已经赋值，则该字段会被作为非自增字段插入。</p>
+<p>插入同一个表的多条数据，此时如果数据库支持批量插入，那么会进行批量插入，但是这样每条记录就无法被自动赋予id值。如果数据库不支持批量插入，那么就会一条一条插入。</p>
+<pre class="language-go" data-language="go"><code class="language-go">roles := make([]Role, 4)
+roles[0].Name = "UserA"
+roles[1].Name = "UserB"
+roles[2].Name = "UserC"
+roles[3].Name = "UserD"
+aff,err := engine.Insert(&amp;roles)</code></pre>
+
+<p>这里虽然支持同时插入，但这些插入并没有事务关系。因此有可能在中间插入出错后，后面的插入将不会继续。此时前面的插入已经成功，如果需要回滚，请开启事务。</p>
+<h2 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h2><p>查询和统计主要使用<code>Get</code>, <code>Find</code>, <code>Count</code>, <code>Rows</code>, <code>Iterate</code>这几个方法，同时大部分函数在调用<code>Update</code>, <code>Delete</code>时也是可用的。在进行查询时可以使用多个方法来形成查询条件，条件函数如下：</p>
+<ul>
+<li>Alias(string)</li>
+</ul>
+<p>给Table设定一个别名</p>
+<pre class="language-go" data-language="go"><code class="language-go">bo, _ := engine.Alias("ro").Where("ro.id=?", 5).Get(&amp;roles)</code></pre>
+
+<p>and条件查询</p>
+<pre class="language-go" data-language="go"><code class="language-go">bo, _ := engine.Alias("ro").Where("ro.id=?", 5).And("ro.name=?","Admin").Get(&amp;roles)</code></pre>
+
+<blockquote>
+<p>or条件查询也是同理</p>
+</blockquote>
+<p>判断某个记录是否存在可以使用<code>Exist</code>, 相比<code>Get</code>，<code>Exist</code>性能更好。</p>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><pre class="language-go" data-language="go"><code class="language-go">type TestUser struct {
+   Id int `xorm:"pk autoincr"`
+   Name string `xorm:"varchar(255) not null"`
+   Role int `xorm:"int not null"`
+}
+
+type Result struct {
+   Name string
+   Role string
+}
+
+func (Result)TableName() string {
+   return "test_user"
+}
+
+_ = engine.Select("role.name as role,test_user.username as name").Join("left","role", "role.id=test_user.role").Find(&amp;res)
+	fmt.Println(res)
+</code></pre>
+
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><p>更新数据使用<code>Update</code>方法，Update方法的第一个参数为需要更新的内容，可以为一个结构体指针或者一个Map[string]interface{}类型。当传入的为结构体指针时，只有非空和0的field才会被作为更新的字段。当传入的为Map类型时，key为数据库Column的名字，value为要更新的内容。</p>
+<pre class="language-go" data-language="go"><code class="language-go">var res Role
+res.Name = "haha"
+aff,_ := engine.Where("id=?",2).Update(&amp;res)
+fmt.Println(aff)</code></pre>
+
+<h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><p>删除数据<code>Delete</code>方法，参数为struct的指针并且成为查询条件。</p>
+<pre class="language-go" data-language="go"><code class="language-go">var ro Role
+aff,err := engine.Where("id=?",1).Delete(&amp;ro)
+if err != nil {
+  fmt.Println("err: ",err)
+}
+fmt.Println(aff)</code></pre>
+
+<p>值得注意的是，如果在struct中定义一个<code>deleted</code>，是可以造成软删除的，即不真正删除数据，只是加一个删除的标记，在查询时也不会有这条数据。如果想要真正的删除，需要启用<code>Unscoped</code></p>
+<pre class="language-go" data-language="go"><code class="language-go">engine.Id(1).Unscoped().Get(&amp;ro)
+engine.Id(1).Unscoped().Delete(&amp;ro)</code></pre>
+
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>天听</li><li class="post-copyright-link"><strong>Post link: </strong><a href="https://godhearing.cn/2021/12/20/xorm-ru-men/" title="XORM入门">https://godhearing.cn/2021/12/20/xorm-ru-men/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/12/17/go-jie-kou-jie-xi/" rel="next" title="Go接口解析"><span class="post-nav-text">Go接口解析</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2021002475号-1</a></div><div class="copyright"><span>&copy; 2017 – 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 蓝 桉</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.4.0</span></div><div class="live_time"><span>本博客已萌萌哒地运行</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2017-07-12T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = " " + passDay + " 天 " + passHour + " 小时 " + passMinute + " 分 " + passSecond + " 秒";
+}
+blog_live_time();
+</script></div></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#ff8c00" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="开始面向搜索引擎编程" value=""></div><div id="local-search-result"></div></div></div></body></html>
