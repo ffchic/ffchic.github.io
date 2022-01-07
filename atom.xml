@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2022-01-07T08:00:26.019Z</updated>
+  <updated>2022-01-07T09:16:04.918Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>少有人走的路:心智成熟的旅程</title>
+    <link href="https://godhearing.cn/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/"/>
+    <id>https://godhearing.cn/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/</id>
+    <published>2022-01-07T09:07:28.033Z</published>
+    <updated>2022-01-07T09:16:04.918Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;书名：少有人走的路：心智成熟的旅程&lt;br&gt;作者：M.斯科特·派克&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;几乎人人都有心理问题，只不过程度不同而已；几乎人人都有程度不同的心理疾病，只不过得病的时间不同而已。&lt;/e</summary>
+        
+      
+    
+    
+    
+    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    
+    
+    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    
+  </entry>
   
   <entry>
     <title>手写自己的Go-web框架-2</title>
