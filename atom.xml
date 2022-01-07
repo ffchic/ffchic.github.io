@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2021-12-27T08:57:01.746Z</updated>
+  <updated>2022-01-07T08:00:07.486Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>手写自己的Go-web框架-2</title>
+    <link href="https://godhearing.cn/2022/01/07/shou-xie-zi-ji-de-go-web-kuang-jia-2/"/>
+    <id>https://godhearing.cn/2022/01/07/shou-xie-zi-ji-de-go-web-kuang-jia-2/</id>
+    <published>2022-01-07T06:38:14.515Z</published>
+    <updated>2022-01-07T08:00:07.486Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
     <title>手写自己的Go-web框架-1</title>
     <link href="https://godhearing.cn/2021/12/26/shou-xie-zi-ji-de-go-web-kuang-jia-1/"/>
     <id>https://godhearing.cn/2021/12/26/shou-xie-zi-ji-de-go-web-kuang-jia-1/</id>
     <published>2021-12-26T08:12:38.171Z</published>
-    <updated>2021-12-27T08:57:01.746Z</updated>
+    <updated>2022-01-07T06:40:11.021Z</updated>
     
     
       
@@ -277,7 +302,7 @@
     <link href="https://godhearing.cn/2021/09/02/wei-xin-zhi-fu-hui-diao/"/>
     <id>https://godhearing.cn/2021/09/02/wei-xin-zhi-fu-hui-diao/</id>
     <published>2021-09-02T08:41:02.603Z</published>
-    <updated>2021-09-08T06:32:12.605Z</updated>
+    <updated>2021-12-28T06:52:13.817Z</updated>
     
     
       
@@ -779,7 +804,7 @@
     <link href="https://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/"/>
     <id>https://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/</id>
     <published>2021-05-28T09:05:33.266Z</published>
-    <updated>2021-12-24T09:51:34.225Z</updated>
+    <updated>2021-12-29T09:42:06.487Z</updated>
     
     
       
