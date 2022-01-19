@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>go图片验证码库</title>
+      <link href="/2022/01/19/go-tu-pian-yan-zheng-ma-ku/"/>
+      <url>/2022/01/19/go-tu-pian-yan-zheng-ma-ku/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>验证码是一个除了限流外很有效的针对恶意爬虫的办法，很不巧在最最近频繁遭到暴力破解，忍无可忍使用了验证码来防止刷接口。</p><p><a href="https://github.com/mojocn/base64Captcha">base64Captcha</a></p><p>这是一个go的图片验证码库，使用方法也很简单。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>安装命令</p><pre class="language-go" data-language="go"><code class="language-go">go get -u github.com/mojocn/base64Captcha</code></pre><p>然后使用的话，<strong>先开辟一个验证码使用的存储空间</strong></p><pre class="language-go" data-language="go"><code class="language-go">var store = base64Captcha.DefaultMemStore// base64Captcha.DefaultMemStore是默认的:10240 个 过期时间10分钟// 也可以自己设定参数base64Captcha.NewMemoryStore(GCLimitNumber, Expiration)</code></pre><p><strong>创建验证码驱动</strong><br>分为5种不同类型的图形验证码</p><ol><li><strong>dight</strong> 数字验证码</li><li><strong>audio</strong> 语音验证码</li><li><strong>string</strong> 字符验证码</li><li><strong>math</strong> 数学验证码(加减乘除)</li><li><strong>chinese</strong>中文验证码-有bug</li></ol><p>// 生成默认数字的driver</p><pre class="language-go" data-language="go"><code class="language-go">driver := base64Captcha.DefaultDriverDigit// 也可以自定义参数base64Captcha.NewDriverDigit(height , width , length , maxSkew , dotCount)// 例子：driver := base64Captcha.NewDriverDigit(80, 240, 6, 0.7, 80)</code></pre><p>生成验证码，同时保存至store</p><pre class="language-go" data-language="go"><code class="language-go">c := base64Captcha.NewCaptcha(driver, store)// 生成base64图像验证及idid, b64s, err := c.Generate()</code></pre><h2 id="Store-Interface"><a href="#Store-Interface" class="headerlink" title="Store Interface"></a>Store Interface</h2><blockquote><p>多台服务器需要共享验证码存储，一般为了效率也首选redis，指定存储store需要实现这个接口。</p></blockquote><pre class="language-go" data-language="go"><code class="language-go">// Store An object implementing Store interface can be registered with SetCustomStore// function to handle storage and retrieval of captcha ids and solutions for// them, replacing the default memory store.//// It is the responsibility of an object to delete expired and used captchas// when necessary (for example, the default memory store collects them in Set// method after the certain amount of captchas has been stored.)type Store interface {// Set sets the digits for the captcha id.Set(id string, value string)// Get returns stored digits for the captcha id. Clear indicates// whether the captcha must be deleted from the store.Get(id string, clear bool) string//Verify captcha's answer directlyVerify(id, answer string, clear bool) bool}</code></pre><p>实现三个方法即可</p><pre class="language-go" data-language="go"><code class="language-go">func NewDefaultRedisStore() *RedisStore {return &amp;RedisStore{Expiration: time.Second * 180,PreKey:     "SALMON_CAPTCHA_",}}type RedisStore struct {Expiration time.DurationPreKey     stringContext    context.Context}func (rs *RedisStore) UseWithCtx(ctx context.Context) base64Captcha.Store {rs.Context = ctxreturn rs}// 实现store接口func (rs *RedisStore) Set(id string, value string) error {err := db.RedisClient.Set(rs.Context, rs.PreKey+id, value, rs.Expiration).Err()if err != nil {fmt.Println(err)}return nil}func (rs *RedisStore) Get(key string, clear bool) string {val, err := db.RedisClient.Get(rs.Context, key).Result()if err != nil {return ""}if clear {err := db.RedisClient.Del(rs.Context, key).Err()if err != nil {return ""}}return val}func (rs *RedisStore) Verify(id, answer string, clear bool) bool {key := rs.PreKey + idv := rs.Get(key, clear)return v == answer}</code></pre><h2 id="验证验证码"><a href="#验证验证码" class="headerlink" title="验证验证码"></a>验证验证码</h2><pre class="language-go" data-language="go"><code class="language-go">type CaptCha struct {Captcha   string `json:"captcha"`   // 验证码CaptchaId string `json:"captchaId"` // 验证码ID}var data CaptChadata.Captcha = "xxx"data.CaptchaId = "xxx"if store.Verify(data.CaptchaId, data.Captcha, true){  fmt.Println("验证码正确")}else{  fmt.Println("验证码错误")}</code></pre><p>注意：在上面自定义了<code>RedisStore</code>，将其增加了一个前缀存到了redis中，这也是为了和其他用到redis的地方区分开，但是不重要，在验证时无需加入前缀。 正常使用即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Golang </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>少有人走的路:心智成熟的旅程</title>
       <link href="/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/"/>
       <url>/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/</url>

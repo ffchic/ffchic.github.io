@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2022-01-07T09:16:04.918Z</updated>
+  <updated>2022-01-19T07:18:17.224Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>go图片验证码库</title>
+    <link href="https://godhearing.cn/2022/01/19/go-tu-pian-yan-zheng-ma-ku/"/>
+    <id>https://godhearing.cn/2022/01/19/go-tu-pian-yan-zheng-ma-ku/</id>
+    <published>2022-01-19T03:31:11.876Z</published>
+    <updated>2022-01-19T07:18:17.224Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;验证码是一个除了限流外很有效的针对恶意爬虫的办法，很不巧在最最近频繁遭到暴力破解，忍无可忍使用了验证码来防止刷接口。&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
     <title>少有人走的路:心智成熟的旅程</title>
     <link href="https://godhearing.cn/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/"/>
     <id>https://godhearing.cn/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/</id>
     <published>2022-01-07T09:07:28.033Z</published>
-    <updated>2022-01-07T09:16:04.918Z</updated>
+    <updated>2022-01-07T09:16:23.304Z</updated>
     
     
       
