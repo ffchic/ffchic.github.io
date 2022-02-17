@@ -5,7 +5,7 @@
 });
 </script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.20.0/themes/prism-solarizedlight.css" media="(prefers-color-scheme: dark)"><link rel="shortcut icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#ff8c00"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     const Yun = window.Yun || {};
-    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["蓝","桉","の","blog"],"version":"1.4.0","mode":"time","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["255, 222, 173","255, 250, 240","240, 255, 255\t"]}};
+    window.CONFIG = {"hostname":"godhearing.cn","root":"/","title":["天","听","の","blog"],"version":"1.4.0","mode":"time","copycode":true,"page":{"isPost":true},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"/data/sentences.json"},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["255, 222, 173","255, 250, 240","240, 255, 255\t"]}};
   </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="Salmon" type="application/atom+xml"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><meta name="description" content="前言 在Go语言中，Goroutine和channel是它从语言层面实现并发的根基。也是面试题中经常被提及的。  go语言的并发机制以及它所使用的CSP并发模型 CSP模型是上个世纪七十年代提出的,不同于传统的多线程通过共享内存来通信，CSP讲究的是“以通信的方式来共享内存”。用于描述两个独立的并发实体通过共享的通讯 channel(管道)进行通信的并发模型。 CSP中channel是第一类对象，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Goroutine和channel的理解">
@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://godhearing.cn/2022/01/30/goroutine-he-channel-de-li-jie/image-20220130145503723.png">
 <meta property="og:image" content="https://godhearing.cn/2022/01/30/goroutine-he-channel-de-li-jie/image-20220130145612140.png">
 <meta property="article:published_time" content="2022-01-30T07:55:02.000Z">
-<meta property="article:modified_time" content="2022-01-30T08:09:07.911Z">
+<meta property="article:modified_time" content="2022-01-30T08:09:21.358Z">
 <meta property="article:author" content="天 听">
 <meta property="article:tag" content="Golang">
 <meta name="twitter:card" content="summary">
