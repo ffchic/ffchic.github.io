@@ -22,9 +22,9 @@
 <meta property="article:author" content="天 听">
 <meta property="article:tag" content="PostgrelSQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://godhearing.cn/2020/04/13/postgrelsql/image-20201203105005032.png"><script src="/js/ui/mode.js"></script>
+<meta name="twitter:image" content="https://godhearing.cn/2020/04/13/postgrelsql/image-20201203105005032.png"><script src="/js/ui/mode.js"></script><link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+</head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
   const pattern = trianglify({
     width: 800,
     height: 600,
@@ -148,14 +148,14 @@ insert into 表名(字段名) values(对应数据)</code></pre>
 这句话的意思是，创建一个名为serial的序列，从1开始计数</code></pre>
 
 <p>查看结构</p>
-<img src="/2020/04/13/postgrelsql/image-20201203105005032.png" alt style="zoom:67%;" loading="lazy">
+<img src="/2020/04/13/postgrelsql/image-20201203105005032.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>随后，将需要设置的字段的默认值设为序列增长即可</p>
 <pre class="language-none"><code class="language-none">alter table 表名 alter column 要自增长的字段 set default nextval(序列名)
 例子：
 ALTER TABLE "public"."article" ALTER COLUMN "id" SET DEFAULT nextval('serial');</code></pre>
 
-<img src="/2020/04/13/postgrelsql/image-20201203105601012.png" alt style="zoom:50%;" loading="lazy">
+<img src="/2020/04/13/postgrelsql/image-20201203105601012.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>删除数据</p>
 <pre class="language-none"><code class="language-none">delete from 表名 where 条件
@@ -175,10 +175,10 @@ update user set name='张三' where name='李四'</code></pre>
 <p>我们来举个例子吧，假设我们有一张表，分别有部门，员工，工资三个字段</p>
 <p>假设我们要查询每个部门的平均工资以及所有员工的对比，在传统做法下，我们需要先通过group by分组，再用表连接统计一下上面的结果</p>
 <p>而使用窗口函数，可以简化很多</p>
-<img src="/2020/04/13/postgrelsql/image-20201203113052844.png" alt style="zoom:67%;" loading="lazy">
+<img src="/2020/04/13/postgrelsql/image-20201203113052844.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>而使用<code>order by</code>的话，会造成怎样的结果呢</p>
-<img src="/2020/04/13/postgrelsql/image-20201203113136091.png" alt style="zoom:67%;" loading="lazy">
+<img src="/2020/04/13/postgrelsql/image-20201203113136091.png" alt="" style="zoom:67%;" loading="lazy">
 
 <p>可以看到，第一个是人事部门的平均工资，第二个，是研发和人事的平均工资，第三个，就是所有部门的平均工资。使用的时候要特别注意。</p>
 <h2 id="python使用PostgrelSQL"><a href="#python使用PostgrelSQL" class="headerlink" title="python使用PostgrelSQL"></a>python使用PostgrelSQL</h2><p>和使用mysql一样，先装三方库</p>

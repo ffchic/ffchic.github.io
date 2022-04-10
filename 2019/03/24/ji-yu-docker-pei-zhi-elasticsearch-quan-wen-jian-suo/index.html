@@ -21,9 +21,9 @@
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="全文检索">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://godhearing.cn/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/image-20201201223246321.png"><script src="/js/ui/mode.js"></script>
+<meta name="twitter:image" content="https://godhearing.cn/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/image-20201201223246321.png"><script src="/js/ui/mode.js"></script><link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="stylesheet" href="/css/prism-solarizedlight.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+</head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><canvas id="trianglifyContainer"></canvas><script defer src="https://cdn.jsdelivr.net/npm/trianglify@4/dist/trianglify.bundle.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
   const pattern = trianglify({
     width: 800,
     height: 600,
@@ -71,7 +71,7 @@ docker rm $(docker ps -a -q)</code></pre>
 <pre class="language-none"><code class="language-none">docker run --name es -v E:\elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -d elasticsearch:7.2.0</code></pre>
 
 <p>这里需要注意一点，就是在Win10宿主机里需要单独设置一下共享文件夹，这里我设置的共享文件夹叫做es，如果是Centos或者Mac os就直接写真实物理路径即可。</p>
-<img src="/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/image-20201201223246321.png" alt style="zoom:80%;" loading="lazy">
+<img src="/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/image-20201201223246321.png" alt="" style="zoom:80%;" loading="lazy">
 
 <p>随后，重启Docker，输入命令进入默认容器：docker-machine ssh default</p>
 <p>在容器根目录能够看到刚刚设置的共享文件夹，就说明设置成功了。</p>
