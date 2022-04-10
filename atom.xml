@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2022-01-30T08:09:21.358Z</updated>
+  <updated>2022-04-10T01:53:27.302Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker简单使用NSQ消息队列</title>
+    <link href="https://godhearing.cn/2022/04/09/docker-jian-dan-shi-yong-nsq-xiao-xi-dui-lie/"/>
+    <id>https://godhearing.cn/2022/04/09/docker-jian-dan-shi-yong-nsq-xiao-xi-dui-lie/</id>
+    <published>2022-04-09T11:31:26.000Z</published>
+    <updated>2022-04-10T01:53:27.302Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+    <category term="消息队列" scheme="https://godhearing.cn/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Goroutine和channel的理解</title>
