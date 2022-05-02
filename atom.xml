@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2022-05-02T03:28:48.353Z</updated>
+  <updated>2022-05-02T03:29:41.145Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -17,36 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Goframe学习日记-1-入门</title>
-    <link href="https://godhearing.cn/2022/05/02/goframe-xue-xi-ri-ji-1-ru-men/"/>
-    <id>https://godhearing.cn/2022/05/02/goframe-xue-xi-ri-ji-1-ru-men/</id>
-    <published>2022-05-02T03:21:58.958Z</published>
-    <updated>2022-05-02T03:28:48.353Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
-    
-    
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Goframe学习日记-3-工程目录设计解读</title>
     <link href="https://godhearing.cn/2022/04/27/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/"/>
     <id>https://godhearing.cn/2022/04/27/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/</id>
     <published>2022-04-27T04:16:26.000Z</published>
-    <updated>2022-05-02T03:29:18.290Z</updated>
+    <updated>2022-05-02T03:29:41.145Z</updated>
     
     
       
@@ -71,7 +46,32 @@
     <link href="https://godhearing.cn/2022/04/26/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/"/>
     <id>https://godhearing.cn/2022/04/26/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/</id>
     <published>2022-04-26T12:26:06.000Z</published>
-    <updated>2022-05-02T03:28:37.438Z</updated>
+    <updated>2022-05-02T03:29:41.145Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Goframe学习日记-1-入门</title>
+    <link href="https://godhearing.cn/2022/04/24/goframe-xue-xi-ri-ji-1-ru-men/"/>
+    <id>https://godhearing.cn/2022/04/24/goframe-xue-xi-ri-ji-1-ru-men/</id>
+    <published>2022-04-24T07:33:00.000Z</published>
+    <updated>2022-05-02T03:32:17.668Z</updated>
     
     
       
