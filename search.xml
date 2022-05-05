@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>windows-php-安装redis扩展</title>
+      <link href="/2022/05/05/windows-php-an-zhuang-redis-kuo-zhan/"/>
+      <url>/2022/05/05/windows-php-an-zhuang-redis-kuo-zhan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>由于在windows下，pecl是无法使用的，所以win php安装扩展的方法：1、在官网下载想要的扩展；2、解压并将里面的php_redis.dll放到ext目录下；3、把php_redis.dll放到php.ini中指定的文件夹里面，并把redis模块加载即可。</p></blockquote><h2 id="下载扩展"><a href="#下载扩展" class="headerlink" title="下载扩展"></a>下载扩展</h2><ol><li><p>需要下载的扩展包有两个，<a href="https://windows.php.net/downloads/pecl/releases/igbinary/">igbinary</a>和<a href="https://windows.php.net/downloads/pecl/releases/redis/">redis</a>，根据自己电脑的php版本<code>php -v</code>和是否线程安全等信息找对应的包下载即可。</p></li><li><p>然后把下载的包解压，我们只需要其中的<code>php_XXX.dll</code></p></li><li><p>将这两个包复制到php安装目录下的ext文件夹。</p></li><li><p>然后打开php安装目录下的<code>php.ini</code></p></li><li><p>将以下两句话复制在里面：</p><pre class="language-txt" data-language="txt"><code class="language-txt">extension=igbinaryextension=redis</code></pre></li><li><p>然后执行<code>php -m</code>，如果列表中出现了这两个，那就证明安装成功了，如果没有，多半是版本对不上，或者是名字的问题，具体他也会在执行<code>php -m</code>下显示具体信息，修改即可</p></li></ol><blockquote><p>值得注意的是，有的地方的<code>extension</code>并非这种简写的情况，而是完整的<code>php_redis.dll</code>这样，如果出现了错误，请注意告警信息即可。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Php </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Php </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Goframe学习日记-3-工程目录设计解读</title>
       <link href="/2022/04/27/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/"/>
       <url>/2022/04/27/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/</url>
