@@ -6,7 +6,7 @@
   <link href="https://godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://godhearing.cn/"/>
-  <updated>2022-06-18T04:49:52.045Z</updated>
+  <updated>2022-06-23T10:34:06.049Z</updated>
   <id>https://godhearing.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux编译</title>
+    <link href="https://godhearing.cn/2022/06/23/linux-bian-yi/"/>
+    <id>https://godhearing.cn/2022/06/23/linux-bian-yi/</id>
+    <published>2022-06-23T10:32:12.270Z</published>
+    <updated>2022-06-23T10:34:06.049Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Linux" scheme="https://godhearing.cn/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://godhearing.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>天才在左，疯子在右读后感</title>
     <link href="https://godhearing.cn/2022/06/18/tian-cai-zai-zuo-feng-zi-zai-you-du-hou-gan/"/>
     <id>https://godhearing.cn/2022/06/18/tian-cai-zai-zuo-feng-zi-zai-you-du-hou-gan/</id>
     <published>2022-06-18T04:46:54.392Z</published>
-    <updated>2022-06-18T04:49:52.045Z</updated>
+    <updated>2022-06-18T04:50:47.007Z</updated>
     
     
       
