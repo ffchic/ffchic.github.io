@@ -3,11 +3,11 @@
   <title>Salmon</title>
   
   <subtitle>天听的小窝</subtitle>
-  <link href="https://godhearing.cn/atom.xml" rel="self"/>
+  <link href="https://www.godhearing.cn/atom.xml" rel="self"/>
   
-  <link href="https://godhearing.cn/"/>
-  <updated>2022-06-23T10:34:06.049Z</updated>
-  <id>https://godhearing.cn/</id>
+  <link href="https://www.godhearing.cn/"/>
+  <updated>2022-06-23T10:34:39.469Z</updated>
+  <id>https://www.godhearing.cn/</id>
   
   <author>
     <name>天 听</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Linux编译</title>
-    <link href="https://godhearing.cn/2022/06/23/linux-bian-yi/"/>
-    <id>https://godhearing.cn/2022/06/23/linux-bian-yi/</id>
+    <link href="https://www.godhearing.cn/linux-bian-yi/"/>
+    <id>https://www.godhearing.cn/linux-bian-yi/</id>
     <published>2022-06-23T10:32:12.270Z</published>
-    <updated>2022-06-23T10:34:06.049Z</updated>
+    <updated>2022-06-23T10:34:39.469Z</updated>
     
     
       
@@ -34,17 +34,17 @@
     
     
     
-    <category term="Linux" scheme="https://godhearing.cn/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/categories/Linux/"/>
     
     
-    <category term="Linux" scheme="https://godhearing.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>天才在左，疯子在右读后感</title>
-    <link href="https://godhearing.cn/2022/06/18/tian-cai-zai-zuo-feng-zi-zai-you-du-hou-gan/"/>
-    <id>https://godhearing.cn/2022/06/18/tian-cai-zai-zuo-feng-zi-zai-you-du-hou-gan/</id>
+    <link href="https://www.godhearing.cn/tian-cai-zai-zuo-feng-zi-zai-you-du-hou-gan/"/>
+    <id>https://www.godhearing.cn/tian-cai-zai-zuo-feng-zi-zai-you-du-hou-gan/</id>
     <published>2022-06-18T04:46:54.392Z</published>
     <updated>2022-06-18T04:50:47.007Z</updated>
     
@@ -59,17 +59,17 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/categories/Book/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/tags/Book/"/>
     
   </entry>
   
   <entry>
     <title>Fiddler手机抓包</title>
-    <link href="https://godhearing.cn/2022/05/18/fiddler-shou-ji-zhua-bao/"/>
-    <id>https://godhearing.cn/2022/05/18/fiddler-shou-ji-zhua-bao/</id>
+    <link href="https://www.godhearing.cn/fiddler-shou-ji-zhua-bao/"/>
+    <id>https://www.godhearing.cn/fiddler-shou-ji-zhua-bao/</id>
     <published>2022-05-18T10:17:26.000Z</published>
     <updated>2022-05-18T14:44:29.861Z</updated>
     
@@ -85,17 +85,17 @@
     
     
     
-    <category term="spider" scheme="https://godhearing.cn/categories/spider/"/>
+    <category term="spider" scheme="https://www.godhearing.cn/categories/spider/"/>
     
     
-    <category term="spider" scheme="https://godhearing.cn/tags/spider/"/>
+    <category term="spider" scheme="https://www.godhearing.cn/tags/spider/"/>
     
   </entry>
   
   <entry>
     <title>windows-php-安装redis扩展</title>
-    <link href="https://godhearing.cn/2022/05/05/windows-php-an-zhuang-redis-kuo-zhan/"/>
-    <id>https://godhearing.cn/2022/05/05/windows-php-an-zhuang-redis-kuo-zhan/</id>
+    <link href="https://www.godhearing.cn/windows-php-an-zhuang-redis-kuo-zhan/"/>
+    <id>https://www.godhearing.cn/windows-php-an-zhuang-redis-kuo-zhan/</id>
     <published>2022-05-05T11:29:46.422Z</published>
     <updated>2022-05-05T11:32:18.674Z</updated>
     
@@ -111,17 +111,17 @@
     
     
     
-    <category term="Php" scheme="https://godhearing.cn/categories/Php/"/>
+    <category term="Php" scheme="https://www.godhearing.cn/categories/Php/"/>
     
     
-    <category term="Php" scheme="https://godhearing.cn/tags/Php/"/>
+    <category term="Php" scheme="https://www.godhearing.cn/tags/Php/"/>
     
   </entry>
   
   <entry>
     <title>Goframe学习日记-3-工程目录设计解读</title>
-    <link href="https://godhearing.cn/2022/04/27/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/"/>
-    <id>https://godhearing.cn/2022/04/27/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/</id>
+    <link href="https://www.godhearing.cn/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/"/>
+    <id>https://www.godhearing.cn/goframe-xue-xi-ri-ji-3-gong-cheng-mu-lu-she-ji-jie-du/</id>
     <published>2022-04-27T04:16:26.000Z</published>
     <updated>2022-05-02T03:29:41.145Z</updated>
     
@@ -136,17 +136,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Goframe学习日记-2-模块化开发</title>
-    <link href="https://godhearing.cn/2022/04/26/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/"/>
-    <id>https://godhearing.cn/2022/04/26/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/</id>
+    <link href="https://www.godhearing.cn/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/"/>
+    <id>https://www.godhearing.cn/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/</id>
     <published>2022-04-26T12:26:06.000Z</published>
     <updated>2022-05-02T03:29:41.145Z</updated>
     
@@ -161,17 +161,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Goframe学习日记-1-入门</title>
-    <link href="https://godhearing.cn/2022/04/24/goframe-xue-xi-ri-ji-1-ru-men/"/>
-    <id>https://godhearing.cn/2022/04/24/goframe-xue-xi-ri-ji-1-ru-men/</id>
+    <link href="https://www.godhearing.cn/goframe-xue-xi-ri-ji-1-ru-men/"/>
+    <id>https://www.godhearing.cn/goframe-xue-xi-ri-ji-1-ru-men/</id>
     <published>2022-04-24T07:33:00.000Z</published>
     <updated>2022-05-02T03:32:17.668Z</updated>
     
@@ -186,17 +186,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Docker简单使用NSQ消息队列</title>
-    <link href="https://godhearing.cn/2022/04/09/docker-jian-dan-shi-yong-nsq-xiao-xi-dui-lie/"/>
-    <id>https://godhearing.cn/2022/04/09/docker-jian-dan-shi-yong-nsq-xiao-xi-dui-lie/</id>
+    <link href="https://www.godhearing.cn/docker-jian-dan-shi-yong-nsq-xiao-xi-dui-lie/"/>
+    <id>https://www.godhearing.cn/docker-jian-dan-shi-yong-nsq-xiao-xi-dui-lie/</id>
     <published>2022-04-09T11:31:26.000Z</published>
     <updated>2022-04-10T01:56:05.562Z</updated>
     
@@ -211,19 +211,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="消息队列" scheme="https://godhearing.cn/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    <category term="消息队列" scheme="https://www.godhearing.cn/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>Goroutine和channel的理解</title>
-    <link href="https://godhearing.cn/2022/01/30/goroutine-he-channel-de-li-jie/"/>
-    <id>https://godhearing.cn/2022/01/30/goroutine-he-channel-de-li-jie/</id>
+    <link href="https://www.godhearing.cn/goroutine-he-channel-de-li-jie/"/>
+    <id>https://www.godhearing.cn/goroutine-he-channel-de-li-jie/</id>
     <published>2022-01-30T07:55:02.000Z</published>
     <updated>2022-01-30T08:09:21.358Z</updated>
     
@@ -238,17 +238,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>手写自己的Go-web框架-3</title>
-    <link href="https://godhearing.cn/2022/01/27/shou-xie-zi-ji-de-go-web-kuang-jia-3/"/>
-    <id>https://godhearing.cn/2022/01/27/shou-xie-zi-ji-de-go-web-kuang-jia-3/</id>
+    <link href="https://www.godhearing.cn/shou-xie-zi-ji-de-go-web-kuang-jia-3/"/>
+    <id>https://www.godhearing.cn/shou-xie-zi-ji-de-go-web-kuang-jia-3/</id>
     <published>2022-01-27T06:08:37.963Z</published>
     <updated>2022-03-21T13:07:36.964Z</updated>
     
@@ -263,17 +263,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>endless重启GO程序</title>
-    <link href="https://godhearing.cn/2022/01/24/endless-chong-qi-go-cheng-xu/"/>
-    <id>https://godhearing.cn/2022/01/24/endless-chong-qi-go-cheng-xu/</id>
+    <link href="https://www.godhearing.cn/endless-chong-qi-go-cheng-xu/"/>
+    <id>https://www.godhearing.cn/endless-chong-qi-go-cheng-xu/</id>
     <published>2022-01-24T04:08:01.908Z</published>
     <updated>2022-01-24T04:15:57.467Z</updated>
     
@@ -288,17 +288,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>go图片验证码库</title>
-    <link href="https://godhearing.cn/2022/01/19/go-tu-pian-yan-zheng-ma-ku/"/>
-    <id>https://godhearing.cn/2022/01/19/go-tu-pian-yan-zheng-ma-ku/</id>
+    <link href="https://www.godhearing.cn/go-tu-pian-yan-zheng-ma-ku/"/>
+    <id>https://www.godhearing.cn/go-tu-pian-yan-zheng-ma-ku/</id>
     <published>2022-01-19T03:31:11.876Z</published>
     <updated>2022-01-19T07:18:44.404Z</updated>
     
@@ -314,17 +314,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>少有人走的路:心智成熟的旅程</title>
-    <link href="https://godhearing.cn/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/"/>
-    <id>https://godhearing.cn/2022/01/07/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/</id>
+    <link href="https://www.godhearing.cn/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/"/>
+    <id>https://www.godhearing.cn/shao-you-ren-zou-de-lu-xin-zhi-cheng-shou-de-lu-cheng/</id>
     <published>2022-01-07T09:07:28.033Z</published>
     <updated>2022-01-07T09:16:23.304Z</updated>
     
@@ -343,17 +343,17 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/categories/Book/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/tags/Book/"/>
     
   </entry>
   
   <entry>
     <title>手写自己的Go-web框架-2</title>
-    <link href="https://godhearing.cn/2022/01/07/shou-xie-zi-ji-de-go-web-kuang-jia-2/"/>
-    <id>https://godhearing.cn/2022/01/07/shou-xie-zi-ji-de-go-web-kuang-jia-2/</id>
+    <link href="https://www.godhearing.cn/shou-xie-zi-ji-de-go-web-kuang-jia-2/"/>
+    <id>https://www.godhearing.cn/shou-xie-zi-ji-de-go-web-kuang-jia-2/</id>
     <published>2022-01-07T06:38:14.515Z</published>
     <updated>2022-03-21T13:04:25.109Z</updated>
     
@@ -369,17 +369,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>手写自己的Go-web框架-1</title>
-    <link href="https://godhearing.cn/2021/12/26/shou-xie-zi-ji-de-go-web-kuang-jia-1/"/>
-    <id>https://godhearing.cn/2021/12/26/shou-xie-zi-ji-de-go-web-kuang-jia-1/</id>
+    <link href="https://www.godhearing.cn/shou-xie-zi-ji-de-go-web-kuang-jia-1/"/>
+    <id>https://www.godhearing.cn/shou-xie-zi-ji-de-go-web-kuang-jia-1/</id>
     <published>2021-12-26T08:12:38.171Z</published>
     <updated>2022-03-21T13:03:01.368Z</updated>
     
@@ -394,17 +394,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>XORM入门</title>
-    <link href="https://godhearing.cn/2021/12/20/xorm-ru-men/"/>
-    <id>https://godhearing.cn/2021/12/20/xorm-ru-men/</id>
+    <link href="https://www.godhearing.cn/xorm-ru-men/"/>
+    <id>https://www.godhearing.cn/xorm-ru-men/</id>
     <published>2021-12-20T06:39:55.827Z</published>
     <updated>2021-12-20T08:59:36.110Z</updated>
     
@@ -420,17 +420,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Go接口解析</title>
-    <link href="https://godhearing.cn/2021/12/17/go-jie-kou-jie-xi/"/>
-    <id>https://godhearing.cn/2021/12/17/go-jie-kou-jie-xi/</id>
+    <link href="https://www.godhearing.cn/go-jie-kou-jie-xi/"/>
+    <id>https://www.godhearing.cn/go-jie-kou-jie-xi/</id>
     <published>2021-12-17T06:40:39.303Z</published>
     <updated>2021-12-17T10:01:52.275Z</updated>
     
@@ -445,17 +445,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Mac下新建Python虚拟环境</title>
-    <link href="https://godhearing.cn/2021/12/16/mac-xia-xin-jian-python-xu-ni-huan-jing/"/>
-    <id>https://godhearing.cn/2021/12/16/mac-xia-xin-jian-python-xu-ni-huan-jing/</id>
+    <link href="https://www.godhearing.cn/mac-xia-xin-jian-python-xu-ni-huan-jing/"/>
+    <id>https://www.godhearing.cn/mac-xia-xin-jian-python-xu-ni-huan-jing/</id>
     <published>2021-12-16T09:51:45.825Z</published>
     <updated>2021-12-17T06:01:28.897Z</updated>
     
@@ -470,17 +470,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>幸存者偏差</title>
-    <link href="https://godhearing.cn/2021/11/12/xing-cun-zhe-pian-chai/"/>
-    <id>https://godhearing.cn/2021/11/12/xing-cun-zhe-pian-chai/</id>
+    <link href="https://www.godhearing.cn/xing-cun-zhe-pian-chai/"/>
+    <id>https://www.godhearing.cn/xing-cun-zhe-pian-chai/</id>
     <published>2021-11-12T08:09:55.491Z</published>
     <updated>2021-12-16T08:02:27.209Z</updated>
     
@@ -495,17 +495,17 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/categories/Book/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/tags/Book/"/>
     
   </entry>
   
   <entry>
     <title>pm2部署nuxt项目</title>
-    <link href="https://godhearing.cn/2021/10/26/pm2-bu-shu-nuxt-xiang-mu/"/>
-    <id>https://godhearing.cn/2021/10/26/pm2-bu-shu-nuxt-xiang-mu/</id>
+    <link href="https://www.godhearing.cn/pm2-bu-shu-nuxt-xiang-mu/"/>
+    <id>https://www.godhearing.cn/pm2-bu-shu-nuxt-xiang-mu/</id>
     <published>2021-10-26T09:51:03.355Z</published>
     <updated>2021-10-26T10:08:20.550Z</updated>
     
@@ -520,17 +520,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>GORM自定义结构</title>
-    <link href="https://godhearing.cn/2021/10/21/gorm-zi-ding-yi-jie-gou/"/>
-    <id>https://godhearing.cn/2021/10/21/gorm-zi-ding-yi-jie-gou/</id>
+    <link href="https://www.godhearing.cn/gorm-zi-ding-yi-jie-gou/"/>
+    <id>https://www.godhearing.cn/gorm-zi-ding-yi-jie-gou/</id>
     <published>2021-10-21T04:26:20.813Z</published>
     <updated>2021-10-21T08:12:13.128Z</updated>
     
@@ -545,17 +545,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>python | golang实现公众号扫码登陆</title>
-    <link href="https://godhearing.cn/2021/10/08/python-golang-shi-xian-gong-zhong-hao-sao-ma-deng-lu/"/>
-    <id>https://godhearing.cn/2021/10/08/python-golang-shi-xian-gong-zhong-hao-sao-ma-deng-lu/</id>
+    <link href="https://www.godhearing.cn/python-golang-shi-xian-gong-zhong-hao-sao-ma-deng-lu/"/>
+    <id>https://www.godhearing.cn/python-golang-shi-xian-gong-zhong-hao-sao-ma-deng-lu/</id>
     <published>2021-10-08T04:17:59.872Z</published>
     <updated>2021-10-27T05:45:41.520Z</updated>
     
@@ -570,21 +570,21 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>推荐一款好用的python-web框架</title>
-    <link href="https://godhearing.cn/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/"/>
-    <id>https://godhearing.cn/2021/09/26/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/</id>
+    <link href="https://www.godhearing.cn/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/"/>
+    <id>https://www.godhearing.cn/tui-jian-yi-kuan-hao-yong-de-python-kuang-jia/</id>
     <published>2021-09-26T05:12:41.808Z</published>
     <updated>2021-09-26T06:09:02.634Z</updated>
     
@@ -600,17 +600,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>hexo博客添加音乐播放器</title>
-    <link href="https://godhearing.cn/2021/09/22/bo-ke-zhong-zi-ding-yi-bo-fang-qi/"/>
-    <id>https://godhearing.cn/2021/09/22/bo-ke-zhong-zi-ding-yi-bo-fang-qi/</id>
+    <link href="https://www.godhearing.cn/bo-ke-zhong-zi-ding-yi-bo-fang-qi/"/>
+    <id>https://www.godhearing.cn/bo-ke-zhong-zi-ding-yi-bo-fang-qi/</id>
     <published>2021-09-22T09:44:18.850Z</published>
     <updated>2021-09-23T03:03:29.473Z</updated>
     
@@ -625,17 +625,17 @@
     
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>微信支付回调</title>
-    <link href="https://godhearing.cn/2021/09/02/wei-xin-zhi-fu-hui-diao/"/>
-    <id>https://godhearing.cn/2021/09/02/wei-xin-zhi-fu-hui-diao/</id>
+    <link href="https://www.godhearing.cn/wei-xin-zhi-fu-hui-diao/"/>
+    <id>https://www.godhearing.cn/wei-xin-zhi-fu-hui-diao/</id>
     <published>2021-09-02T08:41:02.603Z</published>
     <updated>2021-12-28T06:52:13.817Z</updated>
     
@@ -651,19 +651,19 @@
     
     
     
-    <category term="微信小程序" scheme="https://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="微信小程序" scheme="https://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>Gin部署</title>
-    <link href="https://godhearing.cn/2021/08/20/gin-bu-shu/"/>
-    <id>https://godhearing.cn/2021/08/20/gin-bu-shu/</id>
+    <link href="https://www.godhearing.cn/gin-bu-shu/"/>
+    <id>https://www.godhearing.cn/gin-bu-shu/</id>
     <published>2021-08-20T07:57:09.669Z</published>
     <updated>2022-02-16T03:37:08.636Z</updated>
     
@@ -678,17 +678,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>sqlalchemy异步操作</title>
-    <link href="https://godhearing.cn/2021/08/16/sqlalchemy-yi-bu-cao-zuo/"/>
-    <id>https://godhearing.cn/2021/08/16/sqlalchemy-yi-bu-cao-zuo/</id>
+    <link href="https://www.godhearing.cn/sqlalchemy-yi-bu-cao-zuo/"/>
+    <id>https://www.godhearing.cn/sqlalchemy-yi-bu-cao-zuo/</id>
     <published>2021-08-16T08:44:35.676Z</published>
     <updated>2021-09-28T03:52:28.562Z</updated>
     
@@ -703,19 +703,19 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
-    <category term="SQLAlchemy" scheme="https://godhearing.cn/tags/SQLAlchemy/"/>
+    <category term="SQLAlchemy" scheme="https://www.godhearing.cn/tags/SQLAlchemy/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-10</title>
-    <link href="https://godhearing.cn/2021/07/23/gin-vue-da-jian-ge-ren-bo-ke-10/"/>
-    <id>https://godhearing.cn/2021/07/23/gin-vue-da-jian-ge-ren-bo-ke-10/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-10/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-10/</id>
     <published>2021-07-23T10:03:44.355Z</published>
     <updated>2021-08-02T09:15:31.634Z</updated>
     
@@ -731,19 +731,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-9</title>
-    <link href="https://godhearing.cn/2021/07/19/gin-vue-da-jian-ge-ren-bo-ke-9/"/>
-    <id>https://godhearing.cn/2021/07/19/gin-vue-da-jian-ge-ren-bo-ke-9/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-9/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-9/</id>
     <published>2021-07-19T08:32:21.836Z</published>
     <updated>2021-07-23T08:50:02.096Z</updated>
     
@@ -758,19 +758,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-8</title>
-    <link href="https://godhearing.cn/2021/07/16/gin-vue-da-jian-ge-ren-bo-ke-8/"/>
-    <id>https://godhearing.cn/2021/07/16/gin-vue-da-jian-ge-ren-bo-ke-8/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-8/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-8/</id>
     <published>2021-07-16T06:32:07.242Z</published>
     <updated>2021-07-16T09:56:57.814Z</updated>
     
@@ -785,19 +785,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-7</title>
-    <link href="https://godhearing.cn/2021/07/12/gin-vue-da-jian-ge-ren-bo-ke-7/"/>
-    <id>https://godhearing.cn/2021/07/12/gin-vue-da-jian-ge-ren-bo-ke-7/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-7/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-7/</id>
     <published>2021-07-12T06:07:05.853Z</published>
     <updated>2021-07-15T08:49:05.423Z</updated>
     
@@ -812,19 +812,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-6</title>
-    <link href="https://godhearing.cn/2021/07/09/gin-vue-da-jian-ge-ren-bo-ke-6/"/>
-    <id>https://godhearing.cn/2021/07/09/gin-vue-da-jian-ge-ren-bo-ke-6/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-6/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-6/</id>
     <published>2021-07-09T07:33:54.573Z</published>
     <updated>2021-07-13T06:55:32.248Z</updated>
     
@@ -839,19 +839,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-5</title>
-    <link href="https://godhearing.cn/2021/07/07/gin-vue-da-jian-ge-ren-bo-ke-5/"/>
-    <id>https://godhearing.cn/2021/07/07/gin-vue-da-jian-ge-ren-bo-ke-5/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-5/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-5/</id>
     <published>2021-07-07T03:06:34.525Z</published>
     <updated>2021-07-21T05:51:53.966Z</updated>
     
@@ -866,17 +866,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>seaweedfs详解+部署生产</title>
-    <link href="https://godhearing.cn/2021/07/01/seaweedfs-xiang-jie-bu-shu-sheng-chan-huan-jing/"/>
-    <id>https://godhearing.cn/2021/07/01/seaweedfs-xiang-jie-bu-shu-sheng-chan-huan-jing/</id>
+    <link href="https://www.godhearing.cn/seaweedfs-xiang-jie-bu-shu-sheng-chan-huan-jing/"/>
+    <id>https://www.godhearing.cn/seaweedfs-xiang-jie-bu-shu-sheng-chan-huan-jing/</id>
     <published>2021-07-01T08:06:35.915Z</published>
     <updated>2021-07-05T08:11:32.107Z</updated>
     
@@ -891,17 +891,17 @@
     
     
     
-    <category term="文件" scheme="https://godhearing.cn/categories/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://www.godhearing.cn/categories/%E6%96%87%E4%BB%B6/"/>
     
     
-    <category term="文件" scheme="https://godhearing.cn/tags/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://www.godhearing.cn/tags/%E6%96%87%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-4</title>
-    <link href="https://godhearing.cn/2021/07/01/gin-vue-da-jian-ge-ren-bo-ke-4/"/>
-    <id>https://godhearing.cn/2021/07/01/gin-vue-da-jian-ge-ren-bo-ke-4/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-4/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-4/</id>
     <published>2021-07-01T03:08:05.433Z</published>
     <updated>2022-02-14T03:24:06.288Z</updated>
     
@@ -916,17 +916,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-3</title>
-    <link href="https://godhearing.cn/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/"/>
-    <id>https://godhearing.cn/2021/06/28/gin-vue-da-jian-ge-ren-bo-ke-3/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-3/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-3/</id>
     <published>2021-06-28T03:54:33.170Z</published>
     <updated>2021-06-30T10:00:53.289Z</updated>
     
@@ -942,17 +942,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-2</title>
-    <link href="https://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-2/"/>
-    <id>https://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-2/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-2/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-2/</id>
     <published>2021-06-25T06:05:47.573Z</published>
     <updated>2021-06-25T08:41:14.285Z</updated>
     
@@ -967,17 +967,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>gin-vue搭建个人博客-1</title>
-    <link href="https://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-1/"/>
-    <id>https://godhearing.cn/2021/06/25/gin-vue-da-jian-ge-ren-bo-ke-1/</id>
+    <link href="https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-1/"/>
+    <id>https://www.godhearing.cn/gin-vue-da-jian-ge-ren-bo-ke-1/</id>
     <published>2021-06-25T03:07:00.932Z</published>
     <updated>2022-02-14T03:12:06.752Z</updated>
     
@@ -995,17 +995,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>GORM入门</title>
-    <link href="https://godhearing.cn/2021/06/23/gorm/"/>
-    <id>https://godhearing.cn/2021/06/23/gorm/</id>
+    <link href="https://www.godhearing.cn/gorm/"/>
+    <id>https://www.godhearing.cn/gorm/</id>
     <published>2021-06-23T04:03:51.149Z</published>
     <updated>2021-06-23T09:34:18.362Z</updated>
     
@@ -1020,17 +1020,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>Go编译遇到xxx/go.mod malformed record data 问题</title>
-    <link href="https://godhearing.cn/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/"/>
-    <id>https://godhearing.cn/2021/06/22/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/</id>
+    <link href="https://www.godhearing.cn/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/"/>
+    <id>https://www.godhearing.cn/bian-yi-yu-dao-xxxgo.mod-malformed-record-data-wen-ti/</id>
     <published>2021-06-22T08:39:08.227Z</published>
     <updated>2021-09-17T07:35:06.041Z</updated>
     
@@ -1046,19 +1046,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="bug" scheme="https://godhearing.cn/tags/bug/"/>
+    <category term="bug" scheme="https://www.godhearing.cn/tags/bug/"/>
     
   </entry>
   
   <entry>
     <title>微服务架构初识</title>
-    <link href="https://godhearing.cn/2021/06/17/wei-fu-wu-jia-gou-chu-shi/"/>
-    <id>https://godhearing.cn/2021/06/17/wei-fu-wu-jia-gou-chu-shi/</id>
+    <link href="https://www.godhearing.cn/wei-fu-wu-jia-gou-chu-shi/"/>
+    <id>https://www.godhearing.cn/wei-fu-wu-jia-gou-chu-shi/</id>
     <published>2021-06-17T07:14:36.634Z</published>
     <updated>2021-10-22T03:13:23.594Z</updated>
     
@@ -1073,19 +1073,19 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
-    <category term="微服务" scheme="https://godhearing.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="微服务" scheme="https://www.godhearing.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>gin框架</title>
-    <link href="https://godhearing.cn/2021/06/15/gin/"/>
-    <id>https://godhearing.cn/2021/06/15/gin/</id>
+    <link href="https://www.godhearing.cn/gin/"/>
+    <id>https://www.godhearing.cn/gin/</id>
     <published>2021-06-15T04:00:29.978Z</published>
     <updated>2021-06-25T06:14:03.410Z</updated>
     
@@ -1100,17 +1100,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>sqlalchemy-union</title>
-    <link href="https://godhearing.cn/2021/06/09/sqlalchemy-union/"/>
-    <id>https://godhearing.cn/2021/06/09/sqlalchemy-union/</id>
+    <link href="https://www.godhearing.cn/sqlalchemy-union/"/>
+    <id>https://www.godhearing.cn/sqlalchemy-union/</id>
     <published>2021-06-09T09:27:12.629Z</published>
     <updated>2021-06-09T09:42:52.708Z</updated>
     
@@ -1125,19 +1125,19 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
-    <category term="SQLAlchemy" scheme="https://godhearing.cn/tags/SQLAlchemy/"/>
+    <category term="SQLAlchemy" scheme="https://www.godhearing.cn/tags/SQLAlchemy/"/>
     
   </entry>
   
   <entry>
     <title>关于最近的迷茫和感受</title>
-    <link href="https://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/"/>
-    <id>https://godhearing.cn/2021/05/28/guan-yu-zui-jin-de-mi-mang-he-gan-shou/</id>
+    <link href="https://www.godhearing.cn/guan-yu-zui-jin-de-mi-mang-he-gan-shou/"/>
+    <id>https://www.godhearing.cn/guan-yu-zui-jin-de-mi-mang-he-gan-shou/</id>
     <published>2021-05-28T09:05:33.266Z</published>
     <updated>2021-12-29T09:42:06.487Z</updated>
     
@@ -1152,17 +1152,17 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/categories/Book/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/tags/Book/"/>
     
   </entry>
   
   <entry>
     <title>Centos7安装python3</title>
-    <link href="https://godhearing.cn/2021/05/27/centos7-an-zhuang-python3/"/>
-    <id>https://godhearing.cn/2021/05/27/centos7-an-zhuang-python3/</id>
+    <link href="https://www.godhearing.cn/centos7-an-zhuang-python3/"/>
+    <id>https://www.godhearing.cn/centos7-an-zhuang-python3/</id>
     <published>2021-05-27T03:40:56.309Z</published>
     <updated>2021-05-27T04:05:20.642Z</updated>
     
@@ -1178,19 +1178,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Linux" scheme="https://godhearing.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>sqlalchemy序列化</title>
-    <link href="https://godhearing.cn/2021/05/19/sqlalchemy-xu-lie-hua/"/>
-    <id>https://godhearing.cn/2021/05/19/sqlalchemy-xu-lie-hua/</id>
+    <link href="https://www.godhearing.cn/sqlalchemy-xu-lie-hua/"/>
+    <id>https://www.godhearing.cn/sqlalchemy-xu-lie-hua/</id>
     <published>2021-05-19T08:04:58.646Z</published>
     <updated>2021-05-19T08:09:48.262Z</updated>
     
@@ -1205,19 +1205,19 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
-    <category term="SQLAlchemy" scheme="https://godhearing.cn/tags/SQLAlchemy/"/>
+    <category term="SQLAlchemy" scheme="https://www.godhearing.cn/tags/SQLAlchemy/"/>
     
   </entry>
   
   <entry>
     <title>Docker-componse搭建ES单机集群</title>
-    <link href="https://godhearing.cn/2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/"/>
-    <id>https://godhearing.cn/2021/05/18/docker-compose-da-jian-es-dan-ji-ji-qun/</id>
+    <link href="https://www.godhearing.cn/docker-compose-da-jian-es-dan-ji-ji-qun/"/>
+    <id>https://www.godhearing.cn/docker-compose-da-jian-es-dan-ji-ji-qun/</id>
     <published>2021-05-18T10:13:42.351Z</published>
     <updated>2021-05-31T09:16:13.137Z</updated>
     
@@ -1232,19 +1232,19 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
-    <category term="Redis" scheme="https://godhearing.cn/tags/Redis/"/>
+    <category term="Redis" scheme="https://www.godhearing.cn/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title>docker内ES配置IK分词</title>
-    <link href="https://godhearing.cn/2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/"/>
-    <id>https://godhearing.cn/2021/05/17/docker-nei-es-pei-zhi-ik-fen-ci/</id>
+    <link href="https://www.godhearing.cn/docker-nei-es-pei-zhi-ik-fen-ci/"/>
+    <id>https://www.godhearing.cn/docker-nei-es-pei-zhi-ik-fen-ci/</id>
     <published>2021-05-17T09:44:19.584Z</published>
     <updated>2021-05-17T09:59:31.443Z</updated>
     
@@ -1259,21 +1259,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="全文检索" scheme="https://godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
+    <category term="全文检索" scheme="https://www.godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>canal同步ES</title>
-    <link href="https://godhearing.cn/2021/05/10/canal-tong-bu-es/"/>
-    <id>https://godhearing.cn/2021/05/10/canal-tong-bu-es/</id>
+    <link href="https://www.godhearing.cn/canal-tong-bu-es/"/>
+    <id>https://www.godhearing.cn/canal-tong-bu-es/</id>
     <published>2021-05-10T06:08:10.122Z</published>
     <updated>2021-05-10T06:57:02.532Z</updated>
     
@@ -1288,21 +1288,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="全文检索" scheme="https://godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
+    <category term="全文检索" scheme="https://www.godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序支付后台调用</title>
-    <link href="https://godhearing.cn/2021/04/23/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/"/>
-    <id>https://godhearing.cn/2021/04/23/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/</id>
+    <link href="https://www.godhearing.cn/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/"/>
+    <id>https://www.godhearing.cn/wei-xin-xiao-cheng-xu-zhi-fu-hou-tai-diao-yong/</id>
     <published>2021-04-23T08:17:39.002Z</published>
     <updated>2021-04-23T08:34:01.754Z</updated>
     
@@ -1320,19 +1320,19 @@
     
     
     
-    <category term="微信小程序" scheme="https://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="微信小程序" scheme="https://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>CORS跨域问题</title>
-    <link href="https://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/"/>
-    <id>https://godhearing.cn/2021/04/18/cors-kua-yu-wen-ti/</id>
+    <link href="https://www.godhearing.cn/cors-kua-yu-wen-ti/"/>
+    <id>https://www.godhearing.cn/cors-kua-yu-wen-ti/</id>
     <published>2021-04-18T00:19:19.529Z</published>
     <updated>2021-04-18T00:23:56.426Z</updated>
     
@@ -1347,17 +1347,17 @@
     
     
     
-    <category term="cors" scheme="https://godhearing.cn/categories/cors/"/>
+    <category term="cors" scheme="https://www.godhearing.cn/categories/cors/"/>
     
     
-    <category term="cors" scheme="https://godhearing.cn/tags/cors/"/>
+    <category term="cors" scheme="https://www.godhearing.cn/tags/cors/"/>
     
   </entry>
   
   <entry>
     <title>apscheduler设置时区</title>
-    <link href="https://godhearing.cn/2021/04/18/apscheduler-she-zhi-shi-qu/"/>
-    <id>https://godhearing.cn/2021/04/18/apscheduler-she-zhi-shi-qu/</id>
+    <link href="https://www.godhearing.cn/apscheduler-she-zhi-shi-qu/"/>
+    <id>https://www.godhearing.cn/apscheduler-she-zhi-shi-qu/</id>
     <published>2021-04-18T00:02:30.892Z</published>
     <updated>2021-04-18T00:23:56.426Z</updated>
     
@@ -1372,19 +1372,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="定时任务" scheme="https://godhearing.cn/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    <category term="定时任务" scheme="https://www.godhearing.cn/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>brew安装nginx</title>
-    <link href="https://godhearing.cn/2021/04/09/brew-an-zhuang-nginx/"/>
-    <id>https://godhearing.cn/2021/04/09/brew-an-zhuang-nginx/</id>
+    <link href="https://www.godhearing.cn/brew-an-zhuang-nginx/"/>
+    <id>https://www.godhearing.cn/brew-an-zhuang-nginx/</id>
     <published>2021-04-09T04:34:32.626Z</published>
     <updated>2021-04-09T04:42:06.871Z</updated>
     
@@ -1403,17 +1403,17 @@
     
     
     
-    <category term="Nginx" scheme="https://godhearing.cn/categories/Nginx/"/>
+    <category term="Nginx" scheme="https://www.godhearing.cn/categories/Nginx/"/>
     
     
-    <category term="Nginx" scheme="https://godhearing.cn/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.godhearing.cn/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>pytest进阶</title>
-    <link href="https://godhearing.cn/2021/04/09/pytest-jin-jie/"/>
-    <id>https://godhearing.cn/2021/04/09/pytest-jin-jie/</id>
+    <link href="https://www.godhearing.cn/pytest-jin-jie/"/>
+    <id>https://www.godhearing.cn/pytest-jin-jie/</id>
     <published>2021-04-09T02:42:59.444Z</published>
     <updated>2021-04-09T04:08:03.008Z</updated>
     
@@ -1428,19 +1428,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="测试" scheme="https://godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
+    <category term="测试" scheme="https://www.godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>pytest基础使用</title>
-    <link href="https://godhearing.cn/2021/04/08/pytest/"/>
-    <id>https://godhearing.cn/2021/04/08/pytest/</id>
+    <link href="https://www.godhearing.cn/pytest/"/>
+    <id>https://www.godhearing.cn/pytest/</id>
     <published>2021-04-08T09:29:25.716Z</published>
     <updated>2021-04-08T09:29:25.716Z</updated>
     
@@ -1455,19 +1455,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="测试" scheme="https://godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
+    <category term="测试" scheme="https://www.godhearing.cn/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>apscheduler定时任务</title>
-    <link href="https://godhearing.cn/2021/04/06/apscheduler-ding-shi-ren-wu/"/>
-    <id>https://godhearing.cn/2021/04/06/apscheduler-ding-shi-ren-wu/</id>
+    <link href="https://www.godhearing.cn/apscheduler-ding-shi-ren-wu/"/>
+    <id>https://www.godhearing.cn/apscheduler-ding-shi-ren-wu/</id>
     <published>2021-04-06T07:51:55.993Z</published>
     <updated>2021-04-18T00:07:02.557Z</updated>
     
@@ -1482,19 +1482,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="定时任务" scheme="https://godhearing.cn/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
+    <category term="定时任务" scheme="https://www.godhearing.cn/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>nginx负载均衡配置</title>
-    <link href="https://godhearing.cn/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/"/>
-    <id>https://godhearing.cn/2021/03/30/nginx-fu-zai-jun-heng-pei-zhi/</id>
+    <link href="https://www.godhearing.cn/nginx-fu-zai-jun-heng-pei-zhi/"/>
+    <id>https://www.godhearing.cn/nginx-fu-zai-jun-heng-pei-zhi/</id>
     <published>2021-03-30T07:59:22.378Z</published>
     <updated>2021-03-30T08:15:30.652Z</updated>
     
@@ -1509,17 +1509,17 @@
     
     
     
-    <category term="Nginx" scheme="https://godhearing.cn/categories/Nginx/"/>
+    <category term="Nginx" scheme="https://www.godhearing.cn/categories/Nginx/"/>
     
     
-    <category term="Nginx" scheme="https://godhearing.cn/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.godhearing.cn/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>ubuntu下pip安装问题</title>
-    <link href="https://godhearing.cn/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/"/>
-    <id>https://godhearing.cn/2021/03/30/ubuntu-xia-pip-an-zhuang-wen-ti/</id>
+    <link href="https://www.godhearing.cn/ubuntu-xia-pip-an-zhuang-wen-ti/"/>
+    <id>https://www.godhearing.cn/ubuntu-xia-pip-an-zhuang-wen-ti/</id>
     <published>2021-03-30T05:53:11.213Z</published>
     <updated>2021-03-30T06:00:57.247Z</updated>
     
@@ -1534,17 +1534,17 @@
     
     
     
-    <category term="Linux" scheme="https://godhearing.cn/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/categories/Linux/"/>
     
     
-    <category term="Linux" scheme="https://godhearing.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>Docker打包vue多处/static/css路径解决办法</title>
-    <link href="https://godhearing.cn/2021/03/25/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/"/>
-    <id>https://godhearing.cn/2021/03/25/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/</id>
+    <link href="https://www.godhearing.cn/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/"/>
+    <id>https://www.godhearing.cn/docker-da-bao-vue-duo-chu-staticcss-lu-jing-jie-jue-ban-fa/</id>
     <published>2021-03-25T10:44:01.132Z</published>
     <updated>2021-03-25T10:48:20.566Z</updated>
     
@@ -1559,17 +1559,17 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>mac下安装go语言开发环境</title>
-    <link href="https://godhearing.cn/2021/03/24/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/"/>
-    <id>https://godhearing.cn/2021/03/24/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/</id>
+    <link href="https://www.godhearing.cn/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/"/>
+    <id>https://www.godhearing.cn/mac-xia-an-zhuang-go-yu-yan-kai-fa-huan-jing/</id>
     <published>2021-03-24T02:33:24.709Z</published>
     <updated>2021-03-24T04:20:11.923Z</updated>
     
@@ -1584,17 +1584,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>sqlalchemy的事务</title>
-    <link href="https://godhearing.cn/2021/03/23/sqlalchemy-de-shi-wu/"/>
-    <id>https://godhearing.cn/2021/03/23/sqlalchemy-de-shi-wu/</id>
+    <link href="https://www.godhearing.cn/sqlalchemy-de-shi-wu/"/>
+    <id>https://www.godhearing.cn/sqlalchemy-de-shi-wu/</id>
     <published>2021-03-23T07:46:01.103Z</published>
     <updated>2021-03-23T10:36:06.804Z</updated>
     
@@ -1609,19 +1609,19 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
-    <category term="SQLAlchemy" scheme="https://godhearing.cn/tags/SQLAlchemy/"/>
+    <category term="SQLAlchemy" scheme="https://www.godhearing.cn/tags/SQLAlchemy/"/>
     
   </entry>
   
   <entry>
     <title>mac下破解pycharm</title>
-    <link href="https://godhearing.cn/2021/03/18/mac-xia-po-jie-pycharm/"/>
-    <id>https://godhearing.cn/2021/03/18/mac-xia-po-jie-pycharm/</id>
+    <link href="https://www.godhearing.cn/mac-xia-po-jie-pycharm/"/>
+    <id>https://www.godhearing.cn/mac-xia-po-jie-pycharm/</id>
     <published>2021-03-18T03:48:26.242Z</published>
     <updated>2021-03-18T04:11:20.075Z</updated>
     
@@ -1636,19 +1636,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="pycharm" scheme="https://godhearing.cn/tags/pycharm/"/>
+    <category term="pycharm" scheme="https://www.godhearing.cn/tags/pycharm/"/>
     
   </entry>
   
   <entry>
     <title>协同过滤算法</title>
-    <link href="https://godhearing.cn/2021/03/16/xie-tong-guo-lu-suan-fa/"/>
-    <id>https://godhearing.cn/2021/03/16/xie-tong-guo-lu-suan-fa/</id>
+    <link href="https://www.godhearing.cn/xie-tong-guo-lu-suan-fa/"/>
+    <id>https://www.godhearing.cn/xie-tong-guo-lu-suan-fa/</id>
     <published>2021-03-16T08:16:41.948Z</published>
     <updated>2021-09-26T06:35:10.616Z</updated>
     
@@ -1663,19 +1663,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Casbin</title>
-    <link href="https://godhearing.cn/2021/03/12/casbin/"/>
-    <id>https://godhearing.cn/2021/03/12/casbin/</id>
+    <link href="https://www.godhearing.cn/casbin/"/>
+    <id>https://www.godhearing.cn/casbin/</id>
     <published>2021-03-11T16:00:00.000Z</published>
     <updated>2021-03-11T16:00:00.000Z</updated>
     
@@ -1690,19 +1690,19 @@
     
     
     
-    <category term="Casbin" scheme="https://godhearing.cn/categories/Casbin/"/>
+    <category term="Casbin" scheme="https://www.godhearing.cn/categories/Casbin/"/>
     
     
-    <category term="Casbin" scheme="https://godhearing.cn/tags/Casbin/"/>
+    <category term="Casbin" scheme="https://www.godhearing.cn/tags/Casbin/"/>
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   
   <entry>
     <title>Docker详解(巨详)</title>
-    <link href="https://godhearing.cn/2021/03/09/docker-xiang-jie-ju-xiang/"/>
-    <id>https://godhearing.cn/2021/03/09/docker-xiang-jie-ju-xiang/</id>
+    <link href="https://www.godhearing.cn/docker-xiang-jie-ju-xiang/"/>
+    <id>https://www.godhearing.cn/docker-xiang-jie-ju-xiang/</id>
     <published>2021-03-08T16:00:00.000Z</published>
     <updated>2021-03-08T16:00:00.000Z</updated>
     
@@ -1717,17 +1717,17 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>nginx跨域配置</title>
-    <link href="https://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/"/>
-    <id>https://godhearing.cn/2021/03/05/nginx-kua-yu-pei-zhi/</id>
+    <link href="https://www.godhearing.cn/nginx-kua-yu-pei-zhi/"/>
+    <id>https://www.godhearing.cn/nginx-kua-yu-pei-zhi/</id>
     <published>2021-03-04T16:00:00.000Z</published>
     <updated>2021-03-04T16:00:00.000Z</updated>
     
@@ -1743,17 +1743,17 @@
     
     
     
-    <category term="Nginx" scheme="https://godhearing.cn/categories/Nginx/"/>
+    <category term="Nginx" scheme="https://www.godhearing.cn/categories/Nginx/"/>
     
     
-    <category term="Nginx" scheme="https://godhearing.cn/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.godhearing.cn/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>FastAPI学习之路-4  依赖注入</title>
-    <link href="https://godhearing.cn/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/"/>
-    <id>https://godhearing.cn/2021/03/03/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/</id>
+    <link href="https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/"/>
+    <id>https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-4-yi-lai-zhu-ru/</id>
     <published>2021-03-02T16:00:00.000Z</published>
     <updated>2021-03-02T16:00:00.000Z</updated>
     
@@ -1768,17 +1768,17 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   
   <entry>
     <title>Elasticsearch详解</title>
-    <link href="https://godhearing.cn/2021/03/02/elasticsearch-xiang-jie/"/>
-    <id>https://godhearing.cn/2021/03/02/elasticsearch-xiang-jie/</id>
+    <link href="https://www.godhearing.cn/elasticsearch-xiang-jie/"/>
+    <id>https://www.godhearing.cn/elasticsearch-xiang-jie/</id>
     <published>2021-03-01T16:00:00.000Z</published>
     <updated>2021-03-01T16:00:00.000Z</updated>
     
@@ -1793,21 +1793,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="全文检索" scheme="https://godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
+    <category term="全文检索" scheme="https://www.godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>python发送阿里云短信</title>
-    <link href="https://godhearing.cn/2021/02/26/python-fa-song-a-li-yun-duan-xin/"/>
-    <id>https://godhearing.cn/2021/02/26/python-fa-song-a-li-yun-duan-xin/</id>
+    <link href="https://www.godhearing.cn/python-fa-song-a-li-yun-duan-xin/"/>
+    <id>https://www.godhearing.cn/python-fa-song-a-li-yun-duan-xin/</id>
     <published>2021-02-26T00:00:00.000Z</published>
     <updated>2021-02-26T00:00:00.000Z</updated>
     
@@ -1822,17 +1822,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>Linux下安装mysqlclient</title>
-    <link href="https://godhearing.cn/2021/02/25/linux-xia-an-zhuang-mysqlclient/"/>
-    <id>https://godhearing.cn/2021/02/25/linux-xia-an-zhuang-mysqlclient/</id>
+    <link href="https://www.godhearing.cn/linux-xia-an-zhuang-mysqlclient/"/>
+    <id>https://www.godhearing.cn/linux-xia-an-zhuang-mysqlclient/</id>
     <published>2021-02-24T16:00:00.000Z</published>
     <updated>2021-02-24T16:00:00.000Z</updated>
     
@@ -1848,17 +1848,17 @@
     
     
     
-    <category term="mysql" scheme="https://godhearing.cn/categories/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/categories/mysql/"/>
     
     
-    <category term="mysql" scheme="https://godhearing.cn/tags/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>扫描普通链接进入微信小程序</title>
-    <link href="https://godhearing.cn/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/"/>
-    <id>https://godhearing.cn/2021/02/20/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/</id>
+    <link href="https://www.godhearing.cn/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/"/>
+    <id>https://www.godhearing.cn/sao-miao-pu-tong-lian-jie-jin-ru-wei-xin-xiao-cheng-xu/</id>
     <published>2021-02-19T16:00:00.000Z</published>
     <updated>2021-02-19T16:00:00.000Z</updated>
     
@@ -1873,17 +1873,17 @@
     
     
     
-    <category term="微信小程序" scheme="https://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-    <category term="微信小程序" scheme="https://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>Vue中使用setTimeout遇到的问题</title>
-    <link href="https://godhearing.cn/2021/02/19/vue-zhong-shi-yong-js-settimeout/"/>
-    <id>https://godhearing.cn/2021/02/19/vue-zhong-shi-yong-js-settimeout/</id>
+    <link href="https://www.godhearing.cn/vue-zhong-shi-yong-js-settimeout/"/>
+    <id>https://www.godhearing.cn/vue-zhong-shi-yong-js-settimeout/</id>
     <published>2021-02-18T16:00:00.000Z</published>
     <updated>2021-02-18T16:00:00.000Z</updated>
     
@@ -1899,17 +1899,17 @@
     
     
     
-    <category term="Vue" scheme="https://godhearing.cn/categories/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/categories/Vue/"/>
     
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>python3获取微信小程序码</title>
-    <link href="https://godhearing.cn/2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/"/>
-    <id>https://godhearing.cn/2021/02/09/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/</id>
+    <link href="https://www.godhearing.cn/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/"/>
+    <id>https://www.godhearing.cn/python3-huo-qu-wei-xin-xiao-cheng-xu-ma/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -1924,17 +1924,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>阿里云域名解析</title>
-    <link href="https://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/"/>
-    <id>https://godhearing.cn/2021/02/09/a-li-yun-yu-ming-jie-xi/</id>
+    <link href="https://www.godhearing.cn/a-li-yun-yu-ming-jie-xi/"/>
+    <id>https://www.godhearing.cn/a-li-yun-yu-ming-jie-xi/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -1949,17 +1949,17 @@
     
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>阿里云服务器搭建hexo博客教程</title>
-    <link href="https://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
-    <id>https://godhearing.cn/2021/02/09/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
+    <link href="https://www.godhearing.cn/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/"/>
+    <id>https://www.godhearing.cn/a-li-yun-fu-wu-qi-da-jian-hexo-bo-ke-jiao-cheng/</id>
     <published>2021-02-08T16:00:00.000Z</published>
     <updated>2021-02-08T16:00:00.000Z</updated>
     
@@ -1974,17 +1974,17 @@
     
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>python PIL中文变方框的解决办法</title>
-    <link href="https://godhearing.cn/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/"/>
-    <id>https://godhearing.cn/2021/02/06/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/</id>
+    <link href="https://www.godhearing.cn/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/"/>
+    <id>https://www.godhearing.cn/python-pil-zhong-wen-bian-fang-kuang-de-jie-jue-ban-fa/</id>
     <published>2021-02-05T16:00:00.000Z</published>
     <updated>2021-02-05T16:00:00.000Z</updated>
     
@@ -1999,17 +1999,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>Docker部署Django应用</title>
-    <link href="https://godhearing.cn/2021/01/29/docker-bu-shu-django-ying-yong/"/>
-    <id>https://godhearing.cn/2021/01/29/docker-bu-shu-django-ying-yong/</id>
+    <link href="https://www.godhearing.cn/docker-bu-shu-django-ying-yong/"/>
+    <id>https://www.godhearing.cn/docker-bu-shu-django-ying-yong/</id>
     <published>2021-01-28T16:00:00.000Z</published>
     <updated>2021-01-28T16:00:00.000Z</updated>
     
@@ -2024,19 +2024,19 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Vue解决html2canvas截图不全的问题</title>
-    <link href="https://godhearing.cn/2021/01/27/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/"/>
-    <id>https://godhearing.cn/2021/01/27/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/</id>
+    <link href="https://www.godhearing.cn/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/"/>
+    <id>https://www.godhearing.cn/vue-jie-jue-html2canvas-jie-tu-bu-quan-de-wen-ti/</id>
     <published>2021-01-26T16:00:00.000Z</published>
     <updated>2021-01-26T16:00:00.000Z</updated>
     
@@ -2051,17 +2051,17 @@
     
     
     
-    <category term="Vue" scheme="https://godhearing.cn/categories/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/categories/Vue/"/>
     
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>Docker编译时遇到的bug</title>
-    <link href="https://godhearing.cn/2021/01/25/docker-bian-yi-shi-yu-dao-de-bug/"/>
-    <id>https://godhearing.cn/2021/01/25/docker-bian-yi-shi-yu-dao-de-bug/</id>
+    <link href="https://www.godhearing.cn/docker-bian-yi-shi-yu-dao-de-bug/"/>
+    <id>https://www.godhearing.cn/docker-bian-yi-shi-yu-dao-de-bug/</id>
     <published>2021-01-24T16:00:00.000Z</published>
     <updated>2021-01-24T16:00:00.000Z</updated>
     
@@ -2076,17 +2076,17 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>axios获取文件流并且展示为图片</title>
-    <link href="https://godhearing.cn/2021/01/23/axios-huo-qu-wen-jian-liu-xing-shi-ru-he-zhan-shi/"/>
-    <id>https://godhearing.cn/2021/01/23/axios-huo-qu-wen-jian-liu-xing-shi-ru-he-zhan-shi/</id>
+    <link href="https://www.godhearing.cn/axios-huo-qu-wen-jian-liu-xing-shi-ru-he-zhan-shi/"/>
+    <id>https://www.godhearing.cn/axios-huo-qu-wen-jian-liu-xing-shi-ru-he-zhan-shi/</id>
     <published>2021-01-22T16:00:00.000Z</published>
     <updated>2021-01-22T16:00:00.000Z</updated>
     
@@ -2101,19 +2101,19 @@
     
     
     
-    <category term="axios" scheme="https://godhearing.cn/categories/axios/"/>
+    <category term="axios" scheme="https://www.godhearing.cn/categories/axios/"/>
     
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
-    <category term="axios" scheme="https://godhearing.cn/tags/axios/"/>
+    <category term="axios" scheme="https://www.godhearing.cn/tags/axios/"/>
     
   </entry>
   
   <entry>
     <title>Go语言基础</title>
-    <link href="https://godhearing.cn/2021/01/22/go/"/>
-    <id>https://godhearing.cn/2021/01/22/go/</id>
+    <link href="https://www.godhearing.cn/go/"/>
+    <id>https://www.godhearing.cn/go/</id>
     <published>2021-01-21T16:00:00.000Z</published>
     <updated>2021-01-21T16:00:00.000Z</updated>
     
@@ -2128,17 +2128,17 @@
     
     
     
-    <category term="Golang" scheme="https://godhearing.cn/categories/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
     
     
-    <category term="Golang" scheme="https://godhearing.cn/tags/Golang/"/>
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序用户认证逻辑</title>
-    <link href="https://godhearing.cn/2021/01/21/wei-xin-xiao-cheng-xu-yong-hu-ren-zheng-luo-ji/"/>
-    <id>https://godhearing.cn/2021/01/21/wei-xin-xiao-cheng-xu-yong-hu-ren-zheng-luo-ji/</id>
+    <link href="https://www.godhearing.cn/wei-xin-xiao-cheng-xu-yong-hu-ren-zheng-luo-ji/"/>
+    <id>https://www.godhearing.cn/wei-xin-xiao-cheng-xu-yong-hu-ren-zheng-luo-ji/</id>
     <published>2021-01-20T16:00:00.000Z</published>
     <updated>2021-01-20T16:00:00.000Z</updated>
     
@@ -2155,19 +2155,19 @@
     
     
     
-    <category term="微信小程序" scheme="https://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="微信小程序" scheme="https://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>uvicorn+Gunicorn部署</title>
-    <link href="https://godhearing.cn/2021/01/20/uvicorn-he-gunicorn/"/>
-    <id>https://godhearing.cn/2021/01/20/uvicorn-he-gunicorn/</id>
+    <link href="https://www.godhearing.cn/uvicorn-he-gunicorn/"/>
+    <id>https://www.godhearing.cn/uvicorn-he-gunicorn/</id>
     <published>2021-01-19T16:00:00.000Z</published>
     <updated>2021-01-19T16:00:00.000Z</updated>
     
@@ -2182,19 +2182,19 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   
   <entry>
     <title>vue生成图片并下载</title>
-    <link href="https://godhearing.cn/2021/01/17/vue-sheng-cheng-tu-pian-bing-xia-zai/"/>
-    <id>https://godhearing.cn/2021/01/17/vue-sheng-cheng-tu-pian-bing-xia-zai/</id>
+    <link href="https://www.godhearing.cn/vue-sheng-cheng-tu-pian-bing-xia-zai/"/>
+    <id>https://www.godhearing.cn/vue-sheng-cheng-tu-pian-bing-xia-zai/</id>
     <published>2021-01-16T16:00:00.000Z</published>
     <updated>2021-01-16T16:00:00.000Z</updated>
     
@@ -2209,17 +2209,17 @@
     
     
     
-    <category term="Vue" scheme="https://godhearing.cn/categories/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/categories/Vue/"/>
     
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>FastAPI学习之路-3  模型与校验</title>
-    <link href="https://godhearing.cn/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/"/>
-    <id>https://godhearing.cn/2021/01/15/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/</id>
+    <link href="https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/"/>
+    <id>https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-3-mo-xing-yu-xiao-yan/</id>
     <published>2021-01-14T16:00:00.000Z</published>
     <updated>2021-01-14T16:00:00.000Z</updated>
     
@@ -2235,17 +2235,17 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序授权登录</title>
-    <link href="https://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/"/>
-    <id>https://godhearing.cn/2021/01/15/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/</id>
+    <link href="https://www.godhearing.cn/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/"/>
+    <id>https://www.godhearing.cn/wei-xin-xiao-cheng-xu-shou-quan-deng-lu/</id>
     <published>2021-01-14T16:00:00.000Z</published>
     <updated>2021-03-16T12:48:42.543Z</updated>
     
@@ -2261,19 +2261,19 @@
     
     
     
-    <category term="微信小程序" scheme="https://godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="微信小程序" scheme="https://godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <category term="微信小程序" scheme="https://www.godhearing.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>python获取微信公众号历史文章</title>
-    <link href="https://godhearing.cn/2021/01/14/python-huo-qu-wei-xin-gong-zhong-hao-li-shi-wen-zhang/"/>
-    <id>https://godhearing.cn/2021/01/14/python-huo-qu-wei-xin-gong-zhong-hao-li-shi-wen-zhang/</id>
+    <link href="https://www.godhearing.cn/python-huo-qu-wei-xin-gong-zhong-hao-li-shi-wen-zhang/"/>
+    <id>https://www.godhearing.cn/python-huo-qu-wei-xin-gong-zhong-hao-li-shi-wen-zhang/</id>
     <published>2021-01-14T07:15:00.000Z</published>
     <updated>2021-01-14T07:15:00.000Z</updated>
     
@@ -2288,17 +2288,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>提问的智慧(下)</title>
-    <link href="https://godhearing.cn/2021/01/13/ti-wen-de-zhi-hui-xia/"/>
-    <id>https://godhearing.cn/2021/01/13/ti-wen-de-zhi-hui-xia/</id>
+    <link href="https://www.godhearing.cn/ti-wen-de-zhi-hui-xia/"/>
+    <id>https://www.godhearing.cn/ti-wen-de-zhi-hui-xia/</id>
     <published>2021-01-13T10:43:00.000Z</published>
     <updated>2021-01-13T10:43:00.000Z</updated>
     
@@ -2314,17 +2314,17 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/categories/Book/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/tags/Book/"/>
     
   </entry>
   
   <entry>
     <title>提问的智慧(上)</title>
-    <link href="https://godhearing.cn/2021/01/13/ti-wen-de-zhi-hui-shang/"/>
-    <id>https://godhearing.cn/2021/01/13/ti-wen-de-zhi-hui-shang/</id>
+    <link href="https://www.godhearing.cn/ti-wen-de-zhi-hui-shang/"/>
+    <id>https://www.godhearing.cn/ti-wen-de-zhi-hui-shang/</id>
     <published>2021-01-13T10:41:00.000Z</published>
     <updated>2021-01-13T10:41:00.000Z</updated>
     
@@ -2339,17 +2339,17 @@
     
     
     
-    <category term="Book" scheme="https://godhearing.cn/categories/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/categories/Book/"/>
     
     
-    <category term="Book" scheme="https://godhearing.cn/tags/Book/"/>
+    <category term="Book" scheme="https://www.godhearing.cn/tags/Book/"/>
     
   </entry>
   
   <entry>
     <title>python使用RSA非对称加密</title>
-    <link href="https://godhearing.cn/2021/01/07/python-shi-yong-rsa-fei-dui-cheng-jia-mi/"/>
-    <id>https://godhearing.cn/2021/01/07/python-shi-yong-rsa-fei-dui-cheng-jia-mi/</id>
+    <link href="https://www.godhearing.cn/python-shi-yong-rsa-fei-dui-cheng-jia-mi/"/>
+    <id>https://www.godhearing.cn/python-shi-yong-rsa-fei-dui-cheng-jia-mi/</id>
     <published>2021-01-07T10:00:00.000Z</published>
     <updated>2021-01-07T10:00:00.000Z</updated>
     
@@ -2365,19 +2365,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="RSA" scheme="https://godhearing.cn/tags/RSA/"/>
+    <category term="RSA" scheme="https://www.godhearing.cn/tags/RSA/"/>
     
   </entry>
   
   <entry>
     <title>pymysql的坑以及django多个数据库迁移</title>
-    <link href="https://godhearing.cn/2020/12/30/mysql-de-keng/"/>
-    <id>https://godhearing.cn/2020/12/30/mysql-de-keng/</id>
+    <link href="https://www.godhearing.cn/mysql-de-keng/"/>
+    <id>https://www.godhearing.cn/mysql-de-keng/</id>
     <published>2020-12-30T10:00:00.000Z</published>
     <updated>2020-12-30T10:00:00.000Z</updated>
     
@@ -2392,19 +2392,19 @@
     
     
     
-    <category term="mysql" scheme="https://godhearing.cn/categories/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/categories/mysql/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="mysql" scheme="https://godhearing.cn/tags/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>二维码与python</title>
-    <link href="https://godhearing.cn/2020/12/24/er-wei-ma-yu-python/"/>
-    <id>https://godhearing.cn/2020/12/24/er-wei-ma-yu-python/</id>
+    <link href="https://www.godhearing.cn/er-wei-ma-yu-python/"/>
+    <id>https://www.godhearing.cn/er-wei-ma-yu-python/</id>
     <published>2020-12-24T09:20:00.000Z</published>
     <updated>2020-12-24T09:20:00.000Z</updated>
     
@@ -2419,17 +2419,17 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>seaweedfs</title>
-    <link href="https://godhearing.cn/2020/12/22/seaweedfs/"/>
-    <id>https://godhearing.cn/2020/12/22/seaweedfs/</id>
+    <link href="https://www.godhearing.cn/seaweedfs/"/>
+    <id>https://www.godhearing.cn/seaweedfs/</id>
     <published>2020-12-22T10:54:00.000Z</published>
     <updated>2020-12-22T10:54:00.000Z</updated>
     
@@ -2445,17 +2445,17 @@
     
     
     
-    <category term="文件" scheme="https://godhearing.cn/categories/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://www.godhearing.cn/categories/%E6%96%87%E4%BB%B6/"/>
     
     
-    <category term="文件" scheme="https://godhearing.cn/tags/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://www.godhearing.cn/tags/%E6%96%87%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>bigchaindb安装</title>
-    <link href="https://godhearing.cn/2020/12/20/bigchaindb-an-zhuang/"/>
-    <id>https://godhearing.cn/2020/12/20/bigchaindb-an-zhuang/</id>
+    <link href="https://www.godhearing.cn/bigchaindb-an-zhuang/"/>
+    <id>https://www.godhearing.cn/bigchaindb-an-zhuang/</id>
     <published>2020-12-20T08:06:00.000Z</published>
     <updated>2020-12-20T08:06:00.000Z</updated>
     
@@ -2470,19 +2470,19 @@
     
     
     
-    <category term="bigchaindb" scheme="https://godhearing.cn/categories/bigchaindb/"/>
+    <category term="bigchaindb" scheme="https://www.godhearing.cn/categories/bigchaindb/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="bigchaindb" scheme="https://godhearing.cn/tags/bigchaindb/"/>
+    <category term="bigchaindb" scheme="https://www.godhearing.cn/tags/bigchaindb/"/>
     
   </entry>
   
   <entry>
     <title>MobaXterm操作prometheus和grafana搭建监控预警</title>
-    <link href="https://godhearing.cn/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/"/>
-    <id>https://godhearing.cn/2020/05/15/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/</id>
+    <link href="https://www.godhearing.cn/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/"/>
+    <id>https://www.godhearing.cn/mobaxterm-cao-zuo-prometheus-he-grafana-da-jian-jian-kong-yu-jing/</id>
     <published>2020-05-15T07:33:00.000Z</published>
     <updated>2020-05-15T07:33:00.000Z</updated>
     
@@ -2497,19 +2497,19 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
-    <category term="MobaXerm" scheme="https://godhearing.cn/tags/MobaXerm/"/>
+    <category term="MobaXerm" scheme="https://www.godhearing.cn/tags/MobaXerm/"/>
     
   </entry>
   
   <entry>
     <title>ubuntu系统下安装mysql8.0以及Django与mysql交互的问题</title>
-    <link href="https://godhearing.cn/2020/05/15/ubuntu-xi-tong-xia-an-zhuang-mysql8.0-yi-ji-django-yu-mysql-jiao-hu-de-wen-ti/"/>
-    <id>https://godhearing.cn/2020/05/15/ubuntu-xi-tong-xia-an-zhuang-mysql8.0-yi-ji-django-yu-mysql-jiao-hu-de-wen-ti/</id>
+    <link href="https://www.godhearing.cn/ubuntu-xi-tong-xia-an-zhuang-mysql8.0-yi-ji-django-yu-mysql-jiao-hu-de-wen-ti/"/>
+    <id>https://www.godhearing.cn/ubuntu-xi-tong-xia-an-zhuang-mysql8.0-yi-ji-django-yu-mysql-jiao-hu-de-wen-ti/</id>
     <published>2020-05-14T16:00:00.000Z</published>
     <updated>2020-05-15T07:33:00.000Z</updated>
     
@@ -2524,19 +2524,19 @@
     
     
     
-    <category term="mysql" scheme="https://godhearing.cn/categories/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/categories/mysql/"/>
     
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="mysql" scheme="https://godhearing.cn/tags/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>PostgrelSQL</title>
-    <link href="https://godhearing.cn/2020/04/13/postgrelsql/"/>
-    <id>https://godhearing.cn/2020/04/13/postgrelsql/</id>
+    <link href="https://www.godhearing.cn/postgrelsql/"/>
+    <id>https://www.godhearing.cn/postgrelsql/</id>
     <published>2020-04-13T06:09:00.000Z</published>
     <updated>2021-03-16T13:04:24.658Z</updated>
     
@@ -2551,17 +2551,17 @@
     
     
     
-    <category term="PostgrelSQL" scheme="https://godhearing.cn/categories/PostgrelSQL/"/>
+    <category term="PostgrelSQL" scheme="https://www.godhearing.cn/categories/PostgrelSQL/"/>
     
     
-    <category term="PostgrelSQL" scheme="https://godhearing.cn/tags/PostgrelSQL/"/>
+    <category term="PostgrelSQL" scheme="https://www.godhearing.cn/tags/PostgrelSQL/"/>
     
   </entry>
   
   <entry>
     <title>WebSocket</title>
-    <link href="https://godhearing.cn/2020/04/09/websocket/"/>
-    <id>https://godhearing.cn/2020/04/09/websocket/</id>
+    <link href="https://www.godhearing.cn/websocket/"/>
+    <id>https://www.godhearing.cn/websocket/</id>
     <published>2020-04-09T13:09:00.000Z</published>
     <updated>2020-04-09T13:09:00.000Z</updated>
     
@@ -2576,19 +2576,19 @@
     
     
     
-    <category term="Django" scheme="https://godhearing.cn/categories/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/categories/Django/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>Dockerhub部署Centos+Nginx+gunicorn+django独立架构</title>
-    <link href="https://godhearing.cn/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/"/>
-    <id>https://godhearing.cn/2020/04/07/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/</id>
+    <link href="https://www.godhearing.cn/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/"/>
+    <id>https://www.godhearing.cn/dockerhub-bu-shu-centos-nginx-gunicorn-django-du-li-jia-gou/</id>
     <published>2020-04-07T14:28:00.000Z</published>
     <updated>2020-04-07T14:28:00.000Z</updated>
     
@@ -2603,19 +2603,19 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Docker-compons搭建redis集群-哨兵模式</title>
-    <link href="https://godhearing.cn/2020/04/01/docker-compons-da-jian-redis-ji-qun-shao-bing-mo-shi/"/>
-    <id>https://godhearing.cn/2020/04/01/docker-compons-da-jian-redis-ji-qun-shao-bing-mo-shi/</id>
+    <link href="https://www.godhearing.cn/docker-compons-da-jian-redis-ji-qun-shao-bing-mo-shi/"/>
+    <id>https://www.godhearing.cn/docker-compons-da-jian-redis-ji-qun-shao-bing-mo-shi/</id>
     <published>2020-04-01T14:32:00.000Z</published>
     <updated>2020-04-01T14:32:00.000Z</updated>
     
@@ -2631,19 +2631,19 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
-    <category term="Redis" scheme="https://godhearing.cn/tags/Redis/"/>
+    <category term="Redis" scheme="https://www.godhearing.cn/tags/Redis/"/>
     
   </entry>
   
   <entry>
     <title>WebHook机制</title>
-    <link href="https://godhearing.cn/2020/03/17/webhook-ji-zhi/"/>
-    <id>https://godhearing.cn/2020/03/17/webhook-ji-zhi/</id>
+    <link href="https://www.godhearing.cn/webhook-ji-zhi/"/>
+    <id>https://www.godhearing.cn/webhook-ji-zhi/</id>
     <published>2020-03-17T12:00:00.000Z</published>
     <updated>2020-03-17T12:00:00.000Z</updated>
     
@@ -2658,21 +2658,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="mysql" scheme="https://godhearing.cn/tags/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/tags/mysql/"/>
     
-    <category term="WebHook" scheme="https://godhearing.cn/tags/WebHook/"/>
+    <category term="WebHook" scheme="https://www.godhearing.cn/tags/WebHook/"/>
     
   </entry>
   
   <entry>
     <title>手写Celery</title>
-    <link href="https://godhearing.cn/2020/02/27/shou-xie-celery/"/>
-    <id>https://godhearing.cn/2020/02/27/shou-xie-celery/</id>
+    <link href="https://www.godhearing.cn/shou-xie-celery/"/>
+    <id>https://www.godhearing.cn/shou-xie-celery/</id>
     <published>2020-02-27T13:42:00.000Z</published>
     <updated>2020-02-27T13:42:00.000Z</updated>
     
@@ -2687,19 +2687,19 @@
     
     
     
-    <category term="Celery" scheme="https://godhearing.cn/categories/Celery/"/>
+    <category term="Celery" scheme="https://www.godhearing.cn/categories/Celery/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Celery" scheme="https://godhearing.cn/tags/Celery/"/>
+    <category term="Celery" scheme="https://www.godhearing.cn/tags/Celery/"/>
     
   </entry>
   
   <entry>
     <title>Vue组件</title>
-    <link href="https://godhearing.cn/2019/11/30/vue-zu-jian/"/>
-    <id>https://godhearing.cn/2019/11/30/vue-zu-jian/</id>
+    <link href="https://www.godhearing.cn/vue-zu-jian/"/>
+    <id>https://www.godhearing.cn/vue-zu-jian/</id>
     <published>2019-11-30T12:28:00.000Z</published>
     <updated>2019-11-30T12:28:00.000Z</updated>
     
@@ -2717,17 +2717,17 @@
     
     
     
-    <category term="Vue" scheme="https://godhearing.cn/categories/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/categories/Vue/"/>
     
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>vue优化之代码层面的优化</title>
-    <link href="https://godhearing.cn/2019/11/19/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/"/>
-    <id>https://godhearing.cn/2019/11/19/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/</id>
+    <link href="https://www.godhearing.cn/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/"/>
+    <id>https://www.godhearing.cn/vue-you-hua-zhi-dai-ma-ceng-mian-de-you-hua/</id>
     <published>2019-11-19T06:38:00.000Z</published>
     <updated>2019-11-19T06:38:00.000Z</updated>
     
@@ -2743,17 +2743,17 @@
     
     
     
-    <category term="Vue" scheme="https://godhearing.cn/categories/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/categories/Vue/"/>
     
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>支付宝支付</title>
-    <link href="https://godhearing.cn/2019/09/13/zhi-fu-bao-zhi-fu/"/>
-    <id>https://godhearing.cn/2019/09/13/zhi-fu-bao-zhi-fu/</id>
+    <link href="https://www.godhearing.cn/zhi-fu-bao-zhi-fu/"/>
+    <id>https://www.godhearing.cn/zhi-fu-bao-zhi-fu/</id>
     <published>2019-09-13T14:32:00.000Z</published>
     <updated>2019-09-13T14:32:00.000Z</updated>
     
@@ -2768,21 +2768,21 @@
     
     
     
-    <category term="Django" scheme="https://godhearing.cn/categories/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/categories/Django/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="支付" scheme="https://godhearing.cn/tags/%E6%94%AF%E4%BB%98/"/>
+    <category term="支付" scheme="https://www.godhearing.cn/tags/%E6%94%AF%E4%BB%98/"/>
     
   </entry>
   
   <entry>
     <title>验证码系列(邮箱、短信)</title>
-    <link href="https://godhearing.cn/2019/08/31/yan-zheng-ma-xi-lie/"/>
-    <id>https://godhearing.cn/2019/08/31/yan-zheng-ma-xi-lie/</id>
+    <link href="https://www.godhearing.cn/yan-zheng-ma-xi-lie/"/>
+    <id>https://www.godhearing.cn/yan-zheng-ma-xi-lie/</id>
     <published>2019-08-31T13:38:00.000Z</published>
     <updated>2019-08-31T13:38:00.000Z</updated>
     
@@ -2797,19 +2797,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>ABAC权限模型</title>
-    <link href="https://godhearing.cn/2019/08/29/abac-quan-xian-mo-xing/"/>
-    <id>https://godhearing.cn/2019/08/29/abac-quan-xian-mo-xing/</id>
+    <link href="https://www.godhearing.cn/abac-quan-xian-mo-xing/"/>
+    <id>https://www.godhearing.cn/abac-quan-xian-mo-xing/</id>
     <published>2019-08-29T13:41:00.000Z</published>
     <updated>2019-08-29T13:41:00.000Z</updated>
     
@@ -2825,21 +2825,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="设计模式" scheme="https://godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://www.godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>ACL与RBAC访问权限模型</title>
-    <link href="https://godhearing.cn/2019/08/28/acl-yu-rbac/"/>
-    <id>https://godhearing.cn/2019/08/28/acl-yu-rbac/</id>
+    <link href="https://www.godhearing.cn/acl-yu-rbac/"/>
+    <id>https://www.godhearing.cn/acl-yu-rbac/</id>
     <published>2019-08-28T11:37:00.000Z</published>
     <updated>2019-08-28T11:37:00.000Z</updated>
     
@@ -2854,21 +2854,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="设计模式" scheme="https://godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://www.godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>聊天机器人</title>
-    <link href="https://godhearing.cn/2019/08/16/liao-tian-ji-qi-ren/"/>
-    <id>https://godhearing.cn/2019/08/16/liao-tian-ji-qi-ren/</id>
+    <link href="https://www.godhearing.cn/liao-tian-ji-qi-ren/"/>
+    <id>https://www.godhearing.cn/liao-tian-ji-qi-ren/</id>
     <published>2019-08-16T12:21:00.000Z</published>
     <updated>2019-08-16T12:21:00.000Z</updated>
     
@@ -2883,17 +2883,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>python数据结构与算法</title>
-    <link href="https://godhearing.cn/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/"/>
-    <id>https://godhearing.cn/2019/08/05/python-shu-ju-jie-gou-yu-suan-fa/</id>
+    <link href="https://www.godhearing.cn/python-shu-ju-jie-gou-yu-suan-fa/"/>
+    <id>https://www.godhearing.cn/python-shu-ju-jie-gou-yu-suan-fa/</id>
     <published>2019-08-05T13:36:00.000Z</published>
     <updated>2019-08-05T13:36:00.000Z</updated>
     
@@ -2908,19 +2908,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>爬虫的相关知识</title>
-    <link href="https://godhearing.cn/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/"/>
-    <id>https://godhearing.cn/2019/08/01/pa-chong-de-xiang-guan-zhi-shi/</id>
+    <link href="https://www.godhearing.cn/pa-chong-de-xiang-guan-zhi-shi/"/>
+    <id>https://www.godhearing.cn/pa-chong-de-xiang-guan-zhi-shi/</id>
     <published>2019-08-01T14:32:00.000Z</published>
     <updated>2019-08-01T14:32:00.000Z</updated>
     
@@ -2935,19 +2935,19 @@
     
     
     
-    <category term="spider" scheme="https://godhearing.cn/categories/spider/"/>
+    <category term="spider" scheme="https://www.godhearing.cn/categories/spider/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="spider" scheme="https://godhearing.cn/tags/spider/"/>
+    <category term="spider" scheme="https://www.godhearing.cn/tags/spider/"/>
     
   </entry>
   
   <entry>
     <title>PayPal跨境支付</title>
-    <link href="https://godhearing.cn/2019/04/17/paypal-kua-jing-zhi-fu/"/>
-    <id>https://godhearing.cn/2019/04/17/paypal-kua-jing-zhi-fu/</id>
+    <link href="https://www.godhearing.cn/paypal-kua-jing-zhi-fu/"/>
+    <id>https://www.godhearing.cn/paypal-kua-jing-zhi-fu/</id>
     <published>2019-04-17T10:51:00.000Z</published>
     <updated>2019-04-17T10:51:00.000Z</updated>
     
@@ -2962,19 +2962,19 @@
     
     
     
-    <category term="PayPal" scheme="https://godhearing.cn/categories/PayPal/"/>
+    <category term="PayPal" scheme="https://www.godhearing.cn/categories/PayPal/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="PayPal" scheme="https://godhearing.cn/tags/PayPal/"/>
+    <category term="PayPal" scheme="https://www.godhearing.cn/tags/PayPal/"/>
     
   </entry>
   
   <entry>
     <title>基于Docker配置Elasticsearch全文检索</title>
-    <link href="https://godhearing.cn/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/"/>
-    <id>https://godhearing.cn/2019/03/24/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/</id>
+    <link href="https://www.godhearing.cn/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/"/>
+    <id>https://www.godhearing.cn/ji-yu-docker-pei-zhi-elasticsearch-quan-wen-jian-suo/</id>
     <published>2019-03-24T14:41:00.000Z</published>
     <updated>2019-03-24T14:41:00.000Z</updated>
     
@@ -2989,21 +2989,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="全文检索" scheme="https://godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
+    <category term="全文检索" scheme="https://www.godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>linux终端测试接口</title>
-    <link href="https://godhearing.cn/2018/11/01/linux-zhong-duan-ce-shi-jie-kou/"/>
-    <id>https://godhearing.cn/2018/11/01/linux-zhong-duan-ce-shi-jie-kou/</id>
+    <link href="https://www.godhearing.cn/linux-zhong-duan-ce-shi-jie-kou/"/>
+    <id>https://www.godhearing.cn/linux-zhong-duan-ce-shi-jie-kou/</id>
     <published>2018-11-01T12:27:00.000Z</published>
     <updated>2018-11-01T12:27:00.000Z</updated>
     
@@ -3018,17 +3018,17 @@
     
     
     
-    <category term="Linux" scheme="https://godhearing.cn/categories/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/categories/Linux/"/>
     
     
-    <category term="Linux" scheme="https://godhearing.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.godhearing.cn/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>axios的封装</title>
-    <link href="https://godhearing.cn/2018/10/07/axios-feng-zhuang/"/>
-    <id>https://godhearing.cn/2018/10/07/axios-feng-zhuang/</id>
+    <link href="https://www.godhearing.cn/axios-feng-zhuang/"/>
+    <id>https://www.godhearing.cn/axios-feng-zhuang/</id>
     <published>2018-10-07T12:25:00.000Z</published>
     <updated>2018-10-07T12:25:00.000Z</updated>
     
@@ -3043,23 +3043,23 @@
     
     
     
-    <category term="axios" scheme="https://godhearing.cn/categories/axios/"/>
+    <category term="axios" scheme="https://www.godhearing.cn/categories/axios/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
-    <category term="axios" scheme="https://godhearing.cn/tags/axios/"/>
+    <category term="axios" scheme="https://www.godhearing.cn/tags/axios/"/>
     
   </entry>
   
   <entry>
     <title>Docker部署Django项目</title>
-    <link href="https://godhearing.cn/2018/07/21/docker-bu-shu-django-xiang-mu/"/>
-    <id>https://godhearing.cn/2018/07/21/docker-bu-shu-django-xiang-mu/</id>
+    <link href="https://www.godhearing.cn/docker-bu-shu-django-xiang-mu/"/>
+    <id>https://www.godhearing.cn/docker-bu-shu-django-xiang-mu/</id>
     <published>2018-07-21T14:00:00.000Z</published>
     <updated>2018-07-21T14:00:00.000Z</updated>
     
@@ -3074,19 +3074,19 @@
     
     
     
-    <category term="Docker" scheme="https://godhearing.cn/categories/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/categories/Docker/"/>
     
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="Docker" scheme="https://godhearing.cn/tags/Docker/"/>
+    <category term="Docker" scheme="https://www.godhearing.cn/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>工厂模式</title>
-    <link href="https://godhearing.cn/2018/07/15/gong-han-mo-shi/"/>
-    <id>https://godhearing.cn/2018/07/15/gong-han-mo-shi/</id>
+    <link href="https://www.godhearing.cn/gong-han-mo-shi/"/>
+    <id>https://www.godhearing.cn/gong-han-mo-shi/</id>
     <published>2018-07-14T16:00:00.000Z</published>
     <updated>2018-07-14T16:00:00.000Z</updated>
     
@@ -3101,21 +3101,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="设计模式" scheme="https://godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://www.godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>分布一致性算法(雪花算法)</title>
-    <link href="https://godhearing.cn/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/"/>
-    <id>https://godhearing.cn/2018/06/24/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/</id>
+    <link href="https://www.godhearing.cn/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/"/>
+    <id>https://www.godhearing.cn/fen-bu-yi-zhi-xing-suan-fa-xue-hua-suan-fa/</id>
     <published>2018-06-24T14:28:00.000Z</published>
     <updated>2018-06-24T14:28:00.000Z</updated>
     
@@ -3130,19 +3130,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="算法" scheme="https://godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.godhearing.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>ModelViewSet</title>
-    <link href="https://godhearing.cn/2018/06/18/modelviewset/"/>
-    <id>https://godhearing.cn/2018/06/18/modelviewset/</id>
+    <link href="https://www.godhearing.cn/modelviewset/"/>
+    <id>https://www.godhearing.cn/modelviewset/</id>
     <published>2018-06-18T12:41:00.000Z</published>
     <updated>2018-06-18T12:41:00.000Z</updated>
     
@@ -3162,19 +3162,19 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>数据库自定义字段</title>
-    <link href="https://godhearing.cn/2018/04/26/shu-ju-ku-zi-ding-yi-zi-duan/"/>
-    <id>https://godhearing.cn/2018/04/26/shu-ju-ku-zi-ding-yi-zi-duan/</id>
+    <link href="https://www.godhearing.cn/shu-ju-ku-zi-ding-yi-zi-duan/"/>
+    <id>https://www.godhearing.cn/shu-ju-ku-zi-ding-yi-zi-duan/</id>
     <published>2018-04-26T14:01:00.000Z</published>
     <updated>2018-04-26T14:01:00.000Z</updated>
     
@@ -3193,19 +3193,19 @@
     
     
     
-    <category term="mysql" scheme="https://godhearing.cn/categories/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/categories/mysql/"/>
     
     
-    <category term="设计模式" scheme="https://godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://www.godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
-    <category term="mysql" scheme="https://godhearing.cn/tags/mysql/"/>
+    <category term="mysql" scheme="https://www.godhearing.cn/tags/mysql/"/>
     
   </entry>
   
   <entry>
     <title>DRF基本操作</title>
-    <link href="https://godhearing.cn/2018/04/07/drf-ji-ben-cao-zuo/"/>
-    <id>https://godhearing.cn/2018/04/07/drf-ji-ben-cao-zuo/</id>
+    <link href="https://www.godhearing.cn/drf-ji-ben-cao-zuo/"/>
+    <id>https://www.godhearing.cn/drf-ji-ben-cao-zuo/</id>
     <published>2018-04-07T14:28:00.000Z</published>
     <updated>2018-04-07T14:28:00.000Z</updated>
     
@@ -3222,19 +3222,19 @@
     
     
     
-    <category term="Django" scheme="https://godhearing.cn/categories/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/categories/Django/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>聊天室</title>
-    <link href="https://godhearing.cn/2018/04/02/liao-tian-shi/"/>
-    <id>https://godhearing.cn/2018/04/02/liao-tian-shi/</id>
+    <link href="https://www.godhearing.cn/liao-tian-shi/"/>
+    <id>https://www.godhearing.cn/liao-tian-shi/</id>
     <published>2018-04-02T04:05:00.000Z</published>
     <updated>2018-04-02T04:05:00.000Z</updated>
     
@@ -3253,21 +3253,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="Vue" scheme="https://godhearing.cn/tags/Vue/"/>
+    <category term="Vue" scheme="https://www.godhearing.cn/tags/Vue/"/>
     
   </entry>
   
   <entry>
     <title>Celery</title>
-    <link href="https://godhearing.cn/2018/02/13/celery/"/>
-    <id>https://godhearing.cn/2018/02/13/celery/</id>
+    <link href="https://www.godhearing.cn/celery/"/>
+    <id>https://www.godhearing.cn/celery/</id>
     <published>2018-02-13T14:25:00.000Z</published>
     <updated>2018-02-13T14:25:00.000Z</updated>
     
@@ -3282,21 +3282,21 @@
     
     
     
-    <category term="Celery" scheme="https://godhearing.cn/categories/Celery/"/>
+    <category term="Celery" scheme="https://www.godhearing.cn/categories/Celery/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="Celery" scheme="https://godhearing.cn/tags/Celery/"/>
+    <category term="Celery" scheme="https://www.godhearing.cn/tags/Celery/"/>
     
   </entry>
   
   <entry>
     <title>Python的垃圾回收机制</title>
-    <link href="https://godhearing.cn/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/"/>
-    <id>https://godhearing.cn/2018/02/02/python-de-la-ji-hui-shou-ji-zhi/</id>
+    <link href="https://www.godhearing.cn/python-de-la-ji-hui-shou-ji-zhi/"/>
+    <id>https://www.godhearing.cn/python-de-la-ji-hui-shou-ji-zhi/</id>
     <published>2018-02-02T12:34:00.000Z</published>
     <updated>2018-02-02T12:34:00.000Z</updated>
     
@@ -3311,17 +3311,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>Hexo解决引用本地图片无法显示</title>
-    <link href="https://godhearing.cn/2018/01/24/hexo-jie-jue-yin-yong-ben-di-tu-pian-wu-fa-xian-shi/"/>
-    <id>https://godhearing.cn/2018/01/24/hexo-jie-jue-yin-yong-ben-di-tu-pian-wu-fa-xian-shi/</id>
+    <link href="https://www.godhearing.cn/hexo-jie-jue-yin-yong-ben-di-tu-pian-wu-fa-xian-shi/"/>
+    <id>https://www.godhearing.cn/hexo-jie-jue-yin-yong-ben-di-tu-pian-wu-fa-xian-shi/</id>
     <published>2018-01-24T13:06:00.000Z</published>
     <updated>2018-01-24T13:06:00.000Z</updated>
     
@@ -3338,17 +3338,17 @@
     
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Hexo搜索功能</title>
-    <link href="https://godhearing.cn/2018/01/24/hexo-sou-suo-gong-neng/"/>
-    <id>https://godhearing.cn/2018/01/24/hexo-sou-suo-gong-neng/</id>
+    <link href="https://www.godhearing.cn/hexo-sou-suo-gong-neng/"/>
+    <id>https://www.godhearing.cn/hexo-sou-suo-gong-neng/</id>
     <published>2018-01-24T03:21:00.000Z</published>
     <updated>2018-01-24T03:21:00.000Z</updated>
     
@@ -3366,17 +3366,17 @@
     
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/categories/Hexo/"/>
     
     
-    <category term="Hexo" scheme="https://godhearing.cn/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.godhearing.cn/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>FastAPI学习之路-2 SQLAlchemy</title>
-    <link href="https://godhearing.cn/2018/01/15/fastapi-xue-xi-zhi-lu-2-sqlalchemy/"/>
-    <id>https://godhearing.cn/2018/01/15/fastapi-xue-xi-zhi-lu-2-sqlalchemy/</id>
+    <link href="https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-2-sqlalchemy/"/>
+    <id>https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-2-sqlalchemy/</id>
     <published>2018-01-15T13:13:00.000Z</published>
     <updated>2018-01-15T13:13:00.000Z</updated>
     
@@ -3391,19 +3391,19 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
-    <category term="SQLAlchemy" scheme="https://godhearing.cn/tags/SQLAlchemy/"/>
+    <category term="SQLAlchemy" scheme="https://www.godhearing.cn/tags/SQLAlchemy/"/>
     
   </entry>
   
   <entry>
     <title>FastAPI学习之路-1</title>
-    <link href="https://godhearing.cn/2018/01/05/fastapi-xue-xi-zhi-lu-1/"/>
-    <id>https://godhearing.cn/2018/01/05/fastapi-xue-xi-zhi-lu-1/</id>
+    <link href="https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-1/"/>
+    <id>https://www.godhearing.cn/fastapi-xue-xi-zhi-lu-1/</id>
     <published>2018-01-05T08:33:00.000Z</published>
     <updated>2018-01-05T08:33:00.000Z</updated>
     
@@ -3419,17 +3419,17 @@
     
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/categories/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/categories/FastAPI/"/>
     
     
-    <category term="FastAPI" scheme="https://godhearing.cn/tags/FastAPI/"/>
+    <category term="FastAPI" scheme="https://www.godhearing.cn/tags/FastAPI/"/>
     
   </entry>
   
   <entry>
     <title>Git</title>
-    <link href="https://godhearing.cn/2017/12/31/git-ji-ben-cao-zuo/"/>
-    <id>https://godhearing.cn/2017/12/31/git-ji-ben-cao-zuo/</id>
+    <link href="https://www.godhearing.cn/git-ji-ben-cao-zuo/"/>
+    <id>https://www.godhearing.cn/git-ji-ben-cao-zuo/</id>
     <published>2017-12-31T12:27:00.000Z</published>
     <updated>2017-12-31T12:27:00.000Z</updated>
     
@@ -3444,19 +3444,19 @@
     
     
     
-    <category term="Git" scheme="https://godhearing.cn/categories/Git/"/>
+    <category term="Git" scheme="https://www.godhearing.cn/categories/Git/"/>
     
     
-    <category term="Git" scheme="https://godhearing.cn/tags/Git/"/>
+    <category term="Git" scheme="https://www.godhearing.cn/tags/Git/"/>
     
-    <category term="Markdown" scheme="https://godhearing.cn/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://www.godhearing.cn/tags/Markdown/"/>
     
   </entry>
   
   <entry>
     <title>递归</title>
-    <link href="https://godhearing.cn/2017/11/24/di-gui/"/>
-    <id>https://godhearing.cn/2017/11/24/di-gui/</id>
+    <link href="https://www.godhearing.cn/di-gui/"/>
+    <id>https://www.godhearing.cn/di-gui/</id>
     <published>2017-11-24T12:56:00.000Z</published>
     <updated>2017-11-24T12:56:00.000Z</updated>
     
@@ -3471,17 +3471,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>生成器和迭代器</title>
-    <link href="https://godhearing.cn/2017/11/20/sheng-cheng-qi-he-die-dai-qi/"/>
-    <id>https://godhearing.cn/2017/11/20/sheng-cheng-qi-he-die-dai-qi/</id>
+    <link href="https://www.godhearing.cn/sheng-cheng-qi-he-die-dai-qi/"/>
+    <id>https://www.godhearing.cn/sheng-cheng-qi-he-die-dai-qi/</id>
     <published>2017-11-20T07:33:00.000Z</published>
     <updated>2017-11-20T07:33:00.000Z</updated>
     
@@ -3497,17 +3497,17 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>Redis中pipline的使用</title>
-    <link href="https://godhearing.cn/2017/11/03/redis-de-pipline-shi-yong/"/>
-    <id>https://godhearing.cn/2017/11/03/redis-de-pipline-shi-yong/</id>
+    <link href="https://www.godhearing.cn/redis-de-pipline-shi-yong/"/>
+    <id>https://www.godhearing.cn/redis-de-pipline-shi-yong/</id>
     <published>2017-11-03T12:20:00.000Z</published>
     <updated>2017-11-03T12:20:00.000Z</updated>
     
@@ -3524,19 +3524,19 @@
     
     
     
-    <category term="Redis" scheme="https://godhearing.cn/categories/Redis/"/>
+    <category term="Redis" scheme="https://www.godhearing.cn/categories/Redis/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="redis" scheme="https://godhearing.cn/tags/redis/"/>
+    <category term="redis" scheme="https://www.godhearing.cn/tags/redis/"/>
     
   </entry>
   
   <entry>
     <title>Django配置</title>
-    <link href="https://godhearing.cn/2017/11/01/django-pei-zhi/"/>
-    <id>https://godhearing.cn/2017/11/01/django-pei-zhi/</id>
+    <link href="https://www.godhearing.cn/django-pei-zhi/"/>
+    <id>https://www.godhearing.cn/django-pei-zhi/</id>
     <published>2017-11-01T14:32:00.000Z</published>
     <updated>2017-11-01T14:32:00.000Z</updated>
     
@@ -3551,19 +3551,19 @@
     
     
     
-    <category term="Django" scheme="https://godhearing.cn/categories/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/categories/Django/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>DRF操作</title>
-    <link href="https://godhearing.cn/2017/11/01/drf-cao-zuo/"/>
-    <id>https://godhearing.cn/2017/11/01/drf-cao-zuo/</id>
+    <link href="https://www.godhearing.cn/drf-cao-zuo/"/>
+    <id>https://www.godhearing.cn/drf-cao-zuo/</id>
     <published>2017-11-01T12:27:00.000Z</published>
     <updated>2017-11-01T12:27:00.000Z</updated>
     
@@ -3579,19 +3579,19 @@
     
     
     
-    <category term="Django" scheme="https://godhearing.cn/categories/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/categories/Django/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
   </entry>
   
   <entry>
     <title>倒排索引与全文检索</title>
-    <link href="https://godhearing.cn/2017/10/30/dao-pai-suo-yin-yu-quan-wen-jian-suo/"/>
-    <id>https://godhearing.cn/2017/10/30/dao-pai-suo-yin-yu-quan-wen-jian-suo/</id>
+    <link href="https://www.godhearing.cn/dao-pai-suo-yin-yu-quan-wen-jian-suo/"/>
+    <id>https://www.godhearing.cn/dao-pai-suo-yin-yu-quan-wen-jian-suo/</id>
     <published>2017-10-30T13:40:00.000Z</published>
     <updated>2017-10-30T13:40:00.000Z</updated>
     
@@ -3606,21 +3606,21 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="Django" scheme="https://godhearing.cn/tags/Django/"/>
+    <category term="Django" scheme="https://www.godhearing.cn/tags/Django/"/>
     
-    <category term="全文检索" scheme="https://godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
+    <category term="全文检索" scheme="https://www.godhearing.cn/tags/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>浅谈进程和线程</title>
-    <link href="https://godhearing.cn/2017/09/15/qian-tan-jin-cheng-he-xian-cheng/"/>
-    <id>https://godhearing.cn/2017/09/15/qian-tan-jin-cheng-he-xian-cheng/</id>
+    <link href="https://www.godhearing.cn/qian-tan-jin-cheng-he-xian-cheng/"/>
+    <id>https://www.godhearing.cn/qian-tan-jin-cheng-he-xian-cheng/</id>
     <published>2017-09-15T02:58:00.000Z</published>
     <updated>2017-09-15T02:58:00.000Z</updated>
     
@@ -3635,19 +3635,19 @@
     
     
     
-    <category term="多任务" scheme="https://godhearing.cn/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    <category term="多任务" scheme="https://www.godhearing.cn/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
     
     
-    <category term="python" scheme="https://godhearing.cn/tags/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/tags/python/"/>
     
-    <category term="多任务" scheme="https://godhearing.cn/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
+    <category term="多任务" scheme="https://www.godhearing.cn/tags/%E5%A4%9A%E4%BB%BB%E5%8A%A1/"/>
     
   </entry>
   
   <entry>
     <title>Restful风格接口</title>
-    <link href="https://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/"/>
-    <id>https://godhearing.cn/2017/08/02/restful-feng-ge-jie-kou/</id>
+    <link href="https://www.godhearing.cn/restful-feng-ge-jie-kou/"/>
+    <id>https://www.godhearing.cn/restful-feng-ge-jie-kou/</id>
     <published>2017-08-02T08:24:00.000Z</published>
     <updated>2017-08-02T08:24:00.000Z</updated>
     
@@ -3662,10 +3662,10 @@
     
     
     
-    <category term="python" scheme="https://godhearing.cn/categories/python/"/>
+    <category term="python" scheme="https://www.godhearing.cn/categories/python/"/>
     
     
-    <category term="设计模式" scheme="https://godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <category term="设计模式" scheme="https://www.godhearing.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
