@@ -57,7 +57,7 @@
 <p>这个项目目录显然不会像是常见的web项目结构，肯定看上去很痛苦，这是很正常的，因为，我现在太痛了！ 伊苏尔德~~</p>
 <h2 id="生成代码"><a href="#生成代码" class="headerlink" title="生成代码"></a>生成代码</h2><p>生成代码需要你先手动建表，然后通过在<code>/manifest/config/config.yaml</code>新增数据库配置。</p>
 <p>然后添加一个tables标签，像是这样：</p>
-<img src="/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/image-20220426183822433.png" alt="" style="zoom:80%;" loading="lazy">
+<img src="/goframe-xue-xi-ri-ji-2-mo-kuai-hua-kai-fa/image-20220426183822433.png" alt style="zoom:80%;" loading="lazy">
 
 <p>也可以通过<a target="_blank" rel="noopener" href="https://goframe.org/pages/viewpage.action?pageId=1114373">这里</a>的方法，在<code>/internal/cmd/cmd.go</code>中，写上<code>g.Model("表名")</code>，这种方法也有一样的实现效果，不过吧，不是特别显性。个人不推荐。</p>
 <p>然后执行命令：</p>
