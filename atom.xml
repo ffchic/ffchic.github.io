@@ -6,7 +6,7 @@
   <link href="https://www.godhearing.cn/atom.xml" rel="self"/>
   
   <link href="https://www.godhearing.cn/"/>
-  <updated>2022-06-23T10:34:39.469Z</updated>
+  <updated>2022-08-09T04:22:52.020Z</updated>
   <id>https://www.godhearing.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>断点续传原理以及实现</title>
+    <link href="https://www.godhearing.cn/duan-dian-xu-chuan-yuan-li-yi-ji-shi-xian/"/>
+    <id>https://www.godhearing.cn/duan-dian-xu-chuan-yuan-li-yi-ji-shi-xian/</id>
+    <published>2022-08-08T10:06:40.000Z</published>
+    <updated>2022-08-09T04:22:52.020Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Golang" scheme="https://www.godhearing.cn/categories/Golang/"/>
+    
+    
+    <category term="Golang" scheme="https://www.godhearing.cn/tags/Golang/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux编译</title>
