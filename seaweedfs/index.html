@@ -61,7 +61,7 @@
 <p>首先呢，我们查看一下所有的命令，得知，可以使用master命令来进行启动</p>
 <pre class="language-python" data-language="python"><code class="language-python">weed master -ip=127.0.0.1</code></pre>
 
-<img src="/seaweedfs/image-20201222171848122.png" alt style="zoom:50%;" loading="lazy">
+<img src="/seaweedfs/image-20201222171848122.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>master节点设置好了之后，继续看文档，来设置volume节点</p>
 <blockquote>
@@ -70,18 +70,18 @@
 </blockquote>
 <pre class="language-python" data-language="python"><code class="language-python">weed volume -dir="./data" -max=10 -mserver="127.0.0.1:9333" -port=9000 -index=leveldb</code></pre>
 
-<img src="/seaweedfs/image-20201222172215662.png" alt style="zoom:50%;" loading="lazy">
+<img src="/seaweedfs/image-20201222172215662.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>然后访问一下<code>http://localhost:9333/</code>即可，好，一切ok，再查看一下状态</p>
 <pre class="language-python" data-language="python"><code class="language-python">"http://127.0.0.1:9333/cluster/status?pretty=y"</code></pre>
 
-<img src="/seaweedfs/image-20201222172408636.png" alt style="zoom:50%;" loading="lazy">
+<img src="/seaweedfs/image-20201222172408636.png" alt="" style="zoom:50%;" loading="lazy">
 
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>继续看文档，如果要写入文件，则需要发送请求到<code>/dir/assign</code>来获取<code>fid</code>和volume服务器url</p>
-<img src="/seaweedfs/image-20201222173140239.png" alt style="zoom:50%;" loading="lazy">
+<img src="/seaweedfs/image-20201222173140239.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>然后将fid拼接，发送文件，这里用postman测试一下</p>
-<img src="/seaweedfs/image-20201222175621056.png" alt style="zoom:50%;" loading="lazy">
+<img src="/seaweedfs/image-20201222175621056.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>发送成功，这时候你可以将<code>fid</code>存下</p>
 <blockquote>
@@ -91,7 +91,7 @@
 <p>文件密钥和文件cookie均以十六进制编码。可以使用自己的格式存储&lt;卷ID，文件密钥，文件cookie&gt;元组，也可以将<code>fid</code>存储。</p>
 </blockquote>
 <p>然后，怎么访问呢，当然是通过刚刚保存的fid啦，不过要<strong>注意</strong>，一定要先查找卷服务器的url，<code>http://localhost:9333/dir/lookup?volumeId=卷ID</code>，然后通过返回的<code>publicUrl</code>这个域名来进行查找</p>
-<img src="/seaweedfs/image-20201222180246784.png" alt style="zoom:50%;" loading="lazy">
+<img src="/seaweedfs/image-20201222180246784.png" alt="" style="zoom:50%;" loading="lazy">
 
 <p>要注意，这时，不只是可以用这个方式来访问，还可以使用</p>
 <pre class="language-none"><code class="language-none"># 卷id/密钥+文件cookie/文件名
