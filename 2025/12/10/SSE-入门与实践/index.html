@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    
+    <meta charset="UTF-8">
+    <title>SSE 入门与实践 - ffchic&#39;blog</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta property="og:site_name" content="ffchic&#39;blog">
+    <meta property="og:title" content="SSE 入门与实践"/>
+    
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>ffchic&#39;blog</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a href>分类</a>
+            <div class="sub-menu">
+                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+            </div>
+        </div>
+        
+            <a href="/about">关于我</a>
+        
+            <a href="/friends">朋友们</a>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>SSE 入门与实践</h2>
+            <div class="post-meta">
+                <time class="date">2025.12.10</time>
+            
+                <span class="category"><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>，<a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C/">网络</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <p>最近在做一个文字游戏，项目中涉及到与 AI 模型进行对话，需要<code>实时</code>接收模型的回复。考虑到<code>实时性</code>要求，我选择了使用<code>SSE</code>来实现。</p>
+<span id="more"></span>
+
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p><code>SSE</code> 全称 <code>Server-Sent Events</code>（服务器发送事件），是一种基于 <code>HTTP</code> 的服务器推送技术。它允许服务器通过一个持久连接<code>单向</code>、<code>实时</code>地向客户端（浏览器）推送数据，适合新闻更新、股票行情、通知等场景。</p>
+<h2 id="2-工作原理"><a href="#2-工作原理" class="headerlink" title="2. 工作原理"></a>2. 工作原理</h2><p>SSE 基于浏览器的 EventSource 发起一个持久的 HTTP GET 连接，服务器以 <code>Content-Type: text/event-stream</code> 连续写入事件流，数据按行传输并以空行分隔。常用字段：<code>event</code>（事件名，默认 <code>message</code>）、<code>data</code>（数据，支持多行拼接）、<code>id</code>（事件标识，用于断线续传）、<code>retry</code>（客户端重连间隔毫秒）。连接中断时浏览器会自动重连并携带 <code>Last-Event-ID</code>，服务端据此续传；为及时送达与保活，响应一般设置 <code>Cache-Control: no-cache</code>、<code>Connection: keep-alive</code>，并可周期写入注释行作为心跳（如 <code>: keep-alive</code>）。</p>
+<h2 id="3-SSE-与-WebSocket-对比"><a href="#3-SSE-与-WebSocket-对比" class="headerlink" title="3. SSE 与 WebSocket 对比"></a>3. SSE 与 WebSocket 对比</h2><ul>
+<li>协议与能力差异<br>SSE 基于标准 HTTP 的事件流（非长轮询），只支持服务器→客户端的<code>单向推送</code>；WebSocket 基于独立协议（依托 TCP）建立持久的<code>全双工</code>连接，支持<code>双向通信</code>。<br>SSE 更<code>轻量</code>，易于使用与部署；WebSocket 适用于需要频繁双向交互的场景。</li>
+<li>适用场景选择建议<br>SSE 适用于单向实时推送，如新闻、行情、通知等；WebSocket 适用于聊天室、协作编辑等需要双向实时交互的应用。<br>SSE 的浏览器支持较好（除老版 IE），WebSocket 的兼容性也良好；选择更关注业务模式与服务端资源管理。</li>
+</ul>
+<h2 id="4-服务端实现示例"><a href="#4-服务端实现示例" class="headerlink" title="4. 服务端实现示例"></a>4. 服务端实现示例</h2><p>使用 Hono 与 <code>hono/streaming</code> 实现 SSE：</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Hono</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;hono&#x27;</span><br><span class="hljs-keyword">import</span> &#123; serve &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@hono/node-server&#x27;</span><br><span class="hljs-keyword">import</span> &#123; streamSSE &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;hono/streaming&#x27;</span><br><br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()<br><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/sse&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">streamSSE</span>(c, <span class="hljs-function">(<span class="hljs-params">stream</span>) =&gt;</span> &#123;<br>    stream.<span class="hljs-title function_">writeSSE</span>(&#123; <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-attr">data</span>: <span class="hljs-string">&#x27;connected&#x27;</span> &#125;)<br>    <span class="hljs-keyword">const</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      stream.<span class="hljs-title function_">writeSSE</span>(&#123; <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-attr">data</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">toISOString</span>() &#125;)<br>    &#125;, <span class="hljs-number">1000</span>)<br>    stream.<span class="hljs-title function_">onAbort</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-built_in">clearInterval</span>(timer)<br>    &#125;)<br>  &#125;)<br>&#125;)<br><br><span class="hljs-title function_">serve</span>(&#123; <span class="hljs-attr">fetch</span>: app.<span class="hljs-property">fetch</span>, <span class="hljs-attr">port</span>: <span class="hljs-number">3000</span> &#125;)<br></code></pre></td></tr></table></figure>
+
+<p>安装依赖与运行示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install hono @hono/node-server<br>node index.js<br></code></pre></td></tr></table></figure>
+
+<h2 id="5-客户端使用示例"><a href="#5-客户端使用示例" class="headerlink" title="5. 客户端使用示例"></a>5. 客户端使用示例</h2><p>使用 React 订阅 SSE：</p>
+<figure class="highlight tsx"><table><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">import</span> &#123; useEffect, useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">SseDemo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> [messages, setMessages] = useState&lt;<span class="hljs-built_in">string</span>[]&gt;([])<br>  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> es = <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventSource</span>(<span class="hljs-string">&#x27;http://localhost:3000/sse&#x27;</span>)<br>    es.<span class="hljs-property">onmessage</span> = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>      <span class="hljs-title function_">setMessages</span>(<span class="hljs-function">(<span class="hljs-params">prev</span>) =&gt;</span> [...prev, e.<span class="hljs-property">data</span>])<br>    &#125;<br>    es.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;news&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> data = (e <span class="hljs-keyword">as</span> <span class="hljs-title class_">MessageEvent</span>).<span class="hljs-property">data</span><br>      <span class="hljs-title function_">setMessages</span>(<span class="hljs-function">(<span class="hljs-params">prev</span>) =&gt;</span> [...prev, data])<br>    &#125;)<br>    es.<span class="hljs-property">onerror</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>      es.<span class="hljs-title function_">close</span>()<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> es.<span class="hljs-title function_">close</span>()<br>  &#125;, [])<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>SSE Demo<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">        &#123;messages.map((m, i) =&gt; (</span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;i&#125;</span>&gt;</span>&#123;m&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        ))&#125;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  )<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>安装依赖与启动示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install react react-dom<br></code></pre></td></tr></table></figure>
+
+<h2 id="6-事件模型与数据格式"><a href="#6-事件模型与数据格式" class="headerlink" title="6. 事件模型与数据格式"></a>6. 事件模型与数据格式</h2><p>SSE 事件由若干“字段行”组成，以空行表示事件结束。常见字段：</p>
+<ul>
+<li><code>event</code>: 事件名（可选，默认 <code>message</code>）</li>
+<li><code>data</code>: 事件数据；允许出现多行 <code>data:</code>，客户端会拼接为一个消息体</li>
+<li><code>id</code>: 事件标识（可选）；浏览器断线重连时会在请求头携带 <code>Last-Event-ID</code>，服务端可据此续传</li>
+<li><code>retry</code>: 客户端重连间隔（毫秒，可选）</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><code class="hljs text">event: updates<br>id: 101<br>retry: 2000<br>data: &#123;&quot;status&quot;:&quot;ok&quot;,&quot;time&quot;:&quot;2025-12-10&quot;&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>多行数据示例（客户端将拼接为一条消息）：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><code class="hljs text">data: first line<br>data: second line<br><br></code></pre></td></tr></table></figure>
+
+<p>建议使用 JSON 作为数据格式；当需要持续推送大量记录时，可采用<code>NDJSON</code>（每行一个 JSON 对象），同时保持事件间的<code>空行</code>作为边界。</p>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2025/12/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8Bgithub-hexo/">博客搭建教程github+hexo</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/SSE/" rel="tag">SSE</a><a class="-none-link" href="/tags/Server-Sent-Events/" rel="tag">Server-Sent Events</a><a class="-none-link" href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" rel="tag">实时通信</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://sdn.geekzu.org/avatar/d22eb460ecab37fcd7205e6a3c55c228?s=200&r=X&d=" alt="Hingle" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Hingle</h4>
+                <p>ffchic</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <button class="to-top" href="#"></button>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/12/10/SSE-%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5/">SSE 入门与实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/12/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8Bgithub-hexo/">博客搭建教程github+hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/12/06/hello-world/">Hello World</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SSE/" style="font-size: 10px;">SSE</a> <a href="/tags/Server-Sent-Events/" style="font-size: 10px;">Server-Sent Events</a> <a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">实时通信</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2025 <a href="/">ffchic&#39;blog</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
