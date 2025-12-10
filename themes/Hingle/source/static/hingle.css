@@ -91,10 +91,39 @@ pre{
     color: inherit;
     border: 1px solid #ddd;
     border-color: var(--border);
-    background: linear-gradient(rgba(0, 0, 0, .05) 50%, transparent 0);
+    background: var(--code-bg, transparent);
     background-size: auto 3em;
     background-origin: content-box;
 }
+.highlight .gutter{ display: none }
+.highlight .code{ width: 100% }
+
+/* VS Code-like code theme */
+pre, code{ font-family: Menlo, Consolas, "Segoe UI Mono", "SFMono-Regular", "Courier New", monospace }
+:root{ --code-bg: #f5f5f5; --code-fg: #333 }
+.dark-theme{ --code-bg: #1e1e1e; --code-fg: #d4d4d4 }
+.highlight pre, pre code{ background: var(--code-bg); color: var(--code-fg) }
+.hljs{ background: var(--code-bg); color: var(--code-fg) }
+
+/* Dark (VS Code Dark+) */
+.dark-theme .hljs-comment, .dark-theme .hljs-quote{ color:#6a9955 }
+.dark-theme .hljs-keyword, .dark-theme .hljs-selector-tag{ color:#c586c0 }
+.dark-theme .hljs-string, .dark-theme .hljs-symbol, .dark-theme .hljs-bullet{ color:#ce9178 }
+.dark-theme .hljs-number{ color:#b5cea8 }
+.dark-theme .hljs-literal{ color:#569cd6 }
+.dark-theme .hljs-title, .dark-theme .hljs-name, .dark-theme .hljs-function .hljs-title{ color:#dcdcaa }
+.dark-theme .hljs-variable, .dark-theme .hljs-attr, .dark-theme .hljs-meta{ color:#9cdcfe }
+.dark-theme .hljs-type, .dark-theme .hljs-class .hljs-title{ color:#4ec9b0 }
+
+/* Light (VS Code Light+) */
+:not(.dark-theme) .hljs-comment, :not(.dark-theme) .hljs-quote{ color:#008000 }
+:not(.dark-theme) .hljs-keyword, :not(.dark-theme) .hljs-selector-tag{ color:#0000ff }
+:not(.dark-theme) .hljs-string, :not(.dark-theme) .hljs-symbol, :not(.dark-theme) .hljs-bullet{ color:#a31515 }
+:not(.dark-theme) .hljs-number{ color:#098658 }
+:not(.dark-theme) .hljs-literal{ color:#0000ff }
+:not(.dark-theme) .hljs-title, :not(.dark-theme) .hljs-name, :not(.dark-theme) .hljs-function .hljs-title{ color:#795e26 }
+:not(.dark-theme) .hljs-variable, :not(.dark-theme) .hljs-attr, :not(.dark-theme) .hljs-meta{ color:#001080 }
+:not(.dark-theme) .hljs-type, :not(.dark-theme) .hljs-class .hljs-title{ color:#2b91af }
 
 blockquote{
     border-color: #6f9fc7;
