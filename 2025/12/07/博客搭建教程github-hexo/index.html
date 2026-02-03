@@ -17,6 +17,19 @@
     <meta property="og:site_name" content="ffchic&#39;blog">
     <meta property="og:title" content="博客搭建教程github+hexo"/>
     
+    <!-- MathJax -->
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
 <meta name="generator" content="Hexo 8.1.1"></head>
 
   <body>
@@ -63,7 +76,6 @@
         
             <p>本文将详细介绍如何使用 Hexo 框架配合 GitHub Pages 搭建个人博客，并整理了 Hexo 的常用命令供查阅。</p>
 <span id="more"></span>
-
 <h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h2><p>在开始之前，请确保你的电脑已经安装了以下环境：</p>
 <ul>
 <li><strong>Node.js</strong> (推荐 LTS 版本)</li>
@@ -71,20 +83,15 @@
 </ul>
 <h2 id="2-安装-Hexo"><a href="#2-安装-Hexo" class="headerlink" title="2. 安装 Hexo"></a>2. 安装 Hexo</h2><p>打开终端（Terminal），运行以下命令全局安装 Hexo：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
-
 <h2 id="3-初始化项目"><a href="#3-初始化项目" class="headerlink" title="3. 初始化项目"></a>3. 初始化项目</h2><p>选择一个文件夹作为你的博客目录，然后运行：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo init my-blog<br><span class="hljs-built_in">cd</span> my-blog<br>npm install<br></code></pre></td></tr></table></figure>
-
 <h2 id="4-部署到-GitHub-Pages"><a href="#4-部署到-GitHub-Pages" class="headerlink" title="4. 部署到 GitHub Pages"></a>4. 部署到 GitHub Pages</h2><h3 id="4-1-创建仓库"><a href="#4-1-创建仓库" class="headerlink" title="4.1 创建仓库"></a>4.1 创建仓库</h3><p>在 GitHub 上创建一个新的仓库，仓库名为 <code>username.github.io</code>（将 <code>username</code> 替换为你的 GitHub 用户名）。</p>
 <h3 id="4-2-安装部署插件"><a href="#4-2-安装部署插件" class="headerlink" title="4.2 安装部署插件"></a>4.2 安装部署插件</h3><p>在博客根目录下运行：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
-
 <h3 id="4-3-配置-config-yml"><a href="#4-3-配置-config-yml" class="headerlink" title="4.3 配置 _config.yml"></a>4.3 配置 _config.yml</h3><p>打开根目录下的 <code>_config.yml</code> 文件，找到 <code>deploy</code> 部分，修改如下：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">git@github.com:username/username.github.io.git</span>  <span class="hljs-comment"># 推荐使用 SSH</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">gh-pages</span><br></code></pre></td></tr></table></figure>
-
 <h3 id="4-4-部署"><a href="#4-4-部署" class="headerlink" title="4.4 部署"></a>4.4 部署</h3><p>运行以下命令将网站部署到 GitHub：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo deploy<br></code></pre></td></tr></table></figure>
-
 <h2 id="5-Hexo-常用命令速查"><a href="#5-Hexo-常用命令速查" class="headerlink" title="5. Hexo 常用命令速查"></a>5. Hexo 常用命令速查</h2><p>以下是 Hexo 开发中最高频使用的命令：</p>
 <h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><ul>
 <li><p><strong>初始化</strong></p>
@@ -100,7 +107,8 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo server    <span class="hljs-comment"># 简写: hexo s</span><br><span class="hljs-comment"># 默认访问地址: http://localhost:4000</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>部署</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo deploy    <span class="hljs-comment"># 简写: hexo d</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo deploy    <span class="hljs-comment"># 简写: hexo d</span><br></code></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="组合命令-推荐"><a href="#组合命令-推荐" class="headerlink" title="组合命令 (推荐)"></a>组合命令 (推荐)</h3><ul>
 <li><p><strong>清除缓存并生成</strong></p>
@@ -110,14 +118,16 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo s<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>生成并部署</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo g -d<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo g -d<br></code></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><ul>
 <li><p><strong>清除缓存</strong></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo clean     <span class="hljs-comment"># 清除缓存文件 (db.json) 和已生成的静态文件 (public)</span><br><span class="hljs-comment"># 当发现样式修改没生效时，一定要运行这个命令</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p><strong>查看版本</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo version<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo version<br></code></pre></td></tr></table></figure>
+</li>
 </ul>
 <h2 id="6-常见问题"><a href="#6-常见问题" class="headerlink" title="6. 常见问题"></a>6. 常见问题</h2><ul>
 <li><strong>部署失败</strong>：检查 <code>repo</code> 地址是否正确，SSH Key 是否配置。</li>

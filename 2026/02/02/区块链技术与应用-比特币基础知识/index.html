@@ -17,6 +17,19 @@
     <meta property="og:site_name" content="ffchic&#39;blog">
     <meta property="og:title" content="区块链技术与应用-比特币基础知识"/>
     
+    <!-- MathJax -->
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
 <meta name="generator" content="Hexo 8.1.1"></head>
 
   <body>
@@ -63,19 +76,19 @@
         
             <p>本篇是学习笔记：最近工作和学习中总觉得自己掌握的知识还不够，就想系统补一补。听朋友说 Web3 方向机会不少（也有一些远程岗位），我就在 B 站找到了北京大学肖臻老师的课程。</p>
 <p>接下来我会根据课程内容写几篇对应的博客；对我来说，更准确地说是“笔记”。</p>
-<h2 id="密码学原理"><a href="#密码学原理" class="headerlink" title="密码学原理"></a>密码学原理</h2><p>比特币（Bitcoin）主要用到密码学的两个核心功能：<strong>哈希（Hash）<strong>和</strong>签名（Signature）</strong></p>
+<h2 id="密码学原理"><a href="#密码学原理" class="headerlink" title="密码学原理"></a>密码学原理</h2><p>比特币（Bitcoin）主要用到密码学的两个核心功能：<strong>哈希（Hash）</strong>和<strong>签名（Signature）</strong></p>
 <h3 id="Hash（哈希函数）"><a href="#Hash（哈希函数）" class="headerlink" title="Hash（哈希函数）"></a>Hash（哈希函数）</h3><p>比特币中使用的哈希函数是 <strong>SHA-256</strong> (Secure Hash Algorithm 256)。它在此处应用中需要满足以下三个关键性质：</p>
 <h4 id="1-Collision-Resistance（抗碰撞性）"><a href="#1-Collision-Resistance（抗碰撞性）" class="headerlink" title="1. Collision Resistance（抗碰撞性）"></a>1. Collision Resistance（抗碰撞性）</h4><ul>
-<li><strong>定义</strong>：对于哈希函数 $H$，如果输入 $x \neq y$，但 $H(x) &#x3D; H(y)$，这种情况称为“哈希碰撞”。</li>
-<li><strong>性质</strong>：虽然从理论上讲，输入空间是无限的而输出空间（256位）是有限的，碰撞必然存在；但在实际应用中，想要人为找到两个不同的输入 $m$ 和 $m’$ 使得 $H(m) &#x3D; H(m’)$ 是<strong>计算上不可行</strong>的（除非使用蛮力破解，但这几近不可能完成）。</li>
+<li><strong>定义</strong>：对于哈希函数 $H$，如果输入 $x \neq y$，但 $H(x) = H(y)$，这种情况称为“哈希碰撞”。</li>
+<li><strong>性质</strong>：虽然从理论上讲，输入空间是无限的而输出空间（256位）是有限的，碰撞必然存在；但在实际应用中，想要人为找到两个不同的输入 $m$ 和 $m’$ 使得 $H(m) = H(m’)$ 是<strong>计算上不可行</strong>的（除非使用蛮力破解，但这几近不可能完成）。</li>
 <li><strong>作用</strong>：这一特性保证了信息的<strong>防篡改</strong>。我们可以对一个消息 <code>message</code> 求摘要 <code>digest = H(message)</code>。如果 <code>message</code> 被篡改，其 Hash 值必然变化，从而被轻易发现。</li>
 </ul>
-<h4 id="2-Hiding（隐藏性-单向性）"><a href="#2-Hiding（隐藏性-单向性）" class="headerlink" title="2. Hiding（隐藏性 &#x2F; 单向性）"></a>2. Hiding（隐藏性 &#x2F; 单向性）</h4><ul>
+<h4 id="2-Hiding（隐藏性-单向性）"><a href="#2-Hiding（隐藏性-单向性）" class="headerlink" title="2. Hiding（隐藏性 / 单向性）"></a>2. Hiding（隐藏性 / 单向性）</h4><ul>
 <li><strong>定义</strong>：哈希函数的计算过程是<strong>单向不可逆</strong>的。给定输入 $x$，很容易计算出 $H(x)$；但给定 $H(x)$，很难反推出 $x$。</li>
 <li><strong>注意</strong>：为了保证 Hiding 的安全性，输入空间必须足够大。如果输入的取值范围很小，攻击者可以通过遍历所有可能的输入来破解。</li>
 <li><strong>解决方案</strong>：在实际应用中，通常会在输入值后面拼接一个随机数（nonce），即计算 $H(x \ || \ \text{nonce})$，从而保证输入空间足够大，防止暴力破解。</li>
 </ul>
-<h4 id="3-Puzzle-Friendly（谜题友好-难以预测）"><a href="#3-Puzzle-Friendly（谜题友好-难以预测）" class="headerlink" title="3. Puzzle Friendly（谜题友好 &#x2F; 难以预测）"></a>3. Puzzle Friendly（谜题友好 &#x2F; 难以预测）</h4><ul>
+<h4 id="3-Puzzle-Friendly（谜题友好-难以预测）"><a href="#3-Puzzle-Friendly（谜题友好-难以预测）" class="headerlink" title="3. Puzzle Friendly（谜题友好 / 难以预测）"></a>3. Puzzle Friendly（谜题友好 / 难以预测）</h4><ul>
 <li><strong>定义</strong>：哈希值的输出是不可预测的。如果希望哈希值的输出落在某个特定的范围内（例如前 $k$ 位都是 0），没有比随机尝试输入更好的方法。</li>
 <li><strong>挖矿应用</strong>：比特币的“挖矿”就是基于这一性质。矿工需要不断尝试不同的随机数（Nonce），与区块头信息组合在一起计算 Hash，直到找到一个结果满足特定的“难度目标”（例如前多少位必须为 0）。</li>
 <li><strong>特点</strong>：寻找这个合法的输入非常困难（Difficult to solve），需要消耗大量算力，这就是<strong>工作量证明（Proof of Work）</strong>；但验证结果非常容易（Easy to verify），只需进行一次哈希运算即可。</li>
@@ -95,7 +108,7 @@
 </li>
 <li><p><strong>非对称加密（Public-key Cryptography）</strong>：</p>
 <ul>
-<li>每个用户生成一对密钥：<strong>公钥（Public Key）<strong>和</strong>私钥（Private Key）</strong>。</li>
+<li>每个用户生成一对密钥：<strong>公钥（Public Key）</strong>和<strong>私钥（Private Key）</strong>。</li>
 <li>公钥可以对外公开，私钥必须严格保密。</li>
 <li><strong>加密场景</strong>：发送方使用接收方的公钥加密，接收方用自己的私钥解密。这样即便密文在网络上传输，也只有拥有私钥的人能解开。</li>
 </ul>
@@ -114,7 +127,7 @@
 </li>
 <li><strong>结论</strong>：如果验证通过，说明这笔交易一定是由持有私钥的人（即 A 本人）发起的。</li>
 </ul>
-<h4 id="3-安全性基础"><a href="#3-安全性基础" class="headerlink" title="3. 安全性基础"></a>3. 安全性基础</h4><p>可能有同学会问：<em>“如果我不停地通过暴力手段生成公私钥对，有没有可能碰巧生成一个和别人一模一样的公私钥，然后偷走他的钱？”</em></p>
+<h4 id="3-安全性基础"><a href="#3-安全性基础" class="headerlink" title="3. 安全性基础"></a>3. 安全性基础</h4><p><em>“如果我不停地通过暴力手段生成公私钥对，有没有可能碰巧生成一个和别人一模一样的公私钥，然后偷走他的钱？”</em></p>
 <ul>
 <li><strong>理论上的可能性</strong>：确实存在。</li>
 <li><strong>实际上的不可能性</strong>：这种概率在数学上微乎其微，在现有的算力条件下被认为是不可行的。</li>
