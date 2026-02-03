@@ -36,4 +36,17 @@
     <% if (theme.background) { %>
     <style>body:before{ content: ''; background-image: url(<%- theme.background %>) }</style>
     <% } %>
+    <!-- MathJax -->
+    <% if (theme.mathjax || config.math) { %>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <% } %>
 </head>
