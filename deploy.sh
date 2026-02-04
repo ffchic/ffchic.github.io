@@ -16,22 +16,17 @@ while getopts "m:" opt; do
   esac
 done
 
-# 1. 部署到 GitHub Pages (网站内容)
-echo -e "\033[0;32m[1/4] Cleaning cache... \033[0m"
-npx hexo clean
+# Cloudflare Pages 会自动监听 main 分支并进行构建
+# 所以我们只需要把源码 push 上去即可
 
-echo -e "\033[0;32m[2/4] Generating static files... \033[0m"
-npx hexo generate
+echo -e "\033[0;32m[1/2] Staging changes... \033[0m"
+git add .
 
-echo -e "\033[0;32m[3/4] Deploying to GitHub Pages... \033[0m"
-npx hexo deploy
-
-# 2. 备份源码到 GitHub Main 分支 (源码备份)
-echo -e "\033[0;32m[4/4] Backing up source code... \033[0m"
+echo -e "\033[0;32m[2/2] Pushing to GitHub (Triggering Cloudflare Build)... \033[0m"
 echo -e "Commit message: $COMMIT_MSG"
 
-git add .
 git commit -m "$COMMIT_MSG"
 git push origin main
 
-echo -e "\033[0;32m🎉 All done! Site deployed and source backed up. \033[0m"
+echo -e "\033[0;32m🎉 Code pushed! Cloudflare will update your site in a few minutes. \033[0m"
+echo -e "\033[0;36m👉 Check status: https://dash.cloudflare.com/ \033[0m"
