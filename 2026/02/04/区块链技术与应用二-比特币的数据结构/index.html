@@ -3,7 +3,7 @@
   <head>
     
     <meta charset="UTF-8">
-    <title>2025 年 12 月 - ffchic&#39;blog</title>
+    <title>区块链技术与应用二 比特币的数据结构 - ffchic&#39;blog</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta property="og:site_name" content="ffchic&#39;blog">
-    <meta property="og:title" content=""/>
+    <meta property="og:title" content="区块链技术与应用二 比特币的数据结构"/>
     
     <!-- MathJax -->
     
@@ -63,67 +63,50 @@
 
     <main>
     <div class="wrap min">
-        <section class="home-title">
+        <section class="post-title">
+            <h2>区块链技术与应用二 比特币的数据结构</h2>
+            <div class="post-meta">
+                <time class="date">2026.02.04</time>
             
-            <h1>“2025 年 12 月”</h1>
+                <span class="category"><a class="category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>，<a class="category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/web3/">web3</a></span>
+            
+            </div>
         </section>
-        <section class="home-posts">
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2025/12/10/SSE-%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5/">SSE 入门与实践</a>
-        </h2>
-    
-        <p>最近在做一个文字游戏，项目中涉及到与 AI 模型进行对话，需要实时接收模型的回复。考虑到实时性要求，我选择了使用SSE来实现。</p>
-    
-        <div class="post-meta">
-            <time class="date">2025.12.10</time>
-            
-                <span class="category"><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>，<a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C/">网络</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/SSE/" rel="tag">SSE</a>，<a class="-none-link" href="/tags/Server-Sent-Events/" rel="tag">Server-Sent Events</a>，<a class="-none-link" href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" rel="tag">实时通信</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2025/12/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8Bgithub-hexo/">博客搭建教程github+hexo</a>
-        </h2>
-    
-        <p>本文将详细介绍如何使用 Hexo 框架配合 GitHub Pages 搭建个人博客，并整理了 Hexo 的常用命令供查阅。</p>
-    
-        <div class="post-meta">
-            <time class="date">2025.12.07</time>
-            
-                <span class="category"><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></span>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/GitHub/" rel="tag">GitHub</a>，<a class="-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>，<a class="-none-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></span>
-            
-        </div>
-    </div>
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2025/12/06/hello-world/">Hello World</a>
-        </h2>
-    
-        <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any ...</p>
-    
-        <div class="post-meta">
-            <time class="date">2025.12.06</time>
-            
-            
-        </div>
-    </div>
-    
-</section>
+        <article class="post-content">
+        
+            <h3 id="比特币的数据结构"><a href="#比特币的数据结构" class="headerlink" title="比特币的数据结构"></a>比特币的数据结构</h3><p>hash pointers（哈希指针）：正常的指针一般只会保持一个结构体的内存地址，但hash指针在这基础上还会存放这个结构体的hash值。这样使用这个hash指针不光能找到这个结构体的位置，还能发现这个结构体是否有被篡改</p>
+<p>区块链：区块链就是一个一个区块组成的链表，他与普通链表的区别之一就是用hash指针代替了普通指针</p>
+<p>如图中所示，这是一个非常简单的区块链，最前面的区块叫做创世纪块geenesis block，最后一个区块是最近产生的一个区块most recent。每个区块都包含了前一个区块的hash指针，最后的一个区块的hash指针保存在系统中 。<br>如果有人对链中的某个区块进行篡改，那么后续的所有区块的hash值都需要篡改，但是最后一个区块的hash指针是我们系统中保存的。这样的好处就是我们只需要保存最好一个区块的hash值就可以验证全部链上的区块是否被篡改。<br>要验证的话也是同理，使用后面区块保存的前一个区块的hash值去验证前一个区块是否被篡改<br><img src="/2026/02/04/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E4%BA%8C-%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/btc-data-structure-hash-pointer.png" class="" title="哈希指针示意图"></p>
 
-        <section class="page-navigator">
-            <span class="page-number current">1</span>
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2026/02/02/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E4%B8%80%20%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86/">区块链技术与应用一 密码学原理</a></li>
+                
+            </ul>
         </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/web3/" rel="tag">web3</a><a class="-none-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag">区块链</a><a class="-none-link" href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" rel="tag">比特币</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://sdn.geekzu.org/avatar/d22eb460ecab37fcd7205e6a3c55c228?s=200&r=X&d=" alt="Hingle" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>Hingle</h4>
+                <p>ffchic</p>
+            </div>
+        </section>
+    
     </div>
 </main>
 
