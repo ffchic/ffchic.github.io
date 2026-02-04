@@ -8,4 +8,4 @@ layout: page
 
 欢迎互换友链！
 
-- [Example Blog](https://example.com) - 这是一个示例链接
+- [天乐坊](https://skyle.fun/) - 自称后端的菜鸡
