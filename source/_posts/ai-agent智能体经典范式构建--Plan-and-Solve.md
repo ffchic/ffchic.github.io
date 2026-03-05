@@ -254,5 +254,5 @@ class PlanAndSolveAgent:
 --- 任务完成 ---
 🎉 最终答案: 70
 ```
-
+完整代码及输出可以查看 [Plan-and-Solve 示例代码](https://github.com/ffchic/llm-dome/tree/main/Plan-and-Solve)
 至此，一个从设计到实现的**标准 Plan-and-Solve 范式**智能体便跃然纸上。相比起 ReAct 范式的见机行事，Plan-and-Solve 确实更加稳健，更像是“运筹帷幄之中，决胜千里之外”。
