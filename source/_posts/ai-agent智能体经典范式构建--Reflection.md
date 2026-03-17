@@ -23,19 +23,20 @@ tags: [AI Agent, 智能体, LLM, 架构设计]
 
 3. **优化 (Refinement)**：最后，智能体将“初稿”和“反馈”作为新的上下文，再次调用大语言模型，要求它根据反馈内容对初稿进行修正，生成一个更完善的“修订稿”。
 
-如图所示，这个循环可以重复进行多次，直到反思阶段不再发现新的问题，或者达到预设的迭代次数上限。我们可以将这个迭代优化的过程形式化地表达出来。假设 $O\_i$ 是第 $i$ 次迭代产生的输出（$O\_0$ 为初始输出），反思模型 $\pi\_{\text{reflect}}$ 会生成针对 $O\_i$ 的反馈 $F\_i$：
+如图所示，这个循环可以重复进行多次，直到反思阶段不再发现新的问题，或者达到预设的迭代次数上限。我们可以将这个迭代优化的过程形式化地表达出来。假设 {% raw %}$O_i${% endraw %} 是第 {% raw %}$i${% endraw %} 次迭代产生的输出（{% raw %}$O_0${% endraw %} 为初始输出），反思模型 {% raw %}$\pi_{\text{reflect}}${% endraw %} 会生成针对 {% raw %}$O_i${% endraw %} 的反馈 {% raw %}$F_i${% endraw %}：
 
 $$
 F_i = \pi_{\text{reflect}}(\text{Task}, O_i)
 $$
 
-随后，优化模型 $\pi\_{\text{refine}}$ 会结合原始任务、上一版输出以及反馈，生成新一版的输出 $O\_{i+1}$：
+随后，优化模型 {% raw %}$\pi_{\text{refine}}${% endraw %} 会结合原始任务、上一版输出以及反馈，生成新一版的输出 {% raw %}$O_{i+1}${% endraw %}：
 
 $$
 O_{i+1} = \pi_{\text{refine}}(\text{Task}, O_i, F_i)
 $$
 
-![Reflection 架构图](ai-agent智能体经典范式构建--Reflection/reflection-architecture.png)
+{% asset_img reflection-architecture.png reflection流程 %}
+
 
 这张架构图详细展示了带有反思机制的智能体（Agent）是如何在环境中完整运作的。它的核心是一个不断循环并且自我优化的系统，主要包含以下几个关键模块：
 
@@ -314,3 +315,5 @@ Reflection 机制在提升智能体解决任务的质量上表现出色，但同
 - 生成关键的业务代码或技术报告。
 - 在科学研究中进行复杂的逻辑推演。
 - 需要深度分析和规划的决策支持系统。
+
+完整代码及输出可以查看 [ReAct 示例代码](https://github.com/ffchic/llm-dome/tree/main/Reflection)
