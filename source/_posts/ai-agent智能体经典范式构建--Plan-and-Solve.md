@@ -1,7 +1,9 @@
 ---
 title: ai-agent智能体经典范式构建--Plan-and-Solve
 date: 2026-03-04 16:19:52
-categories: [技术, AI]
+categories:
+  - [技术]
+  - [AI]
 tags: [AI Agent, 智能体, LLM, 架构设计]
 ---
 

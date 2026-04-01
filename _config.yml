@@ -111,3 +111,9 @@ mathjax:
   normal_width: 0.6
   append_css: true
   every_page: false
+
+search:
+  path: search.json
+  field: post
+  content: true
+  format: html

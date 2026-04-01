@@ -999,3 +999,70 @@ pre[class*="language-"].line-numbers {
     padding-right: 0.8em;
     text-align: right;
 }
+
+/* 本地搜索结果样式 */
+#local-search-result {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    margin-top: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 999;
+    text-align: left;
+}
+.dark-theme #local-search-result {
+    background: #333;
+    color: #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+#local-search-result .search-result-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#local-search-result .search-result-list li {
+    border-bottom: 1px solid #eee;
+}
+.dark-theme #local-search-result .search-result-list li {
+    border-color: #444;
+}
+#local-search-result .search-result-list li:last-child {
+    border-bottom: none;
+}
+#local-search-result .search-result-title {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.dark-theme #local-search-result .search-result-title {
+    color: #eee;
+}
+#local-search-result .search-result-title:hover {
+    background: #f7f7f7;
+    color: #03a9f4;
+}
+.dark-theme #local-search-result .search-result-title:hover {
+    background: #444;
+    color: #81d4fa;
+}
+#local-search-result .search-empty {
+    padding: 16px;
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+    #local-search-result {
+        width: 100%;
+        left: 0;
+    }
+}

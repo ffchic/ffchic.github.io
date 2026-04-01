@@ -8,7 +8,8 @@
         <div class="search-btn"></div>
     </div>
     <form class="head-search" method="post">
-        <input type="text" name="s" placeholder="搜索什么？">
+        <input type="text" id="local-search-input" name="s" placeholder="搜索什么？">
+        <div id="local-search-result" class="local-search-result-cls"></div>
     </form>
     <nav class="head-menu">
         <a href="<%= url_for() %>">首页</a>

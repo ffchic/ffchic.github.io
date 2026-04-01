@@ -177,19 +177,86 @@ var Paul_Hingle = function (config) {
 
 
     //
-    // ! Hexo 特别功能
-    //
-
-    // Hexo 百度搜索
+    // ! Hexo 站内搜索功能
     this.hexo_search = function () {
         var form = ks.select(".head-search"), input = ks.select(".head-search input");
+        var resultContainer = ks.select("#local-search-result");
+        var isFetched = false;
+        var searchData = [];
 
+        input.oninput = function() {
+            var keyword = input.value.trim().toLowerCase();
+            if (!keyword) {
+                resultContainer.innerHTML = "";
+                resultContainer.style.display = "none";
+                return;
+            }
+
+            if (!isFetched) {
+                fetch('/search.json')
+                    .then(res => res.json())
+                    .then(data => {
+                        searchData = data;
+                        isFetched = true;
+                        renderSearch(keyword);
+                    })
+                    .catch(e => console.error(e));
+            } else {
+                renderSearch(keyword);
+            }
+        };
+
+        function renderSearch(keyword) {
+            resultContainer.innerHTML = "";
+            if (!keyword) {
+                resultContainer.style.display = "none";
+                return;
+            }
+            var matchingData = searchData.filter(function(data) {
+                var isMatch = false;
+                if (data.title && data.title.trim().toLowerCase().indexOf(keyword) >= 0) isMatch = true;
+                if (data.content && data.content.trim().toLowerCase().indexOf(keyword) >= 0) isMatch = true;
+                return isMatch;
+            });
+
+            if (matchingData.length === 0) {
+                resultContainer.innerHTML = "<div class='search-empty'>未能找到相关内容</div>";
+                resultContainer.style.display = "block";
+                return;
+            }
+
+            var html = '<ul class="search-result-list">';
+            matchingData.forEach(function(data) {
+                var itemUrl = data.url || data.path || "";
+                if (itemUrl && !itemUrl.startsWith('/')) {
+                    itemUrl = '/' + itemUrl;
+                }
+                html += '<li><a href="' + itemUrl + '" class="search-result-title">' + data.title + '</a></li>';
+            });
+            html += '</ul>';
+            resultContainer.innerHTML = html;
+            resultContainer.style.display = "block";
+        }
+
+        // 处理点击外部隐藏搜索结果
+        document.addEventListener('click', function(e) {
+            if (!form.contains(e.target)) {
+                resultContainer.style.display = 'none';
+            }
+        });
+        
+        // 聚焦时如果已有内容则显示
+        input.addEventListener('focus', function() {
+            if (input.value.trim().length > 0 && resultContainer.innerHTML !== "") {
+                resultContainer.style.display = 'block';
+            }
+        });
+
+        // 屏蔽回车跳页
         form.onsubmit = function (ev) {
             ev.preventDefault();
-
-            window.open("https://www.baidu.com/s?wd=site:" + location.host + " " + input.value.trim());
-        }
-    }
+        };
+    };
 
     this.hexo_search();
 };
