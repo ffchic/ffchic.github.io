@@ -39,4 +39,4 @@ layout: page
 
 <br>
 
-[![GitHub](https://img.shields.io/badge/GitHub-ffchic-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ffchic)
+<a href="https://github.com/ffchic" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-ffchic-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" class="no-zoom"></a>

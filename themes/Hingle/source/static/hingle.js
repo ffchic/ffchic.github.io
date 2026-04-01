@@ -195,7 +195,7 @@ var Paul_Hingle = function (config) {
 };
 
 // 图片缩放
-ks.image(".post-content:not(.is-special) img, .page-content:not(.is-special) img");
+ks.image(".post-content:not(.is-special) img:not(.no-zoom), .page-content:not(.is-special) img:not(.no-zoom)");
 
 // 请保留版权说明
 if(window.console && window.console.log){
