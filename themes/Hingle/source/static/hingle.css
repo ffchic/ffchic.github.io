@@ -567,20 +567,25 @@ article img{
 .post-content, .page-content{ animation: fade-in-top .3s .2s backwards; -webkit-animation: fade-in-top .3s .2s backwards; }
 .post-content, .page-content, .post-near, .post-tags, .post-author{ margin-bottom: 3em }
 
-article h1, article h2, article h3{
+article h1, article h2, article h3, article h4, article h5, article h6{
     margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
     scroll-margin-top: 5em;
 }
 
-article h2{ font-size: 1.15em }
-article h3{ font-size: 1.10em }
-article h4{ font-size: 1.05em }
-article h5{ font-size: 1em }
-article h6{ font-size: .9em }
+article h2{ font-size: 1.5em; border-bottom: 1px solid #eee; border-color: var(--light-border); padding-bottom: .3em; }
+article h3{ font-size: 1.3em; }
+article h4{ font-size: 1.15em; }
+article h5{ font-size: 1.05em; }
+article h6{ font-size: 1em; }
 
 article h1:before,
 article h2:before,
-article h3:before{
+article h3:before,
+article h4:before,
+article h5:before,
+article h6:before{
     content: "#";
     color: #6f9fc7;
     color: var(--blue);
