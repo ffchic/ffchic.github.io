@@ -133,3 +133,39 @@ client = OpenAIChatCompletionClient(
 > **避坑指南：**虽然当前绝大多数模型都能听懂“输出 JSON”的指令（即支持 `json_output`），但底层引擎直接支持严格 `structured_output` 模式的模型并不算多。该特性目前更广泛且成熟地应用于 OpenAI 的官方原生模型（如 `GPT-4o` 等）。
 > 
 > 在上文的示例代码中，我们对接的是第三方 DeepSeek 服务，受限于 API 的原生支持情况，所以这里我们暂时将 `structured_output` 设置成了 `False`。
+
+
+## AutoGen 的 Agent (智能体)
+
+```python
+# AssistantAgent 是 AutoGen 中最基础的对话智能体，负责与语言模型交互并生成回复
+from autogen_agentchat.agents import AssistantAgent
+
+coding_assistant = AssistantAgent(
+    name="CodingMentor",        # 智能体名称，用于标识和日志输出
+    model_client=client,        # 绑定上面创建的模型客户端
+    system_message="""你是一位专业的 Python 编程导师。
+    你的职责是:
+    1. 清晰地解释编程概念
+    2. 提供带注释的代码示例
+    3. 建议最佳实践
+    4. 帮助调试问题
+
+    总是用 Markdown 格式化代码，并解释你的推理过程。""",
+)
+```
+
+### `AssistantAgent`
+
+`AssistantAgent` 是 AutoGen 中最基础、最常用，也是最成熟的对话智能体类。它是任务的主要解决者，其核心是封装了一个大型语言模型（LLM）。
+
+如果把 AutoGen 比作一个“虚拟外包项目组”，那么 `AssistantAgent` 就是这个项目组的**核心脑力员工**。它本身“没有手”（不具备直接在本地电脑上执行代码或操作的能力），但它拥有最强的思考与规划能力。你通过 `system_message` 给它分配什么角色（如：前端专家、文案策划、数据分析师），它就能胜任对应的工作。
+
+除此之外，它还内置了以下强大的核心能力：
+
+- **记忆功能（维护上下文）**：大模型本身是无状态、没有记忆的，需要每次对话时都把之前的对话历史统一发送给大模型。`AssistantAgent` 内部自动实现了历史消息的管理与拼接功能。
+- **代码提取与格式化（Code Block Parsing）**：大模型在回答时，往往会将代码、代码注释、说明文字甚至一些废话混合在一起返回。`AssistantAgent` 内置了提取能力，它会自动扫描大模型回答的 Markdown 内容中的独立代码块，方便后续交给其他 Agent（如 `UserProxyAgent`）去执行。
+- **工具调用（Function Calling / Tool Use）**：可以给大模型注册一些 Python 函数（例如：`get_weather(city: str)`、`search_web(query: str)`）。当你问到某些模型不知道的实时/专有信息，且工具恰好可以获取时，模型会按照约定格式输出调用指令。底层机制捕获该指令后会执行对应函数，再把调用结果返回给大模型。
+- **自动化的重试与纠错（Auto-Reply & Fallback）**：面对复杂的任务，代码往往一次性跑不通。这时别的 Agent（通常是 `UserProxyAgent` 充当的执行者和测试者）在运行时如果抛出异常，会把异常信息反馈给它（例如：“*你刚才写的代码抛出了 IndentationError，在第4行。*”）。`AssistantAgent` 底层自带 `auto-reply`（自动回复）机制，不需要开发者写额外的 `while` 循环。它收到报错后会自动将报错信息塞进上下文，再次请求大模型：“根据报错，给我一个新的修复方案。” 只有当问题解决，或者达到最大重试次数（`max_consecutive_auto_reply`）时，交互才会停止。
+- **终止条件判断（Termination Detection）**：AI 群聊很容易陷入无限死循环（例如两个 AI 互相发送“谢谢你”、“不客气”）。因此，`AssistantAgent` 经常被配置一种“终止词”识别能力。比如，你可以约定当任务彻底完成时，在回复末尾加上 `TERMINATE`。框架一旦检测到该触发词，就会自动结束这轮多智能体对话任务。
+
