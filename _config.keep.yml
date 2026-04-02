@@ -113,7 +113,7 @@ home:
   tag: false                # Option values: true | false
 
   # Set the datetime type of home page post block
-  post_datetime: updated    # Option values: updated | created
+  post_datetime: created    # Option values: updated | created
 
 
 # ---------------------------------------------------------------------------------------
