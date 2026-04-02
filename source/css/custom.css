@@ -2,3 +2,8 @@
 .keep-markdown-body pre code, .highlight pre code {
   border: none !important;
 }
+
+/* Hide the post update datetime */
+.post-meta-info-container .post-meta-info .post-update-date {
+  display: none !important;
+}
