@@ -1,81 +1,485 @@
 <!DOCTYPE html>
-<html lang="zh">
-  <head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="ffchic">
     
-    <meta charset="UTF-8">
-    <title>SSE 入门与实践 - ffchic&#39;blog</title>
-    <link rel="shortcut icon" href="/static/img/icon.png">
-    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    <title>
+        
+            SSE 入门与实践 |
+        
+        ffchic&#39;s Blog
+    </title>
     
-<link rel="stylesheet" href="/static/kico.css">
-<link rel="stylesheet" href="/static/hingle.css">
+<link rel="stylesheet" href="/css/style.css">
 
     
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta property="og:site_name" content="ffchic&#39;blog">
-    <meta property="og:title" content="SSE 入门与实践"/>
     
-    <!-- MathJax -->
-    
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            processEscapes: true,
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    
-<meta name="generator" content="Hexo 8.1.1"></head>
+<link rel="stylesheet" href="/font/css/regular.min.css">
 
-  <body>
-    <header>
-    <div class="head-title">
-        <h4>ffchic&#39;blog</h4>
-    </div>
-    <div class="head-action">
-        <div class="toggle-btn"></div>
-        <div class="light-btn"></div>
-        <div class="search-btn"></div>
-    </div>
-    <form class="head-search" method="post">
-        <input type="text" name="s" placeholder="搜索什么？">
-    </form>
-    <nav class="head-menu">
-        <a href="/">首页</a>
-        <div class="has-child">
-            <a href>分类</a>
-            <div class="sub-menu">
-                <a class="category-link" href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+        
+            
+        
+            
+                
+<link rel="stylesheet" href="/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"ffchic.fun","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"ffchic's Blog","author":"ffchic","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","HOME":"/","ARCHIVES":"/archives","TAGS":"/tags","ME":{"icon":"fa-solid fa-user","children":[{"ABOUT":"/about || fa-solid fa-user-graduate"},{"LINKS":"/friends || fa-solid fa-link"}]}},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"灵光一现的想法是个危险的谎言","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/ffchic","weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"mailto:youremail@example.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":[null,"/css/custom.css"],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               ffchic&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box has-sub-menu">
+                            <a class="menu-text-color border-box" href="javascript:void(0);">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-user"></i>
+                                
+                                ME
+                                
+                                    <i class="menu-text-color collapse-icon fa-solid fa-angle-down"></i>
+                                
+                            </a>
+                            
+                                <ul class="sub-menu-list border-box">
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/about">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                                
+                                                ABOUT
+                                            </a>
+                                        </li>
+                                    
+                                        
+                                        <li class="sub-menu-item border-box ">
+                                            <a class="menu-text-color border-box flex-start" href="/friends">
+                                                
+                                                    <i class="menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                                
+                                                LINKS
+                                            </a>
+                                        </li>
+                                    
+                                </ul>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
             </div>
         </div>
-        
-            <a href="/about">关于我</a>
-        
-            <a href="/friends">朋友们</a>
-        
-    </nav>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box has-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="javascript:void(0);">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-user"></i>
+                                </span>
+                            
+                            ME
+                        </a>
+                        
+                            <i class="right-side collapse-icon fa-solid fa-angle-left"></i>
+                        
+                    </label>
+                    
+                        <ul class="drawer-sub-menu-list border-box">
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/about">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-user-graduate"></i>
+                                            </span>
+                                        
+                                        ABOUT
+                                    </a>
+                                </li>
+                            
+                                
+                                <li class="sub-menu-item border-box">
+                                    <a class="drawer-menu-text-color border-box flex-start" href="/friends">
+                                        
+                                            <span class="sub-menu-icon-wrap border-box flex-center">
+                                                <i class="drawer-menu-text-color sub-menu-icon fa-solid fa-link"></i>
+                                            </span>
+                                        
+                                        LINKS
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
 </header>
 
-    <main>
-    <div class="wrap min">
-        <section class="post-title">
-            <h2>SSE 入门与实践</h2>
-            <div class="post-meta">
-                <time class="date">2025.12.10</time>
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-                <span class="category"><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>，<a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C/">网络</a></span>
-            
-            </div>
-        </section>
-        <article class="post-content">
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        SSE 入门与实践
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">ffchic</span>
+                                
+                                    <span class="author-badge">Lv2</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
         
-            <p>最近在做一个文字游戏，项目中涉及到与 AI 模型进行对话，需要<code>实时</code>接收模型的回复。考虑到<code>实时性</code>要求，我选择了使用<code>SSE</code>来实现。</p>
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-12-10 17:44:21</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Wed Dec 10 2025 18:51:36 GMT+0800">2025-12-10 18:51:36</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C/">网络</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/SSE/">SSE</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Server-Sent-Events/">Server-Sent Events</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/">实时通信</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>最近在做一个文字游戏，项目中涉及到与 AI 模型进行对话，需要<code>实时</code>接收模型的回复。考虑到<code>实时性</code>要求，我选择了使用<code>SSE</code>来实现。</p>
 <span id="more"></span>
+
 <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p><code>SSE</code> 全称 <code>Server-Sent Events</code>（服务器发送事件），是一种基于 <code>HTTP</code> 的服务器推送技术。它允许服务器通过一个持久连接<code>单向</code>、<code>实时</code>地向客户端（浏览器）推送数据，适合新闻更新、股票行情、通知等场景。</p>
 <h2 id="2-工作原理"><a href="#2-工作原理" class="headerlink" title="2. 工作原理"></a>2. 工作原理</h2><p>SSE 基于浏览器的 EventSource 发起一个持久的 HTTP GET 连接，服务器以 <code>Content-Type: text/event-stream</code> 连续写入事件流，数据按行传输并以空行分隔。常用字段：<code>event</code>（事件名，默认 <code>message</code>）、<code>data</code>（数据，支持多行拼接）、<code>id</code>（事件标识，用于断线续传）、<code>retry</code>（客户端重连间隔毫秒）。连接中断时浏览器会自动重连并携带 <code>Last-Event-ID</code>，服务端据此续传；为及时送达与保活，响应一般设置 <code>Cache-Control: no-cache</code>、<code>Connection: keep-alive</code>，并可周期写入注释行作为心跳（如 <code>: keep-alive</code>）。</p>
 <h2 id="3-SSE-与-WebSocket-对比"><a href="#3-SSE-与-WebSocket-对比" class="headerlink" title="3. SSE 与 WebSocket 对比"></a>3. SSE 与 WebSocket 对比</h2><ul>
@@ -83,12 +487,16 @@
 <li>适用场景选择建议<br>SSE 适用于单向实时推送，如新闻、行情、通知等；WebSocket 适用于聊天室、协作编辑等需要双向实时交互的应用。<br>SSE 的浏览器支持较好（除老版 IE），WebSocket 的兼容性也良好；选择更关注业务模式与服务端资源管理。</li>
 </ul>
 <h2 id="4-服务端实现示例"><a href="#4-服务端实现示例" class="headerlink" title="4. 服务端实现示例"></a>4. 服务端实现示例</h2><p>使用 Hono 与 <code>hono/streaming</code> 实现 SSE：</p>
-<figure class="highlight ts"><table><tr><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Hono</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;hono&#x27;</span><br><span class="hljs-keyword">import</span> &#123; serve &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@hono/node-server&#x27;</span><br><span class="hljs-keyword">import</span> &#123; streamSSE &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;hono/streaming&#x27;</span><br><br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()<br><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;/sse&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">streamSSE</span>(c, <span class="hljs-function">(<span class="hljs-params">stream</span>) =&gt;</span> &#123;<br>    stream.<span class="hljs-title function_">writeSSE</span>(&#123; <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-attr">data</span>: <span class="hljs-string">&#x27;connected&#x27;</span> &#125;)<br>    <span class="hljs-keyword">const</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      stream.<span class="hljs-title function_">writeSSE</span>(&#123; <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;message&#x27;</span>, <span class="hljs-attr">data</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">toISOString</span>() &#125;)<br>    &#125;, <span class="hljs-number">1000</span>)<br>    stream.<span class="hljs-title function_">onAbort</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-built_in">clearInterval</span>(timer)<br>    &#125;)<br>  &#125;)<br>&#125;)<br><br><span class="hljs-title function_">serve</span>(&#123; <span class="hljs-attr">fetch</span>: app.<span class="hljs-property">fetch</span>, <span class="hljs-attr">port</span>: <span class="hljs-number">3000</span> &#125;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Hono</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'hono'</span><br><span class="hljs-keyword">import</span> { serve } <span class="hljs-keyword">from</span> <span class="hljs-string">'@hono/node-server'</span><br><span class="hljs-keyword">import</span> { streamSSE } <span class="hljs-keyword">from</span> <span class="hljs-string">'hono/streaming'</span><br><br><span class="hljs-keyword">const</span> app = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hono</span>()<br><br>app.<span class="hljs-title function_">get</span>(<span class="hljs-string">'/sse'</span>, <span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span> {<br>  <span class="hljs-keyword">return</span> <span class="hljs-title function_">streamSSE</span>(c, <span class="hljs-function">(<span class="hljs-params">stream</span>) =&gt;</span> {<br>    stream.<span class="hljs-title function_">writeSSE</span>({ <span class="hljs-attr">event</span>: <span class="hljs-string">'message'</span>, <span class="hljs-attr">data</span>: <span class="hljs-string">'connected'</span> })<br>    <span class="hljs-keyword">const</span> timer = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> {<br>      stream.<span class="hljs-title function_">writeSSE</span>({ <span class="hljs-attr">event</span>: <span class="hljs-string">'message'</span>, <span class="hljs-attr">data</span>: <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>().<span class="hljs-title function_">toISOString</span>() })<br>    }, <span class="hljs-number">1000</span>)<br>    stream.<span class="hljs-title function_">onAbort</span>(<span class="hljs-function">() =&gt;</span> {<br>      <span class="hljs-built_in">clearInterval</span>(timer)<br>    })<br>  })<br>})<br><br><span class="hljs-title function_">serve</span>({ <span class="hljs-attr">fetch</span>: app.<span class="hljs-property">fetch</span>, <span class="hljs-attr">port</span>: <span class="hljs-number">3000</span> })<br></code></pre></td></tr></table></figure>
+
 <p>安装依赖与运行示例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install hono @hono/node-server<br>node index.js<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hono @hono/node-server<br>node index.js<br></code></pre></td></tr></table></figure>
+
 <h2 id="5-客户端使用示例"><a href="#5-客户端使用示例" class="headerlink" title="5. 客户端使用示例"></a>5. 客户端使用示例</h2><p>使用 React 订阅 SSE：</p>
-<figure class="highlight tsx"><table><tr><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">import</span> &#123; useEffect, useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">SseDemo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> [messages, setMessages] = useState&lt;<span class="hljs-built_in">string</span>[]&gt;([])<br>  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> es = <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventSource</span>(<span class="hljs-string">&#x27;http://localhost:3000/sse&#x27;</span>)<br>    es.<span class="hljs-property">onmessage</span> = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>      <span class="hljs-title function_">setMessages</span>(<span class="hljs-function">(<span class="hljs-params">prev</span>) =&gt;</span> [...prev, e.<span class="hljs-property">data</span>])<br>    &#125;<br>    es.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;news&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> data = (e <span class="hljs-keyword">as</span> <span class="hljs-title class_">MessageEvent</span>).<span class="hljs-property">data</span><br>      <span class="hljs-title function_">setMessages</span>(<span class="hljs-function">(<span class="hljs-params">prev</span>) =&gt;</span> [...prev, data])<br>    &#125;)<br>    es.<span class="hljs-property">onerror</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>      es.<span class="hljs-title function_">close</span>()<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> es.<span class="hljs-title function_">close</span>()<br>  &#125;, [])<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>SSE Demo<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">        &#123;messages.map((m, i) =&gt; (</span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;i&#125;</span>&gt;</span>&#123;m&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        ))&#125;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  )<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>安装依赖与启动示例：<br><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">npm install react react-dom<br></code></pre></td></tr></table></figure></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">import</span> { useEffect, useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">SseDemo</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">const</span> [messages, setMessages] = useState&lt;<span class="hljs-built_in">string</span>[]&gt;([])<br>  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {<br>    <span class="hljs-keyword">const</span> es = <span class="hljs-keyword">new</span> <span class="hljs-title class_">EventSource</span>(<span class="hljs-string">'http://localhost:3000/sse'</span>)<br>    es.<span class="hljs-property">onmessage</span> = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {<br>      <span class="hljs-title function_">setMessages</span>(<span class="hljs-function">(<span class="hljs-params">prev</span>) =&gt;</span> [...prev, e.<span class="hljs-property">data</span>])<br>    }<br>    es.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'news'</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {<br>      <span class="hljs-keyword">const</span> data = (e <span class="hljs-keyword">as</span> <span class="hljs-title class_">MessageEvent</span>).<span class="hljs-property">data</span><br>      <span class="hljs-title function_">setMessages</span>(<span class="hljs-function">(<span class="hljs-params">prev</span>) =&gt;</span> [...prev, data])<br>    })<br>    es.<span class="hljs-property">onerror</span> = <span class="hljs-function">() =&gt;</span> {<br>      es.<span class="hljs-title function_">close</span>()<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> es.<span class="hljs-title function_">close</span>()<br>  }, [])<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>SSE Demo<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">        {messages.map((m, i) =&gt; (</span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{i}</span>&gt;</span>{m}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        ))}</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  )<br>}<br></code></pre></td></tr></table></figure>
+<p>安装依赖与启动示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install react react-dom<br></code></pre></td></tr></table></figure>
+
 <h2 id="6-事件模型与数据格式"><a href="#6-事件模型与数据格式" class="headerlink" title="6. 事件模型与数据格式"></a>6. 事件模型与数据格式</h2><p>SSE 事件由若干“字段行”组成，以空行表示事件结束。常见字段：</p>
 <ul>
 <li><code>event</code>: 事件名（可选，默认 <code>message</code>）</li>
@@ -97,76 +505,283 @@
 <li><code>retry</code>: 客户端重连间隔（毫秒，可选）</li>
 </ul>
 <p>示例：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><code class="hljs text">event: updates<br>id: 101<br>retry: 2000<br>data: &#123;&quot;status&quot;:&quot;ok&quot;,&quot;time&quot;:&quot;2025-12-10&quot;&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">event: updates<br>id: 101<br>retry: 2000<br>data: {"status":"ok","time":"2025-12-10"}<br><br></code></pre></td></tr></table></figure>
+
 <p>多行数据示例（客户端将拼接为一条消息）：</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><code class="hljs text">data: first line<br>data: second line<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">data: first line<br>data: second line<br><br></code></pre></td></tr></table></figure>
+
 <p>建议使用 JSON 作为数据格式；当需要持续推送大量记录时，可采用<code>NDJSON</code>（每行一个 JSON 对象），同时保持事件间的<code>空行</code>作为边界。</p>
 
-        </article>
-        <section class="post-near">
-            <ul>
-                
-                    <li>上一篇: <a href="/2026/02/02/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E4%B8%80%20%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86/">区块链技术与应用一 密码学原理</a></li>
-                
-                
-                    <li>下一篇: <a href="/2025/12/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8Bgithub-hexo/">博客搭建教程github+hexo</a></li>
-                
-            </ul>
-        </section>
-        
-            <section class="post-tags">
-            <a class="-none-link" href="/tags/SSE/" rel="tag">SSE</a><a class="-none-link" href="/tags/Server-Sent-Events/" rel="tag">Server-Sent Events</a><a class="-none-link" href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" rel="tag">实时通信</a>
-            </section>
-        
-    
-        <section class="post-author">
-        
-            <figure class="author-avatar">
-                <img src="https://sdn.geekzu.org/avatar/d22eb460ecab37fcd7205e6a3c55c228?s=200&r=X&d=" alt="Hingle" />
-            </figure>
-        
-            <div class="author-info">
-                <h4>Hingle</h4>
-                <p>ffchic</p>
-            </div>
-        </section>
-    
-    </div>
-</main>
+                    
+                </div>
 
-    <footer>
-    <div class="buttons">
-        <button class="to-top" href="#"></button>
-    </div>
-    <div class="wrap min">
-        <section class="widget">
-            <div class="row">
-                <div class="col-m-4">
-                    <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/02/04/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E4%BA%8C-%E6%AF%94%E7%89%B9%E5%B8%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">区块链技术与应用二 比特币的数据结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/02/02/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E4%B8%80%20%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86/">区块链技术与应用一 密码学原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/12/10/SSE-%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5/">SSE 入门与实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/12/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8Bgithub-hexo/">博客搭建教程github+hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/12/06/hello-world/">Hello World</a></li></ul>
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/SSE/">SSE</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Server-Sent-Events/">Server-Sent Events</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/">实时通信</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
-                <div class="col-m-4">
-                    <h3 class="title-date">时光机：</h3>
-                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a></li></ul>
-                </div>
-                <div class="col-m-4">
-                    <h3 class="title-tags">标签云：</h3>
-                    <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/SSE/" style="font-size: 10px;">SSE</a> <a href="/tags/Server-Sent-Events/" style="font-size: 10px;">Server-Sent Events</a> <a href="/tags/web3/" style="font-size: 20px;">web3</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 20px;">区块链</a> <a href="/tags/%E5%AE%9E%E6%97%B6%E9%80%9A%E4%BF%A1/" style="font-size: 10px;">实时通信</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 20px;">比特币</a>
-                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2026/02/02/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8%E4%B8%80%20%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86/"
+                                   title="区块链技术与应用一 密码学原理"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">区块链技术与应用一 密码学原理</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/12/07/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8Bgithub-hexo/"
+                                   title="博客搭建教程github+hexo"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">博客搭建教程github+hexo</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
             </div>
-        </section>
-        <section class="sub-footer">
-            <p>© 2026 <a href="/">ffchic&#39;blog</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
-        </section>
+        </div>
+
+        
     </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">ffchic</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
 </footer>
 
+        </div>
+    </div>
 
-<script src="/static/kico.js"></script>
-<script src="/static/hingle.js"></script>
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
 
 
-<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+    <!-- local search -->
+    
 
-  </body>
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+    
+        
+    
+
+</body>
 </html>

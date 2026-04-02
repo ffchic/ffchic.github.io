@@ -1,0 +1,4 @@
+/* Fix blue lines on code block lines */
+.keep-markdown-body pre code, .highlight pre code {
+  border: none !important;
+}
