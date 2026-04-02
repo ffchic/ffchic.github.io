@@ -82,7 +82,7 @@ social_contact:
     twitter:         # Twitter
     x:               # X
     facebook:        # Facebook
-    email: mailto:youremail@example.com          # Email
+    email:           # Email
 
 
 # ---------------------------------------------------------------------------------------
