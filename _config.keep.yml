@@ -18,7 +18,7 @@ base_info:
   author: ffchic
 
   # Author avatar, You can use local image path or image link
-  avatar: /images/avatar.svg
+  avatar: /images/henry.png
 
   # Website LOGO, You can use local image path or image link
   logo: /images/henry.png
