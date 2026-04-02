@@ -45,7 +45,7 @@ client = OpenAIChatCompletionClient(
 
 以上代码是实例化一个模型客户端的 Demo，指定了各种参数：使用的 LLM、最大 Token 数、模型信息等。
 
-### 核心参数解析：Temperature
+#### 核心参数解析：Temperature
 
 其中，`temperature` 是一个极其关键的参数，它控制着模型输出概率分布的“尖锐程度”。
 
@@ -80,7 +80,7 @@ client = OpenAIChatCompletionClient(
 | **$T > 1.0$** | 分布趋于均匀，各词概率接近，输出混乱 | 好: 36%，棒: 34%，烂: 30% |
 
 
-### 核心参数解析：`top_p`
+#### 核心参数解析：`top_p`
 
 `top_p`（Nucleus Sampling，核采样）的作用简单来说就是**“砍尾巴”**。它通常和 `temperature` 配合使用：先由 `temperature` 处理数据得出概率分布，再根据 `top_p` 的阈值比例来砍掉尾巴，最后才进行选词。
 
@@ -101,7 +101,7 @@ client = OpenAIChatCompletionClient(
 
 **结果**：只有 **【好、棒、绝、行】** 这 4 个词留下来进入最终的抽签池（并且这四个词的概率会按比例重新放大归一化到 100%）。而排在后面的“烂”以及更糟的词，将被直接拦腰斩断、彻底除名。哪怕它原本还有 5% 的机会，现在的入选概率也是 0%。
 
-### `temperature` 和 `top_p` 的协同工作
+#### `temperature` 和 `top_p` 的协同工作
 
 在底层运行中，这两个参数可以说是“黄金搭档”。它们的协同工作流程如下：
 
@@ -117,7 +117,7 @@ client = OpenAIChatCompletionClient(
 | **态度** | 温柔：即使把 $T$ 调得很低，最后一名也依然有那么 `0.0001%` 的机会，理论上没绝杀。 | 冷酷：只要你没挤进去前 $P\%$ 的圈子，直接出局，概率彻底归零。 |
 | **解决的问题** | 防止输出过于死板（提高 $T$），或防止输出过于发散（降低 $T$）。 | 剪除“长尾噪音”。语言模型词汇表有几万个词，往往有几千个极低概率的词（比如乱码或离谱生僻字）。`top_p` 的任务就是把这几千个垃圾选项永远关在门外，防止哪怕万分之一的“爆冷抽中”。 |
 
-### 核心参数解析：`json_output` 与 `structured_output`
+#### 核心参数解析：`json_output` 与 `structured_output`
 
 这两个参数通常一起出现，它们主要用于指导或强制大模型以结构化的 JSON 格式返回输出。
 
@@ -155,7 +155,7 @@ coding_assistant = AssistantAgent(
 )
 ```
 
-### `AssistantAgent`
+#### `AssistantAgent`
 
 `AssistantAgent` 是 AutoGen 中最基础、最常用，也是最成熟的对话智能体类。它是任务的主要解决者，其核心是封装了一个大型语言模型（LLM）。
 
