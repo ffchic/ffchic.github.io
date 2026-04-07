@@ -7,3 +7,16 @@
 .post-meta-info-container .post-meta-info .post-update-date {
   display: none !important;
 }
+
+/* Fix spacing for inline code in headings */
+.keep-markdown-body h1 code,
+.keep-markdown-body h2 code,
+.keep-markdown-body h3 code,
+.keep-markdown-body h4 code,
+.keep-markdown-body h5 code,
+.keep-markdown-body h6 code {
+  margin: 0 !important;
+  padding: 0 4px !important;
+  font-size: inherit !important;
+  vertical-align: baseline !important;
+}
