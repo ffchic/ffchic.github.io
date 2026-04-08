@@ -215,3 +215,112 @@ coding_assistant = AssistantAgent(
 
 - **接口约束（Protocol Constraint）**：收回文本终止权，强制大模型通过 Function Calling 提交确定性的结果来结束流程。
 - **职责分离（Separation of Duties）**：打破“既当运动员又当裁判”的单体模型局限，引入 ReviewerAgent 进行交叉验证，通过多智能体间的博弈和审批来确保输出质量。
+
+
+## RoundRobin 固定轮询与 Selector 动态路由
+
+AutoGen 的核心概念就是群聊。但在群聊中如果超过了两个 Agent，那“下一个谁发言”就成了一个必须解决的路由问题。
+
+- **确定性（强流程控制）：`RoundRobinGroupChat`**
+  基于数组索引的绝对轮询。例如 `[A, B, C]` 的顺序永远是 A → B → C → A。
+  - **特点**：不需要额外的 `model_client`，它本身不消耗 Token 做路由决策。
+  - **适用场景**：
+    1. 双角色的“乒乓球式”对话（如：师生问答、辩论）。
+    2. 严格的工序流水线（如：数据分析师 → 解决方案专家）。
+  - **技术局限**：缺乏灵活性。如果 B 发现了错误想退回给 A，在纯轮询中很难做到，它必须按顺序传给 C（这样反而会由于无效对话额外消耗 Token）。
+
+- **自适应（大模型动态决策）：`SelectorGroupChat`**
+  背后藏着一个隐藏的“LLM 主持人”。每一轮发言后，主持人会读取当前聊天记录，并分析所有参与者的职责，决定把麦克风交给谁。
+  - **特点**：不仅发声的 Agent 会消耗 Token，维持群聊路由本身的判定（`model_client`）也会消耗 Token。
+  - **低 Temperature 的必要性**：路由器的 `temperature` 必须设置得极低（通常为 0.1 或 0），以保证它像齿轮一样基于逻辑精准判定，而不是“富有创意地瞎指派”。
+  - **Prompt 编写技巧**：在 Selector 模式中，参与者的 `system_message` 不仅是给自己看的，也是给“主持人”看的。因此必须明确写明**“交接指令”**（例如：“如果你是 QA 发现了问题，请明确在回复中指出让 Developer 重新返工”）。
+
+#### 核心对比总结
+
+| 比较维度 | `RoundRobin` (固定轮询) | `Selector` (动态路由) |
+| :--- | :--- | :--- |
+| **控制力** | 绝对控制 | 交由大模型控制 |
+| **成本 (Token)** | 低 | 高，每轮多一次路由推理 |
+| **适用复杂度** | 线性流 | 非线性网状协同 |
+
+#### 进阶探讨
+
+- **Selector 的状态图约束（Transitions）**
+  在 `Selector` 动态路由中，默认是全互连网络（所有人都能传话给所有人）。但在真实的商业业务中，我们往往需要限制路由走向。
+  AutoGen 允许通过配置“状态转换边”或提示词来赋予群聊“状态机”式的严格跳转规则。比如限制 `Tester` 只能把任务传给 `Developer` 或 `PM`，绝对禁止流转给其他无关 Agent，从而缩减路由 LLM 的选择空间，降低大模型幻觉概率。
+
+```python
+# 核心：通过定制 selector_prompt 赋予群聊“状态机”式的严格跳转规则
+custom_prompt = """你是一个群聊的主持人。请根据以下规则选择下一个发言人：
+                  1. 刚开始必须由 Planner 发言。
+                  2. 如果 Planner 说'计划完成'，下一个必须是 Executor。
+                  3. 如果 Executor 说'执行完毕'，下一个必须是 Reviewer。
+                  4. 如果 Reviewer 提出修改建议，下一个必须是 Executor 重新执行。
+                  根据当前的对话历史，输出下一个应该发言的角色名称。
+"""
+```
+
+- **`description` 属性的妙用**
+  在 `SelectorGroupChat` 中，“主持人（路由 LLM）”其实优先看的是每个 Agent 的 `description` 来决定下一个是谁。如果不传 `description`，框架会自动把超长的 `system_message` 喂给路由器。这不仅会无端浪费 Token，还会因为文字过多导致路由器“抓错重点，乱指派任务”。
+
+```python
+planner = AssistantAgent("Planner", 
+                          model_client=create_model_client(0.1), 
+                          description="负责拆解任务规划的计划员", 
+                          system_message="你的职责是将任务拆分成子步骤，并且在完成时输出'计划完成'")
+executer = AssistantAgent("Executor", 
+                          model_client=create_model_client(0.1), 
+                          description="负责执行代码和操作的执行员", 
+                          system_message="根据Planner的计划执行具体的任务，完成后回复'执行完毕'")
+reviewer = AssistantAgent("Reviewer", 
+                          model_client=create_model_client(0.1), 
+                          description="负责检查执行结果的审核员", 
+                          system_message="检查Executor的产出，如果没问题则必须输出'全部任务验收通过'。发现问题则退回。")
+```
+
+- **定制化路由（Custom Selector）**
+  AutoGen 支持传入自定义的 Python 闭包/函数作为路由裁判。这就允许开发者完全跳过大模型，直接用纯 Python 语法（`If-Else`、正则提取等）结合上下文状态来拍板决定下一个发言者，实现灵活性与低成本兼顾的混合群聊系统。
+```python
+# 重点：定义自定义选择器闭包函数 (Custom Speaker Selector)
+# 它接收当前对话的所有消息作为入参，返回字符串(下一个发言者的名字)
+def my_strict_router(messages) -> str:
+    # 这个函数完全脱离大模型执行，靠纯代码跑逻辑
+    if not messages:
+        return "Agent_A"  # 启动时永远让 A 先说
+        
+    last_message = messages[-1].content
+    last_speaker = messages[-1].source
+    
+    # 使用闭包外部变量做逻辑判定
+    if state.turns >= 2:
+        # 打破正常规则，如果玩了两个回合（A-B-A-B），强行让A说一句终止的话来满足下方 termination 条件
+        if last_speaker == "Agent_B":
+              # 强行注入终止条件信号（实战中可以用来做系统熔断等）
+              return "Agent_A" 
+              
+    if last_speaker == "Agent_A" and "转交B" in last_message:
+        return "Agent_B"
+        
+    if last_speaker == "Agent_B" and "转交A" in last_message:
+        state.turns += 1
+        return "Agent_A"
+        
+    # 兜底选择
+    return "Agent_A"
+
+# 基于回合数的自定义终止条件
+termination = MaxMessageTermination(5)
+
+# 构建 GroupChat，此时不再设置 model_client (或者设了也不会被用于路由)，
+# 而是传入 selector_func (在某些新版 API 中为 selector) 属性。
+# 注意：在最新的 autogen_agentchat 0.4 中，SelectorGroupChat 专门增加了 `selector_func`
+team = SelectorGroupChat(
+    participants=[a, b],
+    model_client=create_model_client(0.1), # 由于用了纯函数，这里的模型不怎么工作了
+    termination_condition=termination,
+    selector_func=my_strict_router # 将闭包函数挂载为图跳转的核心控制器
+)
+
+result = await team.run(task="开始运行硬约束路由流转测试！")
+
+```
