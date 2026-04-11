@@ -324,3 +324,207 @@ team = SelectorGroupChat(
 result = await team.run(task="开始运行硬约束路由流转测试！")
 
 ```
+
+## FunctionTool 工具集成
+
+### 简单实例
+```python
+# 定义工具函数
+def calculator(expression: str) -> str:
+    """
+    安全的计算器工具
+
+    Args:
+        expression: 数学表达式字符串
+
+    Returns:
+        计算结果或错误信息
+    """
+    try:
+        # 只允许安全的数学运算
+        allowed_chars = set("0123456789+-*/()., ")
+        if not all(c in allowed_chars for c in expression):
+            return "错误：表达式包含不允许的字符"
+
+        # 使用ast.literal_eval进行安全计算
+        import ast
+        import operator
+
+        # 定义允许的操作
+        ops = {
+            ast.Add: operator.add,
+            ast.Sub: operator.sub,
+            ast.Mult: operator.mul,
+            ast.Div: operator.truediv,
+            ast.Mod: operator.mod,
+            ast.Pow: operator.pow,
+            ast.USub: operator.neg,
+            ast.UAdd: operator.pos,
+        }
+
+        def safe_eval(node):
+            if isinstance(node, ast.Constant):  # Python 3.8+
+                return node.value
+            if isinstance(node, ast.Num):  # Python < 3.8
+                return node.n
+            if isinstance(node, ast.BinOp):
+                return ops[type(node.op)](safe_eval(node.left), safe_eval(node.right))
+            if isinstance(node, ast.UnaryOp):
+                return ops[type(node.op)](safe_eval(node.operand))
+            raise ValueError(f"不支持的操作: {type(node)}")
+
+        # 解析并计算表达式
+        tree = ast.parse(expression, mode="eval")
+        result = safe_eval(tree.body)
+        return f"计算结果: {result}"
+    except Exception as e:
+        return f"计算错误: {e!s}"
+
+
+async def demo_single_tool_agent() -> None:
+    """演示单工具智能体"""
+    print("\n🔧 Single Tool Agent Demo")
+    print("-" * 50)
+
+    # 创建计算器工具
+    calc_tool = FunctionTool(calculator, description="执行数学计算")
+
+    # 创建带计算器工具的智能体
+    calculator_agent = AssistantAgent(
+        name="CalculatorAgent",
+        model_client=create_model_client(),
+        tools=[calc_tool],
+        system_message="""你是一个数学计算助手。
+        你可以使用计算器工具来执行数学运算。
+        当用户要求计算时，使用calculator工具来完成。
+        用中文解释计算过程和结果。""",
+    )
+
+    # 测试计算功能
+    tasks = ["计算 25 * 4 + 15", "计算 (100 - 25) / 3", "计算 2 ** 10"]
+
+    for task in tasks:
+        print(f"\n📊 任务: {task}")
+        result = await calculator_agent.run(task=task)
+        print(f"🤖 回复: {result.messages[-1].content}")
+
+```
+以上代码展示了工具的基本使用方法，主要包含以下几个核心要点：
+
+- **工具的定义与包装**
+  简单来说，就是使用 `FunctionTool` 将 Python 函数包装为大模型可调用的工具。在这个过程中，**参数的类型提示（Type Hints）**和**文档字符串（Docstring）、`description` 参数**非常重要，它们能帮助大模型准确理解工具的功能和调用方式。
+
+- **工具执行的安全性与错误处理**
+  脚本中的 `calculator` 没有直接使用危险的 `eval()`，而是使用了 `ast.parse` 和受限的操作符字典（`safe_eval`）来确保数学表达式的安全性。
+  **工具执行失败时不应导致整个程序崩溃**，而是应该将异常捕获（`try...except`）并转为友好的文本（如 `"计算错误: ..."`）返回给 AI，让 AI 能够根据报错信息进行“纠错”并重试。
+
+- **多智能体工具链协作**
+  不同职责的 Agent 应该配置不同的工具。例如，“数据分析师”（配备计算和数据分析工具）处理完数据后，交由“存储专家”（配备数据库读写工具）进行落盘保存，各司其职。
+
+### 高阶用法
+
+#### 1. 异步工具支持
+```python
+async def async_weather_query(city: str) -> str:
+    """
+    异步天气查询工具，模拟网络请求延迟
+
+    Args:
+        city: 城市名称
+
+    Returns:
+        天气信息
+    """
+    print(f"   [Async] 正在查询 {city} 的天气...")
+    await asyncio.sleep(2)  # 模拟网络延迟
+    
+    weather_conditions = ["晴朗", "多云", "小雨", "大雨", "雪", "雾"]
+    temperature = random.randint(-10, 35)
+    condition = random.choice(weather_conditions)
+    
+    return f"{city}当前天气: {condition}, 温度: {temperature}°C"
+
+
+async def demo_async_tool_agent() -> None:
+    """演示异步工具智能体"""
+    print("\n⏳ Async Tool Agent Demo")
+    print("-" * 50)
+
+    # 创建带异步工具的智能体
+    async_agent = AssistantAgent(
+        name="AsyncWeatherAgent",
+        model_client=create_model_client(),
+        tools=[FunctionTool(async_weather_query, description="异步查询城市天气")],
+        system_message="""你是一个天气助手。
+        你可以使用异步工具查询天气。
+        并发查询多个城市的天气以提高效率。""",
+    )
+
+    task = "查询北京、上海和广州的天气"
+    print(f"\n📋 任务: {task}")
+    
+    result = await async_agent.run(task=task)
+    print(f"🤖 回复: {result.messages[-1].content}")
+
+```
+在实际应用中，工具通常需要调用外部 API 或读写数据库（涉及网络和 I/O 阻塞）。AutoGen 完全支持使用 `async def` 定义异步工具，这对于提高多智能体并发对话的性能至关重要。
+
+#### 2. 使用 Pydantic 进行复杂结构化输入/输出验证
+
+```python
+class UserProfile(BaseModel):
+    name: str = Field(description="用户的姓名")
+    age: int = Field(description="用户的年龄")
+    hobbies: list[str] = Field(description="用户的爱好列表，至少提取出两项", min_items=1)
+    is_vip: bool = Field(default=False, description="是否是VIP用户，默认为False")
+
+
+def create_user_profile(profile: UserProfile) -> str:
+    """
+    根据给定的结构化信息创建详细的用户画像。
+    由于使用了 Pydantic，如果大模型没有按照要求的结构或者类型提供参数，在进入本函数前就会直接报错拦截。
+
+    Args:
+        profile: 结构化的用户画像信息(UserProfile 模型)
+
+    Returns:
+        创建后的系统返回结果
+    """
+    return f"🚀 成功在系统中录入结构化用户画像: 姓名: {profile.name}, 年龄: {profile.age}, 爱好: {', '.join(profile.hobbies)}, VIP状态: {profile.is_vip}"
+
+
+async def demo_pydantic_tool_agent() -> None:
+    """演示使用 Pydantic 进行复杂输入验证的工具智能体"""
+    print("\n📝 Pydantic Tool Agent Demo")
+    print("-" * 50)
+
+    # 创建使用 Pydantic 验证工具的智能体
+    pydantic_agent = AssistantAgent(
+        name="ProfileAgent",
+        model_client=create_model_client(),
+        tools=[FunctionTool(create_user_profile, description="创建结构化的用户画像")],
+        system_message="""你是一个用户档案自动化提取助手。
+        你需要根据用户的自然语言自述，精准提取信息，并使用 create_user_profile 工具将结构化数据录入系统。
+        大模型会自动根据 Pydantic 模型的 Field 描述来映射变量。
+        用中文向用户汇报你保存了哪些信息。""",
+    )
+
+    # 测试 Pydantic 工作流
+    task = "嗨，我叫张三，今年28岁，从事互联网行业。我平时非常喜欢打篮球，周末有时候会去潜水，最近迷上了看科幻类型的电影。"
+    print(f"\n📋 任务: {task}")
+    
+    result = await pydantic_agent.run(task=task)
+    print(f"🤖 回复: {result.messages[-1].content}")
+
+```
+通过集成 Pydantic 对象作为工具的参数类型，可以天然地限制和校验大模型的输入格式。如果大模型传入的参数不符合 Pydantic 模型定义的 Schema，执行工具前就会自动抛出校验错误，进而触发大模型的纠错重试机制。
+
+#### 3. 人类参与与审批拦截 (Human-in-the-loop / Tool Approval)
+提及操作审批与权限拦截，往往会联想到前文提到的 `UserProxyAgent` 或 `CodeExecutorAgent`，它们可用于拦截代码执行并询问人类。不过，在较新的 AutoGen 版本中，**将权限包装直接下沉到工具调用层**（Tool Approval），往往粒度更细、也更直接有效。
+
+## 源码与示例
+
+本文涉及的相关代码与完整 Demo，可以在此处获取：[https://github.com/ffchic/llm-dome](https://github.com/ffchic/llm-dome)
+
+
+
