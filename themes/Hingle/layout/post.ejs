@@ -1,4 +1,10 @@
 <main>
+    <% if (toc(page.content).length > 0) { %>
+    <aside class="post-toc-sidebar">
+        <strong>文章目录</strong>
+        <%- toc(page.content, {list_number: false}) %>
+    </aside>
+    <% } %>
     <div class="wrap min">
         <section class="post-title">
             <h2><%= page.title ? page.title : "没有标题的文章" %></h2>

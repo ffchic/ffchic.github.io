@@ -1071,3 +1071,62 @@ pre[class*="language-"].line-numbers {
         left: 0;
     }
 }
+
+/* 自动生成的侧边栏目录样式 */
+.post-toc-sidebar {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    width: 250px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    background: var(--light-background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.post-toc-sidebar .toc {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-toc-sidebar .toc-item {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.post-toc-sidebar .toc-link {
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    transition: color 0.2s;
+}
+
+.post-toc-sidebar .toc-link:hover {
+    color: var(--blue);
+}
+
+.post-toc-sidebar .toc-child {
+    padding-left: 15px;
+    list-style: none;
+}
+
+@media screen and (max-width: 1200px) {
+    .post-toc-sidebar {
+        display: none; /* 在较小屏幕上隐藏目录侧边栏 */
+    }
+}
+
+.post-toc-sidebar strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
+    color: #333;
+}
