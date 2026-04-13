@@ -114,6 +114,7 @@ home:
 
   # Set the datetime type of home page post block
   post_datetime: created    # Option values: updated | created
+  post_datetime_format: "YYYY-MM-DD"
 
 
 # ---------------------------------------------------------------------------------------
