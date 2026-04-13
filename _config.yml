@@ -119,3 +119,10 @@ search:
   field: post
   content: true
   format: html
+
+# Mermaid plugin configuration
+mermaid:
+  enable: true  # default true
+  version: "10.5.0" # default v7.1.2
+  options:  # find more api options from https://github.com/knsv/mermaid/wiki/mermaidAPI
+    #startOnload: true  # default true
