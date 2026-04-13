@@ -5,7 +5,8 @@ tags:
   - LangGraph
   - AI-Agent
 categories:
-  - AI
+  - [AI]
+  - [技术]
 ---
 
 ## 简单概念
