@@ -1,12 +1,10 @@
 ---
 title: 深度解析LangGraph：构建可控的多智能体工作流
 date: 2026-04-13 17:34:43
-tags:
-  - LangGraph
-  - AI-Agent
 categories:
-  - [AI]
   - [技术]
+  - [AI]
+tags: [LangGraph, AI-Agent]
 ---
 
 ## 一、初识 LangGraph

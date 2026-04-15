@@ -1,13 +1,10 @@
 ---
 title: AutoGen：多智能体协作框架的入门与构建
 date: 2026-04-01 10:00:00
-tags:
-  - 智能体
-  - AI-Agent
-  - AutoGen
 categories:
-  - [AI]
   - [技术]
+  - [AI]
+tags: [智能体, AI-Agent, AutoGen]
 ---
 
 ## 核心思想

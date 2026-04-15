@@ -4,7 +4,7 @@ date: 2026-03-14 17:26:43
 categories:
   - [技术]
   - [AI]
-tags: [AI Agent, 智能体, LLM, 架构设计]
+tags: [AI-Agent, 智能体, LLM, 架构设计]
 ---
 
 在了解 Reflection 范式之前，我们需要先了解 [Agent 范式：ReAct (Reason + Act)](ai-agent智能体经典范式构建--ReAct.md) 或 [Agent 范式：Plan-and-Solve](ai-agent智能体经典范式构建--Plan-and-Solve.md) 中的一种。

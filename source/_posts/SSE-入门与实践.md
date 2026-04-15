@@ -1,8 +1,9 @@
 ---
 title: SSE 入门与实践
 date: 2025-12-10 17:44:21
-tags: [SSE, Server-Sent Events, 实时通信]
-categories: [技术, 网络]
+categories:
+  - [技术, 网络]
+tags: [SSE, Server-Sent-Events, 实时通信]
 ---
  
 最近在做一个文字游戏，项目中涉及到与 AI 模型进行对话，需要`实时`接收模型的回复。考虑到`实时性`要求，我选择了使用`SSE`来实现。

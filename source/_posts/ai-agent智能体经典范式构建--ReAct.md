@@ -4,7 +4,7 @@ date: 2026-02-08 10:00:00
 categories:
   - [技术]
   - [AI]
-tags: [AI Agent, 智能体, LLM, 架构设计]
+tags: [AI-Agent, 智能体, LLM, 架构设计]
 ---
 
 # 智能体经典范式构建

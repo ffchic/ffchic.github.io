@@ -4,7 +4,7 @@ date: 2026-03-04 16:19:52
 categories:
   - [技术]
   - [AI]
-tags: [AI Agent, 智能体, LLM, 架构设计]
+tags: [AI-Agent, 智能体, LLM, 架构设计]
 ---
 
 Plan-and-Solve 翻译过来是规划和执行，他的执行逻辑顾名思义，先规划（Plan）再执行（Solve）。

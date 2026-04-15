@@ -1,8 +1,9 @@
 ---
 title: 博客搭建教程github+hexo
 date: 2025-12-07 00:00:14
+categories:
+  - [技术]
 tags: [Hexo, GitHub, 教程]
-categories: [技术]
 ---
 
 本文将详细介绍如何使用 Hexo 框架配合 GitHub Pages 搭建个人博客，并整理了 Hexo 的常用命令供查阅。
