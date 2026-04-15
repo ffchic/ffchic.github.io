@@ -9,7 +9,7 @@ categories:
   - [技术]
 ---
 
-## 简单概念
+## 一、初识 LangGraph
 
 LangGraph 是一个使用图结构编排 LLM（大型语言模型）调用流程的框架。在 LangGraph 中，**节点（Node）**负责处理逻辑，**边（Edge）**控制流程走向，而**状态（State）**则在各个节点之间传递数据。
 
@@ -20,10 +20,10 @@ LangGraph 是一个使用图结构编排 LLM（大型语言模型）调用流程
 
 ### 多轮对话的本质
 LLM 本身是没有记忆的，每一次调用对它而言都是一次全新的请求。
-- **多轮对话的实现**：需要把完整的历史聊天记录塞进消息列表，一起传给 `invoke()` 方法。
+- **多轮对话的实现**：需要将完整的历史聊天记录放入消息列表，并一并传给 `invoke()` 方法。
 - `AIMessage` 可以直接追加进历史记录中，不需要进行额外的数据格式转换。
 
-## 基本流程
+## 二、核心组件与基本骨架
 
 ```mermaid
 flowchart TD
@@ -66,7 +66,7 @@ builder.add_edge("llm", END)             # llm 节点执行完毕后结束流程
 上面的代码定义了一个简单的线性图：`开始 -> preprocess -> llm -> 结束`。
 
 
-## 高阶用法
+## 三、进阶特性：状态管理与动态路由
 
 ### `add_messages` 消息追加工具
 如果要在 `State` 中保存一个消息列表字段，并且希望每次节点返回新数据时都能向后**追加**（而不是被框架默认的 Merge 操作覆盖），这时就需要使用 `add_messages` 辅助函数。
@@ -185,3 +185,54 @@ graph = builder.compile()
 路由函数的职责只有一件事：读取 State，返回一个字符串告诉框架接下来去哪。即便在函数内部对 `state` 的字段赋值，框架也不会处理，修改不会生效。想修改 State，只能通过节点的返回 `dict` 来触发。
 
 > **注意**：在上述代码的 `intent_node` 节点中，我们直接使用提示词来限制大模型的输出文本。但在实际生产环境中这种方式是不够稳定的（很容易出现大模型幻觉或附加多余字符的问题），建议此时通过 `with_structured_output` 等结构化输出能力来严格约束大模型的返回格式。
+
+
+### Tool（工具调用）
+工具的本质是一个 Python 函数加上 `@tool` 装饰器，在定义时必须写好标准的 Docstring，因为大模型（LLM）完全依赖这些注释来决定何时以及如何调用该工具。
+```python
+from langchain_core.tools import tool
+
+@tool
+def get_dau(date: str) -> str:
+    """获取指定日期的日活跃用户数（DAU）。
+
+    Args:
+        date: 日期字符串，格式 YYYY-MM-DD，例如 2024-01-15
+
+    Returns:
+        该日期的 DAU 数字（模拟数据）
+    """
+    # 实际项目会查 Redis 或 MySQL，这里用假数据演示
+    fake_data = {
+        "2024-01-15": "52 万",
+        "2024-01-14": "48 万",
+        "2024-01-13": "51 万",
+    }
+    result = fake_data.get(date, "暂无数据")
+    return f"{date} 的 DAU：{result}"
+```
+在引入工具调用后，LangGraph 的处理链路中常常会涉及到以下几个关键概念：
+
+- **`bind_tools`**：大模型需要通过 `llm.bind_tools(tools)` 绑定工具。这样在交互时会自动把工具的名称、参数等描述告诉 LLM，这样 LLM 在决策时才知道有这些具体选项。
+- **`tool_calls`**：如果 LLM 决定需要调用工具，它返回的 `AIMessage` 中会携带 `tool_calls` 属性。格式类似于：`[{'name': 'get_dau', 'args': {'date': '2024-01-15'}, 'id': 'call_xxx', 'type': 'tool_call'}]`。此时我们可以根据返回的 `name` 字段来调用对应的工具函数。
+- **`ToolNode`**：可以使用 LangGraph 提供的 `ToolNode` 作为一个专门的工具执行节点单元。当 LLM 返回需要调用的工具信息时，传递给该节点后会自动完成调用解析，并在下一轮对话中把返回结果发回给 LLM。
+- **`tools_condition`**：内置的条件路由函数。该功能函数通常与 `ToolNode` 组合使用：
+```python
+# ── 构建图 ────────────────────────────────────
+builder = StateGraph(State)
+builder.add_node("llm", llm_node)
+builder.add_node("tools", tool_node)
+
+builder.add_edge(START, "llm")
+
+# tools_condition 是内置路由函数：
+# - 最新 AIMessage 有 tool_calls → 返回 "tools"
+# - 没有 tool_calls → 返回 END
+builder.add_conditional_edges("llm", tools_condition)
+
+# 工具执行完后，把 ToolMessage 送回给 LLM 继续推理
+builder.add_edge("tools", "llm")
+```
+`tools_condition` 会动态地返回两种结果。如果它判断大模型返回了工具调用需求，则会输出 `"tools"`（此时路由会转到 `tools` 节点去调用对应的业务逻辑）；如果不需要，则会返回 `"__end__"`以表示当前计算流程的彻底结束。
+
+- **`END`（结束节点）**：表示工作流程的结束标识符。在 `add_edge` 的目标终止条件中，本质就是一个常量字符串 `"__end__"`。然而在实际工程开发中，为了增强代码可读性与健壮性，通常使用 `from langgraph.graph import END` 来作为常量引流导入。
