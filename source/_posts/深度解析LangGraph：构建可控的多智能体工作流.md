@@ -7,6 +7,8 @@ categories:
 tags: [LangGraph, AI-Agent]
 ---
 
+> **代码获取**：本文相关的完整 Demo 源码已开源，欢迎参考 GitHub 仓库：[llm-dome/learn](https://github.com/ffchic/llm-dome/tree/main/learn)
+
 ## 一、初识 LangGraph
 
 LangGraph 是一个使用图结构编排 LLM（大型语言模型）调用流程的框架。在 LangGraph 中， **节点（Node）** 负责处理逻辑， **边（Edge）** 控制流程走向，而 **状态（State）** 则在各个节点之间传递数据。

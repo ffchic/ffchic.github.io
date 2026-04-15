@@ -7,6 +7,8 @@ categories:
 tags: [智能体, AI-Agent, AutoGen]
 ---
 
+> **代码获取**：本文相关的完整 Demo 源码已开源，欢迎参考 GitHub 仓库：[llm-dome/learn](https://github.com/ffchic/llm-dome/tree/main/learn)
+
 ## 核心思想
 
 AutoGen 的核心思想是**通过对话实现协作**。它将多智能体系统抽象为一个由多个“可对话”智能体组成的群聊。开发者可以定义不同角色（如 `Coder`、`ProductManager`、`Tester` 等），并设定它们之间的交互规则（例如：`Coder` 写完代码后由 `Tester` 自动接管）。
@@ -519,9 +521,6 @@ async def demo_pydantic_tool_agent() -> None:
 #### 3. 人类参与与审批拦截 (Human-in-the-loop / Tool Approval)
 提及操作审批与权限拦截，往往会联想到前文提到的 `UserProxyAgent` 或 `CodeExecutorAgent`，它们可用于拦截代码执行并询问人类。不过，在较新的 AutoGen 版本中，**将权限包装直接下沉到工具调用层**（Tool Approval），往往粒度更细、也更直接有效。
 
-## 源码与示例
-
-本文涉及的相关代码与完整 Demo，可以在此处获取：[https://github.com/ffchic/llm-dome](https://github.com/ffchic/llm-dome)
 
 
 
