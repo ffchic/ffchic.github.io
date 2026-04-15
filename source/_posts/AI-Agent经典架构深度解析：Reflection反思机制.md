@@ -1,5 +1,5 @@
 ---
-title: ai-agent智能体经典范式构建--Reflection
+title: AI Agent 经典架构深度解析：Reflection 反思机制
 date: 2026-03-14 17:26:43
 categories:
   - [技术]
@@ -7,13 +7,13 @@ categories:
 tags: [AI-Agent, 智能体, LLM, 架构设计]
 ---
 
-在了解 Reflection 范式之前，我们需要先了解 [Agent 范式：ReAct (Reason + Act)](ai-agent智能体经典范式构建--ReAct.md) 或 [Agent 范式：Plan-and-Solve](ai-agent智能体经典范式构建--Plan-and-Solve.md) 中的一种。
+在了解 Reflection 范式之前，我们需要先了解 [Agent 范式：ReAct (Reason + Act)](AI-Agent经典架构深度解析：ReAct范式.md) 或 [Agent 范式：Plan-and-Solve](AI-Agent经典架构深度解析：Plan-and-Solve范式.md) 中的一种。
 
 在以上两种范式中，一旦智能体完成了任务，也就代表着智能体执行结束。但是它生成的最终答案，无论是生成轨迹还是最终结果，都有可能出现错误。Reflection 的核心机制就是为智能体引入一种“事后自我矫正”的循环机制，使其能够像人类一样，审视自己的工作，发现不足，并进行迭代优化。其核心工作流程可以概括为一个简洁的三步循环：执行 -> 反思 -> 优化。
 
 ### Reflection 核心机制 
 
-1. **执行 (Execution)**：首先，智能体使用我们熟悉的方法（如 [ReAct](ai-agent智能体经典范式构建--ReAct.md) 或 [Plan-and-Solve](ai-agent智能体经典范式构建--Plan-and-Solve.md)）尝试完成任务，生成一个初步的解决方案或行动轨迹。这可以看作是“初稿”。
+1. **执行 (Execution)**：首先，智能体使用我们熟悉的方法（如 [ReAct](AI-Agent经典架构深度解析：ReAct范式.md) 或 [Plan-and-Solve](AI-Agent经典架构深度解析：Plan-and-Solve范式.md)）尝试完成任务，生成一个初步的解决方案或行动轨迹。这可以看作是“初稿”。
 
 2. **反思 (Reflection)**：接着，智能体进入反思阶段。它会调用一个独立的、或者带有特殊提示词的大语言模型实例，来扮演一个“评审员”的角色。这个“评审员”会审视第一步生成的“初稿”，并从多个维度进行评估，例如：
    - 事实性错误：是否存在与常识或已知事实相悖的内容？

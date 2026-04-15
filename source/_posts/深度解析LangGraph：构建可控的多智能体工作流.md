@@ -9,7 +9,7 @@ tags: [LangGraph, AI-Agent]
 
 ## 一、初识 LangGraph
 
-LangGraph 是一个使用图结构编排 LLM（大型语言模型）调用流程的框架。在 LangGraph 中，**节点（Node）**负责处理逻辑，**边（Edge）**控制流程走向，而**状态（State）**则在各个节点之间传递数据。
+LangGraph 是一个使用图结构编排 LLM（大型语言模型）调用流程的框架。在 LangGraph 中， **节点（Node）** 负责处理逻辑， **边（Edge）** 控制流程走向，而 **状态（State）** 则在各个节点之间传递数据。
 
 ### BaseMessage 体系
 - LangChain 推荐使用消息对象替代裸字符串。

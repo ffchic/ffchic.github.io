@@ -1,5 +1,5 @@
 ---
-title: ai-agent智能体经典范式构建--ReAct
+title: AI Agent 经典架构深度解析：ReAct 范式
 date: 2026-02-08 10:00:00
 categories:
   - [技术]

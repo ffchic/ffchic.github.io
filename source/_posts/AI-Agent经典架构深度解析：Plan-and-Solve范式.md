@@ -1,5 +1,5 @@
 ---
-title: ai-agent智能体经典范式构建--Plan-and-Solve
+title: AI Agent 经典架构深度解析：Plan-and-Solve 范式
 date: 2026-03-04 16:19:52
 categories:
   - [技术]
@@ -11,7 +11,7 @@ Plan-and-Solve 翻译过来是规划和执行，他的执行逻辑顾名思义�
 
 ### ReAct 与 Plan-and-Solve 的区别
 
-在了解 Plan-and-Solve 之前，我们经常会对比另一种经典的 [Agent 范式](ai-agent智能体经典范式构建--ReAct.md)：**ReAct (Reason + Act)**。它们在处理复杂任务时的核心逻辑有显著的区别：
+在了解 Plan-and-Solve 之前，我们经常会对比另一种经典的 [Agent 范式](AI-Agent经典架构深度解析：ReAct范式.md)：**ReAct (Reason + Act)**。它们在处理复杂任务时的核心逻辑有显著的区别：
 
 1. **执行模式不同**：
    - **ReAct** 采用的是“交替式”的思考与行动（Interleaved Reasoning and Acting）。它会在每走一步之前先进行思考（Thought），然后执行一个动作（Act），观察结果（Observation）后，再决定下一步怎么走。走一步看一步。
